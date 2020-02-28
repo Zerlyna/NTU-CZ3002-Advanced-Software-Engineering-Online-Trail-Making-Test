@@ -16,10 +16,10 @@
     <input type="text" placeholder="E-mail" name="email" required>
 
     <!-- Password I/P -->
-    <input type="text" placeholder="Password" name="password" required>
+    <input type="password" placeholder="Password" name="password" required>
 
     <!-- Re-type Password I/P -->
-    <input type="text" placeholder="Re-type Password" name="re_password" required>
+    <input type="password" placeholder="Re-type Password" name="re_password" required>
 
     <!-- D.O.B I/P -->
     <p>D.O.B</p>
