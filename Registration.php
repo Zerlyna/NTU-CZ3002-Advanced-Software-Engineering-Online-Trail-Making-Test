@@ -2,6 +2,9 @@
 include('header.php');
 ?>
 <html>
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/frame.css">
+    
     <h1> Registration </h1>
     <!-- Male Logo -->
     <img src="Assets/Icons/Gender_Male.png" alt="Male_Logo" class="M_Logo">

@@ -3,7 +3,9 @@ include('header.php');
 ?>
 
 <html>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/frame.css">
+    
     <!-- Team_Logo -->
     <img src="Assets/Img/CoronaSG_Logo.png" alt="Team_Logo" class="Team_Logo">
 

@@ -1,7 +1,10 @@
 <?php
 include('header.php');
 ?>
-
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/frame.css">
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Title Logo -->
     <img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo">

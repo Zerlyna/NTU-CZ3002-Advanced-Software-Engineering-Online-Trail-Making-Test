@@ -3,8 +3,11 @@ include('header.php');
 ?>
 
 <html>
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/frame.css">
+    
     <h1> Rate Our Service </h1>
-    <!-- sizing-->
+    
 
     <!-- Happy -->
     <img src="Assets/Icons/Emotion_Happy.png" alt="Happy_Img" class="Happy">
