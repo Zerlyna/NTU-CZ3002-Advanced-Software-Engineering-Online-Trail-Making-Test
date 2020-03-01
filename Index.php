@@ -3,13 +3,25 @@
 
     //check if form is submitted
     if(isset($_POST['login'])){
-        $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
-        $password = mysqli_real_escape_string($conn,$_POST['password']);
-        $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
-        if ($row = mysqli_fetch_array($result)){
-            $_SESSION['NRIC'] = $row['NRIC'];
-        } else {
-            $errormsg="Incorrect NRIC or Password. Please try again.";
+        //normal patient
+        if(isset($_POST['doctorcheckbox'])){
+            $doctorid = mysqli_real_escape_string($conn,$_POST['doctorid']);
+            $password = mysqli_real_escape_string($conn,$_POST['password']);
+            $result=mysqli_query($conn,"SELECT * FROM doctor WHERE id = '" . $doctorid. "' and password = '" . $password . "'");
+            if ($row = mysqli_fetch_array($result)){
+                $_SESSION['doctorid'] = $row['doctorid'];
+            } else {
+                $errormsg="Incorrect Doctor ID or Password. Please try again.";
+            }
+        }else{
+            $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
+            $password = mysqli_real_escape_string($conn,$_POST['password']);
+            $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
+            if ($row = mysqli_fetch_array($result)){
+                $_SESSION['NRIC'] = $row['NRIC'];
+            } else {
+                $errormsg="Incorrect NRIC or Password. Please try again.";
+            }
         }
     }
 
