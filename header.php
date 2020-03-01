@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="css/frame.css">
     <!-- headerstyle -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/all.css">
+
+    <i class="fas fa-home"></i>
 
     <header>
         <div class = "header_content">

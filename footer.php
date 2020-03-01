@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="css/frame.css">
     <!-- styling-->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/all.css" >
+    
+
 
     <footer>
         <div class="footer_left">
