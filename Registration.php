@@ -1,4 +1,6 @@
-<?php?>
+<?php
+include('header.php');
+?>
 <html>
     <h1> Registration </h1>
     <!-- Male Logo -->
@@ -99,3 +101,7 @@
 
 
 </html>
+
+<?php
+include('footer.php');
+?>

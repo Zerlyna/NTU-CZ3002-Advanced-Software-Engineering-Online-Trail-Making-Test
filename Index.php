@@ -1,5 +1,6 @@
-<?php?>
-<html>
+<?php
+include('header.php');
+?>
 
 
     <!-- Title Logo -->
@@ -30,3 +31,7 @@
 
 
 </html>
+
+<?php
+include('footer.php');
+?>

@@ -1,4 +1,6 @@
-<?php?>
+<?php
+include('header.php');
+?>
 
 <html>
 
@@ -9,3 +11,7 @@
 <img src="xxx.png" alt="Record_Logo" class="Rec_Logo">
 
 </html>
+
+<?php
+include('footer.php');
+?>

@@ -1,4 +1,6 @@
-<?php?>
+<?php
+include('header.php');
+?>
 
 <html>
     <!-- Team_Logo -->
@@ -46,10 +48,10 @@
     <!-- Team Description -->
     <p1>(Team Description)<p1>
 
-   
-
-    
-
 
 
 </html>
+
+<?php
+include('footer.php');
+?>
