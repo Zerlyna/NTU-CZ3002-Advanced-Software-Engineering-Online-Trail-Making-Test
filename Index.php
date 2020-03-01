@@ -4,7 +4,7 @@ include('header.php');
 
 
     <!-- Title Logo -->
-    <img src="xxx.png" alt="LarkDetect_Logo" class="LD_Logo">
+    <img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo">
 
     <!-- Title -->
     <label for="title"><b>Welcome to LarkDetect</b></label>

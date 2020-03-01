@@ -4,7 +4,7 @@
     <!-- sizing-->
     <!-- Home_Logo -->
     <form action = "Index.php">
-        <img src="xxx.png" alt="Home_Logo" class="Home_Logo">
+        <img src="Assets/Icons/Home.png" alt="Home_Logo" class="Home_Logo">
     </form>
 
 </html>
