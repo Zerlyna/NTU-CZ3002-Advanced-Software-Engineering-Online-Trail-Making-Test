@@ -15,16 +15,16 @@ include('header.php');
         --x: 0px;
         --y: 0px;
         background-image: url("./Assets/Img/Account_BG.jpg");
-        background-size: 1000px;
+        /*background-size: 1000px;*/
         background-position: var(--x) var(--y);
-        width: 300px;
-        height: 300px;
-        border: 1px solid white;}
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 1000px;
+        height: 1000px;
+        border: 1px solid black;}
     </style>
         <!-- background -->
     <div class="bgrd" id="bgrd"></div>
-</body>
-    
 
     <!-- Title Logo -->
     <img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo">
@@ -51,7 +51,7 @@ include('header.php');
 
     <!-- Registration -->
     <span class="reg"> <a href="Registration.php">Don't have an account? Sign Up</a></span>
-
+    </body>
     
 </html>
 

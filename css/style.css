@@ -136,7 +136,7 @@ i.fas, i.fab {
 Background Image
 *****************************************************/
 
-body {
+/*body {
     background-image: url("./Assets/Img/Account_BG.jpg");
     background-size: 1000px;
     height: 100vh;
@@ -148,7 +148,7 @@ body {
     #999,
     #fff
   );
-}
+}*/
 
 /****************************************************
 Mobile Support
