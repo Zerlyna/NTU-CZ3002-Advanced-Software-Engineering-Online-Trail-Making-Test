@@ -1,10 +1,30 @@
 <?php
 include('header.php');
 ?>
+
     <!-- resizing-->
     <link rel="stylesheet" href="css/frame.css">
-    <!-- resizing-->
+    <!-- styling -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- background effect -->
+    <script src="js/background_BG.js"></script>
+    <!-- messy code here -->
+    <body>
+    <style>
+    .bgrd {
+        --x: 0px;
+        --y: 0px;
+        background-image: url("./Assets/Img/Account_BG.jpg");
+        background-size: 1000px;
+        background-position: var(--x) var(--y);
+        width: 300px;
+        height: 300px;
+        border: 1px solid white;}
+    </style>
+        <!-- background -->
+    <div class="bgrd" id="bgrd"></div>
+</body>
+    
 
     <!-- Title Logo -->
     <img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo">
@@ -32,7 +52,7 @@ include('header.php');
     <!-- Registration -->
     <span class="reg"> <a href="Registration.php">Don't have an account? Sign Up</a></span>
 
-
+    
 </html>
 
 <?php

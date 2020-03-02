@@ -121,7 +121,9 @@ html, body{
     margin : auto;
 }*/
 
-
+/****************************************************
+FontAwesome(Icon) Support
+*****************************************************/
 i.fas, i.fab {
     border: 1px solid white;
   }
@@ -130,8 +132,23 @@ i.fas, i.fab {
     color: white;
   }
 
+/****************************************************
+Background Image
+*****************************************************/
 
-
+body {
+    background-image: url("./Assets/Img/Account_BG.jpg");
+    background-size: 1000px;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(
+    #999,
+    #fff
+  );
+}
 
 /****************************************************
 Mobile Support
