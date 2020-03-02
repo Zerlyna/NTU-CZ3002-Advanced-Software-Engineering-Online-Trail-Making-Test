@@ -124,13 +124,20 @@ html, body{
 /****************************************************
 FontAwesome(Icon) Support
 *****************************************************/
-i.fas, i.fab {
+/*i.fas, i.fab {
     border: 1px solid white;
   }
 
 .fa-phone-alt {
     color: white;
-  }
+  }*/
+
+  .fa-phone-alt {
+    background: none!important;
+    border-radius: 100%;
+    color: #ffffff;
+    
+    }
 
 /****************************************************
 Background Image

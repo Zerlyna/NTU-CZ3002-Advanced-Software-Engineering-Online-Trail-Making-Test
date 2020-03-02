@@ -4,7 +4,6 @@
 <html>
     <!-- styling-->
     <!--<link rel="stylesheet" href="css/style.css">-->
-    <!--<script src="js/background_BG.js"></script>-->
     <!-- background -->
     <!--<div class="bgrd" id="bgrd"></div>-->
     <head>
@@ -15,21 +14,30 @@ body, html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 * {
   box-sizing: border-box;
 }
 
-.bg-img {
+.bgrd {
   /* The image used */
-  background-image: url("./Assets/Img/Account_BG.jpg");
+  background-image: url("Assets/Img/Account_BG.jpg");
 
-  min-height: 380px;
+  width: 100%;
+  height: 100%;
 
   /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
   position: relative;
+  --x: 0px;
+  --y: 0px;
+  /*background-size: 1000px;*/
+  background-position: var(--x) var(--y);
+  /*width: 300px;
+  height: 300px;
+  border: 1px solid white;*/
 }
 
 /* Add styles to the form container */
@@ -75,7 +83,7 @@ input[type=text]:focus, input[type=password]:focus {
 <body>
 
 <h2>Form on Hero Image</h2>
-<div class="bg-img">
+<div class="bgrd" id = "bgrd">
   <form action="/action_page.php" class="container">
     <h1>Login</h1>
 
@@ -97,6 +105,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 
 </html>
+<script src="js/background.js"></script>
 <?php echo time(); ?>
 <?php
 /*include('footer.php');*/
