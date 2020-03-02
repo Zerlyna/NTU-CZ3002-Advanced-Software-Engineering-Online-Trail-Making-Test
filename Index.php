@@ -26,12 +26,16 @@
     }
 
     include_once 'dc.php';
+    include('header.php');
 ?>
 <html>
-
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/frame.css">
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Title Logo -->
-    <img src="xxx.png" alt="LarkDetect_Logo" class="LD_Logo">
+    <img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo">
 
     <!-- Title -->
     <label for="title"><b>Welcome to LarkDetect</b></label>
@@ -59,3 +63,7 @@
 
 
 </html>
+
+<?php
+include('footer.php');
+?>

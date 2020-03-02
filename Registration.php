@@ -1,10 +1,15 @@
-<?php?>
+<?php
+include('header.php');
+?>
 <html>
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/frame.css">
+    
     <h1> Registration </h1>
     <!-- Male Logo -->
-    <img src="xxx.png" alt="Male_Logo" class="M_Logo">
+    <img src="Assets/Icons/Gender_Male.png" alt="Male_Logo" class="M_Logo">
     <!-- Female Logo -->
-    <img src="xxx.png" alt="Male_Logo" class="M_Logo">
+    <img src="Assets/Icons/Gender_Female.png" alt="Female_Logo" class="F_Logo">
 
     <!-- UserName I/P -->
     <input type="text" placeholder="Enter Full Name (as in NRIC)" name="Uname" required>
@@ -99,3 +104,7 @@
 
 
 </html>
+
+<?php
+include('footer.php');
+?>

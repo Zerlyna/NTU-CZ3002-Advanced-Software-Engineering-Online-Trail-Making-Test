@@ -1,0 +1,150 @@
+/****************************************************
+Purpose : Text Style
+          HTML's Properties Style
+*****************************************************/
+:root{
+    --footer_right_ini_align: 1%;
+
+}
+
+@import url(https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap);
+
+/** {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }*/
+
+header, footer {
+    /*Border Size*/
+    height: 7%;
+    /*Border Position*/
+    position:absolute;
+    right:0;
+    left:0;
+    
+
+  }
+
+header{
+    /*Border Position*/
+    top:0;
+    /*Border Shadow*/
+    -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75); /*horizontal, vertical, blur radius, spread radius */
+    -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+    box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+}
+
+footer {
+    bottom:0;
+    width: 100%;
+    display: inline-block;
+    margin: 2em 0;
+    height: 70px;
+    background-color: #000;
+    -moz-box-shadow:0 -5px 5px rgba(182, 182, 182, 0.75); /*horizontal, vertical, blur radius, spread radius */
+    -webkit-box-shadow: 0 -5px 5px rgba(182, 182, 182, 0.75);
+    box-shadow: 0 -5px 5px rgba(182, 182, 182, 0.75);
+}
+
+.header_content{
+    /*Border Position*/
+    display: flex;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%
+}
+
+.footer_left{
+    width: 50%;
+    float: left;
+}
+
+html, body{
+    font-family: 'Didact Gothic' , sans-serif;
+
+}
+
+.footer_left a{
+    
+    padding-left: 10%;
+    color: white;
+    font-size: 0.9em;
+    line-height: 70px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    text-decoration: none;
+    pointer-events: none;
+    
+}
+.footer_right {
+    width: 50%;
+    float: right;
+}
+
+.footer_right a {
+    float: left;
+    line-height: 70px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    -moz-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    -webkit-transition: all, 0.3s;
+    transition: all, 0.3s;
+}
+
+.footer_right a:hover {
+    background-color: #222;
+    -moz-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    -webkit-transition: all, 0.3s;
+    transition: all, 0.3s;
+}
+
+.contact_num {
+    background-color: #000000;
+    font-size: 0.9em;
+    width: 40%;
+}
+
+.aboutus, .rateus {
+    background-color: #000000;
+    font-size: 0.9em;
+    width: 20%;
+}
+
+/*.Contact_Logo{
+    padding-top: 10px;
+    margin : auto;
+}*/
+
+
+i.fas, i.fab {
+    border: 1px solid white;
+  }
+
+.fa-phone-alt {
+    color: white;
+  }
+
+
+
+
+/****************************************************
+Mobile Support
+*****************************************************/
+@media (max-width: 600px) {
+    .footer_left {
+      width: 100%;
+      text-align: center;
+      padding: 0;
+    }
+  }
+@media (max-width: 600px) {
+    .footer_right {
+      width: 100%;
+    }
+  }

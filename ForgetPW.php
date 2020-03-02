@@ -1,4 +1,6 @@
-<?php?>
+<?php
+include('header.php');
+?>
 
 <html>
 
@@ -100,3 +102,7 @@
                     <button type="submit" class="Back_to_HomePage">Back to Home Page</button>
                 </form>
 </html>
+
+<?php
+include('footer.php');
+?>
