@@ -1,5 +1,3 @@
-<?php?>
-
 <html>
     <!-- resizing-->
     <link rel="stylesheet" href="css/frame.css">
@@ -18,5 +16,4 @@
             <i class="fas fa-phone-alt"></i>
         </div>
     </header>
-
 </html>

@@ -26,9 +26,8 @@
             }
         }
     }
-
-    include_once 'dc.php';
     include_once 'header.php';
+    include_once 'dc.php';
 ?>
 <!--
 For now:
