@@ -10,7 +10,7 @@ el.addEventListener("mousemove", (e) => {
 document.getElementById("top-image").innerHTML = "Hello World";
 
 
-$('.bg').mousemove(funtion(e)
+$('.bg').mousemove(function(e)
 { 
     var moveX = (e.pageX * -1/20);
     var moveY = (e.pageY * -1/20);
