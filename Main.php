@@ -1,7 +1,3 @@
-<?php
-include('header.php');
-?>
-
 <html>
 
     <!-- resizing-->
@@ -14,7 +10,3 @@ include('header.php');
     <img src="Assets/Img/Record_Logo.png" alt="Record_Logo" class="Rec_Logo">
 
 </html>
-
-<?php
-include('footer.php');
-?>
