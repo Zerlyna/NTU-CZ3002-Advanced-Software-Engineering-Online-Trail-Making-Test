@@ -2,7 +2,6 @@
 <html>
 
 <body>
-
 <!-- Popup model -->
 <!-- <div class="box">
 	<a class="button" href="#popup1">Let me Pop up</a>

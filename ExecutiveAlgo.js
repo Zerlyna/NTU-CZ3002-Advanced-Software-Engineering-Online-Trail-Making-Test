@@ -1,9 +1,5 @@
 var canvas = document.getElementById("test2Canvas");
 var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#FFFFFF";
-ctx.fillRect(10, 10, 980, 480);
-ctx.strokeStyle = "black";
-ctx.strokeRect(10, 10, 980, 480);
 
 var Test2circles = [];//circle array
 var clickInfo = [];// array that stored the clicked data
@@ -20,6 +16,11 @@ window.onload=generateCir();
 
 function generateCir()
 {
+  
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(10, 10, 980, 480);
+    ctx.strokeStyle = "black";
+    ctx.strokeRect(10, 10, 980, 480);
     while (Test2circles.length < 25) {
         var rngCircle2 =
         {
@@ -141,6 +142,7 @@ canvas.addEventListener('mousedown', (e) => {
         {
             alert("Please start from 1");
             clickInfo.length = 0;
+            
         }
         else
         {
@@ -199,6 +201,8 @@ canvas.addEventListener('mousedown', (e) => {
         {
             alert("Wrong, You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
             clickInfo.length = 0;
+            generateCir();
+            
         }
         else
         {
