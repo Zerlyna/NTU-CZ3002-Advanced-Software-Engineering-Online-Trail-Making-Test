@@ -1,0 +1,8 @@
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\LarkDetect.csprojAssemblyReference.cache
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\staticwebassets\LarkDetect.StaticWebAssets.Manifest.cache
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\staticwebassets\LarkDetect.StaticWebAssets.xml
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\LarkDetect.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\LarkDetect.RazorAssemblyInfo.cache
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\LarkDetect.RazorAssemblyInfo.cs
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\LarkDetect.AssemblyInfoInputs.cache
+C:\Users\Yong Xin\Desktop\ASE workspace\CZ3002\LarkDetect\LarkDetect\LarkDetect\obj\Debug\netcoreapp3.1\LarkDetect.AssemblyInfo.cs
