@@ -8,17 +8,17 @@ Purpose : Resize all images and logo to right size
     height: 40px;
 }
 
-/*Footer*/
+/*Footer
 .Copy_Rights {
-    /*position: absolute;*/
+    /*position: absolute;
     width: 15px;
     height: 15px;
 }
 .Contact_Logo{ 
-    /*position: absolute;*/
+    /*position: absolute;
     width: 16px;
     height: 16px;
-}
+}*/
 
 /*Login*/
 .LD_Logo{

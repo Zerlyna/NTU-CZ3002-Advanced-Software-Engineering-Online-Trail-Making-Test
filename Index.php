@@ -38,10 +38,30 @@ For now:
     password: 1
 -->
 <html>
+
     <!-- resizing-->
     <link rel="stylesheet" href="css/frame.css">
-    <!-- resizing-->
+    <!-- styling -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- background effect -->
+    <script src="./js/background.js"></script>
+    <!-- messy code here -->
+    <body>
+    <style>
+    .bgrd {
+        --x: 0px;
+        --y: 0px;
+        background-image: url("./Assets/Img/Account_BG.jpg");
+        /*background-size: 1000px;*/
+        background-position: var(--x) var(--y);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 1000px;
+        height: 1000px;
+        border: 1px solid black;}
+    </style>
+        <!-- background -->
+    <div class="bgrd" id="bgrd"></div>
 
     <!-- Title Logo -->
     <img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo">
@@ -72,7 +92,8 @@ For now:
 
     <!-- Registration -->
     <span class="reg"> <a href="Registration.php">Don't have an account? Sign Up</a></span>
-
+    </body>
+    
 </html>
 <?php
     include_once ('footer.php');

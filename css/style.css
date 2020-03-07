@@ -121,17 +121,41 @@ html, body{
     margin : auto;
 }*/
 
-
-i.fas, i.fab {
+/****************************************************
+FontAwesome(Icon) Support
+*****************************************************/
+/*i.fas, i.fab {
     border: 1px solid white;
   }
 
 .fa-phone-alt {
     color: white;
-  }
+  }*/
 
+  .fa-phone-alt {
+    background: none!important;
+    border-radius: 100%;
+    color: #ffffff;
+    
+    }
 
+/****************************************************
+Background Image
+*****************************************************/
 
+/*body {
+    background-image: url("./Assets/Img/Account_BG.jpg");
+    background-size: 1000px;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(
+    #999,
+    #fff
+  );
+}*/
 
 /****************************************************
 Mobile Support
