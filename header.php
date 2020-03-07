@@ -1,5 +1,3 @@
-<?php?>
-
 <html>
     <!-- resizing-->
     <link rel="stylesheet" href="css/frame.css">
@@ -16,5 +14,4 @@
             
         </div>
     </header>
-
 </html>
