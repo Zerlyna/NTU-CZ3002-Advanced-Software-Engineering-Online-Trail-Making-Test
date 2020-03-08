@@ -8,18 +8,6 @@ Purpose : Resize all images and logo to right size
     height: 40px;
 }
 
-/*Footer
-.Copy_Rights {
-    /*position: absolute;
-    width: 15px;
-    height: 15px;
-}
-.Contact_Logo{ 
-    /*position: absolute;
-    width: 16px;
-    height: 16px;
-}*/
-
 /*Login*/
 .LD_Logo{
     width: 155px;
@@ -34,31 +22,6 @@ Purpose : Resize all images and logo to right size
 .Rec_Logo{
     width: 417px;
     height: 417px;
-}
-
-/*RateUs*/
-.Happy{
-    width: 83px;
-    height: 83px;
-}
-.Normal{
-    width: 99px;
-    height: 99px;
-}
-.Sad{
-    width: 90px;
-    height: 90px;
-}
-
-/*Register*/
-.M_Logo{
-    width: 48px;
-    height: 48px;
-}
-
-.F_Logo{
-    width: 38px;
-    height: 58px;
 }
 
 /*AboutUs*/

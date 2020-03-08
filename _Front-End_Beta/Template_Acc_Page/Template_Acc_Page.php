@@ -1,5 +1,5 @@
 <?php
-/*include("CZ3002/header.php");*/
+include_once 'head.php';
 ?>
 <html>
 <head>
@@ -35,6 +35,7 @@
 
 
 </body>
+    
 
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="Template_Acc_Page.js"></script>
@@ -42,5 +43,5 @@
 
 </html>
 <?php
-/*include('footer.php');*/
+include_once 'foot.php';
 ?>
