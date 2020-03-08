@@ -7,7 +7,7 @@ include('header.php');
     <!-- styling -->
     <link rel="stylesheet" href="css/style.css">
     <!-- background effect -->
-    <script src="./js/background.js"></script>
+    <!--<script src="./js/background.js"></script>-->
     <!-- messy code here -->
     <body>
     <style>

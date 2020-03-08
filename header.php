@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/frame.css">
     <!-- headerstyle -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="fontawesome-free-5.12.1-web/css/all.css" >
+    <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css" >
 
     <header>
         <div class = "header_content">

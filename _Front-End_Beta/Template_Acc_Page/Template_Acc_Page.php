@@ -21,7 +21,7 @@ body, html {
 
 .bgrd {
   /* The image used */
-  background-image: url("Assets/Img/Account_BG.jpg");
+  background-image: url("/Assets/Img/Account_BG.jpg");
 
   width: 100%;
   height: 100%;
