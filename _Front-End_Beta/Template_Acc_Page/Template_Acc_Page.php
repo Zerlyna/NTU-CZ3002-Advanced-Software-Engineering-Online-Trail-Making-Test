@@ -36,7 +36,7 @@
 
 </body>
 
-    <script src= "https://code.jquery.com/jquery-3.4.1.js"></script> 
+    <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="Template_Acc_Page.js"></script>
 
 

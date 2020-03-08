@@ -46,5 +46,14 @@ include('../header.php');
         <button type="submit" class="login">T</button>
     </form>
 
+    <!-- Login Button -->
+    <form action="CheckBox/CheckBox.php">
+        <button type="submit" class="login">CheckBox</button>
+    </form>
+
+    <form action="Result2/Result2.php">
+        <button type="submit" class="login">ResultV2</button>
+    </form>
+
 
 </html>

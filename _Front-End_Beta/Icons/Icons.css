@@ -1,0 +1,64 @@
+/*https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons*/
+/*https://fontawesome.com/how-to-use/on-the-web/styling/stacking-icons*/
+
+.fa-smile:hover{
+
+    color: lime;
+    font-size : 10em;
+    transition:  0.5s;
+}
+
+.fa-meh:hover{
+
+    color: yellow;
+    font-size : 10em;
+    transition:  0.5s;
+}
+
+.fa-frown:hover{
+
+    color: red;
+    font-size : 10em;
+    transition:  0.5s;
+
+}
+
+
+/********************************/
+.fa-sign-out-alt{
+
+    color: grey;
+    transition:  0.5s;
+}
+
+.fa-sign-out-alt:hover{
+
+    color: red;
+    font-size : 5em;
+    
+}
+
+/********************************/
+
+
+/*.fa-stack { 
+    font-size: 9em; 
+}
+i { 
+    vertical-align: middle; 
+}*/
+
+.male:hover{
+    color: #5b92e5;
+    transition:  0.5s;
+}
+
+.female:hover{
+    color: #ff5ba5;
+    transition:  0.5s;
+}
+
+
+
+
+
