@@ -37,5 +37,14 @@ include('../header.php');
         <button type="submit" class="login">TextBox</button>
     </form>
 
+    <!-- Login Button -->
+    <form action="Result/Result.php">
+        <button type="submit" class="login">Result</button>
+    </form>
+    <!-- Login Button -->
+    <form action="_Testing/Test.php">
+        <button type="submit" class="login">T</button>
+    </form>
+
 
 </html>
