@@ -29,7 +29,6 @@
     include_once 'header.php';
     include_once 'dc.php';
 ?>
-
 <!--
 For now:
     Patient NRIC: S123456789
@@ -37,60 +36,47 @@ For now:
     Doctor NRIC: 1
     password: 1
 -->
-
-    <!-- resizing-->
-    <link rel="stylesheet" href="css/frame.css">
-    <!-- styling -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- background effect -->
-    <!--<script src="./js/background.js"></script>-->
-    <!-- messy code here -->
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="css/frame.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/headfoot.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+    </head>
     <body>
-    <style>
-    .bgrd {
-        --x: 0px;
-        --y: 0px;
-        background-image: url("./Assets/Img/Account_BG.jpg");
-        /*background-size: 1000px;*/
-        background-position: var(--x) var(--y);
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 1000px;
-        height: 1000px;
-        border: 1px solid black;}
-    </style>
-        <!-- background -->
-    <div class="bgrd" id="bgrd"></div>
-
-    <!-- Title Logo -->
-    <img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo">
-
-    <!-- Title -->
-    <label for="title"><b>Welcome to LarkDetect</b></label>
-
-    <!-- NRIC I/P -->
-    <input type="text" placeholder="Enter NRIC" name="nric" required>
-
-    <!-- PW I/P -->
-    <input type="password" placeholder="Enter Password" name="password" required>
-
-    <!-- Doc/Non-Doc I/P -->
-    <input type="checkbox" name="doctorUsed"> For Docter Use
-
-    <!-- Forget Password -->
-    <span class="fpw"> <a href="ForgetPW.php">Forget Password?</a></span>
-
-    <!-- Login Button -->
-    <form action="Main.php">
-        <button type="submit" class="login">Login</button>
-    </form>
-
-    <!-- Registration -->
-    <span class="reg"> <a href="Registration.php">Don't have an account? Sign Up</a></span>
+    <div class = "bgrd">
+        <div class="limiter">
+            <div class="container">
+                <div class="wrap">
+                    <!--<form class="login100-form validate-form">-->
+                         <div class = "login_logo"><img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo"></div>
+                         <div class = "login_title"><label for="title"><b>Welcome to LarkDetect</b></label></div>
+                         <div class = "login_password"><input type="text" placeholder="Enter NRIC" name="nric" required></div>
+                         <div class = "login_doctor"><input type="password" placeholder="Enter Password" name="password" required></div>
+                         <div class = "login_doctor_fpw">
+                             <span class = "login_doctor"><input type="checkbox" name="doctorUsed"> <label>For Doctor Used</label></span>
+                             <span class = "login_fpw"><a href="ForgetPW.php">Forget Password?</a></span>
+                         </div>
+                         <div class = "login_btn">
+                            <div class="wrap_btn">
+                                <div class="form_bgbtn"></div>
+                                    <form action="Main.php"><button type="submit" class="login_form_btn">Login</button></form>
+                                </button>
+                            </div>
+                        </div>
+                         <div class = "login_reg"><a href="Registration.php">Don't have an account? Sign Up</a></div>
+                   <!-- </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
     </body>
-    
+    <script src= "/external/jquery/jquery-3.4.1.js"></script> 
+    <script type= "text/javascript" src="js/bgrd.js"></script>
 </html>
-
 <?php
 include('footer.php');
 ?>

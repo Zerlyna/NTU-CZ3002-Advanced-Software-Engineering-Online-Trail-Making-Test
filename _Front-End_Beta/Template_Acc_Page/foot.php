@@ -1,12 +1,5 @@
 <?php?>
-
 <html>
-    <!-- resizing-->
-    <!--<link rel="stylesheet" href="HeadFoot.css">-->
-    <!-- styling-->
-
-
-
     <footer>
         <div class = "footer_container">
             <div class = "footer_wrapper">
@@ -17,5 +10,4 @@
             </div>
         </div>
     </footer>
-
 </html>

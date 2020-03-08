@@ -1,25 +1,22 @@
 <?php?>
-
 <html>
-    <!-- resizing-->
-    <link rel="stylesheet" href="css/frame.css">
-    <!-- headerstyle -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css" >
-
-    <header>
-        <div class = "header_content">
-            <!-- Home_Logo -->
-            <a href="Index.php">
-                <i class="fas fa-3x fa-home"></i>
-            </a>
-
-            <!-- Setting_Logo -->
-            <a href="_Front-End_Beta/Setting.php">
-            <i class="fas fa-3x fa-cog"></i>
-            </a>
-            
+    <link rel="stylesheet" href="/css/headfoot.css">
+    <link rel="stylesheet" href="/css/frame.css">
+    <link rel="stylesheet" href="/css/icon.css">
+    <header> <!--id = "myHeader"-->
+        <div class = "header_container" >
+            <div class = "header_wrapper">
+                <span class = "left">
+                    <a href="Index.php">
+                        <i class="fas fa-3x fa-home"></i>
+                    </a>
+                </span>
+                <span class = "right">
+                    <a href="_Front-End_Beta/Setting.php">
+                        <i class="fas fa-3x fa-cog"></i>
+                    </a>
+                </span>
+            </div>
         </div>
     </header>
-
 </html>

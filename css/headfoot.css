@@ -10,7 +10,7 @@ header{
 .header_container{
     margin-top: 0;
     margin-bottom: 0px;
-    padding : 15px;
+    padding : 20px;
     background: #fff;
     -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75); 
     -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
@@ -40,7 +40,7 @@ footer {
 .footer_container{
     position: fixed;
     bottom : 0px;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-bottom: 0px;
     padding : 20px;
     background: #fff;
@@ -78,6 +78,12 @@ footer {
 .About{
     margin-left : 10%;
     padding : none;
+}
+
+
+.right{
+    float : right;
+    margin-right : 40px;
 }
 
 
