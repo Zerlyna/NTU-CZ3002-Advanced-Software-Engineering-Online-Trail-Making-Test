@@ -4,6 +4,7 @@ body{
 }
 .bg{
     height: 100vh;
-    background: url('../Assets/Img/Account_BG.jpg');
+    background: url('/Assets/Img/Account_BG.jpg');
+    
     overflow : hidden;
 }

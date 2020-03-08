@@ -13,6 +13,11 @@
             <a href="Index.php">
                 <i class="fas fa-3x fa-home"></i>
             </a>
+
+            <!-- Setting_Logo -->
+            <a href="_Front-End_Beta/Setting.php">
+            <i class="fas fa-3x fa-cog"></i>
+            </a>
             
         </div>
     </header>

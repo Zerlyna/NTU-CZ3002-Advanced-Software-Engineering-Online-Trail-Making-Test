@@ -7,7 +7,7 @@
     <head>
         <meta charset= "utf"-8>
         <title> check </title>
-        <link rel="stylesheet" href = "test.css">
+        <link rel="stylesheet" href = "BG.css">
 </head>
 <body>
     <div class = "bg"> </div>
