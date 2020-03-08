@@ -1,6 +1,42 @@
 <?php
-include('header.php');
+    include_once 'connect.php';
+
+    //check if form is submitted
+    if(isset($_POST['login'])){
+        //normal patient
+        if(isset($_POST['doctorcheckbox'])){
+            $doctorid = mysqli_real_escape_string($conn,$_POST['NRIC']);
+            $password = mysqli_real_escape_string($conn,$_POST['password']);
+            $result=mysqli_query($conn,"SELECT * FROM doctor WHERE id = '" . $doctorid. "' and password = '" . $password . "'");
+            if ($row = mysqli_fetch_array($result)){
+                $_SESSION['doctorid'] = $row['id'];
+                header("Location: doctor.php");
+            } else {
+                $errormsg="Incorrect Doctor ID or Password. Please try again.";
+            }
+        }else{
+            $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
+            $password = mysqli_real_escape_string($conn,$_POST['password']);
+            $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
+            if ($row = mysqli_fetch_array($result)){
+                $_SESSION['NRIC'] = $row['NRIC'];
+                header("Location: Main.php");
+            } else {
+                $errormsg="Incorrect NRIC or Password. Please try again.";
+            }
+        }
+    }
+    include_once 'header.php';
+    include_once 'dc.php';
 ?>
+
+<!--
+For now:
+    Patient NRIC: S123456789
+    password: a1a2a3a4a5
+    Doctor NRIC: 1
+    password: 1
+-->
 
     <!-- resizing-->
     <link rel="stylesheet" href="css/frame.css">
