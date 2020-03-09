@@ -23,16 +23,12 @@
 
 /********************************/
 .fa-sign-out-alt{
-
     color: grey;
-    transition:  0.5s;
+    text-decoration: none;
 }
 
 .fa-sign-out-alt:hover{
-
     color: red;
-    font-size : 5em;
-    
 }
 
 /********************************/
