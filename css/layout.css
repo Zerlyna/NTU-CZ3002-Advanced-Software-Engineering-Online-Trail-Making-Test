@@ -44,6 +44,7 @@
     -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
+
 * {
     margin: 0px; 
     padding: 0px; 
@@ -96,4 +97,68 @@
     text-align: center;
     margin-top : 40px;
 }
+
+
+/*********************************************************/
+body{
+    flex-direction: column;
+}
+.wrap_AboutUs{
+    width : 90%;
+    min-height : Calc(100vh - 200px);
+    /*background : white;*/
+    opacity: 100%;
+    overflow: hidden;
+    padding-top : 100px;
+    padding-bottom : 100px;
+    
+}
+
+.AboutUs_Upper .AboutUs_Lower{
+    position : absolute;
+    
+}
+
+.AboutUs_UpLeft{
+    width : 30%;
+    background : none;
+    display: inline-block;
+    text-align: center;
+}
+
+.AboutUs_UpMiddle{
+    width : 30%;
+    background : none;
+    display: inline-block;
+    text-align: center;
+}
+.AboutUs_UpRight{
+    width : 30%;
+    background : none;
+    display: inline-block;
+    text-align: center;
+}
+
+.AboutUs_LowerLeft{
+    width : 30%;
+    background : Red;
+    display: inline-block;
+    text-align: center;
+}
+
+.AboutUs_LowerMiddle{
+    width : 30%;
+    background : none;
+    display: inline-block;
+    text-align: center;
+}
+
+.AboutUs_LowerRight{
+    width : 30%;
+    background : green;
+    display: inline-block;
+    text-align: center;
+}
+
+
 
