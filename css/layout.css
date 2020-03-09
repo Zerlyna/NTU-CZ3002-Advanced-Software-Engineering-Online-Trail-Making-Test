@@ -31,7 +31,11 @@
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    padding: 77px 55px 33px 55px;
+    /*padding: 77px 55px 33px 55px;*/
+    padding-left : 50px;
+    padding-right: 50px;
+    padding-top : 40px;
+    padding-bottom : 10px;
 
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -83,12 +87,13 @@
 }
 
 .login_btn{
-    padding-top : 40px;
+    padding-top : 70px;
     text-align: center;
 }
 
 .login_reg{
     padding-top : 20px;
     text-align: center;
+    margin-top : 40px;
 }
 
