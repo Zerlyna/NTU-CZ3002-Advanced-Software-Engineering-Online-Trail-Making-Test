@@ -54,11 +54,25 @@ For now:
                     <!--<form class="login100-form validate-form">-->
                          <div class = "login_logo"><img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo"></div>
                          <div class = "login_title"><label for="title"><b>Welcome to LarkDetect</b></label></div>
-                         <div class = "login_password"><input type="text" placeholder="Enter NRIC" name="nric" required></div>
-                         <div class = "login_doctor"><input type="password" placeholder="Enter Password" name="password" required></div>
+                         <!--<div class = "login_id"><input type="text" placeholder="Enter NRIC" name="nric" required></div>-->
+                         <div class="login_id">
+                             <input type="email" id="loginID" class="form__field" placeholder="Enter NRIC" required>
+                             <label for="nric" class="form__label">Enter NRIC</label>
+                         </div>
+
+
+                         <!--<div class = "login_pw"><input type="password" placeholder="Enter Password" name="password" required></div>-->
+                         <div class="login_pw">
+                             <input type="password" id="loginID" class="form__field" placeholder="Enter Password" required>
+                             <label for="pw" class="form__label">Enter Password</label>
+                         </div>
+
                          <div class = "login_doctor_fpw">
-                             <span class = "login_doctor"><input type="checkbox" name="doctorUsed"> <label>For Doctor Used</label></span>
-                             <span class = "login_fpw"><a href="ForgetPW.php">Forget Password?</a></span>
+                            <span class="login_doctor">
+                                            <input type="checkbox" id="doctor"/>
+                                            <label for="doctor" class = "checkDoctor">For Doctor Used</label>
+                            </span>
+                            <span class = "login_fpw"><a href="ForgetPW.php">Forget Password?</a></span>
                          </div>
                          <div class = "login_btn">
                             <div class="wrap_btn">

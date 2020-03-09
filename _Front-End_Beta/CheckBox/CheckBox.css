@@ -1,4 +1,4 @@
-input[type=checkbox] + label {
+/*input[type=checkbox] + label {
     display: block;
     margin: 0.2em;
     cursor: pointer;
@@ -43,4 +43,37 @@ input[type=checkbox] + label {
     transform: scale(1);
     background-color: #bfb;
     border-color: #bfb;
-  }
+  }*/
+
+  /* Hide the default checkbox */
+.login_doctor input[type=checkbox] {
+  display: none;
+}
+
+/* Draw our custom check box */
+.login_doctor {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.login_doctor label {
+  cursor: pointer;
+}
+.login_doctor label:before {
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  content: "\00a0";
+  text-align: center;
+  background: #eee;
+}
+.login_doctor label:hover::before{
+  background: #aaa;
+}
+
+/* On check */
+.login_doctor input:checked ~ label:before {
+  content: "\2713";
+  background: #3f6cb5;
+  color: #fff;
+}
