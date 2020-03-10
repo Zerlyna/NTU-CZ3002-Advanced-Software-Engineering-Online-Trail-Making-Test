@@ -1,0 +1,10 @@
+body{
+    margin : 0;
+    padding : 0;
+}
+.bg{
+    height: 100vh;
+    background: url('/Assets/Img/Account_BG.jpg');
+    
+    overflow : hidden;
+}

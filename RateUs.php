@@ -1,17 +1,22 @@
-<?php?>
+<?php
+include('header.php');
+?>
 
 <html>
+    <!-- resizing-->
+    <link rel="stylesheet" href="css/frame.css">
+    
     <h1> Rate Our Service </h1>
-    <!-- sizing-->
+    
 
     <!-- Happy -->
-    <img src="xxx.png" alt="Happy_Img" class="Happy">
+    <img src="Assets/Icons/Emotion_Happy.png" alt="Happy_Img" class="Happy">
 
     <!-- Normal -->
-    <img src="xxx.png" alt="Normal_Img" class="Normal">
+    <img src="Assets/Icons/Emotion_Normal.png" alt="Normal_Img" class="Normal">
 
     <!-- Sad -->
-    <img src="xxx.png" alt="Sad_Img" class="Sad">
+    <img src="Assets/Icons/Emotion_Sad.png" alt="Sad_Img" class="Sad">
 
     <h1> Thank you!!! </h1>
 
@@ -22,3 +27,7 @@
 
 
 </html>
+
+<?php
+include('footer.php');
+?>
