@@ -1,174 +1,200 @@
-/****************************************************
-Purpose : Text Style
-          HTML's Properties Style
-*****************************************************/
-:root{
-    --footer_right_ini_align: 1%;
+/**********************************************/
+/*Button*/
+/**********************************************/
 
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap);
-
-/** {
-    margin: 0;
-    padding: 0;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }*/
-
-header, footer {
-    /*Border Size*/
-    height: 7%;
-    /*Border Position*/
-    position:absolute;
-    right:0;
-    left:0;
-    
-
-  }
-
-header{
-    /*Border Position*/
-    top:0;
-    /*Border Shadow*/
-    -moz-box-shadow:0 5px 5px rgba(182, 182, 182, 0.75); /*horizontal, vertical, blur radius, spread radius */
-    -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
-    box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+button:hover {
+	cursor: pointer;
 }
 
-footer {
-    bottom:0;
-    width: 100%;
-    display: inline-block;
-    margin: 2em 0;
-    height: 70px;
-    background-color: #000;
-    -moz-box-shadow:0 -5px 5px rgba(182, 182, 182, 0.75); /*horizontal, vertical, blur radius, spread radius */
-    -webkit-box-shadow: 0 -5px 5px rgba(182, 182, 182, 0.75);
-    box-shadow: 0 -5px 5px rgba(182, 182, 182, 0.75);
+.login_btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 13px;
 }
 
-.header_content{
-    /*Border Position*/
-    display: flex;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 1%
+.wrap_btn {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-.footer_left{
-    width: 50%;
-    float: left;
+.form_bgbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: -o-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: -moz-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  top: 0;
+  left: -100%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
-html, body{
-    font-family: 'Didact Gothic' , sans-serif;
+.login_form_btn {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
 
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
 }
 
-.footer_left a{
-    
-    padding-left: 10%;
-    color: white;
-    font-size: 0.9em;
-    line-height: 70px;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    text-decoration: none;
-    pointer-events: none;
-    
-}
-.footer_right {
-    width: 50%;
-    float: right;
+.wrap_btn:hover .form_bgbtn {
+  left: 0;
 }
 
-.footer_right a {
-    float: left;
-    line-height: 70px;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    -moz-transition: all, 0.3s;
-    -o-transition: all, 0.3s;
-    -webkit-transition: all, 0.3s;
-    transition: all, 0.3s;
+/**********************************************/
+/*CheckBox*/
+/**********************************************/
+.login_doctor input[type=checkbox] {
+  display: none;
 }
 
-.footer_right a:hover {
-    background-color: #222;
-    -moz-transition: all, 0.3s;
-    -o-transition: all, 0.3s;
-    -webkit-transition: all, 0.3s;
-    transition: all, 0.3s;
+.login_doctor {
+  font-size: 16px;
+  line-height: 20px;
+  margin-right : 33%;
 }
 
-.contact_num {
-    background-color: #000000;
-    font-size: 0.9em;
-    width: 40%;
+.login_doctor label {
+  cursor: pointer;
+}
+.login_doctor label:before {
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  content: "\00a0";
+  text-align: center;
+  background: #eee;
+  border : 1px solid #c4c4c4;
+  border-radius : 20%;
+}
+.login_doctor label:hover::before{
+  background: #aaa;
 }
 
-.aboutus, .rateus {
-    background-color: #000000;
-    font-size: 0.9em;
-    width: 20%;
+/* On check */
+.login_doctor input:checked ~ label:before {
+  content: "\2713";
+  background: #3f6cb5;
+  color: #fff;
 }
 
-/*.Contact_Logo{
-    padding-top: 10px;
-    margin : auto;
+/**********************************************/
+/*TextBox*/
+/**********************************************/
+/*.login_id {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
 }*/
 
-/****************************************************
-FontAwesome(Icon) Support
-*****************************************************/
-/*i.fas, i.fab {
-    border: 1px solid white;
-  }
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #d2d2d2;
+  outline: 0;
+  font-size: 16px;
+  color: #212121;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
 
-.fa-phone-alt {
-    color: white;
-  }*/
+.form__field::placeholder {
+  color: transparent;
+}
 
-  .fa-phone-alt {
-    background: none!important;
-    border-radius: 100%;
-    color: #ffffff;
-    
-    }
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 16px;
+  cursor: text;
+  top: 20px;
+}
 
-/****************************************************
-Background Image
-*****************************************************/
+label[class = form__label],
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 12px;
+  color: #9b9b9b;
+}
 
-/*body {
-    background-image: url("./Assets/Img/Account_BG.jpg");
-    background-size: 1000px;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(
-    #999,
-    #fff
-  );
-}*/
+.form__field:focus ~ .form__label {
+  color: #5b9bfa;
+}
 
-/****************************************************
-Mobile Support
-*****************************************************/
-@media (max-width: 600px) {
-    .footer_left {
-      width: 100%;
-      text-align: center;
-      padding: 0;
-    }
-  }
-@media (max-width: 600px) {
-    .footer_right {
-      width: 100%;
-    }
-  }
+.form__field:focus {
+  padding-bottom: 6px;
+  border-bottom: 2px solid #5b9bfa;
+}
+
+/***********************************************/
+
+.Test_Logo {
+  margin-top: 25%;
+  margin-left : 20%;
+  border-radius : 50%;
+  border : 4px solid black;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.Test_Logo:hover{
+  border : 4px solid lightgreen;
+  transition: 0.5s;
+}
+
+.Rec_Logo{
+  margin-top: 25%;
+  margin-right : 20%;
+  border-radius : 50%;
+  border : 4px solid black;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.Rec_Logo:hover{
+  border : 4px solid lightgreen;
+  transition: 0.5s;
+}
