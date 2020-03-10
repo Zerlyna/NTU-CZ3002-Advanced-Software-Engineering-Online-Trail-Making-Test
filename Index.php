@@ -52,7 +52,6 @@ For now:
             <div class="limiter">
                 <div class="container">
                     <div class="wrap">
-                        <!--<form class="login100-form validate-form">-->
                         <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="loginform">
                             <div class = "login_logo"><img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo"></div>
                             <div class = "login_title"><label for="title"><b>Welcome to LarkDetect</b></label></div>
@@ -61,8 +60,6 @@ For now:
                                 <input  id="loginID" name = "NRIC" class="form__field" placeholder="Enter NRIC" required>
                                 <label for="nric" class="form__label">Enter NRIC</label>
                             </div>
-
-                            <!--<div class = "login_pw"><input type="password" placeholder="Enter Password" name="password" required></div>-->
                             <div class="login_pw">
                                 <input type="password" id="loginID" name = "password" class="form__field" placeholder="Enter Password" required>
                                 <label for="pw" class="form__label">Enter Password</label>
@@ -82,7 +79,6 @@ For now:
                                         <button type="submit" name = "login" class="login_form_btn">Login</button>
                                 </div>
                             </div>
-
                             <div class = "login_reg"><a href="Registration.php">Don't have an account? Sign Up</a></div>
                         </form>
                     </div>

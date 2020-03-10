@@ -3,7 +3,7 @@ include('header.php');
 ?>
 <html>
     <head>
-        <title>Doctor</title>
+        <title>Test Set A</title>
         <link rel="stylesheet" href="css/frame.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/headfoot.css">
@@ -22,33 +22,18 @@ include('header.php');
                 <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div><h3>Patient Records</h3></div>
+                    <div><h3>Test A</h3></div>
                     <div>
-                        <select id="searchbar" value = "EMPTY">
-                            <option value="" disabled selected hidden>(Search Bar)</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                        </select>
-                        <select id="searchby" value = "EMPTY">
-                            <option value="" disabled selected hidden>(Search By)</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                        </select>
-                        <i> sorting icon </i>
-                        <table style="width:100%">
-                        <tr>
-                            <th>ID</th>
-                            <th>NRIC</th> 
-                            <th>FULL NAME</th>
-                            <th>Gender</th>
-                            <th>Total Time Taken</th>
-                            <th>Test A</th>
-                            <th>Test B</th>
-                            <th><a href = "Record.php">Records</a></th>
-                        </tr>
+                        <canvas> Test A </canvas>
                     </div>
+                    <form action="TestB.php"> <!-- Use as a placeholder to go next navigate next page -->
+                    <div class = "login_btn">
+                        <div class="wrap_btn">
+                            <div class="form_bgbtn"></div>
+                                <button type="submit" name = "nextA" class="login_form_btn">Next</button>
+                        </div>
+                    </div> 
+                    </form>
                 <!-- end of content -->
                 </div> 
             </div>
