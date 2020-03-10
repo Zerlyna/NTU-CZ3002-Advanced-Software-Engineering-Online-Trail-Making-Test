@@ -1,6 +1,4 @@
-<?php
-include('../header.php');
-?>
+<?php?>
 
 <html>
 <!-- Login Button -->
@@ -54,6 +52,4 @@ include('../header.php');
     <form action="Result2/Result2.php">
         <button type="submit" class="login">ResultV2</button>
     </form>
-
-
 </html>
