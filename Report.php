@@ -22,55 +22,45 @@ include('header.php');
                 <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div><h3>Result</h3></div>
-                    <div>
-                        <span>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </span>
-                        <span>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div>
-                                <span>
+                    <div class = "r1"><h3>Result</h3></div>
+                    <div class = "r2">
+                        <div class = "c1">
+                            <div class = "c1_1"></div>
+                            <div class = "c1_2"></div>
+                            <div class = "c1_3"></div>
+                        </div>
+                        <div class = "c2">
+                            <div class = "c2_c1"></div>
+                            <div class = "c2_c2"></div>
+                            <div class = "c2_c3"></div>
+                            <div class = "c2_c4"></div>
+                            <div class = "c2_c5">
+                                <div class = "c2_c5l">
                                 <form action="Record.php">
-                                    <div class = "login_btn">
-                                        <div class="wrap_btn">
-                                            <div class="form_bgbtn"></div>
-                                                <button type="submit" name = "records" class="login_form_btn">Records</button>
-                                        </div>
-                                    </div> 
+                                        <button type="submit" name = "records" class="login_form_btn">Records</button> 
                                 </form> 
-                                </span>
-                                <form action="Main.php">
-                                    <div class = "login_btn">
-                                        <div class="wrap_btn">
-                                            <div class="form_bgbtn"></div>
-                                                <button type="submit" name = "end" class="login_form_btn">End</button>
-                                        </div>
-                                    </div> 
-                                </form>
-                                <span>
-                                </span>
+                                </div>
+                                <div class = "c2_c5r">
+                                    <form action="Main.php">
+                                        <button type="submit" name = "end" class="login_form_btn">End</button>
+                                    </form>
+                                </div>
                             </div>
-                        </span>
-                        <span>
-                            <div>
-                                <span></span>
-                                <span></span>
+                        </div>
+                        <div class = "c3">
+                            <div class = "c3r1">
+                                <div class = "c3r1_c1"></div>
+                                <div class = "c3r1_c2"></div>
                             </div>
-                            <div>
-                                <span></span>
-                                <span></span>
+                            <div class = "c3r2">
+                                <div class = "c3r2_c1"></div>
+                                <div class = "c3r2_c1"></div>
                             </div>
-                            <div>
-                                <span></span>
-                                <span></span>
+                            <div class = "c3r3">
+                                <div class = "c3r3_c1"></div>
+                                <div class = "c3r3_c1"></div>
                             </div>
-                        </span>
+                        </div>
                     </div>
 
                 <!-- end of content -->

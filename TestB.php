@@ -22,18 +22,16 @@ include('header.php');
                 <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely -->
-                    <div><h3>Test B</h3></div> 
-                    <div>
+                    <div class = "test_r1"><h3>Test B</h3></div>
+                    <div class = "test_r2">
                         <canvas> Test B </canvas>
                     </div>
-                    <form action="Report.php"> <!-- Use as a placeholder to go next navigate next page -->
-                    <div class = "login_btn">
-                        <div class="wrap_btn">
-                            <div class="form_bgbtn"></div>
-                                <button type="submit" name = "nextB" class="login_form_btn">Next</button>
-                        </div>
+                    
+                    <div class = "test_r3">
+                        <form action="Report.php"> <!-- Use as a placeholder to go next navigate next page -->
+                            <button type="submit" name = "nextB" class="login_form_btn">Next</button>
+                        </form>
                     </div> 
-                    </form>
                 <!-- end of content -->
                 </div> 
             </div>

@@ -22,8 +22,8 @@ include('header.php');
                 <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div><h3>Patient Records</h3></div>
-                    <div>
+                    <div class = "doc_r1"><h3>Patient Records</h3></div>
+                    <div class = "doc_r2">
                         <select id="searchbar" value = "EMPTY">
                             <option value="" disabled selected hidden>(Search Bar)</option>
                             <option value="A">A</option>
@@ -37,7 +37,9 @@ include('header.php');
                             <option value="C">C</option>
                         </select>
                         <i> sorting icon </i>
-                        <table style="width:100%">
+                    </div>
+                    <div class = "doc_r3">
+                        <table class = "doc_table" style="width:100%">
                         <tr>
                             <th>ID</th>
                             <th>NRIC</th> 
@@ -58,7 +60,7 @@ include('header.php');
     <!-- link .js here -->
 
     <!-- -->
-    <script src= "/external/jquery/jquery-3.4.1.js"></script> 
+    <script src= "/external/jquery/jquery-3.4.1.js"></script>
     <script type= "text/javascript" src="js/bgrd.js"></script>
 </html>
 <?php

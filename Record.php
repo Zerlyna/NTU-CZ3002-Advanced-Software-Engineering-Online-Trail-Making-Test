@@ -22,27 +22,29 @@ include('header.php');
                 <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div><h3>Records</h3></div>
-                    <span> 
-                        <div> </div>
-                            <label>Mr/Ms</label>
-                            <p1>Elon Musk</p1>
-                            <i> gender icon </i>
-                        </div>
-                        <div>
+                    <div class = "test_r1"><h3>Records</h3></div>
+                    <div class = "rec_r2">
+                        <div class = "rec_c1"> 
+                            <div class = "rec_c1r1">
+                                <label class = "rec_c1l">Mr/Ms</label>
+                            </div>
+                            <div class = "rec_c1r2">
+                                <p1>Elon Musk</p1>
+                            </div>
+                            <div class = "rec_c1r3">
+                                <i> gender icon </i>
+                            </div>
+                            <div class = "rec_c1r4">
                             <form action="Doctor.php"> <!-- patient/doctor should access from Report.php or Doctor.php respectively-->
-                                <div class = "login_btn">
-                                    <div class="wrap_btn">
-                                        <div class="form_bgbtn"></div>
-                                            <button type="submit" name = "back" class="login_form_btn">Back</button>
-                                    </div>
-                                </div> 
+                                <button type="submit" name = "back" class="login_form_btn">Back</button>
                             </form>
-                         </div>
-                    </span>
-                    <span>
-                        <canvas> line graph ??? </canvas> 
-                    </span>
+                            </div>
+                        </div>
+                        
+                        <div class = "rec_c2">
+                            <canvas> line graph ??? </canvas> 
+                        </div>
+                    </div>
                 <!-- end of content -->
                  </div>   
             </div>
