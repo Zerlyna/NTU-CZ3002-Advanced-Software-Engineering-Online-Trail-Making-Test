@@ -1,4 +1,3 @@
-<?php?>
 <html>
     <link rel="stylesheet" href="/css/headfoot.css">
     <link rel="stylesheet" href="/css/frame.css">
