@@ -3,11 +3,12 @@
 
 <body>
 <!-- Popup model -->
-<!-- <div class="box">
+<div class="box">
 	<a class="button" href="#popup1">Let me Pop up</a>
-</div> -->
+</div>
 <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
 <button id="btnStart2" onclick="startTest()" class="btnStart">Start</button>
+
 <div id="popup1" class="overlay">
 	<div class="popup">
 		<h2 style="text-align:center;">RULES</h2>
@@ -20,9 +21,12 @@
 		</div>
 	</div>
 </div>
-<canvas id="test2Canvas" width="1000px" height="796px" style="margin-left:15%;"></canvas>
+<div style="text-align:center;">
+<canvas id="test2Canvas" width="1000px" height="796px"></canvas>
+</div>
+
 <p id="msg" class="blue"></p>
-  <p id="msg2"><br>&nbsp;</p>
+<p id="msg2"><br>&nbsp;</p>
 </div>
 <link rel="stylesheet" href="ExecutiveTest.css">
 <script type="text/javascript" src="ExecutiveAlgo.js"></script> 

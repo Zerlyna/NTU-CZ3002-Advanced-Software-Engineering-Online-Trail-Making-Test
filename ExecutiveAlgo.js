@@ -14,6 +14,7 @@ var msg2Obj = document.getElementById("msg2");
 
 window.onload=generateCir();
 
+
 function generateCir()
 {
   
@@ -86,8 +87,21 @@ function generateCir()
         ctx.fillStyle = "white"
         ctx.font = '15px serif';
         ctx.fillText(Test2circles[i].index, Test2circles[i].x - 8, Test2circles[i].y + 3);
+        if(i==0)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("Start", Test2circles[i].x - 10, Test2circles[i].y + 40);
+        }
+        if(i==24)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("End", Test2circles[i].x - 10, Test2circles[i].y + 40);
+        }
         ctx.closePath();
     }
+    
 }
 
 //when u no longer touching the mouse
@@ -155,6 +169,21 @@ canvas.addEventListener('mousedown', (e) => {
                     nextIndex=Test2circles[i+1].index;
                 }
             }
+            //change the color of the selected circles
+            if(clickInfo[clickInfo.length-1].index==Test2circles[i].index)
+            {   
+                var cxpos=Test2circles[i].x;
+                var cypos=Test2circles[i].y;
+                var crad=Test2circles[i].radius;
+                //must begin path if not the circle being colored will be 25 on default
+                ctx.beginPath();
+                ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
+                ctx.fillStyle = "#48D2A3";
+                ctx.fill();
+                ctx.fillStyle = "black"
+                ctx.font = '15px serif';
+                ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+            }
             result="You draw from circle " + clickInfo[clickInfo.length - 1].index;
         } 
    }
@@ -206,6 +235,20 @@ canvas.addEventListener('mousedown', (e) => {
         }
         else
         {
+            if(clickInfo[clickInfo.length-1].index==Test2circles[i].index)
+            {   
+                var cxpos=Test2circles[i].x;
+                var cypos=Test2circles[i].y;
+                var crad=Test2circles[i].radius;
+                //must begin path if not the circle being colored will be 25 on default
+                ctx.beginPath();
+                ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
+                ctx.fillStyle = "#48D2A3";
+                ctx.fill();
+                ctx.fillStyle = "black"
+                ctx.font = '15px serif';
+                ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+            }
             result="You link from " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index;
         }
     

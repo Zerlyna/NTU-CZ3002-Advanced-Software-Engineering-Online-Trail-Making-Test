@@ -21,8 +21,8 @@
   .button {
     font-size: 1em;
     padding: 10px;
-    color: #fff;
-    border: 2px solid #06D85F;
+    color: black;
+    border: 2px solid black;
     border-radius: 20px/50px;
     text-decoration: none;
     cursor: pointer;
@@ -48,6 +48,22 @@
     opacity: 1;
   }
   
+  .overlay2 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay2:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
   .popup {
     margin: 70px auto;
     padding: 20px;
@@ -100,21 +116,9 @@
     border-radius:10%;
     }
   .btnStart:hover {
-    background-color: rgba(243, 7, 7, 0.13);
+    background-color: #419D78;
     color: black;
    }
-   /* #timerCountDown {
-    text-align: center;
-    
-    display:inline;
- 
-    padding: 5px;
-    color: #004853;
-    font-family: Verdana, sans-serif, Arial;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 20px;
-    } */
    .timerDIV{
         background-color:#419D78;
         color:black;
