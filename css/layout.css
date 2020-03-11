@@ -44,14 +44,15 @@
 }
   
 .wrap {
-    width: 390px;
+    width: 25%;
+    height : 75vh;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
     /*padding: 77px 55px 33px 55px;*/
     padding-left : 50px;
     padding-right: 50px;
-    padding-top : 40px;
+    padding-top : 10px;
     padding-bottom : 10px;
 
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -461,6 +462,103 @@ div:after{
     opacity: 1;
     transition: 0.5s;
 
+}
+
+/***********************************/
+.wrap_Reg{
+    width: 25%;
+    height : 75vh;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    /*padding: 77px 55px 33px 55px;*/
+    padding-left : 50px;
+    padding-right: 50px;
+    padding-top : 40px;
+    padding-bottom : 10px;
+
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.reg_r1{
+    border:2px solid  blue;
+    height:5%;
+    text-align : center;
+}
+.reg_r2{
+    border:2px solid  blue;
+    height:20%;
+    text-align : center;
+}
+.reg_r3{
+    border:2px solid  blue;
+    height:10%;
+    text-align : center; 
+}
+.reg_r4{
+    border:2px solid  blue;
+    height:10%;
+    text-align : center; 
+}
+.reg_r5{
+    border:2px solid  blue;
+    height:10%;
+    text-align : center; 
+}
+.reg_r6{
+    border:2px solid  blue;
+    height:10%;
+    text-align : center; 
+}
+.reg_r7{
+    border:2px solid  blue;
+    height:10%;
+    text-align : center; 
+}
+.reg_r8{
+    border:2px solid  blue;
+    height:3%;
+    text-align : left; 
+}
+.reg_r9{
+    border:2px solid  blue;
+    height:5%;
+    text-align : center; 
+}
+.reg_r10{
+    border:2px solid  blue;
+    height:15%;
+    text-align : center; 
+}
+
+.reg_c1{
+    border:2px solid none;
+    width:33.3%;
+    height : 100% ;
+    float : left;
+}
+.reg_c2{
+    border:2px solid none;
+    width:33.3%;
+    height : 100% ;
+    float : left;
+}
+.reg_c3{
+    border:2px solid none;
+    width:33.3%;
+    height : 100% ;
+    float : left;
+}
+div:after{
+    content: "";
+    display: table;
+    clear: both;
 }
 
 

@@ -33,6 +33,14 @@
 
 /********************************/
 
+.male{ 
+    margin-top: 4%;
+}
+
+.female{
+    margin-top: 4%;
+}
+
 .male:hover{
     color: #5b92e5;
     transition:  0.5s;
