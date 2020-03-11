@@ -11,6 +11,7 @@
     --x: 0px;
     --y: 0px;
     background-position: var(--x) var(--y);
+    z-index: -1;
   }
 
 .bgrd2{
@@ -21,6 +22,7 @@
     --x: 0px;
     --y: 0px;
     background-position: var(--x) var(--y);
+    z-index: -1;
   }
 
 .limiter {
@@ -376,6 +378,7 @@ body{
     -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    z-index: 1;
     
 }
 
@@ -429,6 +432,35 @@ div:after{
     content: "";
     display: table;
     clear: both;
+}
+
+#overlay_ty{
+
+    width: 30%;
+    height : 30vh;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    visibility: hidden;
+    top : 35%;
+    opacity: 100%;
+    transition: 0.5s;
+    
+    text-align: center;
+    z-index : 2;
+}
+#overlay_ty.active{
+    
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+
 }
 
 

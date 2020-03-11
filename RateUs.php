@@ -27,12 +27,10 @@ include('header.php');
                         <div class = "RateUs_c3" id = "sad" onclick="sad()"><i class="far fa-8x fa-frown"></i></div>
                     </div>
                     <div class = "RateUs_r3">
-                        <form action="Index.php">
-                            <button type="submit" class="confirm">Confirm</button>
-                        </form>
+                            <button  onclick = "confirm()" type="submit" class="confirm">Confirm</button>
                     </div>
-                    <div class = "RateUs_r1_p2">
-                        <h1> Thank you!!! </h1>
+                    <div id = "overlay_ty" >
+                        <h1 class = "ty"> Thank you!!! </h1>
                     </div>
                 </div>
             </div>
@@ -42,6 +40,7 @@ include('header.php');
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/rate.js"></script>
+    <script type= "text/javascript" src="js/overlay.js"></script>
 </html>
 
 <?php
