@@ -56,4 +56,7 @@
     <form action="Div_ShowHide/Div_ShowHide.php">
         <button type="submit" class="login">ResultV2</button>
     </form>
+    <form action="A/A.php">
+        <button type="submit" class="login">A</button>
+    </form>
 </html>
