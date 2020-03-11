@@ -18,10 +18,15 @@ include('header.php');
                 <div class="wrap_Main">
     
                     <h1> Registration </h1>
-                    <!-- Male Logo -->
-                    <img src="Assets/Icons/Gender_Male.png" alt="Male_Logo" class="M_Logo">
-                    <!-- Female Logo -->
-                    <img src="Assets/Icons/Gender_Female.png" alt="Female_Logo" class="F_Logo">
+                    <span class="fa-stack fa-3x male" id = "male" onclick="male()">
+                        <i class="far fa-2x fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-1x fa-mars fa-stack-1x"></i>
+                    </span>
+
+                    <span class="fa-stack fa-3x female" id = "female" onclick="female()">
+                        <i class="far fa-2x fa-circle fa-stack-2x"></i>
+                        <i class="fas fa-1x fa-venus fa-stack-1x"></i>
+                    </span>
 
                     <!-- UserName I/P -->
                     <input type="text" placeholder="Enter Full Name (as in NRIC)" name="Uname" required>
@@ -120,6 +125,7 @@ include('header.php');
         </div>
     </div>
     </body>
+    <script src = "js/gender.js">   </script>
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
 
