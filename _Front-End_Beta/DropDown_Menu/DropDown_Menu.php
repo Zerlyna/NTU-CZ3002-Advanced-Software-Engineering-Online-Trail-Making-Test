@@ -1,31 +1,39 @@
 
 <?php?>
 <html>
-<link rel="stylesheet" href = "DropDown_Menu.css">
-<div class="cont_heg_50"></div>
+<link rel="stylesheet" href = "DropDown_Menu.scss">
+<h1>Custom Select <span>Without Plugin</span></h1>
+<!--
+TO DO:
+1. Add icons to List 
+2. Toogle opened state
+-->
 
-<div class="cont_select_center">
+<select id="mounth">
+    <option value="hide">-- Month --</option>
+    <option value="january" rel="icon-temperature">January</option>
+    <option value="february">February</option>
+    <option value="march">March</option>
+    <option value="april">April</option>
+    <option value="may">May</option>
+    <option value="june">June</option>
+    <option value="july">July</option>
+    <option value="august">August</option>
+    <option value="september">September</option>
+    <option value="october">October</option>
+    <option value="november">November</option>
+    <option value="december">December</option>
+</select> 
 
-  <!-- Custom select structure --> 
-<div class="select_mate" data-mate-select="active" >
-<select name="" onchange="" onclick="return false;" id="">
-<option value=""  >Seleciona una Opcion </option>
-<option value="1">Select option 1</option>
-<option value="2" >Select option 2</option>
-<option value="3">Select option 3</option>
-  </select>
-<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-    <path d="M0-.75h24v24H0z" fill="none"/>
-</svg></span>
-<div class="cont_list_select_mate">
-  <ul class="cont_select_int">  </ul> 
-</div>
-  </div>
-  <!-- Custom select structure --> 
-
-
-</div> <!-- End div center   -->
-<script src= 
+<select id="year">
+    <option value="hide">-- Year --</option>
+    <option value="2010">2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+</select>
+<script> src = "DropDown_Menu.js" </script>
 </html>
 	
