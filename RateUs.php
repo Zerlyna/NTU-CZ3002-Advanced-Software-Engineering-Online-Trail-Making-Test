@@ -16,23 +16,18 @@ include('header.php');
     <div class = "bgrd">
         <div class="limiter">
             <div class="container">
-                <div class="wrap_AboutUs">
+                <div class="wrap_RateUs">
                 
     
                     <h1> Rate Our Service </h1>
                     <i class="far fa-8x fa-smile"></i>
                     <i class="far fa-8x fa-meh"></i>
                     <i class="far fa-8x fa-frown"></i>
-                    
 
-                    <h1> Thank you!!! </h1>
-
-                    <!-- Thank you Button -->
                     <form action="Index.php">
                         <button type="submit" class="confirm">Confirm</button>
                     </form>
-
-
+                    <h1> Thank you!!! </h1>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ include('header.php');
     <div class = "bgrd">
         <div class="limiter">
             <div class="container">
-                <div class="wrap_Main">
+                <div class="wrap_Reg">
     
                     <h1> Registration </h1>
                     <span class="fa-stack fa-3x male" id = "male" onclick="male()">
