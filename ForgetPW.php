@@ -221,6 +221,7 @@ include('header.php');
     </body>
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script type= "text/javascript" src="js/date.js"></script>
     <script type= "text/javascript" src="js/overlay.js"></script>
 </html>
 
