@@ -67,7 +67,7 @@ document.getElementById("y3").innerHTML = C_CordY[3] ;
 document.getElementById("x4").innerHTML = C_CordX[4] ;
 document.getElementById("y4").innerHTML = C_CordY[4] ;
 
-for(i=0; i<4; i++) {
+/*for(i=0; i<4; i++) {
     if(intersects(C_CordX[0],C_CordY[0],C_CordX[1],C_CordY[1],C_CordX[i+1],C_CordY[i+1],C_CordX[i+2],C_CordY[i+2]) == 1)
     {
         document.getElementById("overlap").innerHTML = "exist" ;
@@ -80,9 +80,23 @@ for(i=0; i<4; i++) {
         document.getElementById("overlap2").innerHTML = "exist" ;
     }
     document.getElementById("overlap2").innerHTML = "not exist" ;
-}
+}*/
+var a = [];
 
-document.getElementById("1_2").innerHTML = math.intersect(C_CordX[0],C_CordY[0],C_CordX[1],C_CordY[1],C_CordX[2],C_CordY[2],C_CordX[3],C_CordY[3]) ;
+a = math.intersect([C_CordX[0], C_CordY[0]], [C_CordX[1], C_CordY[1]], [C_CordX[2], C_CordY[2]], [C_CordX[3],C_CordY[3]])   ;  
+document.getElementById("1_2").innerHTML = a[0];
+document.getElementById("1_3").innerHTML = a[1];
+
+ctx.beginPath();
+ctx.arc(a[0],a[1],radius,Math.PI*2,0,false);
+ctx.strokeStyle = "green";  // Green path
+ctx.lineWidth = "5";
+
+ctx.fillStyle = "rgba(" + 255 + "," + 255 + "," + 0 + ",1)";
+ctx.fill();
+ctx.closePath();
+
+/*document.getElementById("1_2").innerHTML = math.intersect(C_CordX[0],C_CordY[0],C_CordX[1],C_CordY[1],C_CordX[2],C_CordY[2],C_CordX[3],C_CordY[3]) ;*/
 /*document.getElementById("1_3").innerHTML = math.intersect(C_CordX[0],C_CordY[0],C_CordX[1],C_CordY[1],C_CordX[2],C_CordY[2],C_CordX[3],C_CordY[3]) ;
 document.getElementById("1_4").innerHTML = math.intersect(C_CordX[0],C_CordY[0],C_CordX[1],C_CordY[1],C_CordX[3],C_CordY[3],C_CordX[4],C_CordY[4]) ;
 document.getElementById("1_5").innerHTML = math.intersect(C_CordX[0],C_CordY[0],C_CordX[1],C_CordY[1],C_CordX[4],C_CordY[4],C_CordX[5],C_CordY[5]) ;*/
