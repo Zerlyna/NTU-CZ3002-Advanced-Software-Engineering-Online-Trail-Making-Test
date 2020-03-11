@@ -561,6 +561,151 @@ div:after{
     clear: both;
 }
 
+/**************************/
+.wrap_RST{
+    width: 25%;
+    height : 30vh;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    /*padding: 77px 55px 33px 55px;*/
+    /*padding-left : 50px;*/
+    padding-right : 50px;
+    padding-top : 10px;
+    padding-bottom : 10px;
+
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    z-index : 1;
+}
+
+.RST_r1{
+    border:2px solid  none;
+    height:15%;
+    text-align : center;
+    padding-left : 50px;
+}
+.RST_r2{
+    border:2px solid  none;
+    height:30%;
+    text-align : center;
+    padding-left : 50px;
+}
+.RST_r3{
+    border:2px solid  none;
+    height:8%;
+    text-align : left; 
+    padding-left : 50px;
+}
+.RST_r4{
+    border:2px solid  none;
+    height:15%;
+    text-align : center; 
+    padding-left : 50px;
+}
+
+.RST_r5{
+    border:2px solid  none;
+    height:30%;
+    text-align : center; 
+    padding-left : 50px;
+}
+
+/******************************/
+#overlay_verify{
+    width: 25%;
+    height : 30vh;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    /*padding-left : 50px;*/
+    padding-right : 50px;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    visibility: hidden;
+    top : 35%;
+    opacity: 80%;
+    transition: 0.5s;
+    text-align: center;
+    z-index : 2;
+    
+
+}
+#overlay_verify.active{
+    
+    visibility: visible;
+    opacity: 1;
+
+}
+
+/**********************************/
+.V_r1{
+    border:2px solid  none;
+    height:15%;
+    text-align : center;
+    padding-left : 50px;
+}
+.V_r2{
+    border:2px solid  none;
+    height:30%;
+    text-align : center;
+    padding-left : 50px;
+}
+.V_r3{
+    border:2px solid  none;
+    height:30%;
+    text-align : center;
+    padding-left : 50px;
+}
+.V_r4{
+    border:2px solid  none;
+    height:15%;
+    text-align : center;
+    padding-left : 50px;
+}
+
+/*************************/
+#overlay_success{
+    width: 25%;
+    height : 30vh;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    /*padding-left : 50px;*/
+    padding-right : 50px;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    visibility: hidden;
+    top : 35%;
+    opacity: 80%;
+    transition: 0.5s;
+    text-align: center;
+    z-index : 3;
+
+}
+#overlay_success.active{
+    
+    visibility: visible;
+    opacity: 1;
+
+}
+
+
 
 
 

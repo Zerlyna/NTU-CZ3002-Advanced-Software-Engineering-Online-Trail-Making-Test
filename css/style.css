@@ -258,6 +258,23 @@ select::-ms-expand {
   margin-top : 4vh;
 }
 
+/*************************/
+.verify{
+  margin-top : 3vh;
+}
+
+/***********************/
+.RST_confirm{
+  margin-top : 1vh;
+}
+
+/**********************/
+.RST_S{
+  text-align: center;
+  margin-top : 12vh;
+  margin-left : 5vh;
+  font-size : 30px;
+}
 
 
 
