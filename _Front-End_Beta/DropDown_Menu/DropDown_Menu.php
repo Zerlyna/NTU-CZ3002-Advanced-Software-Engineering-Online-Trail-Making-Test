@@ -1,86 +1,31 @@
-<?php?>
-<link rel="stylesheet" href="DropDown_Menu.css">
-<html>
-<div class="center">
-  <select name="sources" id="sources" class="custom-select sources" placeholder="Date">
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-  </select>
 
-  <select placeholder="Date" onfocus='this.size=3;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
-    <option value="profile">Profile</option>
-    <option value="word">Word</option>
-    <option value="hashtag">Hashtag</option>
+<?php?>
+<html>
+<link rel="stylesheet" href = "DropDown_Menu.css">
+<div class="cont_heg_50"></div>
+
+<div class="cont_select_center">
+
+  <!-- Custom select structure --> 
+<div class="select_mate" data-mate-select="active" >
+<select name="" onchange="" onclick="return false;" id="">
+<option value=""  >Seleciona una Opcion </option>
+<option value="1">Select option 1</option>
+<option value="2" >Select option 2</option>
+<option value="3">Select option 3</option>
   </select>
+<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+    <path d="M0-.75h24v24H0z" fill="none"/>
+</svg></span>
+<div class="cont_list_select_mate">
+  <ul class="cont_select_int">  </ul> 
 </div>
-<script
-    src="/external/jquery/jquery-3.4.1.js"></script>
-  <script src = "DropDown_Menu.js"></script>
+  </div>
+  <!-- Custom select structure --> 
+
+
+</div> <!-- End div center   -->
+<script src= 
 </html>
+	
