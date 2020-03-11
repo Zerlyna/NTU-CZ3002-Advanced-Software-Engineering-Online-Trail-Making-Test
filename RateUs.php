@@ -18,16 +18,22 @@ include('header.php');
             <div class="container">
                 <div class="wrap_RateUs">
                 
-    
-                    <h1> Rate Our Service </h1>
-                    <i class="far fa-8x fa-smile"></i>
-                    <i class="far fa-8x fa-meh"></i>
-                    <i class="far fa-8x fa-frown"></i>
-
-                    <form action="Index.php">
-                        <button type="submit" class="confirm">Confirm</button>
-                    </form>
-                    <h1> Thank you!!! </h1>
+                    <div class = "RateUs_r1">
+                        <h1> Rate Our Service </h1>
+                    </div>
+                    <div class = "RateUs_r2">
+                        <div class = "RateUs_c1" id = "smile" onclick="smile()"><i class="far fa-8x fa-smile"></i></div>
+                        <div class = "RateUs_c2" id = "normal" onclick="normal()"><i class="far fa-8x fa-meh"></i></div>
+                        <div class = "RateUs_c3" id = "sad" onclick="sad()"><i class="far fa-8x fa-frown"></i></div>
+                    </div>
+                    <div class = "RateUs_r3">
+                        <form action="Index.php">
+                            <button type="submit" class="confirm">Confirm</button>
+                        </form>
+                    </div>
+                    <div class = "RateUs_r1_p2">
+                        <h1> Thank you!!! </h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,6 +41,7 @@ include('header.php');
     </body>
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script type= "text/javascript" src="js/rate.js"></script>
 </html>
 
 <?php
