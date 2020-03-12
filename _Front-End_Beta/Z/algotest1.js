@@ -37,30 +37,34 @@ window.onload=generateCir();
 function generateCir()
 {
     ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(10, 10, 980, 480);
+    ctx.fillRect(10, 10, 980, 700);
     ctx.strokeStyle = "black";
-    ctx.strokeRect(10, 10, 980, 480);
+    ctx.strokeRect(10, 10, 980, 700);
 
-    while (circles.length < 5) {
+    while (circles.length < 25) {
+
+        los = true;
+        overlapping = false;
         
         //limit
         if(circles.length < 1 && circles.length >= 0)
         {
-            randX = Math.floor(Math.random()* 900 + 40);
-            randY = Math.floor(Math.random()* 400 + 40);
+            randX = Math.floor(450);
+            randY = Math.floor(450);
+            /*randY = Math.floor(Math.random()* 600 + 40);*/
         }
         else if (circles.length >= 1)
         {
             do{
                 
-                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 300 - 150);
-                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 300 - 150);
+                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 500 - 250);
+                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 500 - 250);
                 /*if(randX < circles[a-2].x + 60 && randX >=  circles[a-2].x -60 && randY < circles[a-2].y + 60 && randY >= circles[a-2].y - 60){
                     randX = randX + 60;
                 }*/
 
                 /*rng2();*/
-                if(counter3 > 20)
+                if(counter3 > 1000)
                 {
                     document.writeln(randX, " ", randY);
                     document.writeln("Max Neighbour");
@@ -76,11 +80,10 @@ function generateCir()
                 
                  
             
-            }while(randX > 940 || randY > 440 || randX < 40 || randY < 40); 
+            }while(randX > 940 || randY > 640 || randX < 40 || randY < 40); 
 
-            rng(); 
+            /*rng();*/ 
 
-            document.writeln("TEST  L : " , los, " O : ", overlapping   ,"   _______________________________________________");
             
         
 
@@ -94,7 +97,7 @@ function generateCir()
             radius: 25,
         }
         
-        /*for (var j = 0; j < circles.length; j++) {
+        for (var j = 0; j < circles.length; j++) {
             other = circles[j];
             dx = rngCircle.x - other.x;
             dy = rngCircle.y - other.y;
@@ -128,7 +131,7 @@ function generateCir()
             counter++;
 
          
-        }*/
+        }
         
         //check if line of sequence is line of sight
         if(a > 2)
@@ -138,20 +141,12 @@ function generateCir()
                 //get current circle and last circle coordinate //current (rngCircle.x,rngCircle.y) , last circle (circles[a].x, circle[a].y)
 
 
-
+               /* document.write('<pre>');
                 document.writeln("Value A at = ", a-2, " ");
-                document.writeln("X = ", circles[a-2].x, " ");
-                document.writeln("Y = ", circles[a-2].y, " ");
-                document.writeln("Circle = ", j+1, " ");
-                document.writeln("X = ", circles[j].x, " ");
-                document.writeln("Y = ", circles[j].y, " ");
-                document.writeln("Circle = ", j+2, " ");
-                document.writeln("X = ", circles[j+1].x, " ");
-                document.writeln("Y = ", circles[j+1].y, " ");
-
-                document.writeln("RNGCircle at");
-                document.writeln("X = ", circles[j+1].x, " ");
-                document.writeln("Y = ", circles[j+1].y, " ");
+                document.writeln("Compare Last Line P2 :" , circles[a-2].x, " ", circles[a-2].y, " ");
+                document.writeln("Compare Last Line P1 :" , rngCircle.x, " ", rngCircle.y, " ");
+                document.writeln("Compare Line P1     " , j ,":",circles[j].x, " ", circles[j].y, " ");
+                document.writeln("Compare Line P2     ", j ,":", circles[j+1].x, " ", circles[j+1].y, " ");*/
                 
                 /*document.write(a-1);
                 /*check();
@@ -163,12 +158,11 @@ function generateCir()
 
                 /*chk1 = ((xA-xC)*(yD-yC)-(yA-yC)*(xD-xC))*((xB-xC)*(yD-yC)-(yB-yC)*(xD-xC));
                 chk2 = ((xC-xA)*(yB-yA)-(yC-yA)*(xB-xA))*((xD-xA)*(yB-yA)-(yD-yA)*(xB-xA));*/
-                document.writeln("Count ", counter4," ",chk1, " " , chk2);
+                /*document.writeln("Count ", counter4," ",chk1, " " , chk2);*/
 
                 if (chk1 < 0 && chk2 < 0)
                 {
                     los = false;
-                    document.writeln("Count ", counter4," ",chk1, " " , chk2);
                      counter4++;
                     
                     if(counter2 > 1000)
@@ -179,18 +173,19 @@ function generateCir()
                         return;
                     }
                     counter2 ++;
+                    /*document.writeln("Result = ", los, " ");*/
                     break;
                 }
-                    
+               /* document.writeln("Result = ", los, " ");*/
               
             }
             
         }
 
         //
-        if (/*!overlapping &&*/ los) {
+        if (!overlapping && los) {
 
-            document.writeln("Success Insert " , a);
+            /*document.writeln("Success Insert " , a);*/
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
@@ -538,7 +533,7 @@ for (i = 0; i < circles.length; i++) {
         ctx.moveTo(circles[i-1].x,circles[i-1].y);
         ctx.lineTo(circles[i].x,circles[i].y);
         ctx.stroke();  // Draw it
-        document.writeln(circles[i-1]);
+        /*document.writeln(circles[i-1]);*/
         
     }
     ctx.beginPath();
