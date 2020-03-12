@@ -225,7 +225,7 @@ function generateCir()
     }
 }
 
-/*
+
   function draw(e) 
   {
     // stop the function if they are not mouse down
@@ -498,7 +498,7 @@ function StoreUserTestResult(first)
 //  msgObj.innerHTML =  document.getElementById("ten-countdown").innerHTML;
 // }
 
-*/
+
 
 function check(){
 for (i = 0; i < circles.length; i++) {
