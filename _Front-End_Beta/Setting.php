@@ -59,4 +59,8 @@
     <form action="A/A.php">
         <button type="submit" class="login">A</button>
     </form>
+
+    <form action="Z/firstTest.php">
+        <button type="submit" class="login">Z</button>
+    </form>
 </html>
