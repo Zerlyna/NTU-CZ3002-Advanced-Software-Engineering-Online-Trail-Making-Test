@@ -7,7 +7,7 @@
     <canvas id="myCanvas" width="800" height="800">
 </span>
 <span>
-      <h1> 0 </h1>
+      <!--<h1> 0 </h1>
       <p id = "x0"></p>
       <p id = "y0"></p>
 
@@ -30,7 +30,7 @@
       <p id = "overlap"></p>
 
       <h1> Collision </h1>
-      <p id = "overlap2"></p>
+      <p id = "overlap2"></p>-->
 
       <h1> Collision </h1>
       <p id = "1_2"></p>
