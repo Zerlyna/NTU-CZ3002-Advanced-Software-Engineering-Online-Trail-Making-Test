@@ -24,7 +24,7 @@ include('header.php');
                     <!-- Minimum HTML, please alter according to your content freely --> 
                     <div class = "test_r1"><h3>Test A</h3></div>
                     <div class = "test_r2">
-                        <canvas> Test A </canvas>
+                        <canvas id="canvas" width="1000px" height="796px"></canvas>
                     </div>
                     
                     <div class = "test_r3">
@@ -43,6 +43,7 @@ include('header.php');
 
     <!-- -->
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
+    <script type= "text/javascript" src="js/algo.js"></script>
     <script type= "text/javascript" src="js/bgrd.js"></script>
 </html>
 <?php
