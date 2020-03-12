@@ -19,6 +19,7 @@ var rngCircle;
 var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
+var counter4 = 0;
 var randX;
 var randY;
 var valid = true;
@@ -40,7 +41,7 @@ function generateCir()
     ctx.strokeStyle = "black";
     ctx.strokeRect(10, 10, 980, 480);
 
-    while (circles.length < 25) {
+    while (circles.length < 5) {
         
         //limit
         if(circles.length < 1 && circles.length >= 0)
@@ -50,33 +51,41 @@ function generateCir()
         }
         else if (circles.length >= 1)
         {
-            counter = 0;
             do{
                 
-                randX = Math.floor(circles[a-2].x + Math.random()* 300 - 150);
-                randY = Math.floor(circles[a-2].y + Math.random()* 300 - 150);
-                
-                if(counter3 == 10000)
+                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 300 - 150);
+                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 300 - 150);
+                /*if(randX < circles[a-2].x + 60 && randX >=  circles[a-2].x -60 && randY < circles[a-2].y + 60 && randY >= circles[a-2].y - 60){
+                    randX = randX + 60;
+                }*/
+
+                /*rng2();*/
+                if(counter3 > 20)
                 {
+                    document.writeln(randX, " ", randY);
                     document.writeln("Max Neighbour");
+                    document.writeln(chk1, " " , chk2);
                     document.writeln(circles[a-2].x , " " ,circles[a-2].y);
+                    document.writeln(los, " ", overlapping);
                     check();
                     sessionStorage.clear();
                     return;
                 }
                 counter3++;
+
+                
                  
             
             }while(randX > 940 || randY > 440 || randX < 40 || randY < 40); 
 
             rng(); 
+
+            document.writeln("TEST  L : " , los, " O : ", overlapping   ,"   _______________________________________________");
             
         
 
         }
         
-        randX = Math.floor(Math.random()* 900 + 40);
-        randY = Math.floor(Math.random()* 400 + 40);
         rngCircle =
         {
             index: 1,
@@ -85,7 +94,7 @@ function generateCir()
             radius: 25,
         }
         
-        for (var j = 0; j < circles.length; j++) {
+        /*for (var j = 0; j < circles.length; j++) {
             other = circles[j];
             dx = rngCircle.x - other.x;
             dy = rngCircle.y - other.y;
@@ -119,19 +128,18 @@ function generateCir()
             counter++;
 
          
-        }
+        }*/
         
         //check if line of sequence is line of sight
         if(a > 2)
         {
-            
-            for (var j = 0; j < circles.length - 2; j++) {
+            for (var j = 0; j < circles.length -1 ; j++) {
 
                 //get current circle and last circle coordinate //current (rngCircle.x,rngCircle.y) , last circle (circles[a].x, circle[a].y)
 
 
 
-                /*document.writeln("Value A at = ", a-2, " ");
+                document.writeln("Value A at = ", a-2, " ");
                 document.writeln("X = ", circles[a-2].x, " ");
                 document.writeln("Y = ", circles[a-2].y, " ");
                 document.writeln("Circle = ", j+1, " ");
@@ -143,9 +151,9 @@ function generateCir()
 
                 document.writeln("RNGCircle at");
                 document.writeln("X = ", circles[j+1].x, " ");
-                document.writeln("Y = ", circles[j+1].y, " ");*/
+                document.writeln("Y = ", circles[j+1].y, " ");
                 
-                /*document.write(a-1);*/
+                /*document.write(a-1);
                 /*check();
                 
 
@@ -155,13 +163,15 @@ function generateCir()
 
                 /*chk1 = ((xA-xC)*(yD-yC)-(yA-yC)*(xD-xC))*((xB-xC)*(yD-yC)-(yB-yC)*(xD-xC));
                 chk2 = ((xC-xA)*(yB-yA)-(yC-yA)*(xB-xA))*((xD-xA)*(yB-yA)-(yD-yA)*(xB-xA));*/
-                
+                document.writeln("Count ", counter4," ",chk1, " " , chk2);
 
                 if (chk1 < 0 && chk2 < 0)
                 {
                     los = false;
+                    document.writeln("Count ", counter4," ",chk1, " " , chk2);
+                     counter4++;
                     
-                    if(counter2 > 10000)
+                    if(counter2 > 1000)
                     {
                         document.writeln("Max Comparison")
                         check();
@@ -171,12 +181,16 @@ function generateCir()
                     counter2 ++;
                     break;
                 }
+                    
+              
             }
             
         }
 
         //
-        if (!overlapping && los) {
+        if (/*!overlapping &&*/ los) {
+
+            document.writeln("Success Insert " , a);
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
@@ -186,9 +200,14 @@ function generateCir()
         } 
     }
     for (i = 0; i < circles.length; i++) {
+
+        check();
+        return;
+
         ctx.beginPath();
-        ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
-        ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+
+        ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
+        ctx.fillStyle = "rgba(250, 0, 0, 0.8)";
         ctx.fill();
         ctx.fillStyle = "white"
         ctx.font = '15px serif';
@@ -519,6 +538,7 @@ for (i = 0; i < circles.length; i++) {
         ctx.moveTo(circles[i-1].x,circles[i-1].y);
         ctx.lineTo(circles[i].x,circles[i].y);
         ctx.stroke();  // Draw it
+        document.writeln(circles[i-1]);
         
     }
     ctx.beginPath();
@@ -533,6 +553,30 @@ function rng()
     ctx.beginPath();
     ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
     ctx.fillStyle = "rgba(0, 255, 0, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(counter4, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
+
+function rng2()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(0, 255, 255, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(a, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
+
+function rng3()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(255, 255, 0.7)";
     ctx.fill();
     ctx.fillStyle = "black"
     ctx.font = '15px serif';
