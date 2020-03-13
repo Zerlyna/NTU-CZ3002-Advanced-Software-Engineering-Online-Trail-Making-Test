@@ -11,8 +11,6 @@
             if ($row = mysqli_fetch_array($result)){
                 $_SESSION['doctorid'] = $row['id'];
                 header("Location: doctor.php");
-            } else {
-                $errormsg="Incorrect Doctor ID or Password. Please try again.";
             }
         }else{
             $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
@@ -21,8 +19,6 @@
             if ($row = mysqli_fetch_array($result)){
                 $_SESSION['NRIC'] = $row['NRIC'];
                 header("Location: Main.php");
-            } else {
-                $errormsg="Incorrect NRIC or Password. Please try again.";
             }
         }
     }

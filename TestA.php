@@ -1,6 +1,15 @@
 <?php
-include('header.php');
+    session_start();
+    
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
+    
+    include('header.php');
 ?>
+
 <html>
     <head>
         <title>Test Set A</title>
@@ -45,6 +54,7 @@ include('header.php');
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
 </html>
+
 <?php
-include('footer.php');
+    include('footer.php');
 ?>
