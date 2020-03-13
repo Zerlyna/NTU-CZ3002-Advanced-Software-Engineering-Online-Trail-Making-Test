@@ -5,7 +5,7 @@
 
     ##login session -- whr to 
 	if(isset($_SESSION['NRIC'])){
-		header("Location: Main.php");
+		header("Location: Index.php");
     }
 
     if(isset($_POST['register'])){

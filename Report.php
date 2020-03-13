@@ -1,5 +1,14 @@
 <?php
-include('header.php');
+    session_start();
+    include_once "connect.php";
+
+    ##login session -- whr to 
+	if(isset($_SESSION['NRIC'])){
+		header("Location: Index.php");
+    }
+
+    include_once "dc.php";
+    include_once 'header.php';
 ?>
 <html>
     <head>
