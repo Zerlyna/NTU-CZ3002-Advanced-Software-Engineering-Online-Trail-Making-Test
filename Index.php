@@ -1,5 +1,5 @@
 <?php
-    define('RESTRICTED',1);
+    /*define('RESTRICTED',1);*/
     include_once 'connect.php';
 
     //check if form is submitted
