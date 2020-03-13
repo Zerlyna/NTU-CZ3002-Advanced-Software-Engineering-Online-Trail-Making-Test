@@ -1,6 +1,7 @@
 <?php
+    session_start();
     include_once 'connect.php';
-
+    
     //check if form is submitted
     if(isset($_POST['login'])){
         //normal patient
@@ -22,6 +23,7 @@
             }
         }
     }
+
     include_once 'header.php';
     include_once 'dc.php';
 ?>
