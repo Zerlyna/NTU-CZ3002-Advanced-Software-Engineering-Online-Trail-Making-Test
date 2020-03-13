@@ -1,3 +1,8 @@
+<?php
+header('HTTP/1.0 403 Forbidden');exit;
+?>
+
+
 <html>
     <link rel="stylesheet" href="/css/headfoot.css">
     <link rel="stylesheet" href="/css/frame.css">

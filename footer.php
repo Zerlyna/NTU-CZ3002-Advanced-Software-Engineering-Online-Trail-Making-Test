@@ -1,4 +1,6 @@
-<?php?>
+<?php
+header('HTTP/1.0 403 Forbidden');exit;
+?>
 <html>
     <footer>
         <div class = "footer_container">
