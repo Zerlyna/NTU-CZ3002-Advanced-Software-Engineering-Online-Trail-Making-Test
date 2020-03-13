@@ -210,7 +210,7 @@ function generateCir()
      }
     else
     {
-        result="You draw from circle " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index+ "Array Size:"+clickInfo.length;
+        result="You link from circle " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index+ "Array Size:"+clickInfo.length;
       //loop through the arrayto color the selected circle
       for(i=0;i<circles.length;i++)
       {
@@ -305,32 +305,21 @@ function stopTest()
     }
     else
     {
-        document.getElementById("firstResult").innerHTML="You used "+minDiff +"Minutes "+secDiff+ "Seconds for the first test";
-        testResult=minDiff+':'+secDiff;
+        minDiff+=(minDiff*60);
+        document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+        testResult=minDiff;
     }
-    StoreUserTestResult(testResult);
-    location.href = "#popupResult"; 
+    window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));
+    location.href = "#secondTestRules";
+   
+    
 }
 
-function StoreUserTestResult(first)
-{
-    var d = new Date();
-     
-    var date = d.getDate();
-    var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-    var year = d.getFullYear();
-     
-    var dateStr = date + "/" + month + "/" + year;
-
-    var user =
-        {
-            name: YongXin,
-            Date: dateStr,
-            firstTest: first,
-            SecondTest:0,
-        }
-    userArray.push(user);
-}
+// function StoreUserTestResult(first)
+// {
+//     window.sessionStorage.setItem("TMT_A", JSON.stringify(first));
+//     location.href = "ExecutiveFunctionTest.php"; 
+// }
    
 // function startTest(age)
 // {

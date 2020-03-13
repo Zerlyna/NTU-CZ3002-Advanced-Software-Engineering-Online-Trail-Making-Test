@@ -167,22 +167,19 @@ canvas.addEventListener('mousedown', (e) => {
                 if(currentIndex==Test2circles[i].index)
                 {
                     nextIndex=Test2circles[i+1].index;
+                    var cxpos=Test2circles[i].x;
+                    var cypos=Test2circles[i].y;
+                    var crad=Test2circles[i].radius;
+                    //must begin path if not the circle being colored will be 25 on default
+                    ctx.beginPath();
+                    ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
+                    ctx.fillStyle = "#48D2A3";
+                    ctx.fill();
+                    ctx.fillStyle = "black"
+                    ctx.font = '15px serif';
+                    ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+                    
                 }
-            }
-            //change the color of the selected circles
-            if(clickInfo[clickInfo.length-1].index==Test2circles[i].index)
-            {   
-                var cxpos=Test2circles[i].x;
-                var cypos=Test2circles[i].y;
-                var crad=Test2circles[i].radius;
-                //must begin path if not the circle being colored will be 25 on default
-                ctx.beginPath();
-                ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
-                ctx.fillStyle = "#48D2A3";
-                ctx.fill();
-                ctx.fillStyle = "black"
-                ctx.font = '15px serif';
-                ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
             }
             result="You draw from circle " + clickInfo[clickInfo.length - 1].index;
         } 
@@ -235,21 +232,24 @@ canvas.addEventListener('mousedown', (e) => {
         }
         else
         {
-            if(clickInfo[clickInfo.length-1].index==Test2circles[i].index)
-            {   
-                var cxpos=Test2circles[i].x;
-                var cypos=Test2circles[i].y;
-                var crad=Test2circles[i].radius;
-                //must begin path if not the circle being colored will be 25 on default
-                ctx.beginPath();
-                ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
-                ctx.fillStyle = "#48D2A3";
-                ctx.fill();
-                ctx.fillStyle = "black"
-                ctx.font = '15px serif';
-                ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
-            }
             result="You link from " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index;
+            for(i=0;i<Test2circles.length;i++)
+            {
+                if(clickInfo[clickInfo.length-1].index==Test2circles[i].index)
+                {   
+                    var cxpos=Test2circles[i].x;
+                    var cypos=Test2circles[i].y;
+                    var crad=Test2circles[i].radius;
+                    //must begin path if not the circle being colored will be 25 on default
+                    ctx.beginPath();
+                    ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
+                    ctx.fillStyle = "#48D2A3";
+                    ctx.fill();
+                    ctx.fillStyle = "black"
+                    ctx.font = '15px serif';
+                    ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+                }
+            }
         }
     
         // get the selected circle index from variable no;
@@ -282,14 +282,16 @@ function countdown( elementName, minutes, seconds )
             if(clickInfo[clickInfo.length - 1].index!=25 || clickInfo.length<=0)
             {
             alert("haiz u have fail");
-            }
-            else
-            {
-            alert("congrats");
             stopTest();
             }
+            // else
+            // {
+            // alert("congrats");
+            // stopTest();
+            // }
            
-        } else {
+        }
+        else {
             time = new Date( msLeft );
             hours = time.getUTCHours();
             mins = time.getUTCMinutes();
@@ -309,6 +311,24 @@ countdown( "timer", 3,00 );
 }
 function stopTest()
 {
- clearInterval(interval);
- msgObj.innerHTML =  document.getElementById("timer").innerHTML;
+
+    clearInterval(interval);
+    msgObj.innerHTML =  document.getElementById("timer").innerHTML;
+    var timeleft=msgObj.innerHTML;
+    //store the timeleft timing to the array
+    var TLeftArray=timeleft.split(":");
+    var minDiff=2-TLeftArray[0];
+    var secDiff=60-TLeftArray[1];
+    var testResult;
+    if(minDiff==0)
+    {
+        document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+         testResult='0:'+secDiff;
+    }
+    else
+    {
+        minDiff+=(minDiff*60);
+        document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+        testResult=minDiff+':'+secDiff;
+    }
 }
