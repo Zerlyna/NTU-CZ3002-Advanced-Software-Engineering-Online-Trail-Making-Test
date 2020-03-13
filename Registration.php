@@ -3,11 +3,6 @@
 
     include_once "connect.php";
 
-    ##login session -- whr to 
-	if(isset($_SESSION['NRIC'])){
-		header("Location: Index.php");
-    }
-
     if(isset($_POST['register'])){
         $gender = mysqli_real_escape_string($conn, $_COOKIE['gender']);
         $name = mysqli_real_escape_string($conn, $_POST['Reg_FullName']);
