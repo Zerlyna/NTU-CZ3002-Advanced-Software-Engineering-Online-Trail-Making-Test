@@ -1,6 +1,35 @@
 <?php
-include('header.php');
+    session_start();
+    include_once "connect.php";
+
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
+
+    $data = new stdClass();
+    $data->date_arr = array();
+    $data->time_A_arr = array();
+    $data->time_B_arr = array();
+
+    ##get user data -- 
+    $query = "SELECT * FROM test WHERE NRIC='".$nric."' ORDER BY id";
+    $result = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_assoc($result)){
+        #pass into array
+        $datetime = $row['Year'] ."-". $row['Month'] ."-". $row['Day'];
+        array_push($data->date_arr, $datetime); 
+        array_push($data->time_A_arr, $row['time_A']);
+        array_push($data->time_B_arr, $row['time_B']); 
+    }
+    ##the data the chart need
+    $data_json = json_encode($data);
+
+    include_once "dc.php";
+    include_once 'header.php';
 ?>
+
 <html>
     <head>
         <title>Record</title>
