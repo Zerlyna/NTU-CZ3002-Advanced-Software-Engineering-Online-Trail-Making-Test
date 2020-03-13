@@ -2,24 +2,24 @@
     session_start();
     include_once "connect.php";
 
-    // ##login session -- whr to 
-	// if(isset($_SESSION['NRIC'])){
-    //     $nric = $_SESSION['NRIC'];
-    // }else{
-    //     header('Location: Index.php');
-    // }
+    ##login session -- whr to 
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
 
     ##get user data
-    // $query = "SELECT * FROM test WHERE NRIC='".$nric."' ORDER BY id DESC LIMIT 1";
-    // $result = mysqli_query($conn, $query);
-    // if($row = mysqli_fetch_array($result)){
-    //     $time_A = $row['time_A'];
-    //     $time_B = $row['time_B'];
-    //     $recorded_time = time();
-    //     $day = $row['Year'];
-    //     $month = $row['Month'];
-    //     $year = $row['Day'];
-    // }
+    $query = "SELECT * FROM test WHERE NRIC='".$nric."' ORDER BY id DESC LIMIT 1";
+    $result = mysqli_query($conn, $query);
+    if($row = mysqli_fetch_array($result)){
+        $time_A = $row['time_A'];
+        $time_B = $row['time_B'];
+        $recorded_time = time();
+        $day = $row['Year'];
+        $month = $row['Month'];
+        $year = $row['Day'];
+    }
 
     ##get average data -- $test_A. $test_B
     $query = "SELECT * FROM global";
