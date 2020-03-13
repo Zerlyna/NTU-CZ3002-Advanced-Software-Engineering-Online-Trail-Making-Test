@@ -67,14 +67,10 @@
                             <div class = "c2_c4"></div>
                             <div class = "c2_c5">
                                 <div class = "c2_c5l">
-                                <form action="Record.php">
-                                        <button type="submit" name = "records" class="login_form_btn">Records</button> 
-                                </form> 
+                                    <button type="submit" name = "records" class="login_form_btn" onclick="window.location.href = 'Record.php';">Records</button> 
                                 </div>
                                 <div class = "c2_c5r">
-                                    <form action="Main.php">
-                                        <button type="submit" name = "end" class="login_form_btn">End</button>
-                                    </form>
+                                    <button type="submit" name = "end" class="login_form_btn" onclick="window.location.href = 'Main.php';">End</button>
                                 </div>
                             </div>
                         </div>
