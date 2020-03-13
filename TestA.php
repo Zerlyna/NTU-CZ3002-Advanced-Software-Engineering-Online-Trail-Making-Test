@@ -26,6 +26,15 @@ include('header.php');
                     <div class = "test_r2">
                         <canvas id="canvas" width="1000px" height="796px"></canvas>
                     </div>
+                    <div id = "layout_consent">
+                        <div class = "con_r1"><p1>ConTItiel</p1></div>
+                        <div class = "con_r2"><p1>ConInformation</p1></div>
+                        <div class = "con_r3">buttonto layoutinstA</div>
+                    </div>
+                    <div id = "layout_insA"></div>
+                        <div class = "insA_r1"><p1>InsTItiel</p1></div>
+                        <div class = "insA_r2"><p1>InsInformation</p1></div>
+                        <div class = "insA_r3">buttontotestB</div>
                     
                     <div class = "test_r3">
                         <form action="TestB.php"> <!-- Use as a placeholder to go next navigate next page -->
