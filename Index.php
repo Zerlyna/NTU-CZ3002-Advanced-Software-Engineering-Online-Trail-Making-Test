@@ -74,10 +74,10 @@ For now:
                                 <span class = "login_fpw"><a href="ForgetPW.php">Forget Password?</a></span>
                             </div>
 
-                            <div class = "login_btn">
-                                <div class="wrap_btn">
+                            <div class = "login_btn" >
+                                <div class="wrap_btn" >
                                     <div class="form_bgbtn"></div>
-                                        <button type="submit" name = "login" class="login_form_btn">Login</button>
+                                        <button onclick = "toMainPage()" type="submit" name = "login" class="login_form_btn">Login</button>
                                 </div>
                             </div>
                             <div class = "login_reg"><a href="Registration.php">Don't have an account? Sign Up</a></div>
@@ -89,6 +89,7 @@ For now:
     </body>
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script type= "text/javascript" src="js/visibility.js"></script>
 </html>
 <?php
     include_once ('footer.php');

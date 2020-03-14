@@ -70,9 +70,9 @@ footer {
 }
 
 .Rate{
-    margin-left : 18%;
+    margin-left : 16%;
     padding : none;
-    visibility: hidden;
+    visibility : hidden;
 
 }
 
@@ -82,10 +82,11 @@ footer {
 }
 
 
-.right{
+.head_right{
     float : right;
     margin-right : 40px;
     visibility: hidden;
 }
+
 
 

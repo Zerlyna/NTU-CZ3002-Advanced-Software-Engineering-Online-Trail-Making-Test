@@ -10,7 +10,7 @@
     <header> <!--id = "myHeader"-->
         <div class = "header_container" >
             <div class = "header_wrapper">
-                <span class = "left">
+                <span class = "head_left">
                     <a href="Index.php">
                         <i class="fas fa-3x fa-home"></i>
                     </a>
@@ -18,7 +18,7 @@
                         <i class="fas fa-3x fa-cog"></i>
                     </a>
                 </span>
-                <span class = "right">
+                <span id = "head_right" class = "head_right">
                     
                     <a href="Index.php">
                         <i class="fas fa-3x fa-sign-out-alt"></i>
