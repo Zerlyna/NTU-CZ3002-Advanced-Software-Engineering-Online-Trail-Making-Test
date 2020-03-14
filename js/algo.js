@@ -19,7 +19,6 @@ var rngCircle;
 var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
-var counter4 = 0;
 var randX;
 var randY;
 var valid = true;
@@ -29,6 +28,9 @@ var dy;
 var dx;
 var rr;
 //
+var isDrawing;
+var lastX;
+var lastY;
 
 var userArray=[];
 
@@ -49,43 +51,26 @@ function generateCir()
         //limit
         if(circles.length < 1 && circles.length >= 0)
         {
-            randX = Math.floor(450);
-            randY = Math.floor(450);
-            /*randY = Math.floor(Math.random()* 600 + 40);*/
+            randX = Math.floor(Math.random()* 900 + 40);
+            randY = Math.floor(Math.random()* 600 + 40);
         }
         else if (circles.length >= 1)
         {
             do{
                 
-                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 500 - 250);
-                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 500 - 250);
-                /*if(randX < circles[a-2].x + 60 && randX >=  circles[a-2].x -60 && randY < circles[a-2].y + 60 && randY >= circles[a-2].y - 60){
-                    randX = randX + 60;
-                }*/
-
-                /*rng2();*/
+                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
+                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
                 if(counter3 > 1000)
-                {
-                    document.writeln(randX, " ", randY);
-                    document.writeln("Max Neighbour");
-                    document.writeln(chk1, " " , chk2);
-                    document.writeln(circles[a-2].x , " " ,circles[a-2].y);
-                    document.writeln(los, " ", overlapping);
-                    check();
+                {               
+                    regenerate(); //regenerate circle;
                     sessionStorage.clear();
-                    return;
                 }
                 counter3++;
 
                 
                  
             
-            }while(randX > 940 || randY > 640 || randX < 40 || randY < 40); 
-
-            /*rng();*/ 
-
-            
-        
+            }while(randX > 940 || randY > 660 || randX < 40 || randY < 40); 
 
         }
         
@@ -121,12 +106,7 @@ function generateCir()
             }
             if(counter > 10000)
             {
-                document.writeln(dx*dx, " " , dy*dy , " ");
-                document.writeln(dx, " " , dy , " ");
-                document.writeln("Max YX")
-                check();
-                sessionStorage.clear();
-                return;
+                regenerate(); //regenerate circle;
             }
             counter++;
 
@@ -138,45 +118,19 @@ function generateCir()
         {
             for (var j = 0; j < circles.length -1 ; j++) {
 
-                //get current circle and last circle coordinate //current (rngCircle.x,rngCircle.y) , last circle (circles[a].x, circle[a].y)
-
-
-               /* document.write('<pre>');
-                document.writeln("Value A at = ", a-2, " ");
-                document.writeln("Compare Last Line P2 :" , circles[a-2].x, " ", circles[a-2].y, " ");
-                document.writeln("Compare Last Line P1 :" , rngCircle.x, " ", rngCircle.y, " ");
-                document.writeln("Compare Line P1     " , j ,":",circles[j].x, " ", circles[j].y, " ");
-                document.writeln("Compare Line P2     ", j ,":", circles[j+1].x, " ", circles[j+1].y, " ");*/
-                
-                /*document.write(a-1);
-                /*check();
-                
-
-                return;*/
                 chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
                 chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
-
-                /*chk1 = ((xA-xC)*(yD-yC)-(yA-yC)*(xD-xC))*((xB-xC)*(yD-yC)-(yB-yC)*(xD-xC));
-                chk2 = ((xC-xA)*(yB-yA)-(yC-yA)*(xB-xA))*((xD-xA)*(yB-yA)-(yD-yA)*(xB-xA));*/
-                /*document.writeln("Count ", counter4," ",chk1, " " , chk2);*/
 
                 if (chk1 < 0 && chk2 < 0)
                 {
                     los = false;
-                     counter4++;
-                    
                     if(counter2 > 1000)
                     {
-                        document.writeln("Max Comparison")
-                        check();
-                        sessionStorage.clear();
-                        return;
+                        regenerate(); //regenerate circle;
                     }
                     counter2 ++;
-                    /*document.writeln("Result = ", los, " ");*/
                     break;
                 }
-               /* document.writeln("Result = ", los, " ");*/
               
             }
             
@@ -184,8 +138,6 @@ function generateCir()
 
         //
         if (!overlapping && los) {
-
-            /*document.writeln("Success Insert " , a);*/
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
@@ -195,9 +147,6 @@ function generateCir()
         } 
     }
     for (i = 0; i < circles.length; i++) {
-
-        check();
-        return;
 
         ctx.beginPath();
 
@@ -305,7 +254,7 @@ function generateCir()
         alert("Try to click on a circle")
    }
    //show result
-    msgObj.innerHTML = result;
+    /*msgObj.innerHTML = result;*/
     //start the coordinates drawing
     [lastX, lastY] = [e.offsetX, e.offsetY];
     
@@ -371,7 +320,7 @@ function generateCir()
 
     // get the selected circle index from variable no;
    //show result
-    msgObj.innerHTML = result;
+    /*msgObj.innerHTML = result;*/
     
     if(clickInfo[clickInfo.length - 1].index==25)
      {
@@ -499,82 +448,17 @@ function StoreUserTestResult(first)
 // }
 
 
+function regenerate(){
 
-function check(){
-for (i = 0; i < circles.length; i++) {
-    ctx.beginPath();
-    ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
-    ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
-    ctx.fill();
-    ctx.fillStyle = "white"
-    ctx.font = '15px serif';
-    ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
-    if(i==0)
-    {
-        ctx.fillStyle = "black"
-        ctx.font = '15px serif';
-        ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
+    rngCircle.index = 0;
+    a = 1;
+    circles = [];
+    counter = 0;
+    counter2 = 0;
+    counter3 = 0;
+    overlapping = false;
+    los = true;
+    generateCir();
 
-    }
-    if(i==24)
-    {
-        ctx.fillStyle = "black"
-        ctx.font = '15px serif';
-        ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
-    }
-    ctx.closePath();
-    if(i > 0){
-        //check for overlap
-        ctx.beginPath();
-        ctx.lineWidth = "5";
-        ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-        /*document.writeln(circles[i].x);
-        document.writeln(circles[i-1].y);*/
-        ctx.moveTo(circles[i-1].x,circles[i-1].y);
-        ctx.lineTo(circles[i].x,circles[i].y);
-        ctx.stroke();  // Draw it
-        /*document.writeln(circles[i-1]);*/
-        
-    }
-    ctx.beginPath();
-    ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
-    ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
-    ctx.fill();
-    ctx.closePath();
-}}
-
-function rng()
-{
-    ctx.beginPath();
-    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
-    ctx.fillStyle = "rgba(0, 255, 0, 0.7)";
-    ctx.fill();
-    ctx.fillStyle = "black"
-    ctx.font = '15px serif';
-    ctx.fillText(counter4, randX - 8, randY + 3);
-    ctx.closePath(); 
-}
-
-function rng2()
-{
-    ctx.beginPath();
-    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
-    ctx.fillStyle = "rgba(0, 255, 255, 0.7)";
-    ctx.fill();
-    ctx.fillStyle = "black"
-    ctx.font = '15px serif';
-    ctx.fillText(a, randX - 8, randY + 3);
-    ctx.closePath(); 
-}
-
-function rng3()
-{
-    ctx.beginPath();
-    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
-    ctx.fillStyle = "rgba(255, 255, 0.7)";
-    ctx.fill();
-    ctx.fillStyle = "black"
-    ctx.font = '15px serif';
-    ctx.fillText(a, randX - 8, randY + 3);
-    ctx.closePath(); 
+    
 }

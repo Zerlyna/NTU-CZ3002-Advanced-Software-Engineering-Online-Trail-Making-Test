@@ -29,6 +29,9 @@ var dy;
 var dx;
 var rr;
 //
+var isDrawing;
+var lastX;
+var lastY;
 
 var userArray=[];
 
@@ -201,8 +204,8 @@ function generateCir()
     }
     for (i = 0; i < circles.length; i++) {
 
-        check();
-        return;
+        /*check();
+        return;*/
 
         ctx.beginPath();
 

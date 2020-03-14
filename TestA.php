@@ -22,10 +22,10 @@ include('header.php');
                 <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div class = "test_r1"><h3>Test A</h3></div>
-                    <div class = "test_r2">
-                        <canvas id="canvas" width="1000px" height="796px"></canvas>
-                    </div>
+                    <!--<div class = "test_r1"><h3>Test A</h3></div>
+                    <div class = "test_r2">-->
+                        <canvas id="canvas" width="990px" height="710px"></canvas>
+                    <!--</div>
                     <div id = "layout_consent">
                         <div class = "con_r1"><p1>ConTItiel</p1></div>
                         <div class = "con_r2"><p1>ConInformation</p1></div>
@@ -37,10 +37,10 @@ include('header.php');
                         <div class = "insA_r3">buttontotestB</div>
                     
                     <div class = "test_r3">
-                        <form action="TestB.php"> <!-- Use as a placeholder to go next navigate next page -->
-                            <button type="submit" name = "nextA" class="login_form_btn">Next</button>
+                        <form action="TestB.php">--> <!-- Use as a placeholder to go next navigate next page -->
+                            <!--<button type="submit" name = "nextA" class="login_form_btn">Next</button>
                         </form>
-                    </div> 
+                    </div> -->
                     
                 <!-- end of content -->
                 </div> 
