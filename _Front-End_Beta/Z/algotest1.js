@@ -19,7 +19,7 @@ var rngCircle;
 var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
-var counter4 = 0;
+/*var counter4 = 0;*/
 var randX;
 var randY;
 var valid = true;
@@ -49,16 +49,16 @@ function generateCir()
         //limit
         if(circles.length < 1 && circles.length >= 0)
         {
-            randX = Math.floor(450);
-            randY = Math.floor(450);
+            randX = Math.floor(Math.random()* 900 + 40);
+            randY = Math.floor(Math.random()* 600 + 40);
             /*randY = Math.floor(Math.random()* 600 + 40);*/
         }
         else if (circles.length >= 1)
         {
             do{
                 
-                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 500 - 250);
-                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 500 - 250);
+                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
+                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
                 /*if(randX < circles[a-2].x + 60 && randX >=  circles[a-2].x -60 && randY < circles[a-2].y + 60 && randY >= circles[a-2].y - 60){
                     randX = randX + 60;
                 }*/
@@ -83,7 +83,7 @@ function generateCir()
                 
                  
             
-            }while(randX > 940 || randY > 640 || randX < 40 || randY < 40); 
+            }while(randX > 940 || randY > 660 || randX < 40 || randY < 40); 
 
             /*rng();*/ 
 
