@@ -71,9 +71,12 @@ function generateCir()
                     document.writeln(chk1, " " , chk2);
                     document.writeln(circles[a-2].x , " " ,circles[a-2].y);
                     document.writeln(los, " ", overlapping);
-                    check();
+                    
+                    regenerate(); //regenerate circle;
+                    /*check();*/
                     sessionStorage.clear();
-                    return;
+                    
+                    /*return;*/
                 }
                 counter3++;
 
@@ -124,9 +127,10 @@ function generateCir()
                 document.writeln(dx*dx, " " , dy*dy , " ");
                 document.writeln(dx, " " , dy , " ");
                 document.writeln("Max YX")
-                check();
+                /*check();*/
+                regenerate(); //regenerate circle;
                 sessionStorage.clear();
-                return;
+                /*return;*/
             }
             counter++;
 
@@ -163,14 +167,15 @@ function generateCir()
                 if (chk1 < 0 && chk2 < 0)
                 {
                     los = false;
-                     counter4++;
+                     /*counter4++;*/
                     
                     if(counter2 > 1000)
                     {
                         document.writeln("Max Comparison")
-                        check();
+                        /*check();*/
+                        regenerate(); //regenerate circle;
                         sessionStorage.clear();
-                        return;
+                        /*return;*/
                     }
                     counter2 ++;
                     /*document.writeln("Result = ", los, " ");*/
@@ -577,4 +582,22 @@ function rng3()
     ctx.font = '15px serif';
     ctx.fillText(a, randX - 8, randY + 3);
     ctx.closePath(); 
+}
+
+
+function regenerate(){
+    document.write('<pre>');
+    document.writeln("Limit Reach at ", circles.length);
+    rngCircle.index = 0;
+    a = 1;
+    circles = [];
+    counter = 0;
+    counter2 = 0;
+    counter3 = 0;
+    overlapping = false;
+    los = true;
+    document.writeln("New Limit ", circles.length);
+    generateCir();
+
+    
 }
