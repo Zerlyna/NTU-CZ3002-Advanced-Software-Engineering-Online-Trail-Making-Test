@@ -258,7 +258,6 @@ canvas.addEventListener('mousedown', (e) => {
         
         if(clickInfo[clickInfo.length - 1].index==13)
          {
-         alert("Congrates u have completed the test");
          stopTest();
          }
  
@@ -306,29 +305,75 @@ function countdown( elementName, minutes, seconds )
 
 function startTest()
 {
+    
 document.getElementById("timerCountDown").style.visibility="visible";
 countdown( "timer", 3,00 );
 }
 function stopTest()
 {
-
     clearInterval(interval);
     msgObj.innerHTML =  document.getElementById("timer").innerHTML;
+    // alert(msgObj.innerHTML);
     var timeleft=msgObj.innerHTML;
     //store the timeleft timing to the array
     var TLeftArray=timeleft.split(":");
+    // alert(TLeftArray[0]);
+    // alert(TLeftArray[1]);
     var minDiff=2-TLeftArray[0];
     var secDiff=60-TLeftArray[1];
     var testResult;
     if(minDiff==0)
     {
-        document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
-         testResult='0:'+secDiff;
+        document.getElementById("TMTBResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+         testResult=secDiff;
     }
     else
     {
-        minDiff+=(minDiff*60);
-        document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
-        testResult=minDiff+':'+secDiff;
+        secDiff+=(minDiff*60);
+        document.getElementById("TMTBResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+        testResult=secDiff;
     }
+    var date = d.getDate();
+    var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+    var year = d.getFullYear();
+    //suppose to get the username based on the login 
+    document.cookie = "username=John Doe";
+    document.getElementById("testA").innerHTML ="You Have Use "+sessionStorage.getItem("TMT_A") + "Seconds for Test A";
+    document.getElementById("testB").innerHTML="You have use "+testResult+ "Seconds for Test B";
+    window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
+  
+    location.href = "#popup1";
+    
+    
 }
+//
+// function setCookie()
+// {
+//     var userObject={};
+//     var d = new Date();
+//     var date = d.getDate();
+//     var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+//     var year = d.getFullYear();
+//     //get the login username for now
+//     userObject.name="Johnson";
+//     userObject.testA=sessionStorage.getItem("TMT_A");
+//     userObject.testB=sessionStorage.getItem("TMT_B");
+//     userObject.Year=year;
+//     userObject.month=month;
+//     userObject.date=date;
+
+//     var jsonString=JSON.stringify(userObject);
+//     document.cookie="cookieObject="+jsonString;
+//     var userarray=document.cookie.split("=");
+//     alert(userarray[1]);
+
+// }
+// function getCookie()
+// {
+//     var nameValueArray=document.cookie.split("=");
+//     var userObject=JSON.parse(nameValueArray[1]);
+//     alert(userObject.name);
+//     alert(userObject.testA);
+//     alert(userObject.testB);
+//     alert(userObject.Year);
+// }

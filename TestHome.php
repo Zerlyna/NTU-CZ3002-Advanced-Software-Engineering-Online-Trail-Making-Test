@@ -29,7 +29,7 @@
 		<div class="content">
 		<p style="text-align:center;"><strong>GOALS:</strong><br>Connect 25 circles within the specific time frame to pass the test.<br></p>
 		<p style="text-align:center;"><strong>How to connect?</strong> <br>Press on the dots and release on the next dot</p>
-		<p style="text-align:center;"><strong>What is the sequence?</strong>The sequence of this test is in numerical order.<br> Eg: Connect 1 to 2<br> then 2 to 3<br>then 3 to 4</p>
+		<p style="text-align:center;"><strong>What is the sequence?</strong><br>The sequence of this test is in numerical order.<br> Eg: Connect 1 to 2<br> then 2 to 3<br>then 3 to 4</p>
 		<p style="text-align:center;color:red;"><strong>Note:</strong><br>The first test will start after you click on Start button.<br> Please take this test seriously as it will affect the analysis of your result</p>
 		</div>
 		<div class="box">

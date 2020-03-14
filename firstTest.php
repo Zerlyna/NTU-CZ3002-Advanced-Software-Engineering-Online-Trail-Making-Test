@@ -35,7 +35,7 @@
 		<h2 style="text-align:center;">Second Test Rules</h2>
 		<p style="text-align:center;"><strong>GOALS:</strong><br>Connect 25 circles within the specific time frame to pass the test.<br></p>
 		<p style="text-align:center;"><strong>How to connect?</strong> <br>Press on the dots and release on the next dot</p>
-		<p style="text-align:center;"><strong>What is the sequence?</strong> <br>The sequence of this test is numbers follow by alphabets.<br> Eg: Connect 1 to A<br> then A to 2<br>then 2 to B</p>
+		<p style="text-align:center;"><strong>What is the sequence?</strong><br>The sequence of this test is numbers follow by alphabets.<br> Eg: Connect 1 to A<br> then A to 2<br>then 2 to B</p>
 		<p style="text-align:center;color:red;"><strong>Note:</strong><br>The first test will start after you click on Start button.<br> Please take this test seriously as it will affect the analysis of your result</p>
 		</div>
 		<div class="box">

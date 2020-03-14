@@ -295,19 +295,22 @@ function stopTest()
     var timeleft=msgObj.innerHTML;
     //store the timeleft timing to the array
     var TLeftArray=timeleft.split(":");
+    // alert(TLeftArray[0]);
+    // alert(TLeftArray[1]);
+
     var minDiff=2-TLeftArray[0];
     var secDiff=60-TLeftArray[1];
     var testResult;
     if(minDiff==0)
     {
         document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
-         testResult='0:'+secDiff;
+        testResult=secDiff;
     }
     else
     {
-        minDiff+=(minDiff*60);
+        secDiff+=(minDiff*60);
         document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
-        testResult=minDiff;
+        testResult=secDiff;
     }
     window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));
     location.href = "#secondTestRules";
