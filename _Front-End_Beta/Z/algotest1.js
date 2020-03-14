@@ -39,10 +39,6 @@ window.onload=generateCir();
 
 function generateCir()
 {
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(10, 10, 980, 700);
-    ctx.strokeStyle = "black";
-    ctx.strokeRect(10, 10, 980, 700);
 
     while (circles.length < 25) {
 
@@ -202,34 +198,49 @@ function generateCir()
             
         } 
     }
+    if(circles.length == 25)
+    {
     for (i = 0; i < circles.length; i++) {
 
-        /*check();
-        return;*/
+            /*check();
+            return;*/
+            ctx.fillStyle = "#FFFFFF";
+            /*ctx.fillRect(10, 10, 980, 700);*/
+            ctx.strokeStyle = "black";
+            ctx.strokeRect(10, 10, 980, 700);
 
-        ctx.beginPath();
-
-        ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
-        ctx.fillStyle = "rgba(250, 0, 0, 0.8)";
-        ctx.fill();
-        ctx.fillStyle = "white"
-        ctx.font = '15px serif';
-        ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
+            ctx.beginPath();
+            ctx.lineWidth = "3";
+            ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
+            ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+            ctx.stroke();
+            ctx.fillStyle = "rgba(255, 255, 255, 1)";
+            ctx.fill();
+            ctx.fillStyle = "black"
+            ctx.font = '30px Arial';
+            ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
+            
+            /*if(i==0)
+            {
+                ctx.fillStyle = "black"
+                ctx.font = '15px serif';
+                ctx.fillText("Start", circles[i].x - 15, circles[i].y + 40);
         
-        if(i==0)
-        {
-            ctx.fillStyle = "black"
-            ctx.font = '15px serif';
-            ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
-    
+            }
+            if(i==24)
+            {
+                ctx.fillStyle = "black"
+                ctx.font = '15px serif';
+                ctx.fillText("End", circles[i].x - 13, circles[i].y + 40);
+            }*/
+            
+            
+
+            /*ctx.beginPath();*/
+            ctx.lineWidth = "5";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.closePath();
         }
-        if(i==24)
-        {
-            ctx.fillStyle = "black"
-            ctx.font = '15px serif';
-            ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
-        }
-        ctx.closePath();
     }
 }
 
@@ -296,11 +307,11 @@ function generateCir()
                     //must begin path if not the circle being colored will be 25 on default
                     ctx.beginPath();
                     ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
-                    ctx.fillStyle = "#48D2A3";
+                    ctx.fillStyle = "#00ff00";
                     ctx.fill();
                     ctx.fillStyle = "black"
-                    ctx.font = '15px serif';
-                    ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+                    ctx.font = '30px Arial';
+                    ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
                 }
             }
            
@@ -368,11 +379,11 @@ function generateCir()
               //must begin path if not the circle being colored will be 25 on default
               ctx.beginPath();
               ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
-              ctx.fillStyle = "#48D2A3";
+              ctx.fillStyle = "#00ff00";
               ctx.fill();
               ctx.fillStyle = "black"
-              ctx.font = '15px serif';
-              ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+              ctx.font = '30px Arial';
+              ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 17, cypos + 10);
           }
       }
     }
