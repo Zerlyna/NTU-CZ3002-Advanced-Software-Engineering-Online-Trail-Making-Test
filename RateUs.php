@@ -27,7 +27,10 @@ include('header.php');
                         <div class = "RateUs_c3" id = "sad" onclick="sad()"><i class="far fa-8x fa-frown"></i></div>
                     </div>
                     <div class = "RateUs_r3">
-                            <button  onclick = "confirm()" type="submit" class="confirm">Confirm</button>
+                        <div class="wrap_btn">
+                            <div class="form_bgbtn"></div>
+                                <button onclick = "confirm()"  type="submit" class="login_form_btn">Confirm</button>
+                        </div>
                     </div>
                     <div id = "overlay_ty" >
                         <h1 class = "ty"> Thank you!!! </h1>

@@ -230,7 +230,11 @@ include('header.php');
                     </div>
                     <div class = "reg_r10">
                         <form action="Index.php">
-                            <button type="submit" class="register">Register</button>
+                            <!--<button type="submit" class="register">Register</button>-->
+                            <div class="wrap_btn">
+                            <div class="form_bgbtn"></div>
+                                <button  type="submit" class="login_form_btn">Register</button>
+                            </div>
                         </form>
                     </div>
                 </div>

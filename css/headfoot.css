@@ -70,13 +70,14 @@ footer {
 }
 
 .Rate{
-    margin-left : 15%;
+    margin-left : 18%;
     padding : none;
+    visibility: hidden;
 
 }
 
 .About{
-    margin-left : 10%;
+    margin-left : 20%;
     padding : none;
 }
 
@@ -84,6 +85,7 @@ footer {
 .right{
     float : right;
     margin-right : 40px;
+    visibility: hidden;
 }
 
 

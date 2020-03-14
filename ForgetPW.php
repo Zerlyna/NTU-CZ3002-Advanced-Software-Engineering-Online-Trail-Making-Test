@@ -183,7 +183,11 @@ include('header.php');
                     </div>
                     
                     <div class = "RST_r5">
-                            <button onclick = "verify()" type="submit" class="verify">Verify</button>
+                            <!--<button onclick = "verify()" type="submit" class="verify">Verify</button>-->
+                            <div class="wrap_btn">
+                                    <div class="form_bgbtn"></div>
+                                    <button onclick = "verify()"  type="submit" name = "RST_confirm" class="login_form_btn">Verify</button>
+                            </div>
                     </div>
                     <div id = "overlay_verify">
                     <!-- If Not Success -->
@@ -204,7 +208,11 @@ include('header.php');
                             </div>
                         </div>
                         <div class = "V_r4">
-                                <button  onclick = "success()" type="submit" class="RST_confirm">Confirm</button>
+                                <!--<button  onclick = "success()" type="submit" class="RST_confirm">Confirm</button>-->
+                                <div class="wrap_btn">
+                                    <div class="form_bgbtn"></div>
+                                        <button onclick = "success()"  type="submit" name = "RST_confirm" class="login_form_btn">Confirm</button>
+                                </div>
                         </div>
                     </div>
 

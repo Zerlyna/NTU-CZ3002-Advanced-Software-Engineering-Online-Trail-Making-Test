@@ -14,11 +14,12 @@
                     <a href="Index.php">
                         <i class="fas fa-3x fa-home"></i>
                     </a>
-                </span>
-                <span class = "right">
                     <a href="_Front-End_Beta/Setting.php">
                         <i class="fas fa-3x fa-cog"></i>
                     </a>
+                </span>
+                <span class = "right">
+                    
                     <a href="Index.php">
                         <i class="fas fa-3x fa-sign-out-alt"></i>
                     </a>
