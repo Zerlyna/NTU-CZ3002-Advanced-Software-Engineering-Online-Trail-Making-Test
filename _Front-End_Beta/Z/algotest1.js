@@ -28,10 +28,11 @@ var other;
 var dy;
 var dx;
 var rr;
-//
+//https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
 var isDrawing;
 var lastX;
 var lastY;
+var toggle = true;
 
 var userArray=[];
 
@@ -198,49 +199,55 @@ function generateCir()
             
         } 
     }
-    if(circles.length == 25)
+    if(toggle && circles.length == 25)
     {
-    for (i = 0; i < circles.length; i++) {
+        toggle = false;
+        ctx.lineWidth = "5";
+        ctx.fillStyle = "#FFFFFF";
+        /*ctx.fillRect(10, 10, 980, 700);*/
+        ctx.strokeStyle = "black";
+        ctx.strokeRect(10, 10, 980, 700);
+        ctx.lineWidth = "2";
+        for (i = 0; i < circles.length; i++) {
 
-            /*check();
-            return;*/
-            ctx.fillStyle = "#FFFFFF";
-            /*ctx.fillRect(10, 10, 980, 700);*/
-            ctx.strokeStyle = "black";
-            ctx.strokeRect(10, 10, 980, 700);
+                /*check();
+                return;*/
+                
 
-            ctx.beginPath();
-            ctx.lineWidth = "3";
-            ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
-            ctx.strokeStyle = "rgba(0, 0, 0, 1)";
-            ctx.stroke();
-            ctx.fillStyle = "rgba(255, 255, 255, 1)";
-            ctx.fill();
-            ctx.fillStyle = "black"
-            ctx.font = '30px Arial';
-            ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
-            
-            /*if(i==0)
-            {
+                
+                ctx.beginPath();
+                ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
+                ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+                ctx.stroke();
+                ctx.closePath();
+                /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
+                ctx.fill();*/
                 ctx.fillStyle = "black"
-                ctx.font = '15px serif';
-                ctx.fillText("Start", circles[i].x - 15, circles[i].y + 40);
-        
+                ctx.font = '30px Arial';
+                ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
+                
+                /*if(i==0)
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '15px serif';
+                    ctx.fillText("Start", circles[i].x - 15, circles[i].y + 40);
+            
+                }
+                if(i==24)
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '15px serif';
+                    ctx.fillText("End", circles[i].x - 13, circles[i].y + 40);
+                }*/
+                
+                
+
+                /*ctx.beginPath();*/
+                /*'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';*/  // Green path
+                
             }
-            if(i==24)
-            {
-                ctx.fillStyle = "black"
-                ctx.font = '15px serif';
-                ctx.fillText("End", circles[i].x - 13, circles[i].y + 40);
-            }*/
-            
-            
-
-            /*ctx.beginPath();*/
-            ctx.lineWidth = "5";
-            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.closePath();
-        }
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "#666666";
     }
 }
 
@@ -248,7 +255,7 @@ function generateCir()
   function draw(e) 
   {
     // stop the function if they are not mouse down
-    if(!isDrawing) return;
+    if(!isDrawing) {ctx.closePath(); return;}
     //listen for mouse move event
     console.log(e);
     ctx.beginPath();
@@ -309,6 +316,7 @@ function generateCir()
                     ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
                     ctx.fillStyle = "#00ff00";
                     ctx.fill();
+                    ctx.closePath();
                     ctx.fillStyle = "black"
                     ctx.font = '30px Arial';
                     ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
@@ -362,6 +370,8 @@ function generateCir()
 	if(clickInfo[clickInfo.length - 1].index !=nextIndex)
      {
         alert("Wrong,You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
+
+
         clickInfo.length = 0;
         generateCir();
      }
@@ -381,6 +391,7 @@ function generateCir()
               ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
               ctx.fillStyle = "#00ff00";
               ctx.fill();
+              ctx.closePath();
               ctx.fillStyle = "black"
               ctx.font = '30px Arial';
               ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 17, cypos + 10);
