@@ -87,5 +87,5 @@
     <script type= "text/javascript" src="js/bgrd.js"></script>
 </html>
 <?php
-include('footer.php');
+    include('footer.php');
 ?>

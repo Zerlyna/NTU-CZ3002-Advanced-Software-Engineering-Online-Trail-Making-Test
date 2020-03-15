@@ -630,7 +630,5 @@ function regenerate(){
     counter3 = 0;
     overlapping = false;
     los = true;
-    generateCir();
-
-    
+    generateCir();    
 }
