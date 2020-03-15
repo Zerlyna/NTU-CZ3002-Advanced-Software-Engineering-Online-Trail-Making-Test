@@ -19,11 +19,59 @@
 		<h2 style="text-align:center;">Welcome</h2>
 		<a class="close" href="#popup2">&times;</a>
 		<div class="content">
-        <p>Your Result</p>
-		<p id="testA"></p>
-		<p id="testB"></p>
-		</div>
+        <p>Your test result</p>
+		<div class="flex-wrapper">
+			<div class="single-chart">
+				<svg viewBox="0 0 36 36" class="circular-chart orange">
+				<path class="circle-bg"
+					d="M18 2.0845
+					a 15.9155 15.9155 0 0 1 0 31.831
+					a 15.9155 15.9155 0 0 1 0 -31.831"
+				/>
+				<path class="circle"
+					stroke-dasharray="100, 100"
+					d="M18 2.0845
+					a 15.9155 15.9155 0 0 1 0 31.831
+					a 15.9155 15.9155 0 0 1 0 -31.831"
+				/>
+				<text id="tmtAResult" x="18" y="20.35" class="percentage"></text>
+				</svg>
+			</div>
+			
+			<div class="single-chart">
+				<svg viewBox="0 0 36 36" class="circular-chart green">
+				<path class="circle-bg"
+					d="M18 2.0845
+					a 15.9155 15.9155 0 0 1 0 31.831
+					a 15.9155 15.9155 0 0 1 0 -31.831"
+				/>
+				<path class="circle"
+					stroke-dasharray="60, 100"
+					d="M18 2.0845
+					a 15.9155 15.9155 0 0 1 0 31.831
+					a 15.9155 15.9155 0 0 1 0 -31.831"
+				/>
+				<text id="tmtBResult" x="18" y="20.35" class="percentage"></text>
+				</svg>
+			</div>
 
+			<div class="single-chart">
+				<svg viewBox="0 0 36 36" class="circular-chart blue">
+				<path class="circle-bg"
+					d="M18 2.0845
+					a 15.9155 15.9155 0 0 1 0 31.831
+					a 15.9155 15.9155 0 0 1 0 -31.831"
+				/>
+				<path class="circle"
+					stroke-dasharray="90, 100"
+					d="M18 2.0845
+					a 15.9155 15.9155 0 0 1 0 31.831
+					a 15.9155 15.9155 0 0 1 0 -31.831"
+				/>
+				<text id="totalResult" x="18" y="20.35" class="percentage">%</text>
+				</svg>
+			</div>
+		</div>
 		<div class="box">
 		<a class="button" href="TestHome.php">Home</a>
 		</div>
