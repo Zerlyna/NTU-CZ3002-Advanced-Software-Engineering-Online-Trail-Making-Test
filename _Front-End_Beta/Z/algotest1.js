@@ -220,11 +220,21 @@ function generateCir()
                 ctx.strokeStyle = "rgba(0, 0, 0, 1)";
                 ctx.stroke();
                 ctx.closePath();
-                /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
-                ctx.fill();*/
-                ctx.fillStyle = "black"
-                ctx.font = '30px Arial';
-                ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
+                if(i < 9)
+                {
+                    
+                    /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
+                    ctx.fill();*/
+                    ctx.fillStyle = "black"
+                    ctx.font = '30px Arial';
+                    ctx.fillText(circles[i].index, circles[i].x - 9 , circles[i].y + 10);
+                }
+                else
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '30px Arial';
+                    ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
+                }
                 
                 /*if(i==0)
                 {
@@ -240,7 +250,7 @@ function generateCir()
                     ctx.fillText("End", circles[i].x - 13, circles[i].y + 40);
                 }*/
                 
-                
+                ctx.closePath();
 
                 /*ctx.beginPath();*/
                 /*'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';*/  // Green path
