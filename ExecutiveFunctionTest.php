@@ -14,7 +14,7 @@
 <p id="TMTBResult"><p>
 </div>
 
-<div id="popup1" class="overlay">
+<div id="TestResult" class="overlay">
 	<div class="popup">
 		<h2 style="text-align:center;">Welcome</h2>
 		<a class="close" href="#popup2">&times;</a>

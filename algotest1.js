@@ -11,8 +11,12 @@ var mousedown=false;
 var nextIndex;
 var interval;
 
+var isDrawing;
+var lastX;
+var lastY;
 var userArray=[];
-
+var dataURL;
+var numOfAttempt=3;
 window.onload=generateCir();
 
 function generateCir()
@@ -205,8 +209,23 @@ function generateCir()
 	if(clickInfo[clickInfo.length - 1].index !=nextIndex)
      {
         alert("Wrong,You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
-        clickInfo.length = 0;
-        generateCir();
+        //pop twice because the moment it enter and release it is store into the array
+        clickInfo.pop();
+        clickInfo.pop();
+        var img=new Image;
+        img.onload=function()
+        {
+            ctx.drawImage(img,0,0);
+        };
+        img.src=dataURL;
+        //limit to 3 attempt
+        numOfAttempt--;
+        if(numOfAttempt==0)
+        {
+            window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
+            alert("You have fail test A");
+            location.href = "#secondTestRules";
+        }
      }
     else
     {
@@ -229,6 +248,8 @@ function generateCir()
               ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
           }
       }
+      //convert canvas into image url
+      dataURL= canvas.toDataURL();
     }
 
     // get the selected circle index from variable no;
@@ -315,7 +336,6 @@ function stopTest()
     window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));
     location.href = "#secondTestRules";
    
-    
 }
 
 // function StoreUserTestResult(first)

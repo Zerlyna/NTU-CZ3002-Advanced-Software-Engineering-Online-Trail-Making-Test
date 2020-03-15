@@ -226,8 +226,24 @@ canvas.addEventListener('mousedown', (e) => {
         if(clickInfo[clickInfo.length - 1].index !=nextIndex)
         {
             alert("Wrong, You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
-            clickInfo.length = 0;
-            generateCir();
+           //pop twice
+            clickInfo.pop();
+            clickInfo.pop();
+            //load the image into canvas
+            var img=new Image;
+            img.onload=function()
+            {
+                ctx.drawImage(img,0,0);
+            };
+            img.src=dataURL;
+            //limit to 3 attempt
+            numOfAttempt--;
+            if(numOfAttempt==0)
+            {
+                window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
+                alert("You have fail test A");
+                location.href = "#secondTestRules";
+            }
             
         }
         else
@@ -250,6 +266,7 @@ canvas.addEventListener('mousedown', (e) => {
                     ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
                 }
             }
+            dataURL= canvas.toDataURL();
         }
     
         // get the selected circle index from variable no;
@@ -333,18 +350,16 @@ function stopTest()
         document.getElementById("TMTBResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
         testResult=secDiff;
     }
-    var date = d.getDate();
-    var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-    var year = d.getFullYear();
+    // var date = d.getDate();
+    // var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+    // var year = d.getFullYear();
     //suppose to get the username based on the login 
     document.cookie = "username=John Doe";
     document.getElementById("testA").innerHTML ="You Have Use "+sessionStorage.getItem("TMT_A") + "Seconds for Test A";
     document.getElementById("testB").innerHTML="You have use "+testResult+ "Seconds for Test B";
     window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
   
-    location.href = "#popup1";
-    
-    
+    location.href = "#TestResult";
 }
 //
 // function setCookie()
