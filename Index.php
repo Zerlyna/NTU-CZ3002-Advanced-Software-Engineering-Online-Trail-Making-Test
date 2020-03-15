@@ -56,11 +56,11 @@ For now:
                             <div class = "login_title"><label for="title"><b>Welcome to LarkDetect</b></label></div>
                             
                             <div class="login_id">
-                                <input  id="loginID" name = "NRIC" class="form__field" placeholder="Enter NRIC" required>
+                                <input  id="loginID" name = "NRIC" class="form__field" placeholder="Enter NRIC">
                                 <label for="nric" class="form__label">Enter NRIC</label>
                             </div>
                             <div class="login_pw">
-                                <input type="password" id="loginID" name = "password" class="form__field" placeholder="Enter Password" required>
+                                <input type="password" id="loginID" name = "password" class="form__field" placeholder="Enter Password">
                                 <label for="pw" class="form__label">Enter Password</label>
                             </div>
 
