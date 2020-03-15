@@ -33,6 +33,14 @@ var chk1_l1od2 ;
 var chk2_l1od2 ;
 var chk1_l2od2 ;
 var chk2_l2od2 ;
+var chk1_ld1od1 ;
+var chk2_ld1od1 ;
+var chk1_ld2od1 ;
+var chk2_ld2od1 ;
+var chk1_ld1od2 ;
+var chk2_ld1od2 ;
+var chk1_ld2od2 ;
+var chk2_ld2od2 ;
 var chk1;
 var chk2;
 var rngCircle;
@@ -69,7 +77,6 @@ function generateCir()
     while (circles.length < 3) {
 
         los = true;
-        document.write("chck2")
         overlapping = false;
         
         //limit
@@ -263,12 +270,22 @@ function generateCir()
                 chk1_l1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P3 Pi4 Pi1
                 chk2_l1od1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x));
                 chk1_l2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P3 Pi2 Pi3
-                chk2_l2od1 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));;
+                chk2_l2od1 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
 
-                chk1_l1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x));; //P2 P4 Pi4 Pi1
+                chk1_l1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P4 Pi4 Pi1
                 chk2_l1od2 = ((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x));
-                chk1_l2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x));; //P2 P4 Pi2 Pi3
+                chk1_l2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P4 Pi2 Pi3
                 chk2_l2od2 = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x));
+
+                chk1_ld1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P4 Pi4 Pi1
+                chk2_ld1od1 = ((Pi1_x-P1_x)*(P4_y-P1_y)-(Pi1_y-P1_y)*(P4_x-P1_x))*((Pi4_x-P1_x)*(P4_y-P1_y)-(Pi4_y-P1_y)*(P4_x-P1_x));
+                chk1_ld2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P4 Pi2 Pi3
+                chk2_ld2od1 = ((Pi2_x-P1_x)*(P4_y-P1_y)-(Pi2_y-P1_y)*(P4_x-P1_x))*((Pi3_x-P1_x)*(P4_y-P1_y)-(Pi3_y-P1_y)*(P4_x-P1_x));
+
+                chk1_ld1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P3 Pi4 Pi1
+                chk2_ld1od2 = ((Pi1_x-P2_x)*(P3_y-P2_y)-(Pi1_y-P2_y)*(P3_x-P2_x))*((Pi4_x-P2_x)*(P3_y-P2_y)-(Pi4_y-P2_y)*(P3_x-P2_x));
+                chk1_ld2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P3 Pi2 Pi3
+                chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));
 
                 /*if(chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0)*/
                 
@@ -289,9 +306,6 @@ function generateCir()
                 ctx.closePath();*/
                 /*return;*/
 
-                
-
-                document.write('<pre>');
                 /*document.writeln(" P1X ", P1_x, " P1Y ", P1_y, " DX " , cx, " DY ", cy , " M " , m, " cf ", cf , " ca ", ca);*/
 
 
@@ -389,17 +403,17 @@ function generateCir()
                 if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
                     || chk1 < 0 && chk2 < 0 
                     || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0 
-                    || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0){
+                    || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0
+                    || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0&& chk2_ld2od2< 0){
                     los = false;
                      /*counter4++;*/
-                     document.write("chck")
                     if(counter2 > 1000)
                     {
 
                         document.writeln("Max Comparison")
                         /*check();*/
-                        regenerate(); //regenerate circle;
                         sessionStorage.clear();
+                        regenerate(); //regenerate circle;
                         /*return;*/
                     }
                     counter2 ++;
@@ -412,11 +426,43 @@ function generateCir()
             
         }
         //
-        if(Number.isNaN(chk1_l1o1))
+        if(Number.isNaN(chk1_l1o1)) //temp fixed
         {
-            document.write('<pre>');
-            document.write("NaN Detected");
-            los = false;
+            /*document.write('<pre>');
+            document.write("NaN Detected");*/
+            /*los = false;*/
+            chk1_l1o1 = 0;
+            chk2_l1o1 = 0;
+            chk1_l1o2 = 0;
+            chk2_l1o2 = 0;
+            chk1_l2o1 = 0;
+            chk2_l2o1 = 0;
+            chk1_l2o2 = 0;
+            chk2_l2o2 = 0;
+            chk1_l2ob = 0;
+            chk2_l2ob = 0;
+            chk1_l1ob = 0;
+            chk2_l1ob = 0;
+            chk1_l1od1 = 0;
+            chk2_l1od1 = 0;
+            chk1_l2od1 = 0;
+            chk2_l2od1 = 0;
+            chk1_l1od2 = 0;
+            chk2_l1od2 = 0;
+            chk1_l2od2 = 0;
+            chk2_l2od2 = 0;
+            chk1_ld1od1 = 0;
+            chk2_ld1od1 = 0;
+            chk1_ld2od1 = 0;
+            chk2_ld2od1 = 0;
+            chk1_ld1od2 = 0;
+            chk2_ld1od2 = 0;
+            chk1_ld2od2 = 0;
+            chk2_ld2od2 = 0;
+            chk1 = 0;
+            chk2 = 0;
+            sessionStorage.clear();
+            regenerate();
         }
         if (!overlapping && los) { 
             document.write('<pre>');
@@ -490,7 +536,7 @@ function generateCir()
             ctx.lineWidth = "3";
             ctx.strokeStyle = "#666666";
     }
-    if(overcounter == 100){
+    if(overcounter == 30){
         document.write('<pre>');
         document.write("Overflow");
         return;

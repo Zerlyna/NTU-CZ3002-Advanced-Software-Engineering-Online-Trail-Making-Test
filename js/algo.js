@@ -13,12 +13,41 @@ var interval;
 
 //new
 var los = true;
+var chk1_l1o1 ;
+var chk2_l1o1 ;
+var chk1_l1o2 ;
+var chk2_l1o2 ;
+var chk1_l2o1 ;
+var chk2_l2o1 ;
+var chk1_l2o2 ;
+var chk2_l2o2 ;
+var chk1_l2ob ;
+var chk2_l2ob ;
+var chk1_l1ob ;
+var chk2_l1ob ;
+var chk1_l1od1 ;
+var chk2_l1od1 ;
+var chk1_l2od1 ;
+var chk2_l2od1 ;
+var chk1_l1od2 ;
+var chk2_l1od2 ;
+var chk1_l2od2 ;
+var chk2_l2od2 ;
+var chk1_ld1od1 ;
+var chk2_ld1od1 ;
+var chk1_ld2od1 ;
+var chk2_ld2od1 ;
+var chk1_ld1od2 ;
+var chk2_ld1od2 ;
+var chk1_ld2od2 ;
+var chk2_ld2od2 ;
 var chk1;
 var chk2;
 var rngCircle;
 var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
+var overcounter = 0;
 var randX;
 var randY;
 var valid = true;
@@ -27,10 +56,15 @@ var other;
 var dy;
 var dx;
 var rr;
-//
+//https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
 var isDrawing;
 var lastX;
 var lastY;
+var toggle = true;
+
+var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
+var P1_x, P1_y, P2_x, P2_y , P3_x , P3_y , P4_x , P4_y;
+var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;
 
 var userArray=[];
 
@@ -38,10 +72,6 @@ window.onload=generateCir();
 
 function generateCir()
 {
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(10, 10, 980, 700);
-    ctx.strokeStyle = "black";
-    ctx.strokeRect(10, 10, 980, 700);
 
     while (circles.length < 25) {
 
@@ -61,9 +91,11 @@ function generateCir()
                 randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
                 randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
                 if(counter3 > 1000)
-                {               
+                {
                     regenerate(); //regenerate circle;
+
                     sessionStorage.clear();
+
                 }
                 counter3++;
 
@@ -107,6 +139,7 @@ function generateCir()
             if(counter > 10000)
             {
                 regenerate(); //regenerate circle;
+                sessionStorage.clear();
             }
             counter++;
 
@@ -118,14 +151,111 @@ function generateCir()
         {
             for (var j = 0; j < circles.length -1 ; j++) {
 
+                
+
+                /*cr = 15; // radius value 
+
+                cx = rngCircle.x - circles[a-2].x;
+                cy = rngCircle.y - circles[a-2].y;
+                
+                m = cy / cx;
+                cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
+                ca = circles[a-2].x*m ;
+                cc = rngCircle.x*m;
+                cb = (m + (1/m));
+
+
+                //new line
+
+                P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);
+                P1_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca - cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
+
+                P2_x = Math.floor(((circles[a-2].x/m) + ca + cf) / cb);
+                P2_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca + cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
+
+                P3_x = Math.floor(((rngCircle.x/m) + cc - cf) / cb);
+                P3_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc - cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
+
+                P4_x = Math.floor(((rngCircle.x/m) + cc + cf) / cb);
+                P4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
+
+
+                cx = circles[j+1].x - circles[j].x;
+                cy = circles[j+1].y - circles[j].y;
+                
+                m = cy / cx;
+                cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
+                ca = circles[j].x*m ;
+                cc = circles[j+1].x*m;
+                cb = (m + (1/m));
+
+                //old line
+                Pi1_x = Math.floor(((circles[j].x/m) + ca - cf) / cb);
+                Pi1_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca - cf)) /cb) + (circles[j].x/m) + circles[j].y);
+
+                Pi2_x = Math.floor(((circles[j].x/m) + ca + cf) / cb);
+                Pi2_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca + cf)) /cb) + (circles[j].x/m) + circles[j].y);
+
+                Pi3_x = Math.floor(((circles[j+1].x/m) + cc - cf) / cb);
+                Pi3_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc - cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
+
+                Pi4_x = Math.floor(((circles[j+1].x/m) + cc + cf) / cb);
+                Pi4_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc + cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
+
+                /* 1--> 3 2-->4*/
+                /*chk1_l1o1 = ((P1_x-Pi1_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi1_x)*(Pi3_y-Pi1_y)-(P3_y-Pi1_y)*(Pi3_x-Pi1_x)); // P1 P3 , Pi1 Pi3
+                chk2_l1o1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
+
+                chk1_l1o2 = ((P1_x-Pi2_x)*(Pi4_y-Pi2_y)-(P1_y-Pi2_y)*(Pi4_x-Pi2_x))*((P3_x-Pi2_x)*(Pi4_y-Pi2_y)-(P3_y-Pi2_y)*(Pi4_x-Pi2_x)); // P1 P3 , Pi2 Pi4
+                chk2_l1o2 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x));
+
+                chk1_l2o1 = ((P2_x-Pi1_x)*(Pi3_y-Pi1_y)-(P2_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi1_x)*(Pi3_y-Pi1_y)-(P4_y-Pi1_y)*(Pi3_x-Pi1_x)); // P2 P4 , Pi1 Pi3
+                chk2_l2o1 = ((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x));
+
+                chk1_l2o2 = ((P2_x-Pi2_x)*(Pi4_y-Pi2_y)-(P2_y-Pi2_y)*(Pi4_x-Pi2_x))*((P4_x-Pi2_x)*(Pi4_y-Pi2_y)-(P4_y-Pi2_y)*(Pi4_x-Pi2_x)); // P2 P4 , Pi2 Pi4
+                chk2_l2o2 = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x));
+
+                chk1_l1ob = ((P3_x-Pi2_x)*(Pi1_y-Pi2_y)-(P3_y-Pi2_y)*(Pi1_x-Pi2_x))*((P1_x-Pi2_x)*(Pi1_y-Pi2_y)-(P1_y-Pi2_y)*(Pi1_x-Pi2_x)); // P1 P3 , Pi1 Pib
+                chk2_l1ob = ((Pi2_x-P3_x)*(P1_y-P3_y)-(Pi2_y-P3_y)*(P1_x-P3_x))*((Pi1_x-P3_x)*(P1_y-P3_y)-(Pi1_y-P3_y)*(P1_x-P3_x));
+
+                chk1_l2ob = ((P2_x-Pi2_x)*(Pi1_y-Pi2_y)-(P2_y-Pi2_y)*(Pi1_x-Pi2_x))*((P4_x-Pi2_x)*(Pi1_y-Pi2_y)-(P4_y-Pi2_y)*(Pi1_x-Pi2_x)); // P2 P4 , Pib Pib
+                chk2_l2ob = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x));
+
+
+                chk1_l1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P3 Pi4 Pi1
+                chk2_l1od1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x));
+                chk1_l2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P3 Pi2 Pi3
+                chk2_l2od1 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
+
+                chk1_l1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P4 Pi4 Pi1
+                chk2_l1od2 = ((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x));
+                chk1_l2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P4 Pi2 Pi3
+                chk2_l2od2 = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x));
+
+                chk1_ld1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P4 Pi4 Pi1
+                chk2_ld1od1 = ((Pi1_x-P1_x)*(P4_y-P1_y)-(Pi1_y-P1_y)*(P4_x-P1_x))*((Pi4_x-P1_x)*(P4_y-P1_y)-(Pi4_y-P1_y)*(P4_x-P1_x));
+                chk1_ld2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P4 Pi2 Pi3
+                chk2_ld2od1 = ((Pi2_x-P1_x)*(P4_y-P1_y)-(Pi2_y-P1_y)*(P4_x-P1_x))*((Pi3_x-P1_x)*(P4_y-P1_y)-(Pi3_y-P1_y)*(P4_x-P1_x));
+
+                chk1_ld1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P3 Pi4 Pi1
+                chk2_ld1od2 = ((Pi1_x-P2_x)*(P3_y-P2_y)-(Pi1_y-P2_y)*(P3_x-P2_x))*((Pi4_x-P2_x)*(P3_y-P2_y)-(Pi4_y-P2_y)*(P3_x-P2_x));
+                chk1_ld2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P3 Pi2 Pi3
+                chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));*/
+                
+                
                 chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
                 chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
 
-                if (chk1 < 0 && chk2 < 0)
-                {
+                if(chk1 < 0 && chk2 < 0 ){
+                /*if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
+                    || chk1 < 0 && chk2 < 0 
+                    || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0 
+                    || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0 && chk2_l2od2< 0
+                    || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0 && chk2_ld2od2< 0){*/
                     los = false;
                     if(counter2 > 1000)
                     {
+                        sessionStorage.clear();
                         regenerate(); //regenerate circle;
                     }
                     counter2 ++;
@@ -135,50 +265,100 @@ function generateCir()
             }
             
         }
-
         //
-        if (!overlapping && los) {
+        /*if(Number.isNaN(chk1_l1o1)) //temp fixed
+        {
+            chk1_l1o1 = 0;
+            chk2_l1o1 = 0;
+            chk1_l1o2 = 0;
+            chk2_l1o2 = 0;
+            chk1_l2o1 = 0;
+            chk2_l2o1 = 0;
+            chk1_l2o2 = 0;
+            chk2_l2o2 = 0;
+            chk1_l2ob = 0;
+            chk2_l2ob = 0;
+            chk1_l1ob = 0;
+            chk2_l1ob = 0;
+            chk1_l1od1 = 0;
+            chk2_l1od1 = 0;
+            chk1_l2od1 = 0;
+            chk2_l2od1 = 0;
+            chk1_l1od2 = 0;
+            chk2_l1od2 = 0;
+            chk1_l2od2 = 0;
+            chk2_l2od2 = 0;
+            chk1_ld1od1 = 0;
+            chk2_ld1od1 = 0;
+            chk1_ld2od1 = 0;
+            chk2_ld2od1 = 0;
+            chk1_ld1od2 = 0;
+            chk2_ld1od2 = 0;
+            chk1_ld2od2 = 0;
+            chk2_ld2od2 = 0;
+            chk1 = 0;
+            chk2 = 0;
+            sessionStorage.clear();
+            regenerate();
+        }*/
+        if (!overlapping && los) { 
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
             los = true;
             a++;
-            
         } 
     }
-    for (i = 0; i < circles.length; i++) {
-
-        ctx.beginPath();
-
-        ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
-        ctx.fillStyle = "rgba(250, 0, 0, 0.8)";
-        ctx.fill();
-        ctx.fillStyle = "white"
-        ctx.font = '15px serif';
-        ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
-        
-        if(i==0)
-        {
-            ctx.fillStyle = "black"
-            ctx.font = '15px serif';
-            ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
-    
-        }
-        if(i==24)
-        {
-            ctx.fillStyle = "black"
-            ctx.font = '15px serif';
-            ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
-        }
-        ctx.closePath();
+    if(toggle && circles.length == 25) 
+    {
+        toggle = false;
+        ctx.lineWidth = "5";
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(10, 10, 980, 700);
+        ctx.strokeStyle = "black";
+        ctx.strokeRect(10, 10, 980, 700);
+        ctx.lineWidth = "2";
+        for (i = 0; i < circles.length; i++) {
+                
+                ctx.beginPath();
+                ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
+                ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+                ctx.stroke();
+                ctx.closePath();
+                if(i < 9)
+                {
+                    
+                    /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
+                    ctx.fill();*/
+                    ctx.fillStyle = "black"
+                    ctx.font = '30px Arial';
+                    ctx.fillText(circles[i].index, circles[i].x - 9 , circles[i].y + 10);
+                }
+                else
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '30px Arial';
+                    ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
+                }
+                ctx.closePath();
+                
+            }
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "#666666";
     }
+    if(overcounter == 30){
+        /*document.write('<pre>');
+        document.write("Overflow");*/
+        return;
+    }
+    overcounter++;
 }
 
 
   function draw(e) 
   {
     // stop the function if they are not mouse down
-    if(!isDrawing) return;
+    if(!isDrawing) {ctx.closePath(); return;}
     //listen for mouse move event
     console.log(e);
     ctx.beginPath();
@@ -237,11 +417,21 @@ function generateCir()
                     //must begin path if not the circle being colored will be 25 on default
                     ctx.beginPath();
                     ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
-                    ctx.fillStyle = "#48D2A3";
+                    ctx.fillStyle = "#00ff00";
                     ctx.fill();
-                    ctx.fillStyle = "black"
-                    ctx.font = '15px serif';
-                    ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+                    ctx.closePath();
+                    if(clickInfo[clickInfo.length-1].index <= 9)
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -9, cypos +10);
+                    }
+                    else
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
+                    }
                 }
             }
            
@@ -254,7 +444,7 @@ function generateCir()
         alert("Try to click on a circle")
    }
    //show result
-    /*msgObj.innerHTML = result;*/
+    msgObj.innerHTML = result;
     //start the coordinates drawing
     [lastX, lastY] = [e.offsetX, e.offsetY];
     
@@ -292,6 +482,8 @@ function generateCir()
 	if(clickInfo[clickInfo.length - 1].index !=nextIndex)
      {
         alert("Wrong,You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
+
+
         clickInfo.length = 0;
         generateCir();
      }
@@ -309,18 +501,27 @@ function generateCir()
               //must begin path if not the circle being colored will be 25 on default
               ctx.beginPath();
               ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
-              ctx.fillStyle = "#48D2A3";
+              ctx.fillStyle = "#00ff00";
               ctx.fill();
-              ctx.fillStyle = "black"
-              ctx.font = '15px serif';
-              ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 8, cypos + 3);
+              if(clickInfo[clickInfo.length-1].index <= 9)
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -9, cypos +10);
+                    }
+                    else
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
+                    }
           }
       }
     }
 
     // get the selected circle index from variable no;
    //show result
-    /*msgObj.innerHTML = result;*/
+    msgObj.innerHTML = result;
     
     if(clickInfo[clickInfo.length - 1].index==25)
      {
@@ -418,38 +619,9 @@ function StoreUserTestResult(first)
         }
     userArray.push(user);
 }
-   
-// function startTest(age)
-// {
-//     //for age 40 to 50 
-//     //3mins and 30 sec
-//     if(age=="a")
-//     {
-//         countdown("ten-countdown",3,30);
-//     }
-//     //for age 50 and above
-//     //4 minutes
-//     else if(age="b")
-//     {
-//         countdown("ten-countdown",4,00);
-//     }
-//     //below 40
-//     //3 minutes
-//     else 
-//     {
-//         countdown("ten-countdown",3,00)
-//     }
-
-// }
-// function stopTest()
-// {
-//  clearInterval(interval);
-//  msgObj.innerHTML =  document.getElementById("ten-countdown").innerHTML;
-// }
 
 
 function regenerate(){
-
     rngCircle.index = 0;
     a = 1;
     circles = [];
