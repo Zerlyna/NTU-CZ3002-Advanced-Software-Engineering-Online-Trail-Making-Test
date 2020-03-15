@@ -16,12 +16,12 @@
 
 <div id="TestResult" class="overlay">
 	<div class="popup">
-		<h2 style="text-align:center;">Welcome</h2>
+		<h2 style="text-align:center;">Your test result</h2>
 		<a class="close" href="#popup2">&times;</a>
 		<div class="content">
-        <p>Your test result</p>
 		<div class="flex-wrapper">
 			<div class="single-chart">
+				<p style="text-align:center;">TMT_A</p>
 				<svg viewBox="0 0 36 36" class="circular-chart orange">
 				<path class="circle-bg"
 					d="M18 2.0845
@@ -39,6 +39,7 @@
 			</div>
 			
 			<div class="single-chart">
+				<p style="text-align:center;">TMT_B</p>
 				<svg viewBox="0 0 36 36" class="circular-chart green">
 				<path class="circle-bg"
 					d="M18 2.0845
@@ -46,7 +47,7 @@
 					a 15.9155 15.9155 0 0 1 0 -31.831"
 				/>
 				<path class="circle"
-					stroke-dasharray="60, 100"
+					stroke-dasharray="100, 100"
 					d="M18 2.0845
 					a 15.9155 15.9155 0 0 1 0 31.831
 					a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -56,6 +57,7 @@
 			</div>
 
 			<div class="single-chart">
+			<p style="text-align:center;">Total</p>
 				<svg viewBox="0 0 36 36" class="circular-chart blue">
 				<path class="circle-bg"
 					d="M18 2.0845
@@ -63,15 +65,17 @@
 					a 15.9155 15.9155 0 0 1 0 -31.831"
 				/>
 				<path class="circle"
-					stroke-dasharray="90, 100"
+					stroke-dasharray="100, 100"
 					d="M18 2.0845
 					a 15.9155 15.9155 0 0 1 0 31.831
 					a 15.9155 15.9155 0 0 1 0 -31.831"
 				/>
-				<text id="totalResult" x="18" y="20.35" class="percentage">%</text>
+				<text id="totalResult" x="18" y="20.35" class="percentage"></text>
 				</svg>
 			</div>
+		
 		</div>
+		<p id="risk" style="text-align:center;"></p>
 		<div class="box">
 		<a class="button" href="TestHome.php">Home</a>
 		</div>
