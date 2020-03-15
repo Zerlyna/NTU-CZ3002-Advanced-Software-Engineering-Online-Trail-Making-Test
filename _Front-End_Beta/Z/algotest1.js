@@ -327,9 +327,18 @@ function generateCir()
                     ctx.fillStyle = "#00ff00";
                     ctx.fill();
                     ctx.closePath();
-                    ctx.fillStyle = "black"
-                    ctx.font = '30px Arial';
-                    ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
+                    if(clickInfo[clickInfo.length-1].index <= 9)
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -9, cypos +10);
+                    }
+                    else
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
+                    }
                 }
             }
            
@@ -401,10 +410,18 @@ function generateCir()
               ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
               ctx.fillStyle = "#00ff00";
               ctx.fill();
-              ctx.closePath();
-              ctx.fillStyle = "black"
-              ctx.font = '30px Arial';
-              ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos - 17, cypos + 10);
+              if(clickInfo[clickInfo.length-1].index <= 9)
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -9, cypos +10);
+                    }
+                    else
+                    {
+                        ctx.fillStyle = "black"
+                        ctx.font = '30px Arial';
+                        ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
+                    }
           }
       }
     }
