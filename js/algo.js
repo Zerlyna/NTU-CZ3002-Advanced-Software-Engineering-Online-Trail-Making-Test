@@ -12,7 +12,7 @@ var nextIndex;
 var interval;
 
 //new
-var los = true;
+/*var los = true;
 var chk1_l1o1 ;
 var chk2_l1o1 ;
 var chk1_l1o2 ;
@@ -60,26 +60,45 @@ var rr;
 var isDrawing;
 var lastX;
 var lastY;
-var toggle = true;
+var toggle = true;*/
 
-var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
+/*var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
 var P1_x, P1_y, P2_x, P2_y , P3_x , P3_y , P4_x , P4_y;
-var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;
+var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;*/
+
+var lastX;
+var lastY;
 
 var userArray=[];
 
-window.onload=generateCir();
+window.onload=generateCir2();
 
-function generateCir()
+function generateCir2()
 {
+    randX = Math.floor(Math.random()* 900 + 40);
+        randY = Math.floor(Math.random()* 600 + 40);
 
-    while (circles.length < 25) {
+        rngCircle =
+        {
+            index: 1,
+            x: Math.floor(randX),
+            y: Math.floor(randY),
+            radius: 25,
+        }
 
-        los = true;
-        overlapping = false;
+        circles.push(rngCircle);
+
+
+    /*while (circles.length < 1) {*/
+        /*los = true;
+        overlapping = false;*/
+
+        
+        
+        
         
         //limit
-        if(circles.length < 1 && circles.length >= 0)
+        /*if(circles.length < 1 && circles.length >= 0)
         {
             randX = Math.floor(Math.random()* 900 + 40);
             randY = Math.floor(Math.random()* 600 + 40);
@@ -136,7 +155,7 @@ function generateCir()
                 overlapping = true;;
                 break;
             }
-            if(counter > 10000)
+            /*if(counter > 10000)
             {
                 regenerate(); //regenerate circle;
                 sessionStorage.clear();
@@ -144,12 +163,12 @@ function generateCir()
             counter++;
 
          
-        }
+        }*/
         
         //check if line of sequence is line of sight
-        if(a > 2)
+        /*if(a > 2)
         {
-            for (var j = 0; j < circles.length -1 ; j++) {
+            for (var j = 0; j < circles.length -1 ; j++) {*/
 
                 
 
@@ -242,7 +261,7 @@ function generateCir()
                 chk1_ld2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P3 Pi2 Pi3
                 chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));*/
                 
-                
+                /*
                 chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
                 chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
 
@@ -252,11 +271,12 @@ function generateCir()
                     || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0 
                     || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0 && chk2_l2od2< 0
                     || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0 && chk2_ld2od2< 0){*/
-                    los = false;
+               /*     los = false;
                     if(counter2 > 1000)
                     {
-                        sessionStorage.clear();
+                        
                         regenerate(); //regenerate circle;
+                        sessionStorage.clear();
                     }
                     counter2 ++;
                     break;
@@ -264,7 +284,7 @@ function generateCir()
               
             }
             
-        }
+        }*/
         //
         /*if(Number.isNaN(chk1_l1o1)) //temp fixed
         {
@@ -301,25 +321,36 @@ function generateCir()
             sessionStorage.clear();
             regenerate();
         }*/
-        if (!overlapping && los) { 
+        /*if (!overlapping /*&& los*//*) { 
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
             los = true;
             a++;
-        } 
-    }
-    if(toggle && circles.length == 25) 
-    {
+       /* }*/
+   /* }
+    if(toggle && circles.length == 1) 
+    {*/
         toggle = false;
-        ctx.lineWidth = "5";
+        /*ctx.beginPath();*/
+        ctx.lineWidth = "2";
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(10, 10, 980, 700);
+        
         ctx.strokeStyle = "black";
         ctx.strokeRect(10, 10, 980, 700);
-        ctx.lineWidth = "2";
+        /*ctx.lineWidth = "2";*/
+
+        
+        
+        ctx.arc(circles[0].x, circles[0].y, circles[0].radius , Math.PI * 2, 0, false);
+        ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+        ctx.stroke();
+        
+        
+
+        /*ctx.closePath();
         for (i = 0; i < circles.length; i++) {
-                
                 ctx.beginPath();
                 ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
                 ctx.strokeStyle = "rgba(0, 0, 0, 1)";
@@ -327,9 +358,6 @@ function generateCir()
                 ctx.closePath();
                 if(i < 9)
                 {
-                    
-                    /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
-                    ctx.fill();*/
                     ctx.fillStyle = "black"
                     ctx.font = '30px Arial';
                     ctx.fillText(circles[i].index, circles[i].x - 9 , circles[i].y + 10);
@@ -340,25 +368,24 @@ function generateCir()
                     ctx.font = '30px Arial';
                     ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
                 }
-                ctx.closePath();
                 
             }
+            ctx.beginPath();
             ctx.lineWidth = "3";
             ctx.strokeStyle = "#666666";
-    }
-    if(overcounter == 30){
+            ctx.closePath();*/
+    /*}*/
+    /*if(overcounter == 30){
         /*document.write('<pre>');
         document.write("Overflow");*/
-        return;
-    }
-    overcounter++;
+        /*return;*/
+    /*}
+    overcounter++;*/
 }
-
-
   function draw(e) 
   {
     // stop the function if they are not mouse down
-    if(!isDrawing) {ctx.closePath(); return;}
+    if(!isDrawing)   return;
     //listen for mouse move event
     console.log(e);
     ctx.beginPath();
@@ -366,6 +393,7 @@ function generateCir()
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
     [lastX, lastY] = [e.offsetX, e.offsetY];
+    
     
   }
 //mouse down
@@ -483,9 +511,7 @@ function generateCir()
      {
         alert("Wrong,You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
 
-
         clickInfo.length = 0;
-        generateCir();
      }
     else
     {
@@ -503,6 +529,7 @@ function generateCir()
               ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
               ctx.fillStyle = "#00ff00";
               ctx.fill();
+              ctx.closePath();
               if(clickInfo[clickInfo.length-1].index <= 9)
                     {
                         ctx.fillStyle = "black"
@@ -536,7 +563,7 @@ function generateCir()
   canvas.addEventListener('mouseout', () => isDrawing = false);
 
 //elementName is the id of the countdown
-function countdown( elementName, minutes, seconds )
+/*function countdown(elementName, minutes, seconds)
 {
     var element, endTime, hours, mins, msLeft, time;
 
@@ -618,7 +645,7 @@ function StoreUserTestResult(first)
             SecondTest:0,
         }
     userArray.push(user);
-}
+}*/
 
 
 function regenerate(){
@@ -631,6 +658,50 @@ function regenerate(){
     overlapping = false;
     los = true;
     generateCir();
-
     
 }
+/*
+function draw(e) 
+{
+// stop the function if they are not mouse down
+if(!isDrawing) { return;}
+//listen for mouse move event
+console.log(e);
+ctx.beginPath();
+ctx.moveTo(lastX, lastY);
+ctx.lineTo(e.offsetX, e.offsetY);
+ctx.stroke();
+[lastX, lastY] = [e.offsetX, e.offsetY];
+
+}
+
+//mouse down
+canvas.addEventListener('mousedown', (e) => {
+isDrawing = true;
+var i, xDiff, yDiff, dist, result, cX, cY, startLength;
+xPos = null; yPos = null; circX = null; circY = null;
+
+xPos = e.offsetX || e.pageX;
+yPos = e.offsetY || e.pageY;
+
+//start the coordinates drawing
+[lastX, lastY] = [e.offsetX, e.offsetY];
+
+});
+
+canvas.addEventListener('mousemove', draw);
+//mouseUp
+canvas.addEventListener('mouseup', (e) => {
+isDrawing = false;
+
+var i, xDiff, yDiff, dist, result, cX, cY, startLength;
+xPos = null; yPos = null; circX = null; circY = null;
+
+xPos = e.offsetX || e.pageX;
+yPos = e.offsetY || e.pageY;
+
+//start the coordinates drawing
+ //[lastX, lastY] = [e.offsetX, e.offsetY];
+});
+//when u no longer touching the mouse
+canvas.addEventListener('mouseout', () => isDrawing = false);*/
