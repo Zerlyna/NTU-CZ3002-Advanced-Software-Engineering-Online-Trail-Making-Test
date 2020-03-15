@@ -70,20 +70,23 @@ footer {
 }
 
 .Rate{
-    margin-left : 15%;
+    margin-left : 10%;
     padding : none;
+    visibility : hidden;
 
 }
 
 .About{
-    margin-left : 10%;
+    margin-left : 18%;
     padding : none;
 }
 
 
-.right{
+.head_right{
     float : right;
     margin-right : 40px;
+    visibility: hidden;
 }
+
 
 

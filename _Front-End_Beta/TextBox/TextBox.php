@@ -12,8 +12,8 @@
   <label for="email" class="form__label">Your Email</label>
 </div>
 
-<div class="form__group">
+<!--<div class="form__group">
   <textarea id="message" class="form__field" placeholder="Your Message" rows="6"></textarea>
   <label for="message" class="form__label">Your Message</label>
-</div>
+</div>-->
 </html>

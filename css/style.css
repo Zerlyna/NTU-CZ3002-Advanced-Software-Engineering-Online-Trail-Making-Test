@@ -12,7 +12,7 @@ button:hover {
 	cursor: pointer;
 }
 
-.login_btn {
+/*.login_btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -20,17 +20,20 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 13px;
-}
+  padding-top: 0px;
+  border : 3px solid blue ;
+}*/
 
 .wrap_btn {
-  width: 100%;
+  width: 250px;
   display: block;
   position: relative;
   z-index: 1;
   border-radius: 25px;
   overflow: hidden;
   margin: 0 auto;
+
+  
 }
 
 .form_bgbtn {
@@ -66,9 +69,9 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  /*padding: 0 20px;*/
   width: 100%;
-  height: 50px;
+  height: 5vh;
 }
 
 .wrap_btn:hover .form_bgbtn {
@@ -136,6 +139,7 @@ button:hover {
 
 .form__field::placeholder {
   color: transparent;
+  
 }
 
 .form__field:placeholder-shown ~ .form__label {
