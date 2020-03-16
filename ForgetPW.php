@@ -266,6 +266,7 @@
     <script type= "text/javascript" src="js/date.js"></script>
     <script type= "text/javascript" src="js/overlay.js"></script>
     <script type= "text/javascript" src="js/cookie.js"></script>
+    <script type= "text/javascript" src="js/error.js"></script>
 </html>
 
 <?php

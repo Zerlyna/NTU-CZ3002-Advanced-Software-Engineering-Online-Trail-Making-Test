@@ -52,17 +52,17 @@ For now:
             <div class="limiter">
                 <div class="container">
                     <div class="wrap">
-                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="loginform">
+                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="loginform"> <!--novalidate-->
                             <div class = "login_logo"><img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo"></div>
                             <div class = "login_title"><label for="title"><b>Welcome to LarkDetect</b></label></div>
                             
                             <div class="login_id">
-                                <input  id="loginID" name = "NRIC" class="form__field" placeholder="Enter NRIC">
-                                <label for="nric" class="form__label">Enter NRIC</label>
+                                <input id="loginID" name = "NRIC" class="form__field" placeholder="Enter NRIC" required>
+                                <label id="loginIDL" for="nric" class="form__label">Enter NRIC</label>
                             </div>
                             <div class="login_pw">
-                                <input type="password" id="loginID" name = "password" class="form__field" placeholder="Enter Password">
-                                <label for="pw" class="form__label">Enter Password</label>
+                                <input id="loginPW" type="password" name = "password" class="form__field" placeholder="Enter Password" required> <!--id="loginID"-->
+                                <label id="loginPWL" for="pw" class="form__label">Enter Password</label>
                             </div>
 
                             <div class = "login_doctor_fpw">
@@ -89,6 +89,7 @@ For now:
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/visibility.js"></script>
+    <script type= "text/javascript" src="js/error.js"></script>
 </html>
 <?php
     include_once ('footer.php');

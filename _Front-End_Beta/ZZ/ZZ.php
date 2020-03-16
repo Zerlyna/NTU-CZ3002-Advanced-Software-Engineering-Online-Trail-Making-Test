@@ -1,4 +1,3 @@
-<?php?>
 <html>
 
 
@@ -9,6 +8,7 @@
 <button class="btnStart" >Test</button>
 </div>-->
 <div style="text-align:center;">
+  <div onclick = "show()">  <p id = "demo"> hah</p> </div>
 <canvas id="canvas" width="1000px" height="796px"></canvas>
 
 <!--</div>
@@ -48,7 +48,7 @@
 
 <!-- must put below -->
 <!--<link rel="stylesheet" href="Test.css" type="text/css">-->
-<script type="text/javascript" src="algotest1.js"></script>
+<script type="text/javascript" src="ZZ.js"></script>
 
 </body>
 </html>
