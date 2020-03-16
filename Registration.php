@@ -253,16 +253,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class = "reg_r10">
-                        <form action="Index.php">
-                            <!--<button type="submit" class="register">Register</button>-->
-                            <div class="wrap_btn">
-                            <div class="form_bgbtn"></div>
-                                <button name="register" type="submit" class="login_form_btn">Register</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class = "reg_r10">
+                            <form action="Index.php">
+                                <div class="wrap_btn">
+                                <div class="form_bgbtn"></div>
+                                    <button name="register" type="submit" class="login_form_btn">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
