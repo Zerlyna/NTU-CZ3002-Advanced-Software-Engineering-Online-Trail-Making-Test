@@ -565,7 +565,8 @@ function countdown( elementName, minutes, seconds )
             element.innerHTML = "Time is up!";
             if(clickInfo[clickInfo.length - 1].index!=25 || clickInfo.length==null)
             {
-                alert("haiz u have fail");
+                alert("You have fail test A");
+               
                 stopTest();
             }
         } 
@@ -602,8 +603,7 @@ function stopTest()
     var minDiff=2-TLeftArray[0];
     var secDiff=60-TLeftArray[1];
     var testResult;
-    alert("secDiff"+secDiff);
-    alert("min diff"+minDiff);
+   
 
     if(minDiff==0)
     {
@@ -611,13 +611,14 @@ function stopTest()
         document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
         testResult=secDiff;
         alert("You used "+secDiff+ "Seconds for the first test");
+
     }
     else
     {
        
         secDiff+=(minDiff*60);
         document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
-        alert("You used "+secDiff+ "Seconds for the first test")
+
         testResult=secDiff;
     }
     window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));
