@@ -3,13 +3,16 @@ var ctx = canvas.getContext("2d");
 var circles = [];
 var a = 1;
 
-var msgObj = document.getElementById("msg");
-var msg2Obj = document.getElementById("msg2");
+//var msgObj = document.getElementById("msg");
+//var msg2Obj = document.getElementById("msg2");
 var firstResult=document.getElementById("firstResult");
 var xPos, yPos, circX, circY, clickInfo = [];
 var mousedown=false;
 var nextIndex;
 var interval;
+
+var numOfAttempt=3;
+var dataURL;
 
 //new
 var los = true;
@@ -94,8 +97,6 @@ function generateCir()
                 {
                     regenerate(); //regenerate circle;
 
-                    sessionStorage.clear();
-
                 }
                 counter3++;
 
@@ -139,7 +140,7 @@ function generateCir()
             if(counter > 10000)
             {
                 regenerate(); //regenerate circle;
-                sessionStorage.clear();
+                
             }
             counter++;
 
@@ -255,7 +256,7 @@ function generateCir()
                     los = false;
                     if(counter2 > 1000)
                     {
-                        sessionStorage.clear();
+                     
                         regenerate(); //regenerate circle;
                     }
                     counter2 ++;
@@ -358,7 +359,7 @@ function generateCir()
   function draw(e) 
   {
     // stop the function if they are not mouse down
-    if(!isDrawing) {ctx.closePath(); return;}
+    if(!isDrawing) { return;}
     //listen for mouse move event
     console.log(e);
     ctx.beginPath();
@@ -444,7 +445,7 @@ function generateCir()
         alert("Try to click on a circle")
    }
    //show result
-    msgObj.innerHTML = result;
+   // msgObj.innerHTML = result;
     //start the coordinates drawing
     [lastX, lastY] = [e.offsetX, e.offsetY];
     
@@ -454,6 +455,7 @@ function generateCir()
   
   //mouseUp
   canvas.addEventListener('mouseup', (e) => {
+ 
     isDrawing = false;
     
      var i, xDiff, yDiff, dist, result, cX, cY, startLength;
@@ -482,14 +484,27 @@ function generateCir()
 	if(clickInfo[clickInfo.length - 1].index !=nextIndex)
      {
         alert("Wrong,You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
+        clickInfo.pop();
+        clickInfo.pop();
+        var img=new Image;
+        img.onload=function()
+        {
+            ctx.drawImage(img,0,0);
+        };
+        img.src=dataURL;
+        //limit to 3 attempt
+        numOfAttempt--;
+        if(numOfAttempt==0)
+        {
+            window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
+            alert("You have fail test A");
+            location.href = "#secondTestRules";
+        }
 
-
-        clickInfo.length = 0;
-        generateCir();
      }
     else
     {
-        result="You draw from circle " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index+ "Array Size:"+clickInfo.length;
+        alert("You draw from circle " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index+ "Array Size:"+clickInfo.length);
       //loop through the arrayto color the selected circle
       for(i=0;i<circles.length;i++)
       {
@@ -518,11 +533,6 @@ function generateCir()
           }
       }
     }
-
-    // get the selected circle index from variable no;
-   //show result
-    msgObj.innerHTML = result;
-    
     if(clickInfo[clickInfo.length - 1].index==25)
      {
     
@@ -531,6 +541,8 @@ function generateCir()
      }
     //start the coordinates drawing
      //[lastX, lastY] = [e.offsetX, e.offsetY];
+      //convert canvas into image url
+      dataURL= canvas.toDataURL();
   });
   //when u no longer touching the mouse
   canvas.addEventListener('mouseout', () => isDrawing = false);
@@ -553,7 +565,8 @@ function countdown( elementName, minutes, seconds )
             element.innerHTML = "Time is up!";
             if(clickInfo[clickInfo.length - 1].index!=25 || clickInfo.length==null)
             {
-                alert("haiz u have fail");
+                alert("You have fail test A");
+               
                 stopTest();
             }
         } 
@@ -573,31 +586,42 @@ function countdown( elementName, minutes, seconds )
 
 function startTest()
 {
-document.getElementById("timerCountDown").style.visibility="visible";
-countdown("timer", 3,00 );
+    
+    document.getElementById("timerCountDown").style.visibility="visible";
+    countdown("timer", 3,00 );
 }
 function stopTest()
 {
+    alert(clickInfo[clickInfo.length - 1].index);
+  
     clearInterval(interval);
-    msgObj.innerHTML =  document.getElementById("timer").innerHTML;
-    var timeleft=msgObj.innerHTML;
+    var msgObj=  document.getElementById("timer").innerHTML;
+    var timeleft=msgObj;
+    timerCountDown
     //store the timeleft timing to the array
     var TLeftArray=timeleft.split(":");
     var minDiff=2-TLeftArray[0];
     var secDiff=60-TLeftArray[1];
     var testResult;
+    
+
     if(minDiff==0)
     {
+   
         document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
-         testResult='0:'+secDiff;
+        testResult=secDiff;
+        
     }
     else
     {
-        document.getElementById("firstResult").innerHTML="You used "+minDiff +"Minutes "+secDiff+ "Seconds for the first test";
-        testResult=minDiff+':'+secDiff;
+       
+        secDiff+=(minDiff*60);
+        document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+       
+        testResult=secDiff;
     }
-    StoreUserTestResult(testResult);
-    location.href = "#popupResult"; 
+    window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));
+    location.href = "#secondTestRules";
 }
 
 function StoreUserTestResult(first)
