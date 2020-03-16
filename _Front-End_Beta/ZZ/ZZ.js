@@ -236,6 +236,8 @@ function generateCir()
         ctx.strokeStyle = "black";
         ctx.strokeRect(10, 10, 980, 700);
         ctx.lineWidth = "2";
+        check2();
+        return;
 
         for (i = 0; i < circles.length; i++) {
    
@@ -647,8 +649,6 @@ function rng3()
 
 
 function regenerate(){
-    document.write('<pre>');
-    document.writeln("Limit Reach at ", circles.length);
     rngCircle.index = 0;
     a = 1;
     circles = [];
@@ -657,10 +657,7 @@ function regenerate(){
     counter3 = 0;
     overlapping = false;
     los = true;
-    document.writeln("New Limit ", circles.length);
     generateCir();
-
-    
 }
 
 
@@ -670,78 +667,6 @@ function check2(){
 
         
         if(i > 0){
-
-            /*cr = 15;
-            cx = circles[i-1].x - circles[i].x;
-            cy = circles[i-1].y - circles[i].y;
-            
-            m = cy / cx;
-            cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
-            ca = circles[i].x*m ;
-            cc = circles[i-1].x*m;
-            cb = (m + (1/m));
-            Pi1_x = Math.floor(((circles[i].x/m) + ca - cf) / cb);
-            Pi1_y = Math.floor(((-(1/m)*((circles[i].x/m) + ca - cf)) /cb) + (circles[i].x/m) + circles[i].y);
-
-            Pi2_x = Math.floor(((circles[i].x/m) + ca + cf) / cb);
-            Pi2_y = Math.floor(((-(1/m)*((circles[i].x/m) + ca + cf)) /cb) + (circles[i].x/m) + circles[i].y);
-
-            Pi3_x = Math.floor(((circles[i-1].x/m) + cc - cf) / cb);
-            Pi3_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc - cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);
-
-            Pi4_x = Math.floor(((circles[i-1].x/m) + cc + cf) / cb);
-            Pi4_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc + cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);*/
-
-            /*nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].x);
-            nPi1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].y);
-
-            nPi2_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i].x- Pi2_x)-(circles[i].y - Pi2_y)) + circles[i].x);
-            nPi2_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i].x- Pi2_x)+(circles[i].y - Pi2_y)) + circles[i].y);
-
-            nPi3_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[i-1].x )-(Pi3_y - circles[i-1].y)) + circles[i-1].x);
-            nPi3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[i-1].x )+(Pi3_y - circles[i-1].y)) + circles[i-1].y);
-
-            nPi4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].x);
-            nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].y);*/
-
-
-            
-            //check for overlap
-            /*ctx.beginPath();
-            ctx.lineWidth = "1";
-            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(nPi3_x,nPi3_y);
-            ctx.lineTo(nPi1_x,nPi1_y);
-            ctx.stroke();  // Draw it
-            ctx.closePath();
-            ctx.beginPath();
-            ctx.lineWidth = "1";
-            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(nPi4_x,nPi4_y);
-            ctx.lineTo(nPi2_x,nPi2_y);
-            ctx.stroke();  // Draw it
-            ctx.closePath();
-            ctx.beginPath();
-            ctx.lineWidth = "1";
-            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(nPi4_x,nPi4_y);
-            ctx.lineTo(nPi1_x,nPi1_y);
-            ctx.stroke();  // Draw it
-            ctx.closePath();
-            ctx.beginPath();
-            ctx.lineWidth = "1";
-            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(nPi3_x,nPi3_y);
-            ctx.lineTo(nPi2_x,nPi2_y);
-            ctx.stroke();  // Draw it
-            ctx.closePath();
-            ctx.beginPath();
-            ctx.lineWidth = "1";
-            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(nPi3_x,nPi3_y);
-            ctx.lineTo(nPi4_x,nPi4_y);
-            ctx.stroke();  // Draw it
-            ctx.closePath();*/
 
             ctx.beginPath();
             ctx.lineWidth = "5";
