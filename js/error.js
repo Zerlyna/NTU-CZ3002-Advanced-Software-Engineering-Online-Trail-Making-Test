@@ -35,6 +35,11 @@ function toMainPage(){
         }, 2000);
 
     }
+    else
+    {
+        nric = true;
+
+    }
 
     if(document.getElementById("loginID").value == "") /*no input*/   
     {
@@ -61,6 +66,14 @@ function toMainPage(){
             document.getElementById('loginIDL').style.color = "#9b9b9b";
         }, 2000);
     }
+    else
+    {
+        pass = true;
+
+    }
+}
+if(pass == true  && nric == true){
+    setCookie("can_login","Yes", 1);
 }
 
 if(getCookie("login") == "Yes"){

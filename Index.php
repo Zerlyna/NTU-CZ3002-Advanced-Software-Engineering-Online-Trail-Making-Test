@@ -5,7 +5,7 @@
     
     //check if form is submitted
     if(isset($_POST['login'])){
-        if($_COOKIE['can_login'] == "Yes"){
+        if(isset($_COOKIE['can_login'])){
             //normal patient
             if(isset($_POST['doctorcheckbox'])){
                 $doctorid = mysqli_real_escape_string($conn,$_POST['NRIC']);
@@ -94,12 +94,12 @@ For now:
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/cookie.js"></script>
-    <script>
+    <!-- <script>
         setCookie("can_login","No",1)
     
     
     
-    </script>
+    </script> -->
     <script type= "text/javascript" src="js/visibility.js"></script>
 </html>
 <?php
