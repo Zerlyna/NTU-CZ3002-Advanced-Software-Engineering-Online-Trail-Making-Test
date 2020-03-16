@@ -1,5 +1,36 @@
 <?php
-include('header.php');
+    session_start();
+    include_once 'connect.php';
+    
+    if(isset($_POST['verify'])){
+        $nric = mysqli_real_escape_string($conn, $_POST['Reg_NRIC_V']);
+        $year = mysqli_real_escape_string($conn, $_POST['year']);
+        $month = mysqli_real_escape_string($conn, $_POST['month']);
+        $day = mysqli_real_escape_string($conn, $_POST['day']);
+        $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $nric. "'AND Year = '" . $year . "' AND Month = '". $month ."'AND Day = '". $day ."'");
+        if ($result->num_rows > 0){
+            $_COOKIE['verified'] = "True";
+            $_SESSION['verified'] = True;
+            $_SESSION['NRIC'] = $nric;
+        }else{
+            $_COOKIE['verified'] = "False";
+            $_SESSION['verified'] = False;
+        }
+    }
+
+    if(isset($_POST['reset'])){
+        $nric =$_SESSION['NRIC']
+        $password = mysqli_real_escape_string($conn, $_POST['Reg_NRIC_V']);
+        $result=mysqli_query($conn,"UPDATE patient SET password = '" . $password. "' WHERE NRIC = '". $nric ."'");
+        if ($result == True){
+            header("Location: Index.php");
+        }else{
+            header("Location: ForgetPW.php");
+        }
+    }
+
+    include_once 'dc.php';
+    include_once 'header.php';
 ?>
 
 <html>
@@ -17,6 +48,7 @@ include('header.php');
         <div class="limiter">
             <div class="container">
                 <div class="wrap_RST">
+                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="verifyform">
                     <div class = "RST_r1"><h1> Verification </h1></div>
                     <div class = "RST_r2"><!--<input type="text" placeholder="Enter NRIC" name="nric" required>-->
                         <div class="login_pw">
@@ -28,14 +60,14 @@ include('header.php');
                     <div class = "RST_r4">
                         <div class = "reg_c1">
                             <div class = "select">
-                                <select id="daySelect" value = "DD">
+                                <select id="daySelect" value = "DD" name="day">
                                     <option value="" disabled selected hidden>DD</option>
                                 </select>
                             </div>
                         </div>
                         <div class = "reg_c2">
                             <div class = "select">
-                                <select id="monthSelect" value = "MM">
+                                <select id="monthSelect" value = "MM" name="month">
                                     <option value="" disabled selected hidden>MM</option>
                                     <option value="1">JAN</option>
                                     <option value="2">FEB</option>
@@ -54,7 +86,7 @@ include('header.php');
                         </div>
                         <div class = "reg_c3">
                             <div class = "select">
-                                <select id="yearSelect" value = "YYYY">
+                                <select id="yearSelect" value = "YYYY" name="year">
                                     <option value="" disabled selected hidden>YYYY</option>
                                     <option value="1980">1980</option>
                                     <option value="1979">1979</option>
@@ -183,12 +215,14 @@ include('header.php');
                     </div>
                     
                     <div class = "RST_r5">
-                            <!--<button onclick = "verify()" type="submit" class="verify">Verify</button>-->
-                            <div class="wrap_btn">
-                                    <div class="form_bgbtn"></div>
-                                    <button onclick = "verify()"  type="submit" name = "RST_confirm" class="login_form_btn">Verify</button>
-                            </div>
+                        <!--<button onclick = "verify()" type="submit" class="verify">Verify</button>-->
+                        <div class="wrap_btn">
+                            <div class="form_bgbtn"></div>
+                            <button onclick = "verify()"  type="submit" name = "verify" class="login_form_btn">Verify</button>
+                        </div>
                     </div>
+                </form>
+                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="resetform">
                     <div id = "overlay_verify">
                     <!-- If Not Success -->
                     <!-- If Success -->
@@ -221,7 +255,7 @@ include('header.php');
                     <div id = "overlay_success">
                          <h1 class = "RST_S">Password Reset Successfully!</h1> 
                     </div>
-                    
+                </form>    
                 </div>
             </div>
         </div>
@@ -231,6 +265,7 @@ include('header.php');
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/date.js"></script>
     <script type= "text/javascript" src="js/overlay.js"></script>
+    <script type= "text/javascript" src="js/cookie.js"></script>
 </html>
 
 <?php

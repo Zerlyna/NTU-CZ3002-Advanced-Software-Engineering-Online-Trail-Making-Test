@@ -20,6 +20,7 @@
             $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
             if ($row = mysqli_fetch_array($result)){
                 $_SESSION['NRIC'] = $row['NRIC'];
+                $_COOKIE['login'] = "Yes";
                 header("Location: Main.php");
             }
         }

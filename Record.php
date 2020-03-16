@@ -25,6 +25,7 @@
     }
     ##the data the chart need
     $data_json = json_encode($data);
+    $_COOKIE["data_json"] = $data_json;
 
     include_once "dc.php";
     include_once 'header.php';
@@ -71,7 +72,8 @@
                         </div>
                         
                         <div class = "rec_c2">
-                            <canvas> line graph ??? </canvas> 
+                            <canvas></canvas>
+                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                         </div>
                     </div>
                 <!-- end of content -->
@@ -85,6 +87,8 @@
     <!-- -->
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="./js/chart.js"></script>
 </html>
 <?php
     include('footer.php');
