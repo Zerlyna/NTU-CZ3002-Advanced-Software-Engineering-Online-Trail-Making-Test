@@ -2,30 +2,29 @@
     session_start();
     /*define('RESTRICTED',1);*/
     include_once 'connect.php';
+    unset($_SESSION['success']);
     
     //check if form is submitted
     if(isset($_POST['login'])){
-        if(isset($_COOKIE['can_login'])){
-            //normal patient
-            if(isset($_POST['doctorcheckbox'])){
-                $doctorid = mysqli_real_escape_string($conn,$_POST['NRIC']);
-                $password = mysqli_real_escape_string($conn,$_POST['password']);
-                $result=mysqli_query($conn,"SELECT * FROM doctor WHERE id = '" . $doctorid. "' and password = '" . $password . "'");
-                if ($row = mysqli_fetch_array($result)){
-                    $_SESSION['doctorid'] = $row['id'];
-                    header("Location: doctor.php");
-                }
+        //normal patient
+        if(isset($_POST['doctorcheckbox'])){
+            $doctorid = mysqli_real_escape_string($conn,$_POST['NRIC']);
+            $password = mysqli_real_escape_string($conn,$_POST['password']);
+            $result=mysqli_query($conn,"SELECT * FROM doctor WHERE id = '" . $doctorid. "' and password = '" . $password . "'");
+            if ($row = mysqli_fetch_array($result)){
+                $_SESSION['doctorid'] = $row['id'];
+                header("Location: doctor.php");
+            }
+        }else{
+            $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
+            $password = mysqli_real_escape_string($conn,$_POST['password']);
+            $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
+            if ($row = mysqli_fetch_array($result)){
+                $_SESSION['NRIC'] = $row['NRIC'];
+                setcookie("login", "Yes");
+                header("Location: Main.php");
             }else{
-                $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
-                $password = mysqli_real_escape_string($conn,$_POST['password']);
-                $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
-                if ($row = mysqli_fetch_array($result)){
-                    $_SESSION['NRIC'] = $row['NRIC'];
-                    setcookie("login", "Yes");
-                    header("Location: Main.php");
-                }else{
-                    setcookie("login", "No");
-                }
+                setcookie("login", "No");echo "gg";
             }
         }
     }
@@ -36,7 +35,7 @@
 <!--
 For now:
     Patient NRIC: S123456789
-    password: a1a2a3a4a5
+    password: 123
 
     Doctor NRIC: 1
     password: 1
@@ -51,7 +50,7 @@ For now:
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">   
     </head>
-    <body>
+    <body onload="toMainPage()">
         <div class = "bgrd">
             <div class="limiter">
                 <div class="container">
@@ -81,7 +80,7 @@ For now:
                                 <div class="wrap_btn" >
                                     <div class="form_bgbtn"></div>
                                         <!--<button onclick = "toMainPage()" type="submit" name = "login" class="login_form_btn">Login</button>-->
-                                        <button onclick = "toMainPage()" type="submit" name = "login" class="login_form_btn">Login</button>
+                                        <button type="submit" name = "login" class="login_form_btn">Login</button>
                                 </div>
                             </div>
                             <div class = "login_reg"><a href="Registration.php">Don't have an account? Sign Up</a></div>
@@ -94,6 +93,7 @@ For now:
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/cookie.js"></script>
+    <script type= "text/javascript" src="js/error.js"></script>
     <!-- <script>
         setCookie("can_login","No",1)
     

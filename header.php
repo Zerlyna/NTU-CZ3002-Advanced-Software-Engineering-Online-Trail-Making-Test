@@ -10,7 +10,7 @@
         <div class = "header_container" >
             <div class = "header_wrapper">
                 <span class = "head_left">
-                    <a href="Index.php">
+                    <a href="Main.php">
                         <i class="fas fa-3x fa-home"></i>
                     </a>
                     <a href="_Front-End_Beta/Setting.php">
@@ -18,7 +18,7 @@
                     </a>
                 </span>
                 <span id = "head_right" class = "head_right">
-                    <a href="Index.php">
+                    <a href="logout.php">
                         <i class="fas fa-3x fa-sign-out-alt"></i>
                     </a>
                 </span>

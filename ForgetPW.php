@@ -2,6 +2,8 @@
     session_start();
     include_once 'connect.php';
     
+    unset($_SESSION['success']);
+
     if(isset($_POST['verify'])){
         $nric = mysqli_real_escape_string($conn, $_POST['Reg_NRIC_V']);
         $year = mysqli_real_escape_string($conn, $_POST['year']);
@@ -9,24 +11,23 @@
         $day = mysqli_real_escape_string($conn, $_POST['day']);
         $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $nric. "'AND Year = '" . $year . "' AND Month = '". $month ."'AND Day = '". $day ."'");
         if ($result->num_rows > 0){
-            $_COOKIE['verified'] = "True";
             $_SESSION['verified'] = True;
             $_SESSION['NRIC'] = $nric;
         }else{
-            $_COOKIE['verified'] = "False";
             $_SESSION['verified'] = False;
         }
     }
 
-    if(isset($_POST['reset'])){
+    if(isset($_POST['RST_confirm'])){
         $nric =$_SESSION['NRIC'];
-        $password = mysqli_real_escape_string($conn, $_POST['Reg_NRIC_V']);
+        $password = mysqli_real_escape_string($conn, $_POST['RST_PW']);
         $result=mysqli_query($conn,"UPDATE patient SET password = '" . $password. "' WHERE NRIC = '". $nric ."'");
         if ($result == True){
-            header("Location: Index.php");
+            $_SESSION['success'] = True;         
         }else{
             header("Location: ForgetPW.php");
         }
+        unset($_SESSION['verified']);
     }
 
     include_once 'dc.php';
@@ -224,6 +225,11 @@
                 </form>
                 <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="resetform">
                     <div id = "overlay_verify">
+                    <?php
+                        if ($_SESSION['verified'] == True){
+                            echo "<script>var verifySelection = document.getElementById('overlay_verify');setTimeout(function(){verifySelection.classList.toggle('active'); }, 500);</script>";
+                        }
+                    ?>
                     <!-- If Not Success -->
                     <!-- If Success -->
                         <div class = "V_r1"><h1> Reset Password </h1></div>
@@ -245,7 +251,7 @@
                                 <!--<button  onclick = "success()" type="submit" class="RST_confirm">Confirm</button>-->
                                 <div class="wrap_btn">
                                     <div class="form_bgbtn"></div>
-                                        <button onclick = "success()"  type="submit" name = "RST_confirm" class="login_form_btn">Confirm</button>
+                                        <button type="submit" name = "RST_confirm" class="login_form_btn">Confirm</button>
                                 </div>
                         </div>
                     </div>
@@ -253,7 +259,14 @@
                     <!-- If Not Success -->
                     <!-- If Success -->
                     <div id = "overlay_success">
-                         <h1 class = "RST_S">Password Reset Successfully!</h1> 
+                        <?php
+                            if ($_SESSION['success']){
+                                echo "<script>var verifySelection = document.getElementById('overlay_success');
+                                setTimeout(function(){verifySelection.classList.toggle('active'); }, 500)
+                                setTimeout(function(){ window.location.href='Index.php'; }, 1000);</script>";
+                            }
+                        ?>
+                        <h1 class = "RST_S">Password Reset Successfully!</h1> 
                     </div>
                 </form>    
                 </div>
@@ -264,8 +277,8 @@
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/date.js"></script>
-    <script type= "text/javascript" src="js/overlay.js"></script>
     <script type= "text/javascript" src="js/cookie.js"></script>
+    <script type= "text/javascript" src="js/overlay.js"></script>
     <script type= "text/javascript" src="js/error.js"></script>
 </html>
 
