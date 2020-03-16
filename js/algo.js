@@ -504,7 +504,7 @@ function generateCir()
      }
     else
     {
-        alert("You draw from circle " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index+ "Array Size:"+clickInfo.length);
+      //  alert("You draw from circle " + clickInfo[clickInfo.length - 2].index+ "to "+ clickInfo[clickInfo.length - 1].index+ "Array Size:"+clickInfo.length);
       //loop through the arrayto color the selected circle
       for(i=0;i<circles.length;i++)
       {
@@ -592,7 +592,7 @@ function startTest()
 }
 function stopTest()
 {
-    alert(clickInfo[clickInfo.length - 1].index);
+ 
   
     clearInterval(interval);
     var msgObj=  document.getElementById("timer").innerHTML;
@@ -610,7 +610,7 @@ function stopTest()
        
         document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
         testResult=secDiff;
-        alert("You used "+secDiff+ "Seconds for the first test");
+  
 
     }
     else

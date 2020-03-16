@@ -20,17 +20,17 @@ include('header.php');
     <div class = "bgrd">
         <div class="limiter">
             <div class="container">
-                <!-- Do rescale your class "wrap_(your identifier)" -->
-                <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
-                <div style="text-align:center;">
-                    <button id="btnStart2" onclick="startTest()" class="btnStart">Start</button>
-                </div>
+                <div class="wrapContainer">
+                <div class="row2">
+                        <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
+                    
+                        <canvas id="canvas" width="990px" height="710px"></canvas>
+                        <div class="row2">
+                            <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
+                        </div>
+                    </div>
 
-                <div style="text-align:center;">
-                    <canvas id="canvas" width="990px" height="710px"></canvas>
-                </div>
-                
-                <div id="TestResult" class="overlay">
+                    <div id="TestResult" class="overlay">
                     <div class="popup">
                         <h2 style="text-align:center;">Your test result</h2>
                         <a class="close" href="#popup2">&times;</a>
@@ -93,10 +93,22 @@ include('header.php');
                         </div>
                         <p id="risk" style="text-align:center;"></p>
                         <div class="box">
-                        <a class="button" href="TestHome.php">Home</a>
+                        <a class="button" href="Main.php">Home</a>
                         </div>
                     </div>
                 </div>
+                </div>
+                <!-- Do rescale your class "wrap_(your identifier)"
+                <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
+                <div style="text-align:center;">
+                    <button id="btnStart2" onclick="startTest()" class="btnStart">Start</button>
+                </div>
+
+                <div style="text-align:center;">
+                    <canvas id="canvas" width="990px" height="710px"></canvas>
+                </div> -->
+                
+     
                 <p id="msg" class="blue"></p>
                 <p id="msg2"><br>&nbsp;</p>
                 </div>

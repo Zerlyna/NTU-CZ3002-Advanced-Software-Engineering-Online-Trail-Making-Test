@@ -18,7 +18,8 @@ include('header.php');
         <div class="limiter">
             <div class="container">
                 <div class="wrap_Main">
-                    <span class = "Main_test"><a href = "#popup1"><p style="text-align:center;font-size:20px;">Start Test</p><img src="Assets/Img/Test_Logo.png" alt="Test_Logo" class="Test_Logo"></a></span>
+                    <span class = "Main_test"><a href = "#popup1"><p style="text-align:center;font-size:20px;"></p><img src="Assets/Img/Test_Logo.png" alt="Test_Logo" class="Test_Logo"></a></span>
+                    
                     <span class = "Main_rec"><a href = "Record.php"><img src="Assets/Img/Record_Logo.png" alt="Record_Logo" class="Rec_Logo"></a></span>
                 </div>
                 <div id="popup1" class="overlay">
