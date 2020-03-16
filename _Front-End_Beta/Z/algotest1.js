@@ -202,19 +202,19 @@ function generateCir()
                 Point Ax = circles[a-2].x   /x1
                 Point Ay = circles[a-2].y   /y1
                 */
-                cx = rngCircle.x - circles[a-2].x;
+                /*cx = rngCircle.x - circles[a-2].x;
                 cy = rngCircle.y - circles[a-2].y;
                 
                 m = cy / cx;
                 cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
                 ca = circles[a-2].x*m ;
                 cc = rngCircle.x*m;
-                cb = (m + (1/m));
+                cb = (m + (1/m));*/
 
 
                 //new line
 
-                P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);    
+                /*P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);    
                 P1_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca - cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
 
                 P2_x = Math.floor(((circles[a-2].x/m) + ca + cf) / cb);
@@ -224,7 +224,7 @@ function generateCir()
                 P3_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc - cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
 
                 P4_x = Math.floor(((rngCircle.x/m) + cc + cf) / cb);
-                P4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
+                P4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);*/
 
                 /*
                 Point Bx = rngCircle.x      /x2  
