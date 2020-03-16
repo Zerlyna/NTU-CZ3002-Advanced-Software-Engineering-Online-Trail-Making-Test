@@ -96,6 +96,13 @@ For now:
     </body>
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script type= "text/javascript" src="js/cookie.js"></script>
+    <script>
+        setCookie("can_login","No",1)
+    
+    
+    
+    </script>
     <script type= "text/javascript" src="js/visibility.js"></script>
 </html>
 <?php
