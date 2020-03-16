@@ -8,22 +8,20 @@
 
 
 /*Login Page*/
-var pass = false;
-var nric = false;
 function toMainPage(){
-    if(document.getElementById("loginPW").value == "") /*no input*/   
-    {
-        document.getElementById("loginPW").style.borderBottomColor = "#EED202";
-        document.getElementById("loginPW").value = ""; //clear input 
-        document.getElementById('loginPWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>" + "    Please Key Your NRIC";
-        document.getElementById('loginPWL').style.color = "#EED202";
-        setTimeout(function(){ 
-            document.getElementById('loginPWL').innerHTML = "Enter Password"; 
-            document.getElementById('loginPWL').style.color = "#9b9b9b";
-        }, 2000);
-    }
+    // if(document.getElementById("loginPW").value == "") /*no input*/   
+    // {
+    //     document.getElementById("loginPW").style.borderBottomColor = "#EED202";
+    //     document.getElementById("loginPW").value = ""; //clear input 
+    //     document.getElementById('loginPWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>" + "    Please Key Your NRIC";
+    //     document.getElementById('loginPWL').style.color = "#EED202";
+    //     setTimeout(function(){ 
+    //         document.getElementById('loginPWL').innerHTML = "Enter Password"; 
+    //         document.getElementById('loginPWL').style.color = "#9b9b9b";
+    //     }, 2000);
+    // }
     /*invalid input*/
-    else if (getCookie("login") == "No")    
+    if (getCookie("login") == "No")    
     {
         document.getElementById("loginPW").style.borderBottomColor = "#cc0000";
         document.getElementById("loginPW").value = ""; //clear input 
@@ -33,29 +31,23 @@ function toMainPage(){
             document.getElementById('loginPWL').innerHTML = "Enter Password"; 
             document.getElementById('loginPWL').style.color = "#9b9b9b";
         }, 2000);
-
-    }
-    else
-    {
-        nric = true;
-
     }
 
-    if(document.getElementById("loginID").value == "") /*no input*/   
-    {
-        pass = false;
-        document.getElementById("loginID").style.borderBottomColor = "#EED202";
-        document.getElementById("loginID").value = ""; //clear input
-        document.getElementById('loginIDL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Please Key Your Password";
-        document.getElementById('loginIDL').style.color = "#EED202";
-        setTimeout(function(){ 
-            document.getElementById('loginIDL').innerHTML = "Enter NRIC"; 
-            document.getElementById('loginIDL').style.color = "#9b9b9b";
-        }, 2000);
+    // if(document.getElementById("loginID").value == "") /*no input*/   
+    // {
+    //     pass = false;
+    //     document.getElementById("loginID").style.borderBottomColor = "#EED202";
+    //     document.getElementById("loginID").value = ""; //clear input
+    //     document.getElementById('loginIDL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Please Key Your Password";
+    //     document.getElementById('loginIDL').style.color = "#EED202";
+    //     setTimeout(function(){ 
+    //         document.getElementById('loginIDL').innerHTML = "Enter NRIC"; 
+    //         document.getElementById('loginIDL').style.color = "#9b9b9b";
+    //     }, 2000);
 
-    }
+    // }
     /*invalid input*/
-    else if (getCookie("login") == "No")    
+    if (getCookie("login") == "No")    
     {
         document.getElementById("loginID").style.borderBottomColor = "#cc0000";
         document.getElementById("loginID").value = ""; //clear input
@@ -66,14 +58,6 @@ function toMainPage(){
             document.getElementById('loginIDL').style.color = "#9b9b9b";
         }, 2000);
     }
-    else
-    {
-        pass = true;
-
-    }
-}
-if(pass == true  && nric == true){
-    setCookie("can_login","Yes", 1);
 }
 
 if(getCookie("login") == "Yes"){
