@@ -231,6 +231,7 @@ include('header.php');
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/date.js"></script>
     <script type= "text/javascript" src="js/overlay.js"></script>
+    <script type= "text/javascript" src="js/error.js"></script>
 </html>
 
 <?php
