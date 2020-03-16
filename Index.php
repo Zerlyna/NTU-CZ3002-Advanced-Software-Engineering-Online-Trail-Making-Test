@@ -2,6 +2,7 @@
     session_start();
     /*define('RESTRICTED',1);*/
     include_once 'connect.php';
+    unset($_SESSION['success']);
     
     //check if form is submitted
     if(isset($_POST['login'])){

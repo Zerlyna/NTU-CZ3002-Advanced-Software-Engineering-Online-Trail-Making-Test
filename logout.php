@@ -4,6 +4,7 @@
 	if(isset($_SESSION['NRIC'])) {
 		session_destroy();
 		unset($_SESSION['NRIC']);
+		unset($_SESSION['verified']);
 		setcookie("login", "No", time() - 3600);
 		header("Location: Index.php");
 	} else {
