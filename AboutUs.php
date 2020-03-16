@@ -24,12 +24,12 @@ include('header.php');
                         </span>
                         <span class = "AboutUs_UpMiddle">
                             <div class = "AboutUs_LeaderTitle"><h1>Team Leader</h1></div>
-                            <div class = "AboutUs_LeaderImg"> <img src="Assets/Img/Temp.png" alt="Manager_img" class="Manager"></div>
+                            <div class = "AboutUs_LeaderImg"> <img src="Assets/Img/Edmund.png" alt="Manager_img" class="Manager"></div>
                             <div class = "AboutUs_LeaderRole"><h3>Project Manager<h3></div>
-                            <div class = "AboutUs_LeaderDec"><p1> Hahaha1 If you were to then give your CSS classes alignleft and alignright values of text-align: left; and text-align: right; respectively, you would get close to your desired result, but your right-aligned text would be bumped down one line because of the new paragraph. Instead, just float your paragraphs: </p1></div>
+                            <div class = "AboutUs_LeaderDec"><p1> Ang Zhan Phung (Edmund) have been exposed to various projects which is involve multilevel coordination. He oversees the project and ensure things are completed in time and within the given budget.</p1></div>
                         </span>
                         <span class = "AboutUs_UpRight">
-                            <div class = "AboutUs_TeamDec"><h3>Hello</h3><p1>(Team Description)Social Problem or Is It Nonsense. One day on Twitter, I decided to type the word “colorism” in the search bar to see what people were discussing about it online. I came across a tweet that said “Yeah, I don 't believe in the whole colorism thing. Black is black to the general population. Y 'all just finding something to complain about.” I was shocked when I read it, especially when it was coming from a young, African American adult. I continued searching words like “dark-skin” and “light-skin, and found that in many of the tweets, members of the black community were referring to themselves as “light-skins”, but for what reason....   [tags: African American, Black people, Race]<p1></div>
+                            <div class = "AboutUs_TeamDec"><h3>CoronaSG</h3><p1>(Team Description)CoronaSG aims to be your fastest solution with credibility and quality. Inaugurated in 2020, the team is built with a group of trusted young and highly motivated individuals. Even though they are young, their knowledge and experience in their field are indisputable. Their vision of creating a more cohesive and inclusive society drives them into development software like LarkDetect. LarkDetect aims to provide early detection for dementia. Dementia is not a part of normal aging. It is a condition that causes progressive intellectual decline leading to increasing difficulties in coping with everyday activities. LarkDetect would allow family and love one to plan ahead, in the event of an early detection.<p1></div>
                             <div class = "AboutUs_DocTitle"><h1>Quality & Tester Division<h1></div>
                         </span>
                     </div>
