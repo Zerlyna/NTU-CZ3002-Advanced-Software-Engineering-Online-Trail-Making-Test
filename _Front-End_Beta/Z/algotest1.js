@@ -404,7 +404,7 @@ function generateCir()
 
                 check2();
                 ctx.beginPath();
-                ctx.arc(Pi1_x, Pi1_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(P1_x, P1_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
                 ctx.fill();
                 ctx.fillStyle = "black"
@@ -412,7 +412,7 @@ function generateCir()
                 ctx.fillText("C", P1_x, P1_y );
                 ctx.closePath();
                 ctx.beginPath();
-                ctx.arc(Pi2_x, Pi2_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(P2_x, P2_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
                 ctx.fill();
                 ctx.fillStyle = "black"
@@ -422,7 +422,7 @@ function generateCir()
 
 
                 ctx.beginPath();
-                ctx.arc(nPi1_x, nPi1_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(nP1_x, nP1_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 255, 0, 0.8)";
                 ctx.fill();
                 ctx.fillStyle = "black"
@@ -430,7 +430,7 @@ function generateCir()
                 ctx.fillText("nC", nP1_x, nP1_y);
                 ctx.closePath();
                 ctx.beginPath();
-                ctx.arc(nPi2_x, nPi2_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(nP2_x, nP2_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 0, 255, 0.8)";
                 ctx.fill();
                 ctx.fillStyle = "black"
@@ -439,23 +439,23 @@ function generateCir()
                 ctx.closePath();
 
                 ctx.beginPath();
-                ctx.arc(Pi3_x, Pi3_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(P3_x, P3_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 255, 255, 0.8)";
                 ctx.fill();
                 ctx.closePath();
                 ctx.beginPath();
-                ctx.arc(Pi4_x, Pi4_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(P4_x, P4_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 255, 255, 0.8)";
                 ctx.fill();
                 ctx.closePath();
 
                 ctx.beginPath();
-                ctx.arc(nPi3_x, nPi3_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(nP3_x, nP3_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
                 ctx.fill();
                 ctx.closePath();
                 ctx.beginPath();
-                ctx.arc(nPi4_x, nPi4_y, 5, Math.PI * 2, 0, false);
+                ctx.arc(nP4_x, nP4_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(255, 0, 255, 0.8)";
                 ctx.fill();
                 ctx.closePath();
@@ -463,8 +463,8 @@ function generateCir()
                 ctx.beginPath();
                 ctx.lineWidth = "5";
                 ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-                ctx.moveTo(nPi1_x,nPi1_y);
-                ctx.lineTo(nPi3_x, nPi3_y);
+                ctx.moveTo(nP1_x,nP1_y);
+                ctx.lineTo(nP3_x, nP3_y);
                 ctx.stroke();  // Draw it
                 ctx.closePath();
 
