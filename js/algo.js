@@ -621,6 +621,7 @@ function stopTest()
 
         testResult=secDiff;
     }
+    setCookie("test_A", secDiff, 1)
     window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));
     location.href = "#secondTestRules";
 }

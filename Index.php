@@ -36,7 +36,7 @@
 <!--
 For now:
     Patient NRIC: S123456789
-    password: a1a2a3a4a5
+    password: 123
 
     Doctor NRIC: 1
     password: 1

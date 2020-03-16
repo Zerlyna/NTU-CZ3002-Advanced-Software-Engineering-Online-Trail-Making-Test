@@ -640,6 +640,7 @@ function stopTest()
         document.getElementById("TMTBResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
         testResult=secDiff;
     }
+    setCookie("test_B", secDiff, 1)
     // var date = d.getDate();
     // var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
     // var year = d.getFullYear();
