@@ -20,17 +20,28 @@ include('header.php');
         <div class="limiter">
         
             <div class="container">
-        
+            <div class="wrapContainer"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
+                <!-- fill your content -->
+                    <!-- Minimum HTML, please alter according to your content freely --> 
+                    <div class = "row1"><h3>Test A</h3></div>
+                    <div class="row2">
+                    <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
+                    
+                    <canvas id="canvas" width="990px" height="710px"></canvas>
+                    
+                    </div>
+                    <div class=row3>
+                    <button class="button" onclick="startTest()">Start</button>
+                    </div>
+             
+            </div>
+            
                 <!-- Do rescale your class "wrap_(your identifier)" -->
 
-                <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
-                <div style="text-align:center">
-                  <button class="button" onclick="startTest()">Start</button>
-                </div>
+        
+                
 
-                <div style="text-align:center;">
-                    <canvas id="canvas" width="990px" height="710px"></canvas>
-                </div> 
+                
                 <!-- Must put this -->
                 <p id="firstResult" style="text-align:center;"></p>
                 <!-- Link to second test -->

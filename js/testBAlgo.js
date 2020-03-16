@@ -676,6 +676,7 @@ function stopTest()
     }
     window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
     location.href = "#TestResult";
+    
 }
 
 

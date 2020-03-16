@@ -123,6 +123,62 @@
     }
   }
 
+  .wrapContainer {
+    width : 100%;
+    min-height : Calc(100vh - 160px);
+    background : none;
+    opacity: 100%;
+    overflow: hidden;
+   /*padding-top : 100px;
+    padding-bottom : 100px;*/
+    /*margin: 0 auto;*/
+    text-align: center;
+    
+}
+.row1 {
+    /*padding-top : 0.75%;
+    padding-bottom : 0.75%;*/
+    
+    background :#ECEAEA;
+    text-align : center;
+    font-size: 30px;
+    min-height : 5vh;
+    position : relative;
+    width : 100%;
 
+}
+
+.row2 {
+   
+    height : 78vh;
+    position : relative;
+    /*margin-bottom:10px;*/
+    
+}
+
+
+.col1{
+    border:2px solid yellow;
+    width:33.3%;
+    height:100%;  
+    float : left;  
+}
+.col2{
+    border:2px solid yellow;
+    width:33.3%;
+    height:100%;  
+    float : left;  
+}
+.col3{
+    border:2px solid yellow;
+    width:33.3%;
+    height:100%;  
+    float : left;  
+}
+div:after{
+    content: "";
+    display: table;
+    clear: both;
+}
 
  
