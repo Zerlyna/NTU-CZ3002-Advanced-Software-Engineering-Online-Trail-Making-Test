@@ -11,7 +11,6 @@
 var pass = false;
 var nric = false;
 function toMainPage(){
-
     if(document.getElementById("loginPW").value == "") /*no input*/   
     {
         document.getElementById("loginPW").style.borderBottomColor = "#EED202";
@@ -24,12 +23,7 @@ function toMainPage(){
         }, 2000);
     }
     /*invalid input*/
-    else if (document.getElementById("loginPW").value == "1" || document.getElementById("loginPW").value == "S123456789")    
-    {
-        
-        nric = true;
-    }
-    else
+    else if (getCookie("login") == "No")    
     {
         document.getElementById("loginPW").style.borderBottomColor = "#cc0000";
         document.getElementById("loginPW").value = ""; //clear input 
@@ -39,8 +33,9 @@ function toMainPage(){
             document.getElementById('loginPWL').innerHTML = "Enter Password"; 
             document.getElementById('loginPWL').style.color = "#9b9b9b";
         }, 2000);
-        
+
     }
+
     if(document.getElementById("loginID").value == "") /*no input*/   
     {
         pass = false;
@@ -55,15 +50,8 @@ function toMainPage(){
 
     }
     /*invalid input*/
-    else if (document.getElementById("loginID").value == "1" || document.getElementById("loginID").value == "a1a2a3a4a5")    
+    else if (getCookie("login") == "No")    
     {
-
-        pass = true;
-
-    }
-    else
-    {
-
         document.getElementById("loginID").style.borderBottomColor = "#cc0000";
         document.getElementById("loginID").value = ""; //clear input
         document.getElementById('loginIDL').innerHTML = "<i class='fas fa-times-circle'></i>" + "Invalid Input";
@@ -72,14 +60,11 @@ function toMainPage(){
             document.getElementById('loginIDL').innerHTML = "Enter NRIC"; 
             document.getElementById('loginIDL').style.color = "#9b9b9b";
         }, 2000);
-        
-    }
-    if(pass == true && nric == true)
-    {
-        document.getElementById('head_right').style.visibility = 'visible';
-        document.getElementById('Rate').style.visibility = 'visible';
     }
 }
 
-
+if(getCookie("login") == "Yes"){
+    document.getElementById('head_right').style.visibility = 'visible';
+    document.getElementById('Rate').style.visibility = 'visible';
+}
 /*Reset Password Page*/

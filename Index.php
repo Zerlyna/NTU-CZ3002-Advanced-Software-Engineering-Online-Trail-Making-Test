@@ -1,7 +1,8 @@
 <?php
+    session_start();
     /*define('RESTRICTED',1);*/
     include_once 'connect.php';
-
+    
     //check if form is submitted
     if(isset($_POST['login'])){
         //normal patient
@@ -12,8 +13,6 @@
             if ($row = mysqli_fetch_array($result)){
                 $_SESSION['doctorid'] = $row['id'];
                 header("Location: doctor.php");
-            } else {
-                $errormsg="Incorrect Doctor ID or Password. Please try again.";
             }
         }else{
             $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
@@ -26,14 +25,14 @@
                                         
                                         
                 $_SESSION['NRIC'] = $row['NRIC'];
+                setcookie("login", "Yes");
                 header("Location: Main.php");
-            } else {
-                /*echo "gg";*/
-                /*echo '<script type="text/javascript">', 'toMainPage();', '</script>';*/
-                $errormsg="Incorrect NRIC or Password. Please try again.";
+            }else{
+                setcookie("login", "No");
             }
         }
     }
+
     include_once 'header.php';
     include_once 'dc.php';
 ?>
@@ -98,7 +97,6 @@ For now:
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/visibility.js"></script>
-    <script type= "text/javascript" src="js/error.js"></script>
 </html>
 <?php
     include_once ('footer.php');

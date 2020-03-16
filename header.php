@@ -2,7 +2,6 @@
 /*header('HTTP/1.0 403 Forbidden');exit;*/
 ?>
 
-
 <html>
     <link rel="stylesheet" href="/css/headfoot.css">
     <link rel="stylesheet" href="/css/frame.css">
@@ -19,14 +18,13 @@
                     </a>
                 </span>
                 <span id = "head_right" class = "head_right">
-                    
                     <a href="Index.php">
                         <i class="fas fa-3x fa-sign-out-alt"></i>
                     </a>
                 </span>
-
-                
             </div>
         </div>
     </header>
+    <script type= "text/javascript" src="./js/cookie.js"></script>
+    <script type= "text/javascript" src="./js/error.js"></script>
 </html>
