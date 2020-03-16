@@ -16,40 +16,11 @@ var dataURL;
 
 //new
 var los = true;
-var chk1_l1o1 ;
-var chk2_l1o1 ;
-var chk1_l1o2 ;
-var chk2_l1o2 ;
-var chk1_l2o1 ;
-var chk2_l2o1 ;
-var chk1_l2o2 ;
-var chk2_l2o2 ;
-var chk1_l2ob ;
-var chk2_l2ob ;
-var chk1_l1ob ;
-var chk2_l1ob ;
-var chk1_l1od1 ;
-var chk2_l1od1 ;
-var chk1_l2od1 ;
-var chk2_l2od1 ;
-var chk1_l1od2 ;
-var chk2_l1od2 ;
-var chk1_l2od2 ;
-var chk2_l2od2 ;
-var chk1_ld1od1 ;
-var chk2_ld1od1 ;
-var chk1_ld2od1 ;
-var chk2_ld2od1 ;
-var chk1_ld1od2 ;
-var chk2_ld1od2 ;
-var chk1_ld2od2 ;
-var chk2_ld2od2 ;
-var chk1;
-var chk2;
 var rngCircle;
 var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
+var counter4 = 0;
 var overcounter = 0;
 var randX;
 var randY;
@@ -59,21 +30,22 @@ var other;
 var dy;
 var dx;
 var rr;
-//https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
 var isDrawing;
 var lastX;
 var lastY;
 var toggle = true;
 
 var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
-var P1_x, P1_y, P2_x, P2_y , P3_x , P3_y , P4_x , P4_y;
-var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;
+var Pbi1_x,Pbi1_y,Pbi2_x,Pbi2_y
+var chk1_b , chk2_b;
+var P_ax, P_ay,P_bx, P_by, P_cx,P_cy, P_dx , P_dy, dv;
+var chk1,chk2,chk1_ab,chk2_ab,chk1_cd,chk2_cd,chk1_ac,chk2_ac,chk1_bd,chk2_bd;
 
 var userArray=[];
 
 window.onload=generateCir();
 
-function generateCir()
+/*function generateCir()
 {
 
     while (circles.length < 25) {
@@ -244,7 +216,7 @@ function generateCir()
                 chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));*/
                 
                 
-                chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
+               /* chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
                 chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
 
                 if(chk1 < 0 && chk2 < 0 ){
@@ -253,7 +225,7 @@ function generateCir()
                     || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0 
                     || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0 && chk2_l2od2< 0
                     || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0 && chk2_ld2od2< 0){*/
-                    los = false;
+               /*     los = false;
                     if(counter2 > 1000)
                     {
                      
@@ -302,7 +274,7 @@ function generateCir()
             sessionStorage.clear();
             regenerate();
         }*/
-        if (!overlapping && los) { 
+       /* if (!overlapping && los) { 
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
@@ -331,7 +303,7 @@ function generateCir()
                     
                     /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
                     ctx.fill();*/
-                    ctx.fillStyle = "black"
+            /*        ctx.fillStyle = "black"
                     ctx.font = '30px Arial';
                     ctx.fillText(circles[i].index, circles[i].x - 9 , circles[i].y + 10);
                 }
@@ -350,11 +322,196 @@ function generateCir()
     if(overcounter == 30){
         /*document.write('<pre>');
         document.write("Overflow");*/
+       /* return;
+    }
+    overcounter++;
+}*/
+function generateCir()
+{
+
+    while (circles.length < 25) {
+
+        los = true;
+        overlapping = false;
+        
+        //limit
+        if(circles.length < 1 && circles.length >= 0)
+        {
+            randX = Math.floor(Math.random()* 900 + 40);
+            randY = Math.floor(Math.random()* 700 + 40);
+        }
+        else if (circles.length >= 1)
+        {
+            do{
+                
+                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
+                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
+
+                if(counter3 > 2000)
+                {
+                    regenerate(); //regenerate circle;
+                    sessionStorage.clear();
+                    return;
+                }
+                counter3++;
+            }while(randX > 940 || randY > 660 || randX < 40 || randY < 40); 
+        }
+        rngCircle =
+        {
+            index: 1,
+            x: Math.floor(randX),
+            y: Math.floor(randY),
+            radius: 25,
+        }
+        for (var j = 0; j < circles.length; j++) {
+            other = circles[j];
+            dx = rngCircle.x - other.x;
+            dy = rngCircle.y - other.y;
+            rr = 70;
+            if (dx * dx + dy * dy < rr * rr)
+            {
+                overlapping = true;;
+                break;
+            }
+            if(counter > 10000)
+            {
+                regenerate(); //regenerate circle;
+                sessionStorage.clear();
+                return;
+            }
+            counter++;
+        }
+        
+        //check if line of sequence is line of sight
+        if(a > 2)
+        {
+            cr = 25; // radius value
+            dv = cr + 3;
+            P_ax = rngCircle.x - dv;
+            P_ay = rngCircle.y - dv;
+            P_bx = rngCircle.x + dv;
+            P_by = rngCircle.y - dv;
+            P_cx = rngCircle.x - dv;
+            P_cy = rngCircle.y + dv;
+            P_dx = rngCircle.x + dv;
+            P_dy = rngCircle.y + dv;
+            for (var j = 0; j < circles.length -1 ; j++) {
+
+                //cross section of other circle with rng circle
+                cx = rngCircle.x - circles[j].x;
+                cy = rngCircle.y - circles[j].y;
+                
+                m = cy / cx;
+                cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
+                ca = circles[j].x*m ;
+                cc = rngCircle.x*m;
+                cb = (m + (1/m));
+
+                //border line - 2 point coordinate
+                Pbi1_x = Math.floor(((circles[j].x/m) + ca - cf) / cb);
+                Pbi1_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca - cf)) /cb) + (circles[j].x/m) + circles[j].y);
+                Pbi2_x = Math.floor(((circles[j].x/m) + ca + cf) / cb);
+                Pbi2_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca + cf)) /cb) + (circles[j].x/m) + circles[j].y);
+
+                //block P1 and P2 vs circles[a-2].x, rngCircle.x
+                chk1_b = Math.floor(((rngCircle.x-Pbi2_x)*(Pbi1_y-Pbi2_y)-(rngCircle.y-Pbi2_y)*(Pbi1_x-Pbi2_x))*((circles[a-2].x-Pbi2_x)*(Pbi1_y-Pbi2_y)-(circles[a-2].y-Pbi2_y)*(Pbi1_x-Pbi2_x))); // P2 P4 , Pib Pib
+                chk2_b = Math.floor(((Pbi2_x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(Pbi2_y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((Pbi1_x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(Pbi1_y-rngCircle.y)*(circles[a-2].x-rngCircle.x)));
+
+                //square rect vs other possible line 
+                chk1_ab = Math.floor(((P_ax-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_ay-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_bx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_by-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_ab = Math.floor(((circles[j].x-P_ax)*(P_by-P_ay)-(circles[j].y-P_ay)*(P_bx-P_ax))*((circles[j+1].x-P_ax)*(P_by-P_ay)-(circles[j+1].y-P_ay)*(P_bx-P_ax)));
+                chk1_ac = Math.floor(((P_ax-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_ay-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_cx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_cy-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_ac = Math.floor(((circles[j].x-P_ax)*(P_cy-P_ay)-(circles[j].y-P_ay)*(P_cx-P_ax))*((circles[j+1].x-P_ax)*(P_cy-P_ay)-(circles[j+1].y-P_ay)*(P_cx-P_ax)));
+                chk1_cd = Math.floor(((P_cx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_cy-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_dx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_dy-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_cd = Math.floor(((circles[j].x-P_cx)*(P_dy-P_cy)-(circles[j].y-P_cy)*(P_dx-P_cx))*((circles[j+1].x-P_cx)*(P_dy-P_cy)-(circles[j+1].y-P_cy)*(P_dx-P_cx)));
+                chk1_bd = Math.floor(((P_dx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_dy-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_bx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_by-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_bd = Math.floor(((circles[j].x-P_dx)*(P_by-P_dy)-(circles[j].y-P_dy)*(P_bx-P_dx))*((circles[j+1].x-P_dx)*(P_by-P_dy)-(circles[j+1].y-P_dy)*(P_bx-P_dx)));
+                
+                //previous line vs other line
+                chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
+                chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
+
+                if (chk1 < 0 && chk2 < 0 || 
+                    chk1_b < 0 && chk2_b < 0 ||
+                    chk1_ab < 0 && chk2_ab < 0 || chk1_cd < 0 && chk2_cd < 0 || chk1_ac < 0 && chk2_ac < 0 || chk1_bd < 0 && chk2_bd < 0){
+                    los = false;
+                    if(counter2 > 1000)
+                    {
+                        sessionStorage.clear();
+                        regenerate(); //regenerate circle;
+                        return;
+                    }
+                    counter2 ++;
+                    break;
+                }
+            }
+        }
+        if (!overlapping && los) { 
+            rngCircle.index = a; 
+            circles.push(rngCircle);
+            overlapping = false;
+            los = true;
+            a++;
+        } 
+    }
+    if(toggle && circles.length == 25) 
+    {
+        
+        toggle = false;
+        ctx.lineWidth = "5";
+        ctx.fillStyle = "#FFFFFF";
+        ctx.strokeStyle = "black";
+        ctx.strokeRect(10, 10, 980, 700);
+        ctx.lineWidth = "2";
+        check2();
+        return;
+
+        for (i = 0; i < circles.length; i++) {
+   
+                ctx.beginPath();
+                ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
+                ctx.strokeStyle = "rgba(0, 0, 0, 1)";
+                ctx.stroke();
+                ctx.closePath();
+                if(i < 9)
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '30px Arial';
+                    ctx.fillText(circles[i].index, circles[i].x - 9 , circles[i].y + 10);
+                }
+                else
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '30px Arial';
+                    ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
+                }
+                
+                
+                ctx.closePath();
+                
+            }
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "#666666";
+    }
+    if(overcounter >=30){
+        document.write('<pre>');
+        document.write("Overflow");
         return;
     }
     overcounter++;
 }
 
+function regenerate(){
+    rngCircle.index = 0;
+    a = 1;
+    circles = [];
+    counter = 0;
+    counter2 = 0;
+    counter3 = 0;
+    overlapping = false;
+    los = true;
+    generateCir();    
+}
 
   function draw(e) 
   {
@@ -641,14 +798,49 @@ function StoreUserTestResult(first)
 }
 
 
-function regenerate(){
-    rngCircle.index = 0;
-    a = 1;
-    circles = [];
-    counter = 0;
-    counter2 = 0;
-    counter3 = 0;
-    overlapping = false;
-    los = true;
-    generateCir();    
-}
+function check2(){
+    for (i = 0; i < circles.length; i++) {
+
+
+        
+        if(i > 0){
+
+            ctx.beginPath();
+            ctx.lineWidth = "5";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(circles[i-1].x,circles[i-1].y);
+            ctx.lineTo(circles[i].x,circles[i].y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            
+        }
+        ctx.beginPath();
+        ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
+        ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+        ctx.fill();
+        ctx.fillStyle = "white"
+        ctx.font = '15px serif';
+        ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
+        if(i==0)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
+    
+        }
+        if(i==24)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
+        }
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
+        ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+        ctx.fill();
+        ctx.fillStyle = "black"
+        ctx.font = '20px serif';
+        ctx.fillText("RNG", rngCircle.x - 20, rngCircle.y + 3);
+        ctx.closePath();
+    }}
