@@ -17,6 +17,34 @@ var lastY;
 var userArray=[];
 var dataURL;
 var numOfAttempt=3;
+
+//new
+//new
+var los = true;
+var rngCircle;
+var counter = 0;
+var counter2 = 0;
+var counter3 = 0;
+var counter4 = 0;
+var overcounter = 0;
+var randX;
+var randY;
+var valid = true;
+var overlapping = false;
+var other;
+var dy;
+var dx;
+var rr;
+var toggle = true;
+
+var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
+var Pbi1_x,Pbi1_y,Pbi2_x,Pbi2_y
+var chk1_b , chk2_b;
+var P_ax, P_ay,P_bx, P_by, P_cx,P_cy, P_dx , P_dy, dv;
+var chk1,chk2,chk1_ab,chk2_ab,chk1_cd,chk2_cd,chk1_ac,chk2_ac,chk1_bd,chk2_bd;
+
+var userArray=[];
+
 window.onload=generateCir();
 
 /*function generateCir()
@@ -222,7 +250,8 @@ function generateCir()
     }
     if(toggle && circles.length == 25) 
     {
-        
+        check2();
+        return;
         toggle = false;
         ctx.lineWidth = "5";
         ctx.fillStyle = "#FFFFFF";
@@ -263,6 +292,20 @@ function generateCir()
         return;
     }
     overcounter++;
+}
+
+function regenerate(){
+    rngCircle.index = 0;
+    a = 1;
+    circles = [];
+    counter = 0;
+    counter2 = 0;
+    counter3 = 0;
+    overlapping = false;
+    los = true;
+    generateCir();
+
+    
 }
 
 
@@ -546,4 +589,48 @@ function stopTest()
 //  clearInterval(interval);
 //  msgObj.innerHTML =  document.getElementById("ten-countdown").innerHTML;
 // }
+
+function check2(){
+    for (i = 0; i < circles.length; i++) {
+        if(i > 0){
+
+            ctx.beginPath();
+            ctx.lineWidth = "5";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(circles[i-1].x,circles[i-1].y);
+            ctx.lineTo(circles[i].x,circles[i].y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            
+        }
+        ctx.beginPath();
+        ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
+        ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+        ctx.fill();
+        ctx.fillStyle = "white"
+        ctx.font = '15px serif';
+        ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
+        if(i==0)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
+    
+        }
+        if(i==24)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
+        }
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
+        ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+        ctx.fill();
+        ctx.fillStyle = "black"
+        ctx.font = '20px serif';
+        ctx.fillText("RNG", rngCircle.x - 20, rngCircle.y + 3);
+        ctx.closePath();
+    }}
 
