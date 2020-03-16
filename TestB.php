@@ -1,6 +1,33 @@
 <?php
-include('header.php');
+    session_start();
+    include_once 'connect.php';
+
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
+
+    if(isset($_POST['finish_test'])){
+        $time_A = $_COOKIE['time_A'];
+        $time_B = $_COOKIE['time_B'];
+        $recorded_time = time();
+        $day = date("j", $recorded_time);
+        $month = date("n", $recorded_time);
+        $year = date("Y", $recorded_time);
+        $result = mysqli_query($conn,"INSERT INTO test(NRIC,Year,Month,Day,time_A,time_B) 
+        VALUES('" . $nric . "', '" . $year . "', '" . $month . "', '" . $day . "', '" . $time_A . "', '" . $time_B . "')");
+        if ($result == TRUE){
+            header("Location: Report.php");
+        } else {
+            header("Location: wrong_test_submission.php");
+        }
+    }
+
+    include_once 'dc.php';
+    include_once 'header.php';
 ?>
+
 <html>
     <head>
         <title>Test Set B</title>
@@ -123,6 +150,7 @@ include('header.php');
     <script type="text/javascript" src="js/testBAlgo.js"></script>
 
 </html>
+
 <?php
-include('footer.php');
+    include('footer.php');
 ?>

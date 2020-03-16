@@ -1,6 +1,36 @@
 <?php
-include('header.php');
+    session_start();
+    include_once "connect.php";
+
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
+
+    $data = new stdClass();
+    $data->date_arr = array();
+    $data->time_A_arr = array();
+    $data->time_B_arr = array();
+
+    ##get user data -- 
+    $query = "SELECT * FROM test WHERE NRIC='".$nric."' ORDER BY id";
+    $result = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_assoc($result)){
+        #pass into array
+        $datetime = $row['Year'] ."-". $row['Month'] ."-". $row['Day'];
+        array_push($data->date_arr, $datetime); 
+        array_push($data->time_A_arr, $row['time_A']);
+        array_push($data->time_B_arr, $row['time_B']); 
+    }
+    ##the data the chart need
+    $data_json = json_encode($data);
+    $_COOKIE["data_json"] = $data_json;
+
+    include_once "dc.php";
+    include_once 'header.php';
 ?>
+
 <html>
     <head>
         <title>Record</title>
@@ -42,7 +72,8 @@ include('header.php');
                         </div>
                         
                         <div class = "rec_c2">
-                            <canvas> line graph ??? </canvas> 
+                            <canvas></canvas>
+                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
                         </div>
                     </div>
                 <!-- end of content -->
@@ -56,7 +87,9 @@ include('header.php');
     <!-- -->
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="./js/chart.js"></script>
 </html>
 <?php
-include('footer.php');
+    include('footer.php');
 ?>

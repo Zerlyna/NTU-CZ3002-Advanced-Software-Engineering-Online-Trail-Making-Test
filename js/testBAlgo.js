@@ -643,6 +643,12 @@ function stopTest()
       
         testResult=secDiff;
     }
+    //setCookie("test_B", secDiff, 1)
+    // var date = d.getDate();
+    // var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+    // var year = d.getFullYear();
+    //suppose to get the username based on the login 
+    document.cookie = "username=John Doe";
 
     document.getElementById("tmtAResult").innerHTML=sessionStorage.getItem("TMT_A") + "Sec";
     document.getElementById("tmtBResult").innerHTML=testResult+"Sec";

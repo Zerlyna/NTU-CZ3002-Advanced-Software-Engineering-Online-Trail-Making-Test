@@ -402,7 +402,7 @@ function generateCir()
 
                 
 
-                check2();
+                /*check2();
                 ctx.beginPath();
                 ctx.arc(P1_x, P1_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
@@ -550,7 +550,7 @@ function generateCir()
                 {*/
                 if (/*chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
                     ||*/ chk1 < 0 && chk2 < 0 
-                    || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0
+                    /*|| chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0*/
                     /*|| chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0*/
                     /*|| chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0&& chk2_ld2od2< 0*/){
                     los = false;

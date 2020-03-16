@@ -1,6 +1,15 @@
 <?php
-include('header.php');
+    session_start();
+    
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
+    
+    include('header.php');
 ?>
+
 <html>
    <!-- <head>
         <title>Test Set A</title>-->
@@ -74,6 +83,7 @@ include('header.php');
     <script type= "text/javascript" src="js/algo.js"></script>
     <!-- <script type= "text/javascript" src="js/testAAlgo.js"></script> -->
 </html>
+
 <?php
-include('footer.php');
+    include('footer.php');
 ?>

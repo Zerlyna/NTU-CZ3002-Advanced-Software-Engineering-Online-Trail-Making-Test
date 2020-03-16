@@ -1,7 +1,8 @@
 <?php
+    session_start();
     /*define('RESTRICTED',1);*/
     include_once 'connect.php';
-
+    
     //check if form is submitted
     if(isset($_POST['login'])){
         //normal patient
@@ -12,8 +13,6 @@
             if ($row = mysqli_fetch_array($result)){
                 $_SESSION['doctorid'] = $row['id'];
                 header("Location: doctor.php");
-            } else {
-                $errormsg="Incorrect Doctor ID or Password. Please try again.";
             }
         }else{
             $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
@@ -21,19 +20,21 @@
             $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
             if ($row = mysqli_fetch_array($result)){
                 $_SESSION['NRIC'] = $row['NRIC'];
+                setcookie("login", "Yes");
                 header("Location: Main.php");
-            } else {
-                $errormsg="Incorrect NRIC or Password. Please try again.";
+            }else{
+                setcookie("login", "No");echo "gg";
             }
         }
     }
+
     include_once 'header.php';
     include_once 'dc.php';
 ?>
 <!--
 For now:
     Patient NRIC: S123456789
-    password: a1a2a3a4a5
+    password: 123
 
     Doctor NRIC: 1
     password: 1
@@ -48,7 +49,7 @@ For now:
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">   
     </head>
-    <body>
+    <body onload="toMainPage()">
         <div class = "bgrd">
             <div class="limiter">
                 <div class="container">
@@ -77,7 +78,8 @@ For now:
                             <div class = "login_btn" >
                                 <div class="wrap_btn" >
                                     <div class="form_bgbtn"></div>
-                                        <button onclick = "toMainPage()" type="submit" name = "login" class="login_form_btn">Login</button>
+                                        <!--<button onclick = "toMainPage()" type="submit" name = "login" class="login_form_btn">Login</button>-->
+                                        <button type="submit" name = "login" class="login_form_btn">Login</button>
                                 </div>
                             </div>
                             <div class = "login_reg"><a href="Registration.php">Don't have an account? Sign Up</a></div>
@@ -89,8 +91,15 @@ For now:
     </body>
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
-    <script type= "text/javascript" src="js/visibility.js"></script>
+    <script type= "text/javascript" src="js/cookie.js"></script>
     <script type= "text/javascript" src="js/error.js"></script>
+    <!-- <script>
+        setCookie("can_login","No",1)
+    
+    
+    
+    </script> -->
+    <script type= "text/javascript" src="js/visibility.js"></script>
 </html>
 <?php
     include_once ('footer.php');

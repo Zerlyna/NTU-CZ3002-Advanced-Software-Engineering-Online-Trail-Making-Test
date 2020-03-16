@@ -1,6 +1,15 @@
 <?php
-include('header.php');
+    session_start();
+
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
+    
+    include_once 'header.php';
 ?>
+
 <html>
     <head>
         <title>About Us</title>
@@ -107,5 +116,5 @@ include('header.php');
 </html>
 
 <?php
-include('footer.php');
+    include('footer.php');
 ?>
