@@ -36,7 +36,7 @@ include('header.php');
                     <div class = "AboutUs_Lower">
                         <span class = "AboutUs_LowerLeft">
                             <div class = "AboutUs_DevImg">
-                                <span class = "AboutUs_DevLead"><img src="Assets/Img/YongXin.png" alt="Lead_img" class="Lead"></span>
+                                <span class = "AboutUs_DevLead"><img src="Assets/Img/YongXin.jpg" alt="Lead_img" class="Lead"></span>
                                 <span class = "AboutUs_DevFront"><img src="Assets/Img/Temp.png" alt="Frontend_img" class="Frontend"></span>
                                 <span class = "AboutUs_DevBack"><img src="Assets/Img/MoXuan.png" alt="Backend_img" class="Backend"></span>
                                 </div>
@@ -56,16 +56,16 @@ include('header.php');
                         </span>
                         <span class = "AboutUs_LowerRight">
                             <div class = "AboutUs_DocImg">
-                                <span class = "AboutUs_DocQAImg"><img src="Assets/Img/Temp.png" alt="QA_img" class="QA"></span>
-                                <span class = "AboutUs_DocTestImg"><img src="Assets/Img/Temp.png" alt="Test_img" class="Test"></span>
+                                <span class = "AboutUs_DocQAImg"><img src="Assets/Img/Emma.jpg" alt="QA_img" class="QA"></span>
+                                <span class = "AboutUs_DocTestImg"><img src="Assets/Img/Brenda.jpg" alt="Test_img" class="Test"></span>
                             </div>
                             <div class = "AboutUs_DocTitle">
-                                <p1 class = "AboutUs_DocQAT">QA Quality</p1>
-                                <p1 class = "AboutUs_DocTestT">QA Tester</p1>
+                                <p1 class = "AboutUs_DocQAT">QA Manager</p1>
+                                <p1 class = "AboutUs_DocTestT">Release Engineer</p1>
                             </div>
                             <div class = "AboutUs_DocDec">
-                                <p1 class = "AboutUs_DocQAD"> Hahaha1 If you were to then give your CSS classes alignleft and alignright values of text-align: left; and text-align: right; respectively, you would get close to your desired result, but your right-aligned text would be bumped down one line because of the new paragraph. Instead, just float your paragraphs: </p1>
-                                <p1 class = "AboutUs_DocTestD"> Hahaha1 If you were to then give your CSS classes alignleft and alignright values of text-align: left; and text-align: right; respectively, you would get close to your desired result, but your right-aligned text would be bumped down one line because of the new paragraph. Instead, just float your paragraphs:</p1>
+                                <p1 class = "AboutUs_DocQAD"> As the QA Manager and QA Engineer of this project, Emmanuelle Vania has past work experience that has helped her gain proficiency in the related field. From her experience as a tester, she was familiar with the use of rigorous test cases and issue documentation. Her time in the Content Quality Team and Customer Service Team has taught her to uphold the importance of maintaining product and/or service performance levels.</p1>
+                                <p1 class = "AboutUs_DocTestD"> Brenda Ng Xin En has great experience in the software development process such as in Android Studio, Visual Studio and Unity. She has worked with many teams and knows how to manage the workload and properly integrate codes. With the ability to access software performance and plan release schedules, she will certainly fit the role of a Release Engineer.</p1>
                             </div>
                         </span>
                     </div>
