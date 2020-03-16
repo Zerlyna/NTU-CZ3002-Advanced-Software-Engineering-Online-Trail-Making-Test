@@ -2,24 +2,24 @@
 include('header.php');
 ?>
 <html>
-    <head>
-        <title>Test Set A</title>
+   <!-- <head>
+        <title>Test Set A</title>-->
         <link rel="stylesheet" href="css/frame.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/headfoot.css">
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
-        <!-- link .css here (a demo test_wrap.css) -->
         <link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">
         <link rel="stylesheet" href="css/TestA.css">
         <!-- -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">   
-    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
     <body>
     <div class = "bgrd">
         <div class="limiter">
             <div class="container">
                 <!-- Do rescale your class "wrap_(your identifier)" -->
+
                 <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                 <div style="text-align:center">
                   <button class="button" onclick="startTest()">Start</button>
@@ -58,7 +58,7 @@ include('header.php');
     <!-- link .js here -->
 
     <!-- -->
-    <script src= "/external/jquery/jquery-3.4.1.js"></script> 
+    <script src= "/external/jquery/jquery-3.4.1.js"></script>
     <script type= "text/javascript" src="js/algo.js"></script>
     <!-- <script type= "text/javascript" src="js/testAAlgo.js"></script> -->
 </html>

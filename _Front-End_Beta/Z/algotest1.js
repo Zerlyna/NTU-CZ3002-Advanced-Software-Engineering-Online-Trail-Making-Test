@@ -66,6 +66,9 @@ var toggle = true;
 var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
 var P1_x, P1_y, P2_x, P2_y , P3_x , P3_y , P4_x , P4_y;
 var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;
+var divs;
+var nP1_x, nP1_y, nP2_x,nP2_y,nP3_x,nP3_y,nP4_x,nP4_y;
+var nPi1_x, nPi1_y, nPi2_x,nPi2_y,nPi3_x,nPi3_y,nPi4_x,nPi4_y;
 
 var userArray=[];
 
@@ -74,7 +77,7 @@ window.onload=generateCir();
 function generateCir()
 {
 
-    while (circles.length < 3) {
+    while (circles.length < 25) {
 
         los = true;
         overlapping = false;
@@ -97,14 +100,13 @@ function generateCir()
                 }*/
 
                 /*rng2();*/
-                if(counter3 > 1000)
+                if(counter3 > 5000)
                 {
                     document.writeln(randX, " ", randY);
                     document.writeln("Max Neighbour");
                     document.writeln(chk1_l1o1, " " , chk2_l1o1, " | ", chk1_l1o2 , " " , chk2_l1o2 , " | " , chk1_l2o1, " " , chk2_l2o1, " | ", chk1_l2o2 , " " , chk2_l2o2);
                     document.writeln(circles[a-2].x , " " ,circles[a-2].y);
                     document.writeln(los, " ", overlapping);
-                    
                     regenerate(); //regenerate circle;
                     /*check();*/
                     sessionStorage.clear();
@@ -155,7 +157,7 @@ function generateCir()
                 overlapping = true;;
                 break;
             }
-            if(counter > 10000)
+            if(counter > 1000)
             {
                 document.writeln(dx*dx, " " , dy*dy , " ");
                 document.writeln(dx, " " , dy , " ");
@@ -179,7 +181,7 @@ function generateCir()
 
                 
 
-                cr = 15; // radius value 
+                cr = 25; // radius value 
 
                /* document.write('<pre>');
                 document.writeln("Value A at = ", a-2, " ");
@@ -212,7 +214,7 @@ function generateCir()
 
                 //new line
 
-                P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);
+                P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);    
                 P1_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca - cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
 
                 P2_x = Math.floor(((circles[a-2].x/m) + ca + cf) / cb);
@@ -223,6 +225,36 @@ function generateCir()
 
                 P4_x = Math.floor(((rngCircle.x/m) + cc + cf) / cb);
                 P4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
+
+                /*
+                Point Bx = rngCircle.x      /x2  
+                Point By = rngCircle.y      /y2
+                Point Ax = circles[a-2].x   /x1
+                Point Ay = circles[a-2].y   /y1
+                */
+                /*
+                Cx = P1_x nCx = nP1_x
+                Cy = P1_y
+                Ex = P2_x
+                Ey = P2_y
+                Dx = P3_x
+                Dy = P3_y 
+                Fx = P4_x
+                Fy = P4_y nFy = nP4_y
+                */
+                divs = 1;
+                nP1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((P1_x- circles[a-2].x )+(P1_y - circles[a-2].y)) + circles[a-2].x);
+                nP1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(P1_x- circles[a-2].x )+(P1_y - circles[a-2].y)) + circles[a-2].y);
+
+                nP2_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[a-2].x- P2_x)-(circles[a-2].y - P2_y)) + circles[a-2].x);
+                nP2_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[a-2].x- P2_x)+(circles[a-2].y - P2_y)) + circles[a-2].y);
+
+                nP3_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((P3_x- rngCircle.x )-(P3_y - rngCircle.y)) + rngCircle.x);
+                nP3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((P3_x- rngCircle.x )+(P3_y - rngCircle.y)) + rngCircle.y);
+
+                nP4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((rngCircle.x- P4_x)+(rngCircle.y - P4_y)) + rngCircle.x);
+                nP4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(rngCircle.x- P4_x)+(rngCircle.y - P4_y)) + rngCircle.y);
+
 
 
                 cx = circles[j+1].x - circles[j].x;
@@ -247,45 +279,101 @@ function generateCir()
                 Pi4_x = Math.floor(((circles[j+1].x/m) + cc + cf) / cb);
                 Pi4_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc + cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
 
+                nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[j].x )+(Pi1_y - circles[j].y)) + circles[j].x);
+                nPi1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(Pi1_x- circles[j].x )+(Pi1_y - circles[j].y)) + circles[j].y);
+
+                nPi2_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[j].x- Pi2_x)-(circles[j].y - Pi2_y)) + circles[j].x);
+                nPi2_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[j].x- Pi2_x)+(circles[j].y - Pi2_y)) + circles[j].y);
+
+                nPi3_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[j+1].x )-(Pi3_y - circles[j+1].y)) + circles[j+1].x);
+                nPi3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[j+1].x )+(Pi3_y - circles[j+1].y)) + circles[j+1].y);
+
+                nPi4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[j+1].x- Pi4_x)+(circles[j+1].y - Pi4_y)) + circles[j+1].x);
+                nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[j+1].x- Pi4_x)+(circles[j+1].y - Pi4_y)) + circles[j+1].y);
+
+
+
+
+
                 /* 1--> 3 2-->4*/
-                chk1_l1o1 = ((P1_x-Pi1_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi1_x)*(Pi3_y-Pi1_y)-(P3_y-Pi1_y)*(Pi3_x-Pi1_x)); // P1 P3 , Pi1 Pi3
-                chk2_l1o1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
+                /*chk1_l1o1 = Math.floor(((P1_x-Pi1_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi1_x)*(Pi3_y-Pi1_y)-(P3_y-Pi1_y)*(Pi3_x-Pi1_x))); // P1 P3 , Pi1 Pi3
+                chk2_l1o1 = Math.floor(((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x)));
 
-                chk1_l1o2 = ((P1_x-Pi2_x)*(Pi4_y-Pi2_y)-(P1_y-Pi2_y)*(Pi4_x-Pi2_x))*((P3_x-Pi2_x)*(Pi4_y-Pi2_y)-(P3_y-Pi2_y)*(Pi4_x-Pi2_x)); // P1 P3 , Pi2 Pi4
-                chk2_l1o2 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x));
+                chk1_l1o2 = Math.floor(((P1_x-Pi2_x)*(Pi4_y-Pi2_y)-(P1_y-Pi2_y)*(Pi4_x-Pi2_x))*((P3_x-Pi2_x)*(Pi4_y-Pi2_y)-(P3_y-Pi2_y)*(Pi4_x-Pi2_x))); // P1 P3 , Pi2 Pi4
+                chk2_l1o2 = Math.floor(((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x)));
 
-                chk1_l2o1 = ((P2_x-Pi1_x)*(Pi3_y-Pi1_y)-(P2_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi1_x)*(Pi3_y-Pi1_y)-(P4_y-Pi1_y)*(Pi3_x-Pi1_x)); // P2 P4 , Pi1 Pi3
-                chk2_l2o1 = ((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x));
+                chk1_l2o1 = Math.floor(((P2_x-Pi1_x)*(Pi3_y-Pi1_y)-(P2_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi1_x)*(Pi3_y-Pi1_y)-(P4_y-Pi1_y)*(Pi3_x-Pi1_x))); // P2 P4 , Pi1 Pi3
+                chk2_l2o1 = Math.floor(((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x)));
 
-                chk1_l2o2 = ((P2_x-Pi2_x)*(Pi4_y-Pi2_y)-(P2_y-Pi2_y)*(Pi4_x-Pi2_x))*((P4_x-Pi2_x)*(Pi4_y-Pi2_y)-(P4_y-Pi2_y)*(Pi4_x-Pi2_x)); // P2 P4 , Pi2 Pi4
-                chk2_l2o2 = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x));
+                chk1_l2o2 = Math.floor(((P2_x-Pi2_x)*(Pi4_y-Pi2_y)-(P2_y-Pi2_y)*(Pi4_x-Pi2_x))*((P4_x-Pi2_x)*(Pi4_y-Pi2_y)-(P4_y-Pi2_y)*(Pi4_x-Pi2_x))); // P2 P4 , Pi2 Pi4
+                chk2_l2o2 = Math.floor(((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x)));
 
-                chk1_l1ob = ((P3_x-Pi2_x)*(Pi1_y-Pi2_y)-(P3_y-Pi2_y)*(Pi1_x-Pi2_x))*((P1_x-Pi2_x)*(Pi1_y-Pi2_y)-(P1_y-Pi2_y)*(Pi1_x-Pi2_x)); // P1 P3 , Pi1 Pib
-                chk2_l1ob = ((Pi2_x-P3_x)*(P1_y-P3_y)-(Pi2_y-P3_y)*(P1_x-P3_x))*((Pi1_x-P3_x)*(P1_y-P3_y)-(Pi1_y-P3_y)*(P1_x-P3_x));
+                chk1_l1ob = Math.floor(((P3_x-Pi2_x)*(Pi1_y-Pi2_y)-(P3_y-Pi2_y)*(Pi1_x-Pi2_x))*((P1_x-Pi2_x)*(Pi1_y-Pi2_y)-(P1_y-Pi2_y)*(Pi1_x-Pi2_x))); // P1 P3 , Pi1 Pib
+                chk2_l1ob = Math.floor(((Pi2_x-P3_x)*(P1_y-P3_y)-(Pi2_y-P3_y)*(P1_x-P3_x))*((Pi1_x-P3_x)*(P1_y-P3_y)-(Pi1_y-P3_y)*(P1_x-P3_x)));
 
-                chk1_l2ob = ((P2_x-Pi2_x)*(Pi1_y-Pi2_y)-(P2_y-Pi2_y)*(Pi1_x-Pi2_x))*((P4_x-Pi2_x)*(Pi1_y-Pi2_y)-(P4_y-Pi2_y)*(Pi1_x-Pi2_x)); // P2 P4 , Pib Pib
-                chk2_l2ob = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x));
+                chk1_l2ob = Math.floor(((P2_x-Pi2_x)*(Pi1_y-Pi2_y)-(P2_y-Pi2_y)*(Pi1_x-Pi2_x))*((P4_x-Pi2_x)*(Pi1_y-Pi2_y)-(P4_y-Pi2_y)*(Pi1_x-Pi2_x))); // P2 P4 , Pib Pib
+                chk2_l2ob = Math.floor(((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x)));
 
 
-                chk1_l1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P3 Pi4 Pi1
-                chk2_l1od1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x));
-                chk1_l2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P3 Pi2 Pi3
-                chk2_l2od1 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
+                chk1_l1od1 = Math.floor(((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x))); //P1 P3 Pi4 Pi1
+                chk2_l1od1 = Math.floor(((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x)));
+                chk1_l2od1 = Math.floor(((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x))); //P1 P3 Pi2 Pi3
+                chk2_l2od1 = Math.floor(((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x)));
 
-                chk1_l1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P4 Pi4 Pi1
-                chk2_l1od2 = ((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x));
-                chk1_l2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P4 Pi2 Pi3
-                chk2_l2od2 = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x));
+                chk1_l1od2 = Math.floor(((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x))); //P2 P4 Pi4 Pi1
+                chk2_l1od2 = Math.floor(((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x)));
+                chk1_l2od2 = Math.floor(((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x))); //P2 P4 Pi2 Pi3
+                chk2_l2od2 = Math.floor(((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x)));
 
-                chk1_ld1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P4 Pi4 Pi1
-                chk2_ld1od1 = ((Pi1_x-P1_x)*(P4_y-P1_y)-(Pi1_y-P1_y)*(P4_x-P1_x))*((Pi4_x-P1_x)*(P4_y-P1_y)-(Pi4_y-P1_y)*(P4_x-P1_x));
-                chk1_ld2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P4 Pi2 Pi3
-                chk2_ld2od1 = ((Pi2_x-P1_x)*(P4_y-P1_y)-(Pi2_y-P1_y)*(P4_x-P1_x))*((Pi3_x-P1_x)*(P4_y-P1_y)-(Pi3_y-P1_y)*(P4_x-P1_x));
+                chk1_ld1od1 = Math.floor(((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x))); //P1 P4 Pi4 Pi1
+                chk2_ld1od1 = Math.floor(((Pi1_x-P1_x)*(P4_y-P1_y)-(Pi1_y-P1_y)*(P4_x-P1_x))*((Pi4_x-P1_x)*(P4_y-P1_y)-(Pi4_y-P1_y)*(P4_x-P1_x)));
+                chk1_ld2od1 = Math.floor(((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x))); //P1 P4 Pi2 Pi3
+                chk2_ld2od1 = Math.floor(((Pi2_x-P1_x)*(P4_y-P1_y)-(Pi2_y-P1_y)*(P4_x-P1_x))*((Pi3_x-P1_x)*(P4_y-P1_y)-(Pi3_y-P1_y)*(P4_x-P1_x)));
 
-                chk1_ld1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P3 Pi4 Pi1
-                chk2_ld1od2 = ((Pi1_x-P2_x)*(P3_y-P2_y)-(Pi1_y-P2_y)*(P3_x-P2_x))*((Pi4_x-P2_x)*(P3_y-P2_y)-(Pi4_y-P2_y)*(P3_x-P2_x));
-                chk1_ld2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P3 Pi2 Pi3
-                chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));
+                chk1_ld1od2 = Math.floor(((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x))); //P2 P3 Pi4 Pi1
+                chk2_ld1od2 = Math.floor(((Pi1_x-P2_x)*(P3_y-P2_y)-(Pi1_y-P2_y)*(P3_x-P2_x))*((Pi4_x-P2_x)*(P3_y-P2_y)-(Pi4_y-P2_y)*(P3_x-P2_x)));
+                chk1_ld2od2 = Math.floor(((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x))); //P2 P3 Pi2 Pi3
+                chk2_ld2od2 = Math.floor(((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x)));*/
+
+
+                chk1_l1o1 = Math.floor(((nP1_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi3_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi3_x-nPi1_x))); // P1 P3 , Pi1 Pi3
+                chk2_l1o1 = Math.floor(((nPi1_x-nP1_x)*(nP3_y-nP1_y)-(nPi1_y-nP1_y)*(nP3_x-nP1_x))*((nPi3_x-nP1_x)*(nP3_y-nP1_y)-(nPi3_y-nP1_y)*(nP3_x-nP1_x)));
+
+                chk1_l1o2 = Math.floor(((nP1_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP1_y-nPi2_y)*(nPi4_x-nPi2_x))*((nP3_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi4_x-nPi2_x))); // P1 P3 , Pi2 Pi4
+                chk2_l1o2 = Math.floor(((nPi2_x-nP1_x)*(nP3_y-nP1_y)-(nPi2_y-nP1_y)*(nP3_x-nP1_x))*((nPi4_x-nP1_x)*(nP3_y-nP1_y)-(nPi4_y-nP1_y)*(nP3_x-nP1_x)));
+
+                chk1_l2o1 = Math.floor(((nP2_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP2_y-nPi1_y)*(nPi3_x-nPi1_x))*((nP4_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP4_y-nPi1_y)*(nPi3_x-nPi1_x))); // P2 P4 , Pi1 Pi3
+                chk2_l2o1 = Math.floor(((nPi1_x-nP2_x)*(nP4_y-nP2_y)-(nPi1_y-nP2_y)*(nP4_x-nP2_x))*((nPi3_x-nP2_x)*(nP4_y-nP2_y)-(nPi3_y-nP2_y)*(nP4_x-nP2_x)));
+
+                chk1_l2o2 = Math.floor(((nP2_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP2_y-nPi2_y)*(nPi4_x-nPi2_x))*((nP4_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP4_y-nPi2_y)*(nPi4_x-nPi2_x))); // P2 P4 , Pi2 Pi4
+                chk2_l2o2 = Math.floor(((nPi2_x-nP2_x)*(nP4_y-nP2_y)-(nPi2_y-nP2_y)*(nP4_x-nP2_x))*((nPi4_x-nP2_x)*(nP4_y-nP2_y)-(nPi4_y-nP2_y)*(nP4_x-nP2_x)));
+
+                chk1_l1ob = Math.floor(((nP3_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi1_x-nPi2_x))*((nP1_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP1_y-nPi2_y)*(nPi1_x-nPi2_x))); // P1 P3 , Pi1 Pib
+                chk2_l1ob = Math.floor(((nPi2_x-nP3_x)*(nP1_y-nP3_y)-(nPi2_y-nP3_y)*(nP1_x-nP3_x))*((nPi1_x-nP3_x)*(nP1_y-nP3_y)-(nPi1_y-nP3_y)*(nP1_x-nP3_x)));
+
+                chk1_l2ob = Math.floor(((nP2_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP2_y-nPi2_y)*(nPi1_x-nPi2_x))*((nP4_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP4_y-nPi2_y)*(nPi1_x-nPi2_x))); // P2 P4 , Pib Pib
+                chk2_l2ob = Math.floor(((nPi2_x-nP2_x)*(nP4_y-nP2_y)-(nPi2_y-nP2_y)*(nP4_x-nP2_x))*((nPi1_x-nP2_x)*(nP4_y-nP2_y)-(nPi1_y-nP2_y)*(nP4_x-nP2_x)));
+
+
+                chk1_l1od1 = Math.floor(((nP1_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi4_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi4_x-nPi1_x))); //P1 P3 Pi4 Pi1
+                chk2_l1od1 = Math.floor(((nPi1_x-nP1_x)*(nP3_y-nP1_y)-(nPi1_y-nP1_y)*(nP3_x-nP1_x))*((nPi4_x-nP1_x)*(nP3_y-nP1_y)-(nPi4_y-nP1_y)*(nP3_x-nP1_x)));
+                chk1_l2od1 = Math.floor(((nP1_x-nPi2_x)*(nPi3_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi3_x-nPi1_x))*((nP3_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi3_x-nPi2_x))); //P1 P3 Pi2 Pi3
+                chk2_l2od1 = Math.floor(((nPi2_x-nP1_x)*(nP3_y-nP1_y)-(nPi2_y-nP1_y)*(nP3_x-nP1_x))*((nPi3_x-nP1_x)*(nP3_y-nP1_y)-(nPi3_y-nP1_y)*(nP3_x-nP1_x)));
+
+                chk1_l1od2 = Math.floor(((nP2_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP2_y-nPi1_y)*(nPi4_x-nPi1_x))*((nP4_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP4_y-nPi1_y)*(nPi4_x-nPi1_x))); //P2 P4 Pi4 Pi1
+                chk2_l1od2 = Math.floor(((nPi1_x-nP2_x)*(nP4_y-nP2_y)-(nPi1_y-nP2_y)*(nP4_x-nP2_x))*((nPi4_x-nP2_x)*(nP4_y-nP2_y)-(nPi4_y-nP2_y)*(nP4_x-nP2_x)));
+                chk1_l2od2 = Math.floor(((nP2_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP2_y-nPi2_y)*(nPi3_x-nPi2_x))*((nP4_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP4_y-nPi2_y)*(nPi3_x-nPi2_x))); //P2 P4 Pi2 Pi3
+                chk2_l2od2 = Math.floor(((nPi2_x-nP2_x)*(nP4_y-nP2_y)-(nPi2_y-nP2_y)*(nP4_x-nP2_x))*((nPi3_x-nP2_x)*(nP4_y-nP2_y)-(nPi3_y-nP2_y)*(nP4_x-nP2_x)));
+
+                chk1_ld1od1 = Math.floor(((nP1_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi4_x-nPi1_x))*((nP4_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP4_y-nPi1_y)*(nPi4_x-nPi1_x))); //P1 P4 Pi4 Pi1
+                chk2_ld1od1 = Math.floor(((nPi1_x-nP1_x)*(nP4_y-nP1_y)-(nPi1_y-nP1_y)*(nP4_x-nP1_x))*((nPi4_x-nP1_x)*(nP4_y-nP1_y)-(nPi4_y-nP1_y)*(nP4_x-nP1_x)));
+                chk1_ld2od1 = Math.floor(((nP1_x-nPi2_x)*(nPi3_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi3_x-nPi1_x))*((nP4_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP4_y-nPi2_y)*(nPi3_x-nPi2_x))); //P1 P4 Pi2 Pi3
+                chk2_ld2od1 = Math.floor(((nPi2_x-nP1_x)*(nP4_y-nP1_y)-(nPi2_y-nP1_y)*(nP4_x-nP1_x))*((nPi3_x-nP1_x)*(nP4_y-nP1_y)-(nPi3_y-nP1_y)*(nP4_x-nP1_x)));
+
+                chk1_ld1od2 = Math.floor(((nP2_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP2_y-nPi1_y)*(nPi4_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi4_x-nPi1_x))); //P2 P3 Pi4 Pi1
+                chk2_ld1od2 = Math.floor(((nPi1_x-nP2_x)*(nP3_y-nP2_y)-(nPi1_y-nP2_y)*(nP3_x-nP2_x))*((nPi4_x-nP2_x)*(nP3_y-nP2_y)-(nPi4_y-nP2_y)*(nP3_x-nP2_x)));
+                chk1_ld2od2 = Math.floor(((nP2_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP2_y-nPi2_y)*(nPi3_x-nPi2_x))*((nP3_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi3_x-nPi2_x))); //P2 P3 Pi2 Pi3
+                chk2_ld2od2 = Math.floor(((nPi2_x-nP2_x)*(nP3_y-nP2_y)-(nPi2_y-nP2_y)*(nP3_x-nP2_x))*((nPi3_x-nP2_x)*(nP3_y-nP2_y)-(nPi3_y-nP2_y)*(nP3_x-nP2_x)));
 
                 /*if(chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0)*/
                 
@@ -314,14 +402,74 @@ function generateCir()
 
                 
 
-                /*check();*/
-                
-                /*ctx.beginPath();
-                ctx.arc(P1_x, P1_y, 10, Math.PI * 2, 0, false);
+                check2();
+                ctx.beginPath();
+                ctx.arc(P1_x, P1_y, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+                ctx.fill();
+                ctx.fillStyle = "black"
+                ctx.font = '10px serif';
+                ctx.fillText("C", P1_x, P1_y );
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(P2_x, P2_y, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+                ctx.fill();
+                ctx.fillStyle = "black"
+                ctx.font = '10px serif';
+                ctx.fillText("E", P2_x, P2_y);
+                ctx.closePath();
+
+
+                ctx.beginPath();
+                ctx.arc(nP1_x, nP1_y, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 255, 0, 0.8)";
+                ctx.fill();
+                ctx.fillStyle = "black"
+                ctx.font = '10px serif';
+                ctx.fillText("nC", nP1_x, nP1_y);
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(nP2_x, nP2_y, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 0, 255, 0.8)";
+                ctx.fill();
+                ctx.fillStyle = "black"
+                ctx.font = '10px serif';
+                ctx.fillText("nE", nP2_x, nP2_y);
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.arc(P3_x, P3_y, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 255, 255, 0.8)";
+                ctx.fill();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(P4_x, P4_y, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 255, 255, 0.8)";
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.arc(nP3_x, nP3_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
                 ctx.fill();
                 ctx.closePath();
                 ctx.beginPath();
+                ctx.arc(nP4_x, nP4_y, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(255, 0, 255, 0.8)";
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+                ctx.moveTo(nP1_x,nP1_y);
+                ctx.lineTo(nP3_x, nP3_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();
+
+                return;
+                /*ctx.beginPath();
                 ctx.arc(P2_x, P2_y, 10, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 255, 0, 0.8)";
                 ctx.fill();
@@ -400,11 +548,11 @@ function generateCir()
                 {*/
                 /*if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0)
                 {*/
-                if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
-                    || chk1 < 0 && chk2 < 0 
-                    || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0 
-                    || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0
-                    || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0&& chk2_ld2od2< 0){
+                if (/*chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
+                    ||*/ chk1 < 0 && chk2 < 0 
+                    || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0
+                    /*|| chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0*/
+                    /*|| chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0&& chk2_ld2od2< 0*/){
                     los = false;
                      /*counter4++;*/
                     if(counter2 > 1000)
@@ -426,12 +574,12 @@ function generateCir()
             
         }
         //
-        if(Number.isNaN(chk1_l1o1)) //temp fixed
-        {
+        /*if(Number.isNaN(chk1_l1o1)) //temp fixed
+        {*/
             /*document.write('<pre>');
             document.write("NaN Detected");*/
             /*los = false;*/
-            chk1_l1o1 = 0;
+           /* chk1_l1o1 = 0;
             chk2_l1o1 = 0;
             chk1_l1o2 = 0;
             chk2_l1o2 = 0;
@@ -463,7 +611,7 @@ function generateCir()
             chk2 = 0;
             sessionStorage.clear();
             regenerate();
-        }
+        }*/
         if (!overlapping && los) { 
             document.write('<pre>');
             document.writeln("Success Insert " , a ,"  == ", chk1_l1o1, " " , chk2_l1o1, " | ", chk1_l1o2 , " " , chk2_l1o2 , " | " , chk1_l2o1, " " , chk2_l2o1, " | ", chk1_l2o2 , " " , chk2_l2o2 , " | " , chk1 ," " , chk2, " | ", chk1_l1ob , " " , chk2_l1ob , " | " , chk1_l2ob , " " , chk2_l2ob, " | ", overlapping , los);
@@ -475,7 +623,7 @@ function generateCir()
             
         } 
     }
-    if(toggle && circles.length == 3 ) 
+    if(toggle && circles.length == 25 ) 
     {
         toggle = false;
         ctx.lineWidth = "5";
@@ -548,7 +696,7 @@ function generateCir()
   function draw(e) 
   {
     // stop the function if they are not mouse down
-    if(!isDrawing) {ctx.closePath(); return;}
+    if(!isDrawing) {[lastX, lastY] = [e.offsetX, e.offsetY]; return;}
     //listen for mouse move event
     console.log(e);
     ctx.beginPath();
@@ -675,7 +823,7 @@ function generateCir()
 
 
         clickInfo.length = 0;
-        generateCir();
+        /*generateCir();*/
      }
     else
     {
@@ -983,40 +1131,55 @@ function check2(){
 
             Pi4_x = Math.floor(((circles[i-1].x/m) + cc + cf) / cb);
             Pi4_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc + cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);
+
+            nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].x);
+            nPi1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].y);
+
+            nPi2_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i].x- Pi2_x)-(circles[i].y - Pi2_y)) + circles[i].x);
+            nPi2_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i].x- Pi2_x)+(circles[i].y - Pi2_y)) + circles[i].y);
+
+            nPi3_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[i-1].x )-(Pi3_y - circles[i-1].y)) + circles[i-1].x);
+            nPi3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[i-1].x )+(Pi3_y - circles[i-1].y)) + circles[i-1].y);
+
+            nPi4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].x);
+            nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].y);
+
+
+            
             //check for overlap
             ctx.beginPath();
             ctx.lineWidth = "1";
             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(Pi3_x,Pi3_y);
-            ctx.lineTo(Pi1_x,Pi1_y);
+            ctx.moveTo(nPi3_x,nPi3_y);
+            ctx.lineTo(nPi1_x,nPi1_y);
             ctx.stroke();  // Draw it
             ctx.closePath();
             ctx.beginPath();
             ctx.lineWidth = "1";
             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(Pi4_x,Pi4_y);
-            ctx.lineTo(Pi2_x,Pi2_y);
+            ctx.moveTo(nPi4_x,nPi4_y);
+            ctx.lineTo(nPi2_x,nPi2_y);
             ctx.stroke();  // Draw it
             ctx.closePath();
             ctx.beginPath();
             ctx.lineWidth = "1";
             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(Pi4_x,Pi4_y);
-            ctx.lineTo(Pi1_x,Pi1_y);
+            ctx.moveTo(nPi4_x,nPi4_y);
+            ctx.lineTo(nPi1_x,nPi1_y);
             ctx.stroke();  // Draw it
             ctx.closePath();
             ctx.beginPath();
             ctx.lineWidth = "1";
             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(Pi3_x,Pi3_y);
-            ctx.lineTo(Pi2_x,Pi2_y);
+            ctx.moveTo(nPi3_x,nPi3_y);
+            ctx.lineTo(nPi2_x,nPi2_y);
             ctx.stroke();  // Draw it
             ctx.closePath();
             ctx.beginPath();
             ctx.lineWidth = "1";
             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(Pi3_x,Pi3_y);
-            ctx.lineTo(Pi4_x,Pi4_y);
+            ctx.moveTo(nPi3_x,nPi3_y);
+            ctx.lineTo(nPi4_x,nPi4_y);
             ctx.stroke();  // Draw it
             ctx.closePath();
 
