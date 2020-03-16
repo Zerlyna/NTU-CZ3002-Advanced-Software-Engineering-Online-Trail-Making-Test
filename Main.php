@@ -6,9 +6,10 @@
     }else{
         header('Location: Index.php');
     }
-
+    
     include_once 'header.php';
 ?>
+
 <html>
     <head>
         <title>About Us</title>
@@ -36,5 +37,5 @@
 </html>
 
 <?php
-include('footer.php');
+    include('footer.php');
 ?>

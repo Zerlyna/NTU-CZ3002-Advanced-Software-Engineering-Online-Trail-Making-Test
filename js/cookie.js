@@ -20,14 +20,11 @@ function setCookie(cname, cvalue, exdays) {
     return "";
   }
   
-  function checkCookie() {
-    var user = getCookie("username");
-    if (user != "") {
-      alert("Welcome again " + user);
-    } else {
-      user = prompt("Please enter your name:", "");
-      if (user != "" && user != null) {
-        setCookie("username", user, 365);
-      }
-    }
+function checkCookie() {
+  var user = getCookie("login");
+  if (user != "") {
+    alert("Welcome again " + user);
+  }else{
+    alert("gg");
   }
+}

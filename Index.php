@@ -20,8 +20,10 @@
             $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
             if ($row = mysqli_fetch_array($result)){
                 $_SESSION['NRIC'] = $row['NRIC'];
-                $_COOKIE['login'] = "Yes";
+                setcookie("login", "Yes");
                 header("Location: Main.php");
+            }else{
+                setcookie("login", "No");
             }
         }
     }
@@ -89,7 +91,6 @@ For now:
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/visibility.js"></script>
-    <script type= "text/javascript" src="js/error.js"></script>
 </html>
 <?php
     include_once ('footer.php');
