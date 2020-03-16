@@ -5,30 +5,27 @@
     
     //check if form is submitted
     if(isset($_POST['login'])){
-        //normal patient
-        if(isset($_POST['doctorcheckbox'])){
-            $doctorid = mysqli_real_escape_string($conn,$_POST['NRIC']);
-            $password = mysqli_real_escape_string($conn,$_POST['password']);
-            $result=mysqli_query($conn,"SELECT * FROM doctor WHERE id = '" . $doctorid. "' and password = '" . $password . "'");
-            if ($row = mysqli_fetch_array($result)){
-                $_SESSION['doctorid'] = $row['id'];
-                header("Location: doctor.php");
-            }
-        }else{
-            $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
-            $password = mysqli_real_escape_string($conn,$_POST['password']);
-            $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
-            if ($row = mysqli_fetch_array($result)){
-                /*echo "nice";*/
-
-                /*echo '<script type="text/javascript">', 'toMainPage();', '</script>';*/
-                                        
-                                        
-                $_SESSION['NRIC'] = $row['NRIC'];
-                setcookie("login", "Yes");
-                header("Location: Main.php");
+        if($_COOKIE['can_login'] == "Yes"){
+            //normal patient
+            if(isset($_POST['doctorcheckbox'])){
+                $doctorid = mysqli_real_escape_string($conn,$_POST['NRIC']);
+                $password = mysqli_real_escape_string($conn,$_POST['password']);
+                $result=mysqli_query($conn,"SELECT * FROM doctor WHERE id = '" . $doctorid. "' and password = '" . $password . "'");
+                if ($row = mysqli_fetch_array($result)){
+                    $_SESSION['doctorid'] = $row['id'];
+                    header("Location: doctor.php");
+                }
             }else{
-                setcookie("login", "No");
+                $NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
+                $password = mysqli_real_escape_string($conn,$_POST['password']);
+                $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
+                if ($row = mysqli_fetch_array($result)){
+                    $_SESSION['NRIC'] = $row['NRIC'];
+                    setcookie("login", "Yes");
+                    header("Location: Main.php");
+                }else{
+                    setcookie("login", "No");
+                }
             }
         }
     }
