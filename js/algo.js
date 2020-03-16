@@ -14,6 +14,13 @@ var interval;
 var numOfAttempt=3;
 var dataURL;
 
+var isDrawing;
+var lastX;
+var lastY;
+var dataURL;
+var numOfAttempt=3;
+
+//new
 //new
 var los = true;
 var rngCircle;
@@ -30,10 +37,17 @@ var other;
 var dy;
 var dx;
 var rr;
-var isDrawing;
-var lastX;
-var lastY;
 var toggle = true;
+
+var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
+var Pbi1_x,Pbi1_y,Pbi2_x,Pbi2_y
+var chk1_b , chk2_b;
+var P_ax, P_ay,P_bx, P_by, P_cx,P_cy, P_dx , P_dy, dv;
+var chk1,chk2,chk1_ab,chk2_ab,chk1_cd,chk2_cd,chk1_ac,chk2_ac,chk1_bd,chk2_bd;
+
+var userArray=[];
+
+window.onload=generateCir();
 
 var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
 var Pbi1_x,Pbi1_y,Pbi2_x,Pbi2_y
@@ -175,7 +189,8 @@ function generateCir()
     }
     if(toggle && circles.length == 25) 
     {
-        
+        /*check2();
+        return;*/
         toggle = false;
         ctx.lineWidth = "5";
         ctx.fillStyle = "#FFFFFF";
@@ -226,8 +241,11 @@ function regenerate(){
     counter3 = 0;
     overlapping = false;
     los = true;
-    generateCir();    
+    generateCir();
+
+    
 }
+
 
   function draw(e) 
   {
@@ -536,12 +554,8 @@ function StoreUserTestResult(first)
     userArray.push(user);
 }
 
-//For Testing Generating Algo (Do not delete)
 function check2(){
     for (i = 0; i < circles.length; i++) {
-
-
-        
         if(i > 0){
 
             ctx.beginPath();

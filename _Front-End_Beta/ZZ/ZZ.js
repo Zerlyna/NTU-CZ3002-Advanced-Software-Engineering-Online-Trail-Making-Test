@@ -236,8 +236,6 @@ function generateCir()
         ctx.strokeStyle = "black";
         ctx.strokeRect(10, 10, 980, 700);
         ctx.lineWidth = "2";
-        check2();
-        return;
 
         for (i = 0; i < circles.length; i++) {
    
@@ -622,6 +620,114 @@ function rng()
     ctx.fillText(counter4, randX - 8, randY + 3);
     ctx.closePath(); 
 }
+   
+// function startTest(age)
+// {
+//     //for age 40 to 50 
+//     //3mins and 30 sec
+//     if(age=="a")
+//     {
+//         countdown("ten-countdown",3,30);
+//     }
+//     //for age 50 and above
+//     //4 minutes
+//     else if(age="b")
+//     {
+//         countdown("ten-countdown",4,00);
+//     }
+//     //below 40
+//     //3 minutes
+//     else 
+//     {
+//         countdown("ten-countdown",3,00)
+//     }
+
+// }
+// function stopTest()
+// {
+//  clearInterval(interval);
+//  msgObj.innerHTML =  document.getElementById("ten-countdown").innerHTML;
+// }
+
+
+
+function check(){
+for (i = 0; i < circles.length; i++) {
+    ctx.beginPath();
+    ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+    ctx.fill();
+    ctx.fillStyle = "white"
+    ctx.font = '15px serif';
+    ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
+    if(i==0)
+    {
+        ctx.fillStyle = "black"
+        ctx.font = '15px serif';
+        ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
+
+    }
+    if(i==24)
+    {
+        ctx.fillStyle = "black"
+        ctx.font = '15px serif';
+        ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
+    }
+    ctx.closePath();
+    if(i > 0){
+        //check for overlap
+        ctx.beginPath();
+        ctx.lineWidth = "5";
+        ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+        ctx.moveTo(circles[i-1].x,circles[i-1].y);
+        ctx.lineTo(circles[i].x,circles[i].y);
+        ctx.stroke();  // Draw it
+        ctx.closePath();
+
+    }
+    ctx.beginPath();
+    ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+    ctx.fill();
+    ctx.closePath();
+}}
+
+function rng()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(0, 255, 0, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(counter4, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
+
+function rng2()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(0, 255, 255, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(a, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
+
+function rng3()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(255, 255, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(a, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
+
 
 function rng2()
 {
@@ -667,6 +773,78 @@ function check2(){
 
         
         if(i > 0){
+
+            /*cr = 15;
+            cx = circles[i-1].x - circles[i].x;
+            cy = circles[i-1].y - circles[i].y;
+            
+            m = cy / cx;
+            cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
+            ca = circles[i].x*m ;
+            cc = circles[i-1].x*m;
+            cb = (m + (1/m));
+            Pi1_x = Math.floor(((circles[i].x/m) + ca - cf) / cb);
+            Pi1_y = Math.floor(((-(1/m)*((circles[i].x/m) + ca - cf)) /cb) + (circles[i].x/m) + circles[i].y);
+
+            Pi2_x = Math.floor(((circles[i].x/m) + ca + cf) / cb);
+            Pi2_y = Math.floor(((-(1/m)*((circles[i].x/m) + ca + cf)) /cb) + (circles[i].x/m) + circles[i].y);
+
+            Pi3_x = Math.floor(((circles[i-1].x/m) + cc - cf) / cb);
+            Pi3_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc - cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);
+
+            Pi4_x = Math.floor(((circles[i-1].x/m) + cc + cf) / cb);
+            Pi4_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc + cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);*/
+
+            /*nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].x);
+            nPi1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].y);
+
+            nPi2_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i].x- Pi2_x)-(circles[i].y - Pi2_y)) + circles[i].x);
+            nPi2_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i].x- Pi2_x)+(circles[i].y - Pi2_y)) + circles[i].y);
+
+            nPi3_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[i-1].x )-(Pi3_y - circles[i-1].y)) + circles[i-1].x);
+            nPi3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[i-1].x )+(Pi3_y - circles[i-1].y)) + circles[i-1].y);
+
+            nPi4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].x);
+            nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].y);*/
+
+
+            
+            //check for overlap
+            /*ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(nPi3_x,nPi3_y);
+            ctx.lineTo(nPi1_x,nPi1_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(nPi4_x,nPi4_y);
+            ctx.lineTo(nPi2_x,nPi2_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(nPi4_x,nPi4_y);
+            ctx.lineTo(nPi1_x,nPi1_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(nPi3_x,nPi3_y);
+            ctx.lineTo(nPi2_x,nPi2_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(nPi3_x,nPi3_y);
+            ctx.lineTo(nPi4_x,nPi4_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();*/
 
             ctx.beginPath();
             ctx.lineWidth = "5";

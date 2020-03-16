@@ -229,12 +229,12 @@ function generateCir()
                 cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
                 ca = circles[a-2].x*m ;
                 cc = rngCircle.x*m;
-                cb = (m + (1/m));
+                cb = (m + (1/m));*/
 
 
                 //new line
 
-                P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);    
+                /*P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);    
                 P1_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca - cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
 
                 P2_x = Math.floor(((circles[a-2].x/m) + ca + cf) / cb);
