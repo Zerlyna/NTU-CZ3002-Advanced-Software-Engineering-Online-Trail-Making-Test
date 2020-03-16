@@ -19,6 +19,7 @@ include('header.php');
     <div class = "bgrd">
         <div class="limiter">
             <div class="container">
+            
                 <!-- Do rescale your class "wrap_(your identifier)" -->
                 <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                 <div style="text-align:center">
