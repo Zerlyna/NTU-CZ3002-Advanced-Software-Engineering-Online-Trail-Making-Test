@@ -487,8 +487,8 @@ function generateCir()
         for (i = 0; i < circles.length; i++) {
 
                 /*check();*/
-                check2();
-                return;
+                /*check2();
+                return;*/
                 
 
                 

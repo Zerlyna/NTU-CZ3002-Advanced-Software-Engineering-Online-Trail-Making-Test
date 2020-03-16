@@ -12,8 +12,8 @@ var nextIndex;
 var interval;
 
 //new
-/*var los = true;
-var chk1_l1o1 ;
+var los = true;
+var chk1_l1o1 ; /*chk1_l1o1, " " , chk2_l1o1, " | ", chk1_l1o2 , " " , chk2_l1o2 , " | " , chk1_l2o1, " " , chk2_l2o1, " | ", chk1_l2o2 , " " , chk2_l2o2 , " | " , chk1 ," " , chk2 " "*/
 var chk2_l1o1 ;
 var chk1_l1o2 ;
 var chk2_l1o2 ;
@@ -48,6 +48,7 @@ var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
 var overcounter = 0;
+/*var counter4 = 0;*/
 var randX;
 var randY;
 var valid = true;
@@ -60,48 +61,30 @@ var rr;
 var isDrawing;
 var lastX;
 var lastY;
-var toggle = true;*/
+var toggle = true;
 
-/*var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
+var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
 var P1_x, P1_y, P2_x, P2_y , P3_x , P3_y , P4_x , P4_y;
-var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;*/
-
-var lastX;
-var lastY;
+var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;
 
 var userArray=[];
 
-window.onload=generateCir2();
+window.onload=generateCir();
 
-function generateCir2()
+function generateCir()
 {
-    randX = Math.floor(Math.random()* 900 + 40);
-        randY = Math.floor(Math.random()* 600 + 40);
 
-        rngCircle =
-        {
-            index: 1,
-            x: Math.floor(randX),
-            y: Math.floor(randY),
-            radius: 25,
-        }
+    while (circles.length < 3) {
 
-        circles.push(rngCircle);
-
-
-    /*while (circles.length < 1) {*/
-        /*los = true;
-        overlapping = false;*/
-
-        
-        
-        
+        los = true;
+        overlapping = false;
         
         //limit
-        /*if(circles.length < 1 && circles.length >= 0)
+        if(circles.length < 1 && circles.length >= 0)
         {
             randX = Math.floor(Math.random()* 900 + 40);
             randY = Math.floor(Math.random()* 600 + 40);
+            /*randY = Math.floor(Math.random()* 600 + 40);*/
         }
         else if (circles.length >= 1)
         {
@@ -109,12 +92,24 @@ function generateCir2()
                 
                 randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
                 randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
+                /*if(randX < circles[a-2].x + 60 && randX >=  circles[a-2].x -60 && randY < circles[a-2].y + 60 && randY >= circles[a-2].y - 60){
+                    randX = randX + 60;
+                }*/
+
+                /*rng2();*/
                 if(counter3 > 1000)
                 {
+                    document.writeln(randX, " ", randY);
+                    document.writeln("Max Neighbour");
+                    document.writeln(chk1_l1o1, " " , chk2_l1o1, " | ", chk1_l1o2 , " " , chk2_l1o2 , " | " , chk1_l2o1, " " , chk2_l2o1, " | ", chk1_l2o2 , " " , chk2_l2o2);
+                    document.writeln(circles[a-2].x , " " ,circles[a-2].y);
+                    document.writeln(los, " ", overlapping);
+                    
                     regenerate(); //regenerate circle;
-
+                    /*check();*/
                     sessionStorage.clear();
-
+                    
+                    /*return;*/
                 }
                 counter3++;
 
@@ -122,6 +117,11 @@ function generateCir2()
                  
             
             }while(randX > 940 || randY > 660 || randX < 40 || randY < 40); 
+
+            /*rng();*/ 
+
+            
+        
 
         }
         
@@ -155,25 +155,51 @@ function generateCir2()
                 overlapping = true;;
                 break;
             }
-            /*if(counter > 10000)
+            if(counter > 10000)
             {
+                document.writeln(dx*dx, " " , dy*dy , " ");
+                document.writeln(dx, " " , dy , " ");
+                document.writeln("Max YX")
+                /*check();*/
                 regenerate(); //regenerate circle;
                 sessionStorage.clear();
+                /*return;*/
             }
             counter++;
 
          
-        }*/
+        }
         
         //check if line of sequence is line of sight
-        /*if(a > 2)
+        if(a > 2)
         {
-            for (var j = 0; j < circles.length -1 ; j++) {*/
+            for (var j = 0; j < circles.length -1 ; j++) {
+
+                //get current circle and last circle coordinate //current (rngCircle.x,rngCircle.y) , last circle (circles[a].x, circle[a].y)
 
                 
 
-                /*cr = 15; // radius value 
+                cr = 15; // radius value 
 
+               /* document.write('<pre>');
+                document.writeln("Value A at = ", a-2, " ");
+                document.writeln("Compare Last Line P2 :" , circles[a-2].x, " ", circles[a-2].y, " ");
+                document.writeln("Compare Last Line P1 :" , rngCircle.x, " ", rngCircle.y, " ");
+                document.writeln("Compare Line P1     " , j ,":",circles[j].x, " ", circles[j].y, " ");
+                document.writeln("Compare Line P2     ", j ,":", circles[j+1].x, " ", circles[j+1].y, " ");*/
+                
+                /*document.write(a-1);
+                /*check();
+                
+
+                return;*/
+                /*Math.pow(xDiff, 2)*/
+                /*
+                Point Bx = rngCircle.x      /x2  
+                Point By = rngCircle.y      /y2
+                Point Ax = circles[a-2].x   /x1
+                Point Ay = circles[a-2].y   /y1
+                */
                 cx = rngCircle.x - circles[a-2].x;
                 cy = rngCircle.y - circles[a-2].y;
                 
@@ -222,7 +248,7 @@ function generateCir2()
                 Pi4_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc + cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
 
                 /* 1--> 3 2-->4*/
-                /*chk1_l1o1 = ((P1_x-Pi1_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi1_x)*(Pi3_y-Pi1_y)-(P3_y-Pi1_y)*(Pi3_x-Pi1_x)); // P1 P3 , Pi1 Pi3
+                chk1_l1o1 = ((P1_x-Pi1_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi1_x)*(Pi3_y-Pi1_y)-(P3_y-Pi1_y)*(Pi3_x-Pi1_x)); // P1 P3 , Pi1 Pi3
                 chk2_l1o1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
 
                 chk1_l1o2 = ((P1_x-Pi2_x)*(Pi4_y-Pi2_y)-(P1_y-Pi2_y)*(Pi4_x-Pi2_x))*((P3_x-Pi2_x)*(Pi4_y-Pi2_y)-(P3_y-Pi2_y)*(Pi4_x-Pi2_x)); // P1 P3 , Pi2 Pi4
@@ -259,35 +285,152 @@ function generateCir2()
                 chk1_ld1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P3 Pi4 Pi1
                 chk2_ld1od2 = ((Pi1_x-P2_x)*(P3_y-P2_y)-(Pi1_y-P2_y)*(P3_x-P2_x))*((Pi4_x-P2_x)*(P3_y-P2_y)-(Pi4_y-P2_y)*(P3_x-P2_x));
                 chk1_ld2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P3 Pi2 Pi3
-                chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));*/
+                chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));
+
+                /*if(chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0)*/
                 
-                /*
+                /*check2();
+                ctx.beginPath();  //Pi1 Pi3 black
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = "#000000";
+                ctx.moveTo(Pi1_x, Pi1_y);
+                ctx.lineTo(Pi4_x, Pi4_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();*/
+                /*ctx.beginPath();  //Pi1 Pi3 black
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = "#000000";
+                ctx.moveTo(Pi3_x, Pi3_y);
+                ctx.lineTo(Pi4_x, Pi4_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();*/
+                /*return;*/
+
+                /*document.writeln(" P1X ", P1_x, " P1Y ", P1_y, " DX " , cx, " DY ", cy , " M " , m, " cf ", cf , " ca ", ca);*/
+
+
+
+
+
+                
+
+                /*check();*/
+                
+                /*ctx.beginPath();
+                ctx.arc(P1_x, P1_y, 10, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
+                ctx.fill();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(P2_x, P2_y, 10, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 255, 0, 0.8)";
+                ctx.fill();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(Pi3_x, Pi3_y, 10, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 255, 255, 0.8)";
+                ctx.fill();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(Pi1_x, Pi1_y, 10, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(255, 0, 255, 0.8)";
+                ctx.closePath();*/
+                
+                /*ctx.fill();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+                ctx.moveTo(P1_x,P1_y);
+                ctx.lineTo(P3_x, P3_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();*/
+                /*if(chk1_l1o1 < 0 && chk2_l1o1 < 0){ 
+
+                    document.writeln("Collision : green and black line");
+                }
+                if( chk1_l1o2 < 0  && chk2_l1o2 < 0){
+                    document.writeln("Collision : green and blue line");
+                }
+                if( chk1_l2o1 < 0  && chk2_l2o1 < 0){
+                    document.writeln("Collision : yellow and black line");
+                }
+                if( chk1_l2o2 < 0  && chk2_l2o2 < 0){
+                    document.writeln("Collision : yellow and blue line");
+                }
+                ctx.beginPath();  //Pi1 Pi3 black
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = "#000000";
+                ctx.moveTo(Pi3_x, Pi3_y);
+                ctx.lineTo(Pi1_x, Pi1_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.lineWidth = "5"; //P1 P3 green
+                ctx.strokeStyle = "#00ff00";
+                ctx.moveTo(P1_x, P1_y);
+                ctx.lineTo(P3_x, P3_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = "#ffff00"; //P2 P4 yellow
+                ctx.moveTo(P2_x, P2_y);
+                ctx.lineTo(P4_x, P4_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = "#0000ff"; //PI2 Pi4  blue
+                ctx.moveTo(Pi2_x, Pi2_y);
+                ctx.lineTo(Pi4_x, Pi4_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();*/
+                
+                
+
                 chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
                 chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
 
-                if(chk1 < 0 && chk2 < 0 ){
-                /*if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
+                /*chk1 = ((xA-xC)*(yD-yC)-(yA-yC)*(xD-xC))*((xB-xC)*(yD-yC)-(yB-yC)*(xD-xC));
+                chk2 = ((xC-xA)*(yB-yA)-(yC-yA)*(xB-xA))*((xD-xA)*(yB-yA)-(yD-yA)*(xB-xA));*/
+                /*document.writeln("Count ", counter4," ",chk1, " " , chk2);*/
+
+                /*if (chk1_l1o1 < 0 && chk2_l1o1 < 0 && chk1_l1o2 < 0 && chk2_l1o2 < 0 && chk1_l2o1 < 0 && chk2_l2o1 < 0 && chk1_l2o2 < 0 && chk2_l2o2 < 0)
+                {*/
+                /*if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0)
+                {*/
+                if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
                     || chk1 < 0 && chk2 < 0 
                     || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0 
-                    || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0 && chk2_l2od2< 0
-                    || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0 && chk2_ld2od2< 0){*/
-               /*     los = false;
+                    || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0
+                    || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0&& chk2_ld2od2< 0){
+                    los = false;
+                     /*counter4++;*/
                     if(counter2 > 1000)
                     {
-                        
-                        regenerate(); //regenerate circle;
+
+                        document.writeln("Max Comparison")
+                        /*check();*/
                         sessionStorage.clear();
+                        regenerate(); //regenerate circle;
+                        /*return;*/
                     }
                     counter2 ++;
+                    /*document.writeln("Result = ", los, " ");*/
                     break;
                 }
+               /* document.writeln("Result = ", los, " ");*/
               
             }
             
-        }*/
+        }
         //
-        /*if(Number.isNaN(chk1_l1o1)) //temp fixed
+        if(Number.isNaN(chk1_l1o1)) //temp fixed
         {
+            /*document.write('<pre>');
+            document.write("NaN Detected");*/
+            /*los = false;*/
             chk1_l1o1 = 0;
             chk2_l1o1 = 0;
             chk1_l1o2 = 0;
@@ -320,37 +463,35 @@ function generateCir2()
             chk2 = 0;
             sessionStorage.clear();
             regenerate();
-        }*/
-        /*if (!overlapping /*&& los*//*) { 
+        }
+        if (!overlapping && los) { 
+            document.write('<pre>');
+            document.writeln("Success Insert " , a ,"  == ", chk1_l1o1, " " , chk2_l1o1, " | ", chk1_l1o2 , " " , chk2_l1o2 , " | " , chk1_l2o1, " " , chk2_l2o1, " | ", chk1_l2o2 , " " , chk2_l2o2 , " | " , chk1 ," " , chk2, " | ", chk1_l1ob , " " , chk2_l1ob , " | " , chk1_l2ob , " " , chk2_l2ob, " | ", overlapping , los);
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
             los = true;
             a++;
-       /* }*/
-   /* }
-    if(toggle && circles.length == 1) 
-    {*/
+            
+        } 
+    }
+    if(toggle && circles.length == 3 ) 
+    {
         toggle = false;
-        /*ctx.beginPath();*/
-        ctx.lineWidth = "2";
+        ctx.lineWidth = "5";
         ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(10, 10, 980, 700);
-        
+        /*ctx.fillRect(10, 10, 980, 700);*/
         ctx.strokeStyle = "black";
         ctx.strokeRect(10, 10, 980, 700);
-        /*ctx.lineWidth = "2";*/
-
-        
-        
-        ctx.arc(circles[0].x, circles[0].y, circles[0].radius , Math.PI * 2, 0, false);
-        ctx.strokeStyle = "rgba(0, 0, 0, 1)";
-        ctx.stroke();
-        
-        
-
-        /*ctx.closePath();
+        ctx.lineWidth = "2";
         for (i = 0; i < circles.length; i++) {
+
+                /*check();*/
+                /*check2();
+                return;*/
+                
+
+                
                 ctx.beginPath();
                 ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
                 ctx.strokeStyle = "rgba(0, 0, 0, 1)";
@@ -358,6 +499,9 @@ function generateCir2()
                 ctx.closePath();
                 if(i < 9)
                 {
+                    
+                    /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
+                    ctx.fill();*/
                     ctx.fillStyle = "black"
                     ctx.font = '30px Arial';
                     ctx.fillText(circles[i].index, circles[i].x - 9 , circles[i].y + 10);
@@ -369,23 +513,42 @@ function generateCir2()
                     ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
                 }
                 
+                /*if(i==0)
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '15px serif';
+                    ctx.fillText("Start", circles[i].x - 15, circles[i].y + 40);
+            
+                }
+                if(i==24)
+                {
+                    ctx.fillStyle = "black"
+                    ctx.font = '15px serif';
+                    ctx.fillText("End", circles[i].x - 13, circles[i].y + 40);
+                }*/
+                
+                ctx.closePath();
+
+                /*ctx.beginPath();*/
+                /*'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';*/  // Green path
+                
             }
-            ctx.beginPath();
             ctx.lineWidth = "3";
             ctx.strokeStyle = "#666666";
-            ctx.closePath();*/
-    /*}*/
-    /*if(overcounter == 30){
-        /*document.write('<pre>');
-        document.write("Overflow");*/
-        /*return;*/
-    /*}
-    overcounter++;*/
+    }
+    if(overcounter == 30){
+        document.write('<pre>');
+        document.write("Overflow");
+        return;
+    }
+    overcounter++;
 }
+
+
   function draw(e) 
   {
     // stop the function if they are not mouse down
-    if(!isDrawing)   return;
+    if(!isDrawing) {ctx.closePath(); return;}
     //listen for mouse move event
     console.log(e);
     ctx.beginPath();
@@ -393,7 +556,6 @@ function generateCir2()
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
     [lastX, lastY] = [e.offsetX, e.offsetY];
-    
     
   }
 //mouse down
@@ -511,7 +673,9 @@ function generateCir2()
      {
         alert("Wrong,You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
 
+
         clickInfo.length = 0;
+        generateCir();
      }
     else
     {
@@ -529,7 +693,6 @@ function generateCir2()
               ctx.arc(cxpos, cypos, crad, Math.PI * 2, 0, false);
               ctx.fillStyle = "#00ff00";
               ctx.fill();
-              ctx.closePath();
               if(clickInfo[clickInfo.length-1].index <= 9)
                     {
                         ctx.fillStyle = "black"
@@ -563,7 +726,7 @@ function generateCir2()
   canvas.addEventListener('mouseout', () => isDrawing = false);
 
 //elementName is the id of the countdown
-/*function countdown(elementName, minutes, seconds)
+function countdown( elementName, minutes, seconds )
 {
     var element, endTime, hours, mins, msLeft, time;
 
@@ -645,10 +808,119 @@ function StoreUserTestResult(first)
             SecondTest:0,
         }
     userArray.push(user);
-}*/
+}
+   
+// function startTest(age)
+// {
+//     //for age 40 to 50 
+//     //3mins and 30 sec
+//     if(age=="a")
+//     {
+//         countdown("ten-countdown",3,30);
+//     }
+//     //for age 50 and above
+//     //4 minutes
+//     else if(age="b")
+//     {
+//         countdown("ten-countdown",4,00);
+//     }
+//     //below 40
+//     //3 minutes
+//     else 
+//     {
+//         countdown("ten-countdown",3,00)
+//     }
+
+// }
+// function stopTest()
+// {
+//  clearInterval(interval);
+//  msgObj.innerHTML =  document.getElementById("ten-countdown").innerHTML;
+// }
+
+
+
+function check(){
+for (i = 0; i < circles.length; i++) {
+    ctx.beginPath();
+    ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+    ctx.fill();
+    ctx.fillStyle = "white"
+    ctx.font = '15px serif';
+    ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
+    if(i==0)
+    {
+        ctx.fillStyle = "black"
+        ctx.font = '15px serif';
+        ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
+
+    }
+    if(i==24)
+    {
+        ctx.fillStyle = "black"
+        ctx.font = '15px serif';
+        ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
+    }
+    ctx.closePath();
+    if(i > 0){
+        //check for overlap
+        ctx.beginPath();
+        ctx.lineWidth = "5";
+        ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+        ctx.moveTo(circles[i-1].x,circles[i-1].y);
+        ctx.lineTo(circles[i].x,circles[i].y);
+        ctx.stroke();  // Draw it
+        ctx.closePath();
+
+    }
+    ctx.beginPath();
+    ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+    ctx.fill();
+    ctx.closePath();
+}}
+
+function rng()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(0, 255, 0, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(counter4, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
+
+function rng2()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(0, 255, 255, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(a, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
+
+function rng3()
+{
+    ctx.beginPath();
+    ctx.arc(randX, randY, 25, Math.PI * 2, 0, false);
+    ctx.fillStyle = "rgba(255, 255, 0.7)";
+    ctx.fill();
+    ctx.fillStyle = "black"
+    ctx.font = '15px serif';
+    ctx.fillText(a, randX - 8, randY + 3);
+    ctx.closePath(); 
+}
 
 
 function regenerate(){
+    document.write('<pre>');
+    document.writeln("Limit Reach at ", circles.length);
     rngCircle.index = 0;
     a = 1;
     circles = [];
@@ -657,51 +929,109 @@ function regenerate(){
     counter3 = 0;
     overlapping = false;
     los = true;
+    document.writeln("New Limit ", circles.length);
     generateCir();
+
     
 }
-/*
-function draw(e) 
-{
-// stop the function if they are not mouse down
-if(!isDrawing) { return;}
-//listen for mouse move event
-console.log(e);
-ctx.beginPath();
-ctx.moveTo(lastX, lastY);
-ctx.lineTo(e.offsetX, e.offsetY);
-ctx.stroke();
-[lastX, lastY] = [e.offsetX, e.offsetY];
 
-}
 
-//mouse down
-canvas.addEventListener('mousedown', (e) => {
-isDrawing = true;
-var i, xDiff, yDiff, dist, result, cX, cY, startLength;
-xPos = null; yPos = null; circX = null; circY = null;
+function check2(){
+    for (i = 0; i < circles.length; i++) {
 
-xPos = e.offsetX || e.pageX;
-yPos = e.offsetY || e.pageY;
 
-//start the coordinates drawing
-[lastX, lastY] = [e.offsetX, e.offsetY];
+        ctx.beginPath();
+        ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
+        ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+        ctx.fill();
+        ctx.fillStyle = "white"
+        ctx.font = '15px serif';
+        ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
+        if(i==0)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
+    
+        }
+        if(i==24)
+        {
+            ctx.fillStyle = "black"
+            ctx.font = '15px serif';
+            ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
+        }
+        ctx.closePath();
+        if(i > 0){
 
-});
+            cr = 15;
+            cx = circles[i-1].x - circles[i].x;
+            cy = circles[i-1].y - circles[i].y;
+            
+            m = cy / cx;
+            cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
+            ca = circles[i].x*m ;
+            cc = circles[i-1].x*m;
+            cb = (m + (1/m));
+            Pi1_x = Math.floor(((circles[i].x/m) + ca - cf) / cb);
+            Pi1_y = Math.floor(((-(1/m)*((circles[i].x/m) + ca - cf)) /cb) + (circles[i].x/m) + circles[i].y);
 
-canvas.addEventListener('mousemove', draw);
-//mouseUp
-canvas.addEventListener('mouseup', (e) => {
-isDrawing = false;
+            Pi2_x = Math.floor(((circles[i].x/m) + ca + cf) / cb);
+            Pi2_y = Math.floor(((-(1/m)*((circles[i].x/m) + ca + cf)) /cb) + (circles[i].x/m) + circles[i].y);
 
-var i, xDiff, yDiff, dist, result, cX, cY, startLength;
-xPos = null; yPos = null; circX = null; circY = null;
+            Pi3_x = Math.floor(((circles[i-1].x/m) + cc - cf) / cb);
+            Pi3_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc - cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);
 
-xPos = e.offsetX || e.pageX;
-yPos = e.offsetY || e.pageY;
+            Pi4_x = Math.floor(((circles[i-1].x/m) + cc + cf) / cb);
+            Pi4_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc + cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);
+            //check for overlap
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(Pi3_x,Pi3_y);
+            ctx.lineTo(Pi1_x,Pi1_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(Pi4_x,Pi4_y);
+            ctx.lineTo(Pi2_x,Pi2_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(Pi4_x,Pi4_y);
+            ctx.lineTo(Pi1_x,Pi1_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(Pi3_x,Pi3_y);
+            ctx.lineTo(Pi2_x,Pi2_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.lineWidth = "1";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(Pi3_x,Pi3_y);
+            ctx.lineTo(Pi4_x,Pi4_y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();
 
-//start the coordinates drawing
- //[lastX, lastY] = [e.offsetX, e.offsetY];
-});
-//when u no longer touching the mouse
-canvas.addEventListener('mouseout', () => isDrawing = false);*/
+            /*ctx.beginPath();
+            ctx.lineWidth = "5";
+            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+            ctx.moveTo(circles[i-1].x,circles[i-1].y);
+            ctx.lineTo(circles[i].x,circles[i].y);
+            ctx.stroke();  // Draw it
+            ctx.closePath();*/
+            
+        }
+        ctx.beginPath();
+        ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
+        ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+        ctx.fill();
+        ctx.closePath();
+    }}

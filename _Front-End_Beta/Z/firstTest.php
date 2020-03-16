@@ -3,20 +3,20 @@
 
 
 <body>
-<div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
+<!--<div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
 <div style="text-align:center">
 <button class="btnStart" onclick="startTest()">Start</button>
 <button class="btnStart" >Test</button>
-</div>
+</div>-->
 <div style="text-align:center;">
 <canvas id="canvas" width="1000px" height="796px"></canvas>
 
-</div>
+<!--</div>
 <p id="msg" class="blue"></p>
-<p id="msg2"><br>&nbsp;</p>
+<p id="msg2"><br>&nbsp;</p>-->
 
 <!-- Current Test result -->
-<div id="popupResult" class="overlay2">
+<!--<div id="popupResult" class="overlay2">
 	<div class="popup">
 		<h2 style="text-align:center;">First Test Result</h2>
 		<div class="content">
@@ -26,10 +26,10 @@
 		<a class="button" href="#secondTestRules">Next Test</a>
 		</div>
 	</div>
-</div>
+</div>-->
 
 <!-- Link to second test -->
-<div id="secondTestRules" class="overlay2">
+<!--<div id="secondTestRules" class="overlay2">
 	<div class="popup">
 		<h2 style="text-align:center;">Second Test</h2>
 		<div class="content">
@@ -42,12 +42,12 @@
 		<a class="button" href="ExecutiveFunctionTest.php">Next</a>
 		</div>
 	</div>
-</div>
+</div>-->
 
 <body>
 
 <!-- must put below -->
-<link rel="stylesheet" href="Test.css" type="text/css">
+<!--<link rel="stylesheet" href="Test.css" type="text/css">-->
 <script type="text/javascript" src="algotest1.js"></script>
 
 </body>
