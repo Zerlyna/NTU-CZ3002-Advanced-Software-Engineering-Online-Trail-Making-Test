@@ -20,9 +20,16 @@
             $password = mysqli_real_escape_string($conn,$_POST['password']);
             $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
             if ($row = mysqli_fetch_array($result)){
+                /*echo "nice";*/
+
+                /*echo '<script type="text/javascript">', 'toMainPage();', '</script>';*/
+                                        
+                                        
                 $_SESSION['NRIC'] = $row['NRIC'];
                 header("Location: Main.php");
             } else {
+                /*echo "gg";*/
+                /*echo '<script type="text/javascript">', 'toMainPage();', '</script>';*/
                 $errormsg="Incorrect NRIC or Password. Please try again.";
             }
         }
@@ -77,6 +84,7 @@ For now:
                             <div class = "login_btn" >
                                 <div class="wrap_btn" >
                                     <div class="form_bgbtn"></div>
+                                        <!--<button onclick = "toMainPage()" type="submit" name = "login" class="login_form_btn">Login</button>-->
                                         <button onclick = "toMainPage()" type="submit" name = "login" class="login_form_btn">Login</button>
                                 </div>
                             </div>

@@ -24,7 +24,12 @@ function toMainPage(){
         }, 2000);
     }
     /*invalid input*/
-    else if (document.getElementById("loginPW").value != "1" || document.getElementById("loginPW").value != "S123456789")    
+    else if (document.getElementById("loginPW").value == "1" || document.getElementById("loginPW").value == "S123456789")    
+    {
+        
+        nric = true;
+    }
+    else
     {
         document.getElementById("loginPW").style.borderBottomColor = "#cc0000";
         document.getElementById("loginPW").value = ""; //clear input 
@@ -34,11 +39,7 @@ function toMainPage(){
             document.getElementById('loginPWL').innerHTML = "Enter Password"; 
             document.getElementById('loginPWL').style.color = "#9b9b9b";
         }, 2000);
-
-    }
-    else
-    {
-        nric = true;
+        
     }
     if(document.getElementById("loginID").value == "") /*no input*/   
     {
@@ -54,7 +55,13 @@ function toMainPage(){
 
     }
     /*invalid input*/
-    else if (document.getElementById("loginID").value != "1" || document.getElementById("loginID").value != "a1a2a3a4a5")    
+    else if (document.getElementById("loginID").value == "1" || document.getElementById("loginID").value == "a1a2a3a4a5")    
+    {
+
+        pass = true;
+
+    }
+    else
     {
 
         document.getElementById("loginID").style.borderBottomColor = "#cc0000";
@@ -65,11 +72,7 @@ function toMainPage(){
             document.getElementById('loginIDL').innerHTML = "Enter NRIC"; 
             document.getElementById('loginIDL').style.color = "#9b9b9b";
         }, 2000);
-
-    }
-    else
-    {
-        pass = true;
+        
     }
     if(pass == true && nric == true)
     {
