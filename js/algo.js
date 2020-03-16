@@ -45,287 +45,6 @@ var userArray=[];
 
 window.onload=generateCir();
 
-/*function generateCir()
-{
-
-    while (circles.length < 25) {
-
-        los = true;
-        overlapping = false;
-        
-        //limit
-        if(circles.length < 1 && circles.length >= 0)
-        {
-            randX = Math.floor(Math.random()* 900 + 40);
-            randY = Math.floor(Math.random()* 600 + 40);
-        }
-        else if (circles.length >= 1)
-        {
-            do{
-                
-                randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
-                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
-                if(counter3 > 1000)
-                {
-                    regenerate(); //regenerate circle;
-
-                }
-                counter3++;
-
-                
-                 
-            
-            }while(randX > 940 || randY > 660 || randX < 40 || randY < 40); 
-
-        }
-        
-        rngCircle =
-        {
-            index: 1,
-            x: Math.floor(randX),
-            y: Math.floor(randY),
-            radius: 25,
-        }
-        
-        for (var j = 0; j < circles.length; j++) {
-            other = circles[j];
-            dx = rngCircle.x - other.x;
-            dy = rngCircle.y - other.y;
-            //rr is use to ensure all the circle is not too near apart
-            rr = 70;
-            //overlapping theory
-            //Distance between centers C1 and C2 is calculated as
-            // C1C2 = sqrt((x1 - x2)2 + (y1 - y2)2).
-            //There are three condition arises.
-            //1. If C1C2 == R1 + R2
-            //		Circle A and B are touch to each other.
-            //2. If C1C2 > R1 + R2
-            //     Circle A and B are not touch to each other.
-            //3. If C1C2 < R1 + R2
-            //      Circle intersects each other.
-            //if no overlapping
-            if (dx * dx + dy * dy < rr * rr)
-            {
-                overlapping = true;;
-                break;
-            }
-            if(counter > 10000)
-            {
-                regenerate(); //regenerate circle;
-                
-            }
-            counter++;
-
-         
-        }
-        
-        //check if line of sequence is line of sight
-        if(a > 2)
-        {
-            for (var j = 0; j < circles.length -1 ; j++) {
-
-                
-
-                /*cr = 15; // radius value 
-
-                cx = rngCircle.x - circles[a-2].x;
-                cy = rngCircle.y - circles[a-2].y;
-                
-                m = cy / cx;
-                cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
-                ca = circles[a-2].x*m ;
-                cc = rngCircle.x*m;
-                cb = (m + (1/m));
-
-
-                //new line
-
-                P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);
-                P1_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca - cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
-
-                P2_x = Math.floor(((circles[a-2].x/m) + ca + cf) / cb);
-                P2_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca + cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
-
-                P3_x = Math.floor(((rngCircle.x/m) + cc - cf) / cb);
-                P3_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc - cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
-
-                P4_x = Math.floor(((rngCircle.x/m) + cc + cf) / cb);
-                P4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
-
-
-                cx = circles[j+1].x - circles[j].x;
-                cy = circles[j+1].y - circles[j].y;
-                
-                m = cy / cx;
-                cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
-                ca = circles[j].x*m ;
-                cc = circles[j+1].x*m;
-                cb = (m + (1/m));
-
-                //old line
-                Pi1_x = Math.floor(((circles[j].x/m) + ca - cf) / cb);
-                Pi1_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca - cf)) /cb) + (circles[j].x/m) + circles[j].y);
-
-                Pi2_x = Math.floor(((circles[j].x/m) + ca + cf) / cb);
-                Pi2_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca + cf)) /cb) + (circles[j].x/m) + circles[j].y);
-
-                Pi3_x = Math.floor(((circles[j+1].x/m) + cc - cf) / cb);
-                Pi3_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc - cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
-
-                Pi4_x = Math.floor(((circles[j+1].x/m) + cc + cf) / cb);
-                Pi4_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc + cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
-
-                /* 1--> 3 2-->4*/
-                /*chk1_l1o1 = ((P1_x-Pi1_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi1_x)*(Pi3_y-Pi1_y)-(P3_y-Pi1_y)*(Pi3_x-Pi1_x)); // P1 P3 , Pi1 Pi3
-                chk2_l1o1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
-
-                chk1_l1o2 = ((P1_x-Pi2_x)*(Pi4_y-Pi2_y)-(P1_y-Pi2_y)*(Pi4_x-Pi2_x))*((P3_x-Pi2_x)*(Pi4_y-Pi2_y)-(P3_y-Pi2_y)*(Pi4_x-Pi2_x)); // P1 P3 , Pi2 Pi4
-                chk2_l1o2 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x));
-
-                chk1_l2o1 = ((P2_x-Pi1_x)*(Pi3_y-Pi1_y)-(P2_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi1_x)*(Pi3_y-Pi1_y)-(P4_y-Pi1_y)*(Pi3_x-Pi1_x)); // P2 P4 , Pi1 Pi3
-                chk2_l2o1 = ((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x));
-
-                chk1_l2o2 = ((P2_x-Pi2_x)*(Pi4_y-Pi2_y)-(P2_y-Pi2_y)*(Pi4_x-Pi2_x))*((P4_x-Pi2_x)*(Pi4_y-Pi2_y)-(P4_y-Pi2_y)*(Pi4_x-Pi2_x)); // P2 P4 , Pi2 Pi4
-                chk2_l2o2 = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x));
-
-                chk1_l1ob = ((P3_x-Pi2_x)*(Pi1_y-Pi2_y)-(P3_y-Pi2_y)*(Pi1_x-Pi2_x))*((P1_x-Pi2_x)*(Pi1_y-Pi2_y)-(P1_y-Pi2_y)*(Pi1_x-Pi2_x)); // P1 P3 , Pi1 Pib
-                chk2_l1ob = ((Pi2_x-P3_x)*(P1_y-P3_y)-(Pi2_y-P3_y)*(P1_x-P3_x))*((Pi1_x-P3_x)*(P1_y-P3_y)-(Pi1_y-P3_y)*(P1_x-P3_x));
-
-                chk1_l2ob = ((P2_x-Pi2_x)*(Pi1_y-Pi2_y)-(P2_y-Pi2_y)*(Pi1_x-Pi2_x))*((P4_x-Pi2_x)*(Pi1_y-Pi2_y)-(P4_y-Pi2_y)*(Pi1_x-Pi2_x)); // P2 P4 , Pib Pib
-                chk2_l2ob = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x));
-
-
-                chk1_l1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P3 Pi4 Pi1
-                chk2_l1od1 = ((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x));
-                chk1_l2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P3 Pi2 Pi3
-                chk2_l2od1 = ((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x));
-
-                chk1_l1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P4 Pi4 Pi1
-                chk2_l1od2 = ((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x));
-                chk1_l2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P4 Pi2 Pi3
-                chk2_l2od2 = ((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x));
-
-                chk1_ld1od1 = ((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P4_x-Pi1_x)*(Pi4_y-Pi1_y)-(P4_y-Pi1_y)*(Pi4_x-Pi1_x)); //P1 P4 Pi4 Pi1
-                chk2_ld1od1 = ((Pi1_x-P1_x)*(P4_y-P1_y)-(Pi1_y-P1_y)*(P4_x-P1_x))*((Pi4_x-P1_x)*(P4_y-P1_y)-(Pi4_y-P1_y)*(P4_x-P1_x));
-                chk1_ld2od1 = ((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P4_x-Pi2_x)*(Pi3_y-Pi2_y)-(P4_y-Pi2_y)*(Pi3_x-Pi2_x)); //P1 P4 Pi2 Pi3
-                chk2_ld2od1 = ((Pi2_x-P1_x)*(P4_y-P1_y)-(Pi2_y-P1_y)*(P4_x-P1_x))*((Pi3_x-P1_x)*(P4_y-P1_y)-(Pi3_y-P1_y)*(P4_x-P1_x));
-
-                chk1_ld1od2 = ((P2_x-Pi1_x)*(Pi4_y-Pi1_y)-(P2_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x)); //P2 P3 Pi4 Pi1
-                chk2_ld1od2 = ((Pi1_x-P2_x)*(P3_y-P2_y)-(Pi1_y-P2_y)*(P3_x-P2_x))*((Pi4_x-P2_x)*(P3_y-P2_y)-(Pi4_y-P2_y)*(P3_x-P2_x));
-                chk1_ld2od2 = ((P2_x-Pi2_x)*(Pi3_y-Pi2_y)-(P2_y-Pi2_y)*(Pi3_x-Pi2_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x)); //P2 P3 Pi2 Pi3
-                chk2_ld2od2 = ((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x));*/
-                
-                
-               /* chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
-                chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
-
-                if(chk1 < 0 && chk2 < 0 ){
-                /*if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
-                    || chk1 < 0 && chk2 < 0 
-                    || chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0 
-                    || chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0 && chk2_l2od2< 0
-                    || chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0 && chk2_ld2od2< 0){*/
-               /*     los = false;
-                    if(counter2 > 1000)
-                    {
-                     
-                        regenerate(); //regenerate circle;
-                    }
-                    counter2 ++;
-                    break;
-                }
-              
-            }
-            
-        }
-        //
-        /*if(Number.isNaN(chk1_l1o1)) //temp fixed
-        {
-            chk1_l1o1 = 0;
-            chk2_l1o1 = 0;
-            chk1_l1o2 = 0;
-            chk2_l1o2 = 0;
-            chk1_l2o1 = 0;
-            chk2_l2o1 = 0;
-            chk1_l2o2 = 0;
-            chk2_l2o2 = 0;
-            chk1_l2ob = 0;
-            chk2_l2ob = 0;
-            chk1_l1ob = 0;
-            chk2_l1ob = 0;
-            chk1_l1od1 = 0;
-            chk2_l1od1 = 0;
-            chk1_l2od1 = 0;
-            chk2_l2od1 = 0;
-            chk1_l1od2 = 0;
-            chk2_l1od2 = 0;
-            chk1_l2od2 = 0;
-            chk2_l2od2 = 0;
-            chk1_ld1od1 = 0;
-            chk2_ld1od1 = 0;
-            chk1_ld2od1 = 0;
-            chk2_ld2od1 = 0;
-            chk1_ld1od2 = 0;
-            chk2_ld1od2 = 0;
-            chk1_ld2od2 = 0;
-            chk2_ld2od2 = 0;
-            chk1 = 0;
-            chk2 = 0;
-            sessionStorage.clear();
-            regenerate();
-        }*/
-       /* if (!overlapping && los) { 
-            rngCircle.index = a; 
-            circles.push(rngCircle);
-            overlapping = false;
-            los = true;
-            a++;
-        } 
-    }
-    if(toggle && circles.length == 25) 
-    {
-        toggle = false;
-        ctx.lineWidth = "5";
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(10, 10, 980, 700);
-        ctx.strokeStyle = "black";
-        ctx.strokeRect(10, 10, 980, 700);
-        ctx.lineWidth = "2";
-        for (i = 0; i < circles.length; i++) {
-                
-                ctx.beginPath();
-                ctx.arc(circles[i].x, circles[i].y, circles[i].radius , Math.PI * 2, 0, false);
-                ctx.strokeStyle = "rgba(0, 0, 0, 1)";
-                ctx.stroke();
-                ctx.closePath();
-                if(i < 9)
-                {
-                    
-                    /*ctx.fillStyle = "rgba(255, 255, 255, 1)";
-                    ctx.fill();*/
-            /*        ctx.fillStyle = "black"
-                    ctx.font = '30px Arial';
-                    ctx.fillText(circles[i].index, circles[i].x - 9 , circles[i].y + 10);
-                }
-                else
-                {
-                    ctx.fillStyle = "black"
-                    ctx.font = '30px Arial';
-                    ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
-                }
-                ctx.closePath();
-                
-            }
-            ctx.lineWidth = "3";
-            ctx.strokeStyle = "#666666";
-    }
-    if(overcounter == 30){
-        /*document.write('<pre>');
-        document.write("Overflow");*/
-       /* return;
-    }
-    overcounter++;
-}*/
 function generateCir()
 {
 
@@ -337,8 +56,8 @@ function generateCir()
         //limit
         if(circles.length < 1 && circles.length >= 0)
         {
-            randX = Math.floor(Math.random()* 900 + 40);
-            randY = Math.floor(Math.random()* 700 + 40);
+            randX = Math.floor(Math.random()* 940 + 40);
+            randY = Math.floor(Math.random()* 660 + 40);
         }
         else if (circles.length >= 1)
         {
@@ -460,11 +179,10 @@ function generateCir()
         toggle = false;
         ctx.lineWidth = "5";
         ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(10, 10, 980, 700);
         ctx.strokeStyle = "black";
         ctx.strokeRect(10, 10, 980, 700);
         ctx.lineWidth = "2";
-        check2();
-        return;
 
         for (i = 0; i < circles.length; i++) {
    
@@ -485,8 +203,6 @@ function generateCir()
                     ctx.font = '30px Arial';
                     ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
                 }
-                
-                
                 ctx.closePath();
                 
             }
@@ -681,8 +397,31 @@ function regenerate(){
                         ctx.font = '30px Arial';
                         ctx.fillText(clickInfo[clickInfo.length-1].index,cxpos -17, cypos +10);
                     }
+                    if(i > 0){
+
+                    
+                        ctx.beginPath();
+                        ctx.arc(circles[i-1].x, circles[i-1].y, circles[i-1].radius, Math.PI * 2, 0, false);
+                        ctx.fillStyle = "#00ff00";
+                        ctx.fill();
+                        if((clickInfo[clickInfo.length-1].index-1) <= 9)
+                        {
+                            ctx.fillStyle = "black"
+                            ctx.font = '30px Arial';
+                            ctx.fillText((clickInfo[clickInfo.length-1].index-1),circles[i-1].x -9, circles[i-1].y +10);
+                        }
+                        else
+                        {
+                            ctx.fillStyle = "black"
+                            ctx.font = '30px Arial';
+                            ctx.fillText((clickInfo[clickInfo.length-1].index-1),circles[i-1].x -17, circles[i-1].y +10);
+                        }
+                    }
+                    
+
           }
       }
+      dataURL= canvas.toDataURL();
     }
     if(clickInfo[clickInfo.length - 1].index==25)
      {
@@ -693,7 +432,7 @@ function regenerate(){
     //start the coordinates drawing
      //[lastX, lastY] = [e.offsetX, e.offsetY];
       //convert canvas into image url
-      dataURL= canvas.toDataURL();
+      
   });
   //when u no longer touching the mouse
   canvas.addEventListener('mouseout', () => isDrawing = false);
@@ -797,7 +536,7 @@ function StoreUserTestResult(first)
     userArray.push(user);
 }
 
-
+//For Testing Generating Algo (Do not delete)
 function check2(){
     for (i = 0; i < circles.length; i++) {
 
