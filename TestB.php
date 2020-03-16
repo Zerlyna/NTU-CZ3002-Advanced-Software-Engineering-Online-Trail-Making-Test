@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    include_once 'connect.php';
+    // session_start();
+    // include_once 'connect.php';
 
-	if(isset($_SESSION['NRIC'])){
-        $nric = $_SESSION['NRIC'];
-    }else{
-        header('Location: Index.php');
-    }
+	// if(isset($_SESSION['NRIC'])){
+    //     $nric = $_SESSION['NRIC'];
+    // }else{
+    //     header('Location: Index.php');
+    // }
 
     if(isset($_POST['finish_test'])){
         $time_A = $_COOKIE['time_A'];
@@ -48,6 +48,7 @@
         <div class="limiter">
             <div class="container">
                 <div class="wrapContainer">
+                <div class = "row1"><h3>Test B</h3></div>
                 <div class="row2">
                         <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
@@ -60,7 +61,7 @@
                     <div id="TestResult" class="overlay">
                     <div class="popup">
                         <h2 style="text-align:center;">Your test result</h2>
-                        <a class="close" href="#popup2">&times;</a>
+                        
                         <div class="content">
                         <div class="flex-wrapper">
                             <div class="single-chart">
@@ -118,9 +119,11 @@
                             </div>
                         
                         </div>
-                        <p id="risk" style="text-align:center;"></p>
+                        <p id="RESULT" style="text-align:center;"></p>
+                        <p id="risk" style="text-align:center;magin-top:1%;"></p>
                         <div class="box">
-                        <a class="button" href="Main.php">Home</a>
+                      
+                        <a class="button" href="Main.php">FINISH</a>
                         </div>
                     </div>
                 </div>

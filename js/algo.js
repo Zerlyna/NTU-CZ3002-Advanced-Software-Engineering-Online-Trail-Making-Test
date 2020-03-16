@@ -493,13 +493,7 @@ function generateCir()
         };
         img.src=dataURL;
         //limit to 3 attempt
-        numOfAttempt--;
-        if(numOfAttempt==0)
-        {
-            window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
-            alert("You have fail test A");
-            location.href = "#secondTestRules";
-        }
+      
 
      }
     else

@@ -152,6 +152,7 @@
       .flex-wrapper {
         display: flex;
         flex-flow: row nowrap;
+        margin-top: 4%;
       }
       
       .single-chart {

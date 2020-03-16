@@ -518,13 +518,11 @@ canvas.addEventListener('mousedown', (e) => {
             };
             img.src=dataURL;
             //limit to 3 attempt
-            numOfAttempt--;
-            if(numOfAttempt==0)
-            {
-                window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
-                alert("You have fail test B");
-                location.href = "#TestResult";
-            }
+           
+                // window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
+                // alert("You have fail test B");
+                // location.href = "#TestResult";
+            
             
         }
         else
@@ -637,6 +635,10 @@ function stopTest()
 
         testResult=secDiff;
     }
+    else if(minDiff==0 && secDiff==0)
+    {
+        testResult=0;
+    }
     else
     {
         secDiff+=(minDiff*60);
@@ -660,22 +662,44 @@ function stopTest()
     if(tmtResultA<=78)
     {
         if(testResult<=273)
-        {
-            document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
+        {   
+            if(testResult==0)
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
+                document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
+            }
+            else
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
+                document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
+            }
+            
         }
         else
         {
-            document.getElementById("risk").innerHTML="Risk of Dementia: Medium";
+            document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
+            document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
         }
     }
     else
     {
         if(testResult<=273)
         {
-            document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
+            if(testResult==0)
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
+                document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
+            }
+            else
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"   
+                document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
+            }
+
         }
         else
         {
+            document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
             document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
         }
     }

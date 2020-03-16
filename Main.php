@@ -41,8 +41,8 @@
                             <p style="margin-top:5%"></p>
                             <p style="text-align:center;"><strong >General Rules</strong></p>
                             <p>Complete the test as soon as possible within the specific time frame by connecting the circles in sequence.</p>
-                            <p>For each test,you will total of <strong style="color:red;">3</strong> attempt <strong style="color:red;">IF AND ONLY IF </strong>you connected to the wrong circle.</p>
-                            <p>Otherwise, you only have <strong style="color:red;">1</strong> attempt for each test.</p>
+                            <p>For each test,you will total of <strong style="color:red;">3</strong> attempt </p>
+                            <!-- <p>Otherwise, you only have <strong style="color:red;">1</strong> attempt for each test.</p> -->
                             <p style="text-align:center;color:red;"><strong>Note:</strong><br> Please take this test seriously as it will affect the analysis of your result.<br>Gentle reminder: The timer will not restart because of the 2nd/3rd attempt.</p>
 
                         </div>

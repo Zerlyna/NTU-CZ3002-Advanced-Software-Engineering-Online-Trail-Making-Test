@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+    //if wan short cut then remove this if else statment
 	if(isset($_SESSION['NRIC'])){
         $nric = $_SESSION['NRIC'];
     }else{
