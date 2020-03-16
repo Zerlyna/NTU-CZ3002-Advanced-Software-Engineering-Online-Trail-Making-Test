@@ -36,19 +36,19 @@ include('header.php');
                     <div class = "AboutUs_Lower">
                         <span class = "AboutUs_LowerLeft">
                             <div class = "AboutUs_DevImg">
-                                <span class = "AboutUs_DevLead"><img src="Assets/Img/Temp.png" alt="Lead_img" class="Lead"></span>
+                                <span class = "AboutUs_DevLead"><img src="Assets/Img/YongXin.png" alt="Lead_img" class="Lead"></span>
                                 <span class = "AboutUs_DevFront"><img src="Assets/Img/Temp.png" alt="Frontend_img" class="Frontend"></span>
-                                <span class = "AboutUs_DevBack"><img src="Assets/Img/Temp.png" alt="Backend_img" class="Backend"></span>
+                                <span class = "AboutUs_DevBack"><img src="Assets/Img/MoXuan.png" alt="Backend_img" class="Backend"></span>
                                 </div>
                             <div class = "AboutUs_DevRole">
-                                    <p1 class = "AboutUs_DevLeadT" >Lead</p1>
-                                    <p1 class = "AboutUs_DevFrontT">Front-End</p1>
-                                    <p1 class = "AboutUs_DevBackT">Back-End</p1>
+                                    <p1 class = "AboutUs_DevLeadT" >Lead Developer</p1>
+                                    <p1 class = "AboutUs_DevFrontT">Front-End Developer</p1>
+                                    <p1 class = "AboutUs_DevBackT">Back-End Developer</p1>
                             </div>
                             <div class = "AboutUs_DevDec">
-                                <p1 class = "AboutUs_DevLeadD"> Hahaha1 If you were to then give your CSS classes alignleft and alignright values of text-align: left; and text-align: right; respectively, you would get close to your desired result, but your right-aligned text would be bumped down one line because of the new paragraph. Instead, just float your paragraphs:</p1>
-                                <p1 class = "AboutUs_DevFrontD"> ; respectively, you would get close to your desired result, but your right-aligned text would be bumped down one line because of the new paragraph. Instead, just float your paragraphs: </p1>
-                                <p1 class = "AboutUs_DevBackD"> Hahaha3 If you were to then give your CSS classes alignleft and alignright values of text-align: left; and text-align: right; respectively, you would get close to your desired result, but your right-aligned text would be bumped down one line because of the new paragraph. Instead, just float your paragraphs:</p1>
+                                <p1 class = "AboutUs_DevLeadD"> Ang Yong Xin is highly skilled in a lot of programming languages such as Python, Java, C++ and etc. With his great understanding of coding, working experience, and his eagerness to tackle algorithmic problems, hiring him as a tech lead would ensure a reliable and efficient application.</p1>
+                                <p1 class = "AboutUs_DevFrontD"> Sam Jian Shen has the relevant skills for his roles in front-end developer such as JavaScript, CSS and HTML. Such skills suit our goals in the project. Such as established an online webpage. He has relevant skills in web development experiences as shown in his involvement in his co-curriculum activities WSC. As such, he is surely qualified for the role front-end developer under the right supervision of the lead developer. </p1>
+                                <p1 class = "AboutUs_DevBackD"> How Mo Xuan is highly experienced in software development. Having dealt with both popular backend and frontend development framework, along with his extensive knowledge of coding makes him fit for the role of backend developer.</p1>
                             </div>
                         </span>
                         <span class = "AboutUs_LowerMiddle">
