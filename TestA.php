@@ -19,39 +19,61 @@
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">
+        <link rel="stylesheet" href="css/TestA.css">
         <!-- -->
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 </head>
     <body>
     <div class = "bgrd">
+    
         <div class="limiter">
+        
             <div class="container">
-                <!-- Do rescale your class "wrap_(your identifier)" -->
-                <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
+            <div class="wrapContainer"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div class = "test_r1"><h3>Test A</h3></div>
-                    <div class = "test_r2">-->
-                        <canvas id="canvas" width="990px" height="710px"></canvas>
-                    </div>
-                    <!--<div id = "layout_consent">
-                        <div class = "con_r1"><p1>ConTItiel</p1></div>
-                        <div class = "con_r2"><p1>ConInformation</p1></div>
-                        <div class = "con_r3">buttonto layoutinstA</div>
-                    </div>
-                    <div id = "layout_insA"></div>
-                        <div class = "insA_r1"><p1>InsTItiel</p1></div>
-                        <div class = "insA_r2"><p1>InsInformation</p1></div>
-                        <div class = "insA_r3">buttontotestB</div>
+                    <div class = "row1"><h3>Test A</h3></div>
+                    <div class="row2">
+                    <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
-                    <div class = "test_r3">-->
-                        <form action="TestB.php"> <!-- Use as a placeholder to go next navigate next page -->
-                            <button type="submit" name = "nextA" class="login_form_btn">Next</button>
-                        </form>
-                    </div> 
+                    <canvas id="canvas" width="990px" height="710px"></canvas>
                     
-                <!-- end of content -->
-                </div> 
+                    </div>
+                    <div class=row3>
+                    <button class="button" onclick="startTest()">Start</button>
+                    </div>
+             
+            </div>
+            
+                <!-- Do rescale your class "wrap_(your identifier)" -->
+
+        
+                
+
+                
+                <!-- Must put this -->
+                <p id="firstResult" style="text-align:center;"></p>
+                <!-- Link to second test -->
+                <div id="secondTestRules" class="overlay2">
+                    <div class="popup">
+                        <h2 style="text-align:center;">Congrats, You have Finish Your First Test</h2>
+                        <div class="content">
+                            <p style="margin-top:5%;"></p>
+                            <h2 style="text-align:center;">Second Test Rules</h2>
+                            <p style="margin-top:5%;"></p>
+                            <p style="text-align:center;"><strong>GOALS:</strong><br>Connect 25 circles within the specific time frame to pass the test.<br></p>
+                            <p style="margin-top:5%;"></p>
+                            <p style="text-align:center;"><strong>How to connect?</strong> <br>Press on the dots and release on the next dot</p>
+                            <p style="margin-top:5%;"></p>
+                            <p style="text-align:center;"><strong>What is the sequence?</strong><br>The sequence of this test is numbers follow by alphabets.<br> Eg: Connect 1 to A<br> then A to 2<br>then 2 to B</p>
+                            <p style="margin-top:5%;"></p>
+                            <p style="text-align:center;color:red;"><strong>Note:</strong><br>The first test will start after you click on Start button.<br> Please take this test seriously as it will affect the analysis of your result</p>
+                        </div>
+                        <div class="box">
+                            <a class="button" href="TestB.php">Next</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -61,7 +83,7 @@
     <!-- -->
     <script src= "/external/jquery/jquery-3.4.1.js"></script>
     <script type= "text/javascript" src="js/algo.js"></script>
-    <script type= "text/javascript" src="js/bgrd.js"></script>
+    <!-- <script type= "text/javascript" src="js/testAAlgo.js"></script> -->
 </html>
 
 <?php
