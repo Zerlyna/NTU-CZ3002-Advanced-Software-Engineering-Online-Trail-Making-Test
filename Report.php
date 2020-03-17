@@ -46,7 +46,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">   
     </head>
     <body>
-    <div class = "bgrd">
+    <div class = "bgrd2">
         <div class="limiter">
             <div class="container">
                 <!-- Do rescale your class "wrap_(your identifier)" -->
@@ -58,7 +58,7 @@
                         <div class = "report_c1">
                             <div class = "report_c1_1"><h1 class = "report_ttt">Total Time Taken</h1></div>
                             <div class = "report_c1_2"><div class="containerL chartL" data-size="360" data-value="360" data-arrow="up"> </div></div><!-- data-size no use one-->
-                            <div class = "report_c1_3"></div>
+                            <div class = "report_c1_3"><h1 class = "report_rod">Risk to Dementia:</h1><h1>Low</h1></div>
                         </div>
                         <div class = "report_c2">
                             <div class = "report_c2_c1"><h1 class = "report_t">Test A</h1></div>
@@ -67,25 +67,33 @@
                             <div class = "report_c2_c4"><div class="containerM chartM2" data-size="360" data-value="360" data-arrow="up"> </div></div>
                             <div class = "report_c2_c5">
                                 <div class = "report_c2_c5l">
-                                    <button type="submit" name = "records" class="login_form_btn" onclick="window.location.href = 'Record.php';">Records</button> 
+                                    <!--<button type="submit" name = "records" class="login_form_btn" onclick="window.location.href = 'Record.php';">Records</button>--> 
+                                    <div class="wrap_btn">
+                                        <div class="form_bgbtn"></div>
+                                            <button name="records" type="submit" class="login_form_btn" onclick="window.location.href = 'Record.php';">Records</button>
+                                    </div>
                                 </div>
                                 <div class = "report_c2_c5r">
-                                    <button type="submit" name = "end" class="login_form_btn" onclick="window.location.href = 'Main.php';">End</button>
+                                    <!--<button type="submit" name = "end" class="login_form_btn" onclick="window.location.href = 'Main.php';">End</button>-->
+                                    <div class="wrap_btn">
+                                        <div class="form_bgbtn"></div>
+                                            <button name="end" type="submit" class="login_form_btn" onclick="window.location.href = 'Main.php';">End</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class = "report_c3">
                             <div class = "report_c3r1">
                                 <div class = "report_c3r1_c1"><div class="containerS chartS" data-size="360" data-value="89" data-arrow="up"> </div></div>
-                                <div class = "report_c3r1_c2"><h2 class = "report_a">Average Time of All User</h2></div>
+                                <div class = "report_c3r1_c2"><h2 class = "report_a">Average Time of All User:</h2></div>
                             </div>
                             <div class = "report_c3r2">
                                 <div class = "report_c3r2_c1"><div class="containerS chartS2" data-size="360" data-value="100" data-arrow="up"> </div></div>
-                                <div class = "report_c3r2_c2"><h2 class = "report_a">Average Time (Female)</h2></div>
+                                <div class = "report_c3r2_c2"><h2 class = "report_a">Average Time (Female):</h2></div>
                             </div>
                             <div class = "report_c3r3">
                                 <div class = "report_c3r3_c1"><div class="containerS chartS3" data-size="360" data-value="13" data-arrow="up"> </div></div>
-                                <div class = "report_c3r3_c2"><h2 class = "report_a">Average Time (Male)</h2></div>
+                                <div class = "report_c3r3_c2"><h2 class = "report_a">Average Time (Male):</h2></div>
                             </div>
                         </div>
                     </div>
