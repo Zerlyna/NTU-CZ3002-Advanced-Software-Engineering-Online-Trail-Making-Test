@@ -94,12 +94,6 @@ For now:
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/cookie.js"></script>
     <script type= "text/javascript" src="js/error.js"></script>
-    <!-- <script>
-        setCookie("can_login","No",1)
-    
-    
-    
-    </script> -->
     <script type= "text/javascript" src="js/visibility.js"></script>
 </html>
 <?php
