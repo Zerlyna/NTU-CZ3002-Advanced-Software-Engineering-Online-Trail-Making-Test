@@ -12,8 +12,8 @@
         $year = mysqli_real_escape_string($conn, $_POST['year']);
         $month = mysqli_real_escape_string($conn, $_POST['month']);
         $day = mysqli_real_escape_string($conn, $_POST['day']);
-        $result=mysqli_query($conn,"INSERT INTO patient(NRIC,gender,password,email,Year,Month,Day) 
-        VALUES('" . $nric . "', '" . $gender . "', '" . $password . "', '" . $email . "', '" . $year . "', '" . $month . "', '" . $day . "')");
+        $result=mysqli_query($conn,"INSERT INTO patient(NRIC,Name,gender,password,email,Year,Month,Day) 
+        VALUES('" . $nric . "', '" . $name . "', '" . $gender . "', '" . $password . "', '" . $email . "', '" . $year . "', '" . $month . "', '" . $day . "')");
         if ($result == TRUE){
             header("Location: Index.php");
         } else {
