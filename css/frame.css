@@ -30,6 +30,10 @@ Purpose : Resize all images and logo to right size
     height: 245px;
     background: #ffffff;
     border: 3px solid black;
+    display: block;
+    margin-top : 10%;
+    margin-left : 5%;
+
 }
 
 .Manager, .Lead, .Frontend, .Backend, .QA, .Test{
