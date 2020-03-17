@@ -37,7 +37,7 @@ Purpose : Resize all images and logo to right size
 }
 
 .Manager, .Lead, .Frontend, .Backend, .QA, .Test{
-    width: 130px;
+    width: 150px;
     height: 150px;
 }
 
