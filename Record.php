@@ -33,6 +33,14 @@
         array_push($data->time_A_arr, $row['time_A']);
         array_push($data->time_B_arr, $row['time_B']); 
     }
+
+    $query = "SELECT * FROM global";
+    $result = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_assoc($result)){
+        $var_name = $row['average'];
+        ${$var_name} = $row['time'];
+    }
+    
     ##the data the chart need
     include_once "dc.php";
     include_once 'header.php';
@@ -72,7 +80,7 @@
                                 
                             </div>
                             <div class = "rec_c1r4">
-                                <h3>Last Test Taken: 17 Mar 2020</h3>
+                                <h3>Last Test Taken: <?php echo $data->year[count($data->year) - 1] ."-". $data->month[count($data->month) - 1] ."-".  $data->day[count($data->day) - 1];?></h3>
 
                                 <!-- Start of the Circular progress bar -->
                                 <div class="flex-wrapper">
@@ -90,7 +98,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">67 Sec</text>
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage"><?php echo $data->time_A_arr[count($data->time_A_arr) - 1] . " Sec";?></text>
                                     </svg>
                                 </div>
                                 
@@ -108,7 +116,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">140 Sec</text>
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage"><?php echo $data->time_B_arr[count($data->time_B_arr) - 1] . " Sec";?></text>
                                     </svg>
                                 </div>
 
@@ -126,7 +134,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage">207 Sec</text>
+                                    <text id="totalResult" x="18" y="20.35" class="percentage"><?php echo (intval($data->time_A_arr[count($data->time_A_arr) - 1]) + intval($data->time_B_arr[count($data->time_B_arr) - 1])). " Sec";?></text>
                                     </svg>
                                 </div>
                             
@@ -150,7 +158,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">90 Sec</text>
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage"><?php echo $test_A ." Sec";?></text>
                                     </svg>
                                 </div>
 
@@ -168,7 +176,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">180 Sec</text>
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage"><?php echo $test_B ." Sec";?></text>
                                     </svg>
                                 </div>
 
@@ -186,7 +194,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage">270 Sec</text>
+                                    <text id="totalResult" x="18" y="20.35" class="percentage"><?php echo (intval($test_A)+intval($test_B)) ." Sec";?></text>
                                     </svg>
                                 </div>
 
