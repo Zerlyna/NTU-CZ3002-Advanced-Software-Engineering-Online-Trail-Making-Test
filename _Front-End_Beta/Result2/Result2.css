@@ -1,8 +1,8 @@
-body {
+/*body {
 	background: #18222F;
-}
+}*/
 
-.wrapper {
+/*.wrapper {
 	position: absolute;
 	width: 400px;
 	height: 400px;
@@ -18,4 +18,4 @@ body {
 .container {
 	flex: 1;
 	padding: 0 20px;
-}
+}*/

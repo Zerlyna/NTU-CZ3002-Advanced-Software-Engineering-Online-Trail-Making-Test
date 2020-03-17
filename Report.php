@@ -41,7 +41,7 @@
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <!-- link .css here (a demo test_wrap.css) -->
-        <link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">
+        <!--<link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">-->
         <!-- -->
         <meta name="viewport" content="width=device-width, initial-scale=1">   
     </head>
@@ -50,42 +50,42 @@
         <div class="limiter">
             <div class="container">
                 <!-- Do rescale your class "wrap_(your identifier)" -->
-                <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
+                <div class="wrap_report"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div class = "r1"><h3>Result</h3></div>
-                    <div class = "r2">
-                        <div class = "c1">
-                            <div class = "c1_1"></div>
-                            <div class = "c1_2"></div>
-                            <div class = "c1_3"></div>
+                    <div class = "report_r1"><h3>Result</h3></div>
+                    <div class = "report_r2">
+                        <div class = "report_c1">
+                            <div class = "report_c1_1"></div>
+                            <div class = "report_c1_2"><div class="containerL chartL" data-size="360" data-value="50" data-arrow="up"> </div></div><!-- -->
+                            <div class = "report_c1_3"></div>
                         </div>
-                        <div class = "c2">
-                            <div class = "c2_c1"></div>
-                            <div class = "c2_c2"></div>
-                            <div class = "c2_c3"></div>
-                            <div class = "c2_c4"></div>
-                            <div class = "c2_c5">
-                                <div class = "c2_c5l">
+                        <div class = "report_c2">
+                            <div class = "report_c2_c1"></div>
+                            <div class = "report_c2_c2"><div class="containerM chartM" data-size="360" data-value="76" data-arrow="up"> </div></div>
+                            <div class = "report_c2_c3"></div>
+                            <div class = "report_c2_c4"><div class="containerM chartM2" data-size="360" data-value="42" data-arrow="up"> </div></div>
+                            <div class = "report_c2_c5">
+                                <div class = "report_c2_c5l">
                                     <button type="submit" name = "records" class="login_form_btn" onclick="window.location.href = 'Record.php';">Records</button> 
                                 </div>
-                                <div class = "c2_c5r">
+                                <div class = "report_c2_c5r">
                                     <button type="submit" name = "end" class="login_form_btn" onclick="window.location.href = 'Main.php';">End</button>
                                 </div>
                             </div>
                         </div>
-                        <div class = "c3">
-                            <div class = "c3r1">
-                                <div class = "c3r1_c1"></div>
-                                <div class = "c3r1_c2"></div>
+                        <div class = "report_c3">
+                            <div class = "report_c3r1">
+                                <div class = "report_c3r1_c1"><div class="containerS chartS" data-size="360" data-value="89" data-arrow="up"> </div></div>
+                                <div class = "report_c3r1_c2"></div>
                             </div>
-                            <div class = "c3r2">
-                                <div class = "c3r2_c1"></div>
-                                <div class = "c3r2_c1"></div>
+                            <div class = "report_c3r2">
+                                <div class = "report_c3r2_c1"><div class="containerS chartS2" data-size="360" data-value="22" data-arrow="up"> </div></div>
+                                <div class = "report_c3r2_c2"></div>
                             </div>
-                            <div class = "c3r3">
-                                <div class = "c3r3_c1"></div>
-                                <div class = "c3r3_c1"></div>
+                            <div class = "report_c3r3">
+                                <div class = "report_c3r3_c1"><div class="containerS chartS3" data-size="360" data-value="13" data-arrow="up"> </div></div>
+                                <div class = "report_c3r3_c2"></div>
                             </div>
                         </div>
                     </div>
@@ -101,6 +101,12 @@
     <!-- -->
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script src= "js/piechartL.js"></script>
+    <script src= "js/piechartM.js"></script>
+    <script src= "js/piechartM2.js"></script>
+    <script src= "js/piechartS.js"></script>
+    <script src= "js/piechartS2.js"></script>
+    <script src= "js/piechartS3.js"></script>
 </html>
 <?php
     include('footer.php');

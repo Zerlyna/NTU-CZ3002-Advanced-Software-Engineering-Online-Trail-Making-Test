@@ -36,7 +36,7 @@
                     <div class="row2">
                         <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
-                        <canvas id="canvas" width="990px" height="710px"></canvas>
+                        <canvas id="canvas" width="990px" height="720px"></canvas>
                         <div class="row2">
                             <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
                         </div>

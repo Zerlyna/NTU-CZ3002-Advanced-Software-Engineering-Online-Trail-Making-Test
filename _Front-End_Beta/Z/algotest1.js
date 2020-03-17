@@ -47,6 +47,7 @@ var rngCircle;
 var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
+var counter4 = 0;
 var overcounter = 0;
 /*var counter4 = 0;*/
 var randX;
@@ -64,11 +65,15 @@ var lastY;
 var toggle = true;
 
 var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
-var P1_x, P1_y, P2_x, P2_y , P3_x , P3_y , P4_x , P4_y;
+/*var P1_x, P1_y, P2_x, P2_y , P3_x , P3_y , P4_x , P4_y;
 var Pi1_x, Pi1_y, Pi2_x, Pi2_y , Pi3_x , Pi3_y , Pi4_x , Pi4_y;
 var divs;
 var nP1_x, nP1_y, nP2_x,nP2_y,nP3_x,nP3_y,nP4_x,nP4_y;
-var nPi1_x, nPi1_y, nPi2_x,nPi2_y,nPi3_x,nPi3_y,nPi4_x,nPi4_y;
+var nPi1_x, nPi1_y, nPi2_x,nPi2_y,nPi3_x,nPi3_y,nPi4_x,nPi4_y;*/
+var Pbi1_x,Pbi1_y,Pbi2_x,Pbi2_y
+var chk1_b , chk2_b;
+var P_ax, P_ay,P_bx, P_by, P_cx,P_cy, P_dx , P_dy, dv;
+var chk1_ab,chk2_ab,chk1_bc,chk2_bc,chk1_cd,chk2_cd,chk1_da,chk2_da;
 
 var userArray=[];
 
@@ -100,7 +105,7 @@ function generateCir()
                 }*/
 
                 /*rng2();*/
-                if(counter3 > 5000)
+                if(counter3 > 2000)
                 {
                     document.writeln(randX, " ", randY);
                     document.writeln("Max Neighbour");
@@ -111,7 +116,7 @@ function generateCir()
                     /*check();*/
                     sessionStorage.clear();
                     
-                    /*return;*/
+                    return;
                 }
                 counter3++;
 
@@ -157,7 +162,7 @@ function generateCir()
                 overlapping = true;;
                 break;
             }
-            if(counter > 1000)
+            if(counter > 20000)
             {
                 document.writeln(dx*dx, " " , dy*dy , " ");
                 document.writeln(dx, " " , dy , " ");
@@ -165,7 +170,7 @@ function generateCir()
                 /*check();*/
                 regenerate(); //regenerate circle;
                 sessionStorage.clear();
-                /*return;*/
+                return;
             }
             counter++;
 
@@ -175,13 +180,25 @@ function generateCir()
         //check if line of sequence is line of sight
         if(a > 2)
         {
+            cr = 25; // radius value
+            dv = cr + 3;
+           
+            P_ax = rngCircle.x - dv;
+            P_ay = rngCircle.y - dv;
+            P_bx = rngCircle.x + dv;
+            P_by = rngCircle.y - dv;
+            P_cx = rngCircle.x - dv;
+            P_cy = rngCircle.y + dv;
+            P_dx = rngCircle.x + dv;
+            P_dy = rngCircle.y + dv;
+
             for (var j = 0; j < circles.length -1 ; j++) {
 
                 //get current circle and last circle coordinate //current (rngCircle.x,rngCircle.y) , last circle (circles[a].x, circle[a].y)
 
                 
 
-                cr = 25; // radius value 
+                 
 
                /* document.write('<pre>');
                 document.writeln("Value A at = ", a-2, " ");
@@ -202,19 +219,22 @@ function generateCir()
                 Point Ax = circles[a-2].x   /x1
                 Point Ay = circles[a-2].y   /y1
                 */
-                cx = rngCircle.x - circles[a-2].x;
+
+               
+
+                /*cx = rngCircle.x - circles[a-2].x;
                 cy = rngCircle.y - circles[a-2].y;
                 
                 m = cy / cx;
                 cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
                 ca = circles[a-2].x*m ;
                 cc = rngCircle.x*m;
-                cb = (m + (1/m));
+                cb = (m + (1/m));*/
 
 
                 //new line
 
-                P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);    
+                /*P1_x = Math.floor(((circles[a-2].x/m) + ca - cf) / cb);    
                 P1_y = Math.floor(((-(1/m)*((circles[a-2].x/m) + ca - cf)) /cb) + (circles[a-2].x/m) + circles[a-2].y);
 
                 P2_x = Math.floor(((circles[a-2].x/m) + ca + cf) / cb);
@@ -224,7 +244,7 @@ function generateCir()
                 P3_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc - cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
 
                 P4_x = Math.floor(((rngCircle.x/m) + cc + cf) / cb);
-                P4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
+                P4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);*/
 
                 /*
                 Point Bx = rngCircle.x      /x2  
@@ -242,7 +262,7 @@ function generateCir()
                 Fx = P4_x
                 Fy = P4_y nFy = nP4_y
                 */
-                divs = 1;
+                /*divs = 1;
                 nP1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((P1_x- circles[a-2].x )+(P1_y - circles[a-2].y)) + circles[a-2].x);
                 nP1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(P1_x- circles[a-2].x )+(P1_y - circles[a-2].y)) + circles[a-2].y);
 
@@ -253,11 +273,11 @@ function generateCir()
                 nP3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((P3_x- rngCircle.x )+(P3_y - rngCircle.y)) + rngCircle.y);
 
                 nP4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((rngCircle.x- P4_x)+(rngCircle.y - P4_y)) + rngCircle.x);
-                nP4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(rngCircle.x- P4_x)+(rngCircle.y - P4_y)) + rngCircle.y);
+                nP4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(rngCircle.x- P4_x)+(rngCircle.y - P4_y)) + rngCircle.y);*/
 
 
 
-                cx = circles[j+1].x - circles[j].x;
+                /*cx = circles[j+1].x - circles[j].x;
                 cy = circles[j+1].y - circles[j].y;
                 
                 m = cy / cx;
@@ -277,9 +297,34 @@ function generateCir()
                 Pi3_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc - cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
 
                 Pi4_x = Math.floor(((circles[j+1].x/m) + cc + cf) / cb);
-                Pi4_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc + cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);
+                Pi4_y = Math.floor(((-(1/m)*((circles[j+1].x/m) + cc + cf)) /cb) + (circles[j+1].x/m) + circles[j+1].y);*/
 
-                nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[j].x )+(Pi1_y - circles[j].y)) + circles[j].x);
+                /*border*/
+                cx = rngCircle.x - circles[j].x;
+                cy = rngCircle.y - circles[j].y;
+                
+                m = cy / cx;
+                cf = (cr*(Math.pow(Math.pow(cx, 2) + Math.pow(cy, 2),0.5)))/cx;
+                ca = circles[j].x*m ;
+                cc = rngCircle.x*m;
+                cb = (m + (1/m));
+
+                //border line
+                Pbi1_x = Math.floor(((circles[j].x/m) + ca - cf) / cb);
+                Pbi1_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca - cf)) /cb) + (circles[j].x/m) + circles[j].y);
+
+                Pbi2_x = Math.floor(((circles[j].x/m) + ca + cf) / cb);
+                Pbi2_y = Math.floor(((-(1/m)*((circles[j].x/m) + ca + cf)) /cb) + (circles[j].x/m) + circles[j].y);
+
+                
+
+                /*var Pbi3_x = Math.floor(((rngCircle.x/m) + cc - cf) / cb);
+                var Pbi3_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc - cf)) /cb) + (rngCircle.x/m) + rngCircle.y);
+
+                var Pbi4_x = Math.floor(((rngCircle.x/m) + cc + cf) / cb);
+                var Pbi4_y = Math.floor(((-(1/m)*((rngCircle.x/m) + cc + cf)) /cb) + (rngCircle.x/m) + rngCircle.y);*/
+
+                /*nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[j].x )+(Pi1_y - circles[j].y)) + circles[j].x);
                 nPi1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(Pi1_x- circles[j].x )+(Pi1_y - circles[j].y)) + circles[j].y);
 
                 nPi2_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[j].x- Pi2_x)-(circles[j].y - Pi2_y)) + circles[j].x);
@@ -289,7 +334,7 @@ function generateCir()
                 nPi3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[j+1].x )+(Pi3_y - circles[j+1].y)) + circles[j+1].y);
 
                 nPi4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[j+1].x- Pi4_x)+(circles[j+1].y - Pi4_y)) + circles[j+1].x);
-                nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[j+1].x- Pi4_x)+(circles[j+1].y - Pi4_y)) + circles[j+1].y);
+                nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[j+1].x- Pi4_x)+(circles[j+1].y - Pi4_y)) + circles[j+1].y);*/
 
 
 
@@ -306,16 +351,16 @@ function generateCir()
                 chk2_l2o1 = Math.floor(((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x))*((Pi3_x-P2_x)*(P4_y-P2_y)-(Pi3_y-P2_y)*(P4_x-P2_x)));
 
                 chk1_l2o2 = Math.floor(((P2_x-Pi2_x)*(Pi4_y-Pi2_y)-(P2_y-Pi2_y)*(Pi4_x-Pi2_x))*((P4_x-Pi2_x)*(Pi4_y-Pi2_y)-(P4_y-Pi2_y)*(Pi4_x-Pi2_x))); // P2 P4 , Pi2 Pi4
-                chk2_l2o2 = Math.floor(((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x)));
+                chk2_l2o2 = Math.floor(((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi4_x-P2_x)*(P4_y-P2_y)-(Pi4_y-P2_y)*(P4_x-P2_x)));*/
 
-                chk1_l1ob = Math.floor(((P3_x-Pi2_x)*(Pi1_y-Pi2_y)-(P3_y-Pi2_y)*(Pi1_x-Pi2_x))*((P1_x-Pi2_x)*(Pi1_y-Pi2_y)-(P1_y-Pi2_y)*(Pi1_x-Pi2_x))); // P1 P3 , Pi1 Pib
+                /*chk1_l1ob = Math.floor(((P3_x-Pi2_x)*(Pi1_y-Pi2_y)-(P3_y-Pi2_y)*(Pi1_x-Pi2_x))*((P1_x-Pi2_x)*(Pi1_y-Pi2_y)-(P1_y-Pi2_y)*(Pi1_x-Pi2_x))); // P1 P3 , Pi1 Pib
                 chk2_l1ob = Math.floor(((Pi2_x-P3_x)*(P1_y-P3_y)-(Pi2_y-P3_y)*(P1_x-P3_x))*((Pi1_x-P3_x)*(P1_y-P3_y)-(Pi1_y-P3_y)*(P1_x-P3_x)));
 
                 chk1_l2ob = Math.floor(((P2_x-Pi2_x)*(Pi1_y-Pi2_y)-(P2_y-Pi2_y)*(Pi1_x-Pi2_x))*((P4_x-Pi2_x)*(Pi1_y-Pi2_y)-(P4_y-Pi2_y)*(Pi1_x-Pi2_x))); // P2 P4 , Pib Pib
                 chk2_l2ob = Math.floor(((Pi2_x-P2_x)*(P4_y-P2_y)-(Pi2_y-P2_y)*(P4_x-P2_x))*((Pi1_x-P2_x)*(P4_y-P2_y)-(Pi1_y-P2_y)*(P4_x-P2_x)));
 
 
-                chk1_l1od1 = Math.floor(((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x))); //P1 P3 Pi4 Pi1
+                /*chk1_l1od1 = Math.floor(((P1_x-Pi1_x)*(Pi4_y-Pi1_y)-(P1_y-Pi1_y)*(Pi4_x-Pi1_x))*((P3_x-Pi1_x)*(Pi4_y-Pi1_y)-(P3_y-Pi1_y)*(Pi4_x-Pi1_x))); //P1 P3 Pi4 Pi1
                 chk2_l1od1 = Math.floor(((Pi1_x-P1_x)*(P3_y-P1_y)-(Pi1_y-P1_y)*(P3_x-P1_x))*((Pi4_x-P1_x)*(P3_y-P1_y)-(Pi4_y-P1_y)*(P3_x-P1_x)));
                 chk1_l2od1 = Math.floor(((P1_x-Pi2_x)*(Pi3_y-Pi1_y)-(P1_y-Pi1_y)*(Pi3_x-Pi1_x))*((P3_x-Pi2_x)*(Pi3_y-Pi2_y)-(P3_y-Pi2_y)*(Pi3_x-Pi2_x))); //P1 P3 Pi2 Pi3
                 chk2_l2od1 = Math.floor(((Pi2_x-P1_x)*(P3_y-P1_y)-(Pi2_y-P1_y)*(P3_x-P1_x))*((Pi3_x-P1_x)*(P3_y-P1_y)-(Pi3_y-P1_y)*(P3_x-P1_x)));
@@ -336,7 +381,7 @@ function generateCir()
                 chk2_ld2od2 = Math.floor(((Pi2_x-P2_x)*(P3_y-P2_y)-(Pi2_y-P2_y)*(P3_x-P2_x))*((Pi3_x-P2_x)*(P3_y-P2_y)-(Pi3_y-P2_y)*(P3_x-P2_x)));*/
 
 
-                chk1_l1o1 = Math.floor(((nP1_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi3_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi3_x-nPi1_x))); // P1 P3 , Pi1 Pi3
+                /*chk1_l1o1 = Math.floor(((nP1_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi3_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi3_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi3_x-nPi1_x))); // P1 P3 , Pi1 Pi3
                 chk2_l1o1 = Math.floor(((nPi1_x-nP1_x)*(nP3_y-nP1_y)-(nPi1_y-nP1_y)*(nP3_x-nP1_x))*((nPi3_x-nP1_x)*(nP3_y-nP1_y)-(nPi3_y-nP1_y)*(nP3_x-nP1_x)));
 
                 chk1_l1o2 = Math.floor(((nP1_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP1_y-nPi2_y)*(nPi4_x-nPi2_x))*((nP3_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi4_x-nPi2_x))); // P1 P3 , Pi2 Pi4
@@ -346,16 +391,16 @@ function generateCir()
                 chk2_l2o1 = Math.floor(((nPi1_x-nP2_x)*(nP4_y-nP2_y)-(nPi1_y-nP2_y)*(nP4_x-nP2_x))*((nPi3_x-nP2_x)*(nP4_y-nP2_y)-(nPi3_y-nP2_y)*(nP4_x-nP2_x)));
 
                 chk1_l2o2 = Math.floor(((nP2_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP2_y-nPi2_y)*(nPi4_x-nPi2_x))*((nP4_x-nPi2_x)*(nPi4_y-nPi2_y)-(nP4_y-nPi2_y)*(nPi4_x-nPi2_x))); // P2 P4 , Pi2 Pi4
-                chk2_l2o2 = Math.floor(((nPi2_x-nP2_x)*(nP4_y-nP2_y)-(nPi2_y-nP2_y)*(nP4_x-nP2_x))*((nPi4_x-nP2_x)*(nP4_y-nP2_y)-(nPi4_y-nP2_y)*(nP4_x-nP2_x)));
+                chk2_l2o2 = Math.floor(((nPi2_x-nP2_x)*(nP4_y-nP2_y)-(nPi2_y-nP2_y)*(nP4_x-nP2_x))*((nPi4_x-nP2_x)*(nP4_y-nP2_y)-(nPi4_y-nP2_y)*(nP4_x-nP2_x)));*/
 
-                chk1_l1ob = Math.floor(((nP3_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi1_x-nPi2_x))*((nP1_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP1_y-nPi2_y)*(nPi1_x-nPi2_x))); // P1 P3 , Pi1 Pib
+                /*chk1_l1ob = Math.floor(((nP3_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi1_x-nPi2_x))*((nP1_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP1_y-nPi2_y)*(nPi1_x-nPi2_x))); // P1 P3 , Pi1 Pib
                 chk2_l1ob = Math.floor(((nPi2_x-nP3_x)*(nP1_y-nP3_y)-(nPi2_y-nP3_y)*(nP1_x-nP3_x))*((nPi1_x-nP3_x)*(nP1_y-nP3_y)-(nPi1_y-nP3_y)*(nP1_x-nP3_x)));
 
                 chk1_l2ob = Math.floor(((nP2_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP2_y-nPi2_y)*(nPi1_x-nPi2_x))*((nP4_x-nPi2_x)*(nPi1_y-nPi2_y)-(nP4_y-nPi2_y)*(nPi1_x-nPi2_x))); // P2 P4 , Pib Pib
-                chk2_l2ob = Math.floor(((nPi2_x-nP2_x)*(nP4_y-nP2_y)-(nPi2_y-nP2_y)*(nP4_x-nP2_x))*((nPi1_x-nP2_x)*(nP4_y-nP2_y)-(nPi1_y-nP2_y)*(nP4_x-nP2_x)));
+                chk2_l2ob = Math.floor(((nPi2_x-nP2_x)*(nP4_y-nP2_y)-(nPi2_y-nP2_y)*(nP4_x-nP2_x))*((nPi1_x-nP2_x)*(nP4_y-nP2_y)-(nPi1_y-nP2_y)*(nP4_x-nP2_x)));*/
 
 
-                chk1_l1od1 = Math.floor(((nP1_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi4_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi4_x-nPi1_x))); //P1 P3 Pi4 Pi1
+                /*chk1_l1od1 = Math.floor(((nP1_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi4_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi4_x-nPi1_x))); //P1 P3 Pi4 Pi1
                 chk2_l1od1 = Math.floor(((nPi1_x-nP1_x)*(nP3_y-nP1_y)-(nPi1_y-nP1_y)*(nP3_x-nP1_x))*((nPi4_x-nP1_x)*(nP3_y-nP1_y)-(nPi4_y-nP1_y)*(nP3_x-nP1_x)));
                 chk1_l2od1 = Math.floor(((nP1_x-nPi2_x)*(nPi3_y-nPi1_y)-(nP1_y-nPi1_y)*(nPi3_x-nPi1_x))*((nP3_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi3_x-nPi2_x))); //P1 P3 Pi2 Pi3
                 chk2_l2od1 = Math.floor(((nPi2_x-nP1_x)*(nP3_y-nP1_y)-(nPi2_y-nP1_y)*(nP3_x-nP1_x))*((nPi3_x-nP1_x)*(nP3_y-nP1_y)-(nPi3_y-nP1_y)*(nP3_x-nP1_x)));
@@ -373,55 +418,89 @@ function generateCir()
                 chk1_ld1od2 = Math.floor(((nP2_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP2_y-nPi1_y)*(nPi4_x-nPi1_x))*((nP3_x-nPi1_x)*(nPi4_y-nPi1_y)-(nP3_y-nPi1_y)*(nPi4_x-nPi1_x))); //P2 P3 Pi4 Pi1
                 chk2_ld1od2 = Math.floor(((nPi1_x-nP2_x)*(nP3_y-nP2_y)-(nPi1_y-nP2_y)*(nP3_x-nP2_x))*((nPi4_x-nP2_x)*(nP3_y-nP2_y)-(nPi4_y-nP2_y)*(nP3_x-nP2_x)));
                 chk1_ld2od2 = Math.floor(((nP2_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP2_y-nPi2_y)*(nPi3_x-nPi2_x))*((nP3_x-nPi2_x)*(nPi3_y-nPi2_y)-(nP3_y-nPi2_y)*(nPi3_x-nPi2_x))); //P2 P3 Pi2 Pi3
-                chk2_ld2od2 = Math.floor(((nPi2_x-nP2_x)*(nP3_y-nP2_y)-(nPi2_y-nP2_y)*(nP3_x-nP2_x))*((nPi3_x-nP2_x)*(nP3_y-nP2_y)-(nPi3_y-nP2_y)*(nP3_x-nP2_x)));
+                chk2_ld2od2 = Math.floor(((nPi2_x-nP2_x)*(nP3_y-nP2_y)-(nPi2_y-nP2_y)*(nP3_x-nP2_x))*((nPi3_x-nP2_x)*(nP3_y-nP2_y)-(nPi3_y-nP2_y)*(nP3_x-nP2_x)));*/
 
                 /*if(chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0)*/
+
+
+                //block P1 and P2 vs circles[a-2].x, rngCircle.x
+
+                chk1_b = Math.floor(((rngCircle.x-Pbi2_x)*(Pbi1_y-Pbi2_y)-(rngCircle.y-Pbi2_y)*(Pbi1_x-Pbi2_x))*((circles[a-2].x-Pbi2_x)*(Pbi1_y-Pbi2_y)-(circles[a-2].y-Pbi2_y)*(Pbi1_x-Pbi2_x))); // P2 P4 , Pib Pib
+                chk2_b = Math.floor(((Pbi2_x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(Pbi2_y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((Pbi1_x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(Pbi1_y-rngCircle.y)*(circles[a-2].x-rngCircle.x)));
+
+                //square rect vs other possible line 
+                chk1_ab = Math.floor(((P_ax-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_ay-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_bx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_by-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_ab = Math.floor(((circles[j].x-P_ax)*(P_by-P_ay)-(circles[j].y-P_ay)*(P_bx-P_ax))*((circles[j+1].x-P_ax)*(P_by-P_ay)-(circles[j+1].y-P_ay)*(P_bx-P_ax)));
+                chk1_bc = Math.floor(((P_bx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_by-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_cx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_cy-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_bc = Math.floor(((circles[j].x-P_bx)*(P_cy-P_by)-(circles[j].y-P_by)*(P_bx-P_bx))*((circles[j+1].x-P_bx)*(P_cy-P_by)-(circles[j+1].y-P_ay)*(P_cx-P_bx)));
+                chk1_cd = Math.floor(((P_cx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_cy-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_dx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_dy-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_cd = Math.floor(((circles[j].x-P_cx)*(P_dy-P_cy)-(circles[j].y-P_cy)*(P_dx-P_cx))*((circles[j+1].x-P_cx)*(P_dy-P_cy)-(circles[j+1].y-P_cy)*(P_dx-P_cx)));
+                chk1_da = Math.floor(((P_dx-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_dy-circles[j].y)*(circles[j+1].x-circles[j].x))*((P_ax-circles[j].x)*(circles[j+1].y-circles[j].y)-(P_ay-circles[j].y)*(circles[j+1].x-circles[j].x)));
+                chk2_da = Math.floor(((circles[j].x-P_dx)*(P_ay-P_dy)-(circles[j].y-P_dy)*(P_ax-P_dx))*((circles[j+1].x-P_dx)*(P_ay-P_dy)-(circles[j+1].y-P_dy)*(P_ax-P_dx)));
+
                 
-                /*check2();
+                /*check2();*/
+                /*ctx.beginPath();  //Pi1 Pi3 black
+                ctx.lineWidth = "5";
+                ctx.strokeStyle = "#00ff00";
+                ctx.moveTo(Pbi1_x, Pbi1_y);
+                ctx.lineTo(Pbi2_x, Pbi2_y);
+                ctx.stroke();  // Draw it
+                ctx.closePath();
                 ctx.beginPath();  //Pi1 Pi3 black
                 ctx.lineWidth = "5";
-                ctx.strokeStyle = "#000000";
-                ctx.moveTo(Pi1_x, Pi1_y);
-                ctx.lineTo(Pi4_x, Pi4_y);
+                ctx.strokeStyle = "#ff0000";
+                ctx.moveTo(rngCircle.x , rngCircle.y );
+                ctx.lineTo(circles[a-2].x, circles[a-2].y);
                 ctx.stroke();  // Draw it
                 ctx.closePath();*/
                 /*ctx.beginPath();  //Pi1 Pi3 black
                 ctx.lineWidth = "5";
                 ctx.strokeStyle = "#000000";
-                ctx.moveTo(Pi3_x, Pi3_y);
-                ctx.lineTo(Pi4_x, Pi4_y);
+                ctx.moveTo(Pi4_x, Pi4_y);
+                ctx.lineTo(Pi2_x, Pi2_y);
                 ctx.stroke();  // Draw it
                 ctx.closePath();*/
-                /*return;*/
 
                 /*document.writeln(" P1X ", P1_x, " P1Y ", P1_y, " DX " , cx, " DY ", cy , " M " , m, " cf ", cf , " ca ", ca);*/
 
-
-
+                /*if(counter == 4)
+                {
+                    return;
+                }
+                counter4++ */
 
 
                 
 
                 /*check2();
                 ctx.beginPath();
-                ctx.arc(P1_x, P1_y, 5, Math.PI * 2, 0, false);
-                ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+                ctx.arc(P_ax, P_ay, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(255, 0, 255, 0.8)";
                 ctx.fill();
-                ctx.fillStyle = "black"
-                ctx.font = '10px serif';
-                ctx.fillText("C", P1_x, P1_y );
+
                 ctx.closePath();
                 ctx.beginPath();
-                ctx.arc(P2_x, P2_y, 5, Math.PI * 2, 0, false);
-                ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+                ctx.arc(P_bx, P_by, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 255, 0, 0.8)";
                 ctx.fill();
-                ctx.fillStyle = "black"
-                ctx.font = '10px serif';
-                ctx.fillText("E", P2_x, P2_y);
+
                 ctx.closePath();
-
-
                 ctx.beginPath();
+                ctx.arc(P_cx, P_cy, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+                ctx.fill();
+
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(P_dx, P_dy, 5, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(0, 0, 255, 0.8)";
+                ctx.fill();
+
+                ctx.closePath();
+                return*/
+
+                /*ctx.beginPath();
                 ctx.arc(nP1_x, nP1_y, 5, Math.PI * 2, 0, false);
                 ctx.fillStyle = "rgba(0, 255, 0, 0.8)";
                 ctx.fill();
@@ -535,7 +614,7 @@ function generateCir()
                 ctx.stroke();  // Draw it
                 ctx.closePath();*/
                 
-                
+                //previous line vs other line
 
                 chk1 = ((rngCircle.x-circles[j].x)*(circles[j+1].y-circles[j].y)-(rngCircle.y-circles[j].y)*(circles[j+1].x-circles[j].x))*((circles[a-2].x-circles[j].x)*(circles[j+1].y-circles[j].y)-(circles[a-2].y-circles[j].y)*(circles[j+1].x-circles[j].x));
                 chk2 = ((circles[j].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j].y-rngCircle.y)*(circles[a-2].x-rngCircle.x))*((circles[j+1].x-rngCircle.x)*(circles[a-2].y-rngCircle.y)-(circles[j+1].y-rngCircle.y)*(circles[a-2].x-rngCircle.x));
@@ -549,8 +628,9 @@ function generateCir()
                 /*if (chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0)
                 {*/
                 if (/*chk1_l1o1 < 0 && chk2_l1o1 < 0 || chk1_l1o2 < 0 && chk2_l1o2 < 0 || chk1_l2o1 < 0 && chk2_l2o1 < 0 || chk1_l2o2 < 0 && chk2_l2o2 < 0 
-                    ||*/ chk1 < 0 && chk2 < 0 
-                    /*|| chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0*/
+                    ||*/ chk1 < 0 && chk2 < 0 || chk1_b < 0 && chk2_b < 0 ||
+                    chk1_ab < 0 && chk2_ab < 0 || chk1_bc < 0 && chk2_bc < 0 || chk1_cd < 0 && chk2_cd < 0 || chk1_da < 0 && chk2_da < 0
+                    /*|| chk1_l1ob < 0  && chk2_l1ob < 0 || chk1_l2ob < 0 && chk2_l2ob < 0
                     /*|| chk1_l1od1 < 0 && chk2_l1od1< 0 || chk1_l2od1 < 0&& chk2_l2od1 < 0|| chk1_l1od2< 0 & chk2_l1od2< 0 || chk1_l2od2 < 0&& chk2_l2od2< 0*/
                     /*|| chk1_ld1od1 < 0 && chk2_ld1od1< 0 || chk1_ld2od1 < 0&& chk2_ld2od1 < 0|| chk1_ld1od2< 0 & chk2_ld1od2< 0 || chk1_ld2od2 < 0&& chk2_ld2od2< 0*/){
                     los = false;
@@ -562,7 +642,7 @@ function generateCir()
                         /*check();*/
                         sessionStorage.clear();
                         regenerate(); //regenerate circle;
-                        /*return;*/
+                        return;
                     }
                     counter2 ++;
                     /*document.writeln("Result = ", los, " ");*/
@@ -575,11 +655,11 @@ function generateCir()
         }
         //
         /*if(Number.isNaN(chk1_l1o1)) //temp fixed
-        {*/
+        {
             /*document.write('<pre>');
             document.write("NaN Detected");*/
             /*los = false;*/
-           /* chk1_l1o1 = 0;
+            /*chk1_l1o1 = 0;
             chk2_l1o1 = 0;
             chk1_l1o2 = 0;
             chk2_l1o2 = 0;
@@ -606,15 +686,15 @@ function generateCir()
             chk1_ld1od2 = 0;
             chk2_ld1od2 = 0;
             chk1_ld2od2 = 0;
-            chk2_ld2od2 = 0;
-            chk1 = 0;
+            chk2_ld2od2 = 0;*/
+            /*chk1 = 0;
             chk2 = 0;
             sessionStorage.clear();
             regenerate();
         }*/
         if (!overlapping && los) { 
-            document.write('<pre>');
-            document.writeln("Success Insert " , a ,"  == ", chk1_l1o1, " " , chk2_l1o1, " | ", chk1_l1o2 , " " , chk2_l1o2 , " | " , chk1_l2o1, " " , chk2_l2o1, " | ", chk1_l2o2 , " " , chk2_l2o2 , " | " , chk1 ," " , chk2, " | ", chk1_l1ob , " " , chk2_l1ob , " | " , chk1_l2ob , " " , chk2_l2ob, " | ", overlapping , los);
+            /*document.write('<pre>');
+            document.writeln("Success Insert " , a ,"  == ", chk1_l1o1, " " , chk2_l1o1, " | ", chk1_l1o2 , " " , chk2_l1o2 , " | " , chk1_l2o1, " " , chk2_l2o1, " | ", chk1_l2o2 , " " , chk2_l2o2 , " | " , chk1 ," " , chk2, " | ", chk1_l1ob , " " , chk2_l1ob , " | " , chk1_l2ob , " " , chk2_l2ob, " | ", overlapping , los);*/
             rngCircle.index = a; 
             circles.push(rngCircle);
             overlapping = false;
@@ -623,7 +703,7 @@ function generateCir()
             
         } 
     }
-    if(toggle && circles.length == 25 ) 
+    if(toggle && circles.length == 25) 
     {
         toggle = false;
         ctx.lineWidth = "5";
@@ -684,7 +764,7 @@ function generateCir()
             ctx.lineWidth = "3";
             ctx.strokeStyle = "#666666";
     }
-    if(overcounter == 30){
+    if(overcounter >=30){
         document.write('<pre>');
         document.write("Overflow");
         return;
@@ -1111,7 +1191,7 @@ function check2(){
         ctx.closePath();
         if(i > 0){
 
-            cr = 15;
+            /*cr = 15;
             cx = circles[i-1].x - circles[i].x;
             cy = circles[i-1].y - circles[i].y;
             
@@ -1130,9 +1210,9 @@ function check2(){
             Pi3_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc - cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);
 
             Pi4_x = Math.floor(((circles[i-1].x/m) + cc + cf) / cb);
-            Pi4_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc + cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);
+            Pi4_y = Math.floor(((-(1/m)*((circles[i-1].x/m) + cc + cf)) /cb) + (circles[i-1].x/m) + circles[i-1].y);*/
 
-            nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].x);
+            /*nPi1_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].x);
             nPi1_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(Pi1_x- circles[i].x )+(Pi1_y - circles[i].y)) + circles[i].y);
 
             nPi2_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i].x- Pi2_x)-(circles[i].y - Pi2_y)) + circles[i].x);
@@ -1142,12 +1222,12 @@ function check2(){
             nPi3_y = Math.floor((Math.pow(2,0.5)/(2*divs))*((Pi3_x- circles[i-1].x )+(Pi3_y - circles[i-1].y)) + circles[i-1].y);
 
             nPi4_x = Math.floor((Math.pow(2,0.5)/(2*divs))*((circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].x);
-            nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].y);
+            nPi4_y = Math.floor((Math.pow(2,0.5)/(2*divs))*(-(circles[i-1].x- Pi4_x)+(circles[i-1].y - Pi4_y)) + circles[i-1].y);*/
 
 
             
             //check for overlap
-            ctx.beginPath();
+            /*ctx.beginPath();
             ctx.lineWidth = "1";
             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
             ctx.moveTo(nPi3_x,nPi3_y);
@@ -1181,15 +1261,15 @@ function check2(){
             ctx.moveTo(nPi3_x,nPi3_y);
             ctx.lineTo(nPi4_x,nPi4_y);
             ctx.stroke();  // Draw it
-            ctx.closePath();
+            ctx.closePath();*/
 
-            /*ctx.beginPath();
+            ctx.beginPath();
             ctx.lineWidth = "5";
             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
             ctx.moveTo(circles[i-1].x,circles[i-1].y);
             ctx.lineTo(circles[i].x,circles[i].y);
             ctx.stroke();  // Draw it
-            ctx.closePath();*/
+            ctx.closePath();
             
         }
         ctx.beginPath();
