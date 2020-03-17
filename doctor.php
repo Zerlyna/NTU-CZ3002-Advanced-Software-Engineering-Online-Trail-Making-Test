@@ -70,7 +70,7 @@
                         <tbody>
                             <tr>
                                 <th><?php echo $row['id']; ?></th>
-                                <th><?php echo $row['NRIC']; ?></th>
+                                <th><?php echo "<a href='record.php?nric_view=".$row['NRIC']."'>".$row['NRIC']."</a>"; ?></th>
                                 <th><?php echo $row['Name']; ?></th>
                                 <th><?php echo $row['gender']; ?></th>
                                 <th><?php echo $row['time_A']; ?></th>

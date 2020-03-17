@@ -2,9 +2,12 @@
     session_start();
     include_once "connect.php";
 
-	if(isset($_SESSION['NRIC'])){
+	if(isset($_SESSION['NRIC'])) {
         $nric = $_SESSION['NRIC'];
-    }else{
+    }elseif (isset($_SESSION['doctorid'])) {
+        $nric = $_GET["nric_view"];
+    }
+    else{
         header('Location: Index.php');
     }
 
@@ -41,6 +44,14 @@
         ${$var_name} = $row['time'];
     }
     
+    if(isset($_POST['back'])){
+        if(isset($_SESSION['doctorid'])) {
+            header("Location: doctor.php");
+        }elseif(isset($_SESSION['NRIC'])) {
+            header("Location: Report.php");
+        }
+    }
+
     ##the data the chart need
     include_once "dc.php";
     include_once 'header.php';
@@ -205,9 +216,8 @@
                                 <div class="container_btn">
                                     <div class="wrap_btn">
                                         <div class="form_bgbtn"></div>
-                                        <form action="Doctor.php"> <!-- patient/doctor should access from Report.php or Doctor.php respectively-->
+                                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><!-- patient/doctor should access from Report.php or Doctor.php respectively-->
                                             <button type="submit" name = "back" class="form_btn">Back</button>
-                                        
                                         </form>
                                         </div>
 					                </div>
