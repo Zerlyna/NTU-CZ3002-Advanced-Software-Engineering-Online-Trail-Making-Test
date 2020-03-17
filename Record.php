@@ -72,7 +72,7 @@
                                 
                             </div>
                             <div class = "rec_c1r4">
-                                <h3>Last Test Taken: 1 May 2020</h3>
+                                <h3>Last Test Taken: 17 Mar 2020</h3>
 
                                 <!-- Start of the Circular progress bar -->
                                 <div class="flex-wrapper">
