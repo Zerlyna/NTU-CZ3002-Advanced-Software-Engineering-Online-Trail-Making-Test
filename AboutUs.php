@@ -60,8 +60,8 @@ include('header.php');
                                 <div class = "AboutUs_DocTestImg"><img src="Assets/Img/Brenda.png" alt="Test_img" class="Test"></div>
                             </div>
                             <div class = "AboutUs_DocT">
-                                <div class = "AboutUs_DocQAT"><h3>QA Quality</h3></div>
-                                <div class = "AboutUs_DocTestT"><h3>QA Tester</h3></div>
+                                <div class = "AboutUs_DocQAT"><h3>QA Manager</h3></div>
+                                <div class = "AboutUs_DocTestT"><h3>Release Engingeer</h3></div>
                             </div>
                             <div class = "AboutUs_DocDec">
                                 <div class = "AboutUs_DocQAD"><p1>As the QA Manager and QA Engineer of this project, Emmanuelle Vania has past work experience that has helped her gain proficiency in the related field. From her experience as a tester, she was familiar with the use of rigorous test cases and issue documentation. Her time in the Content Quality Team and Customer Service Team has taught her to uphold the importance of maintaining product and/or service performance levels.</p1> </div>

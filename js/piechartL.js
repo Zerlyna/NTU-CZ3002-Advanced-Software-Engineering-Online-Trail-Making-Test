@@ -135,12 +135,12 @@ Dial.prototype.animateStart = function() {
         var a = (p < 0.95) ? 2 - (2 * p) : 0.05;
         v += a;
         // Stop
-        if(v >= +self.value) {
-            v = self.value;
+        if(v >= (self.value+100)) {
+            v = 1000;
             clearInterval(intervalOne);
         }
         self.setValue(v);
-    }, 13); //control speed
+    }, 0.1); //control speed
 };
 
 Dial.prototype.animateReset = function() {
