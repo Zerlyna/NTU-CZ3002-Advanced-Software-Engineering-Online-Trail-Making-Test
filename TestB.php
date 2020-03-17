@@ -1,16 +1,16 @@
 <?php
-    // session_start();
-    // include_once 'connect.php';
+    session_start();
+    include_once 'connect.php';
 
-	// if(isset($_SESSION['NRIC'])){
-    //     $nric = $_SESSION['NRIC'];
-    // }else{
-    //     header('Location: Index.php');
-    // }
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
 
-    if(isset($_POST['finish_test'])){
-        $time_A = $_COOKIE['time_A'];
-        $time_B = $_COOKIE['time_B'];
+    if(isset($_POST['finish'])){
+        $time_A = $_COOKIE['test_A'];
+        $time_B = $_COOKIE['test_B'];
         $recorded_time = time();
         $day = date("j", $recorded_time);
         $month = date("n", $recorded_time);
@@ -122,8 +122,9 @@
                         <p id="RESULT" style="text-align:center;"></p>
                         <p id="risk" style="text-align:center;magin-top:1%;"></p>
                         <div class="box">
-                      
-                        <a class="button" href="Main.php">FINISH</a>
+                            <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                <button class="button" type="submit" name = "finish">FINISH</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -150,6 +151,7 @@
     <!-- -->
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
+    <script type= "text/javascript" src="js/cookie.js"></script>
     <script type="text/javascript" src="js/testBAlgo.js"></script>
 
 </html>

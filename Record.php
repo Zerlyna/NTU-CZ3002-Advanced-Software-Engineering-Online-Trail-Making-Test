@@ -2,9 +2,12 @@
     session_start();
     include_once "connect.php";
 
-	if(isset($_SESSION['NRIC'])){
+	if(isset($_SESSION['NRIC'])) {
         $nric = $_SESSION['NRIC'];
-    }else{
+    }elseif (isset($_SESSION['doctorid'])) {
+        $nric = $_GET["nric_view"];
+    }
+    else{
         header('Location: Index.php');
     }
 
@@ -14,6 +17,7 @@
     $data->day = array();
     $data->time_A_arr = array();
     $data->time_B_arr = array();
+    $data->risk = array();
 
     $query = "SELECT * FROM patient WHERE NRIC='".$nric."'";
     $result = mysqli_query($conn, $query);
@@ -32,7 +36,35 @@
         array_push($data->day, $row['Day']);
         array_push($data->time_A_arr, $row['time_A']);
         array_push($data->time_B_arr, $row['time_B']); 
+        array_push($data->risk, $row['risk']);
     }
+
+    $A = $data->time_A_arr[count($data->time_A_arr) - 1];
+    $B = $data->time_B_arr[count($data->time_B_arr) - 1];
+    $total = intval($A) + intval($B);
+
+    $risk = $data->risk[count($data->risk) - 1];  
+    if($total <= 273){
+        $show_result = "PASS";
+    }else {
+        $show_result = "FAIL";
+    }
+
+    $query = "SELECT * FROM global";
+    $result = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_assoc($result)){
+        $var_name = $row['average'];
+        ${$var_name} = $row['time'];
+    }
+    
+    if(isset($_POST['back'])){
+        if(isset($_SESSION['doctorid'])) {
+            header("Location: doctor.php");
+        }elseif(isset($_SESSION['NRIC'])) {
+            header("Location: Report.php");
+        }
+    }
+
     ##the data the chart need
     include_once "dc.php";
     include_once 'header.php';
@@ -126,7 +158,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">67 Sec</text>
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage"><?php echo $A . " Sec";?></text>
                                     </svg>
                                 </div>
                                 
@@ -144,7 +176,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">140 Sec</text>
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage"><?php echo $B . " Sec";?></text>
                                     </svg>
                                 </div>
 
@@ -162,7 +194,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage">207 Sec</text>
+                                    <text id="totalResult" x="18" y="20.35" class="percentage"><?php echo $total. " Sec";?></text>
                                     </svg>
                                 </div>
                             
@@ -186,7 +218,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">90 Sec</text>
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage"><?php echo $test_A ." Sec";?></text>
                                     </svg>
                                 </div>
 
@@ -204,7 +236,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">180 Sec</text>
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage"><?php echo $test_B ." Sec";?></text>
                                     </svg>
                                 </div>
 
@@ -222,20 +254,19 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage">270 Sec</text>
+                                    <text id="totalResult" x="18" y="20.35" class="percentage"><?php echo (intval($test_A)+intval($test_B)) ." Sec";?></text>
                                     </svg>
                                 </div>
 
                                 </div>
-                                <!--<h2 id="RESULT" style="text-align:center;">Test Result: <font color="green">Pass</font></h2>-->
-                                 <h2 id="risk" style="text-align:center;magin-top:1%;">Risk Of Dementia: <font color="blue">MEDIUM</font></h2>
+                                <h3 id="RESULT" style="text-align:center;"><?php echo "Test Result: ".$show_result; ?></h3> 
+                                 <h3 id="risk" style="text-align:center;magin-top:1%;"><?php echo "Risk Of Dementia: ". "<font color='blue'>". $risk ."</font>";?></h3>
                                  <!-- End of the circular progress bar -->
                                 <div class="container_btn">
                                     <div class="wrap_btn">
                                         <div class="form_bgbtn"></div>
-                                        <form action="Doctor.php"> <!-- patient/doctor should access from Report.php or Doctor.php respectively-->
+                                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><!-- patient/doctor should access from Report.php or Doctor.php respectively-->
                                             <button type="submit" name = "back" class="form_btn">Back</button>
-                                        
                                         </form>
                                         </div>
 					                </div>
