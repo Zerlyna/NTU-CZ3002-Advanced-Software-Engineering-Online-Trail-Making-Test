@@ -47,7 +47,7 @@ include('header.php');
                             </div>
                             <div class = "AboutUs_DevDec">
                                 <div class = "AboutUs_DevLeadD"> <p1>Ang Yong Xin is highly skilled in a lot of programming languages such as Python, Java, C++ and etc. With his great understanding of coding, working experience, and his eagerness to tackle algorithmic problems, hiring him as a tech lead would ensure a reliable and efficient application.</p1></div>
-                                <div class = "AboutUs_DevFrontD"><p1>Sam Jian Shen has the relevant skills for his role as a front-end developer such as JavaScript, CSS and HTML. He has relevant skills in web development experiences as shown in his involvement in his co-curriculum activities WSC. As such, he is surely qualified for the role front-end developer under the right supervision of the lead developer. </p1></div>
+                                <div class = "AboutUs_DevFrontD"><p1>Sam Jian Shen has exposed the relevant skills during his involvement in CCA as a member of web development team. He has place himself in the society to develop a app that "impact, shape, change" the life of the people for the better. The skills he had acquired JavaScript, CSS and HTML. His experience fit him in leading front-end developer role. </p1></div>
                                 <div class = "AboutUs_DevBackD"><p1>How Mo Xuan is highly experienced in software development. Having dealt with both popular backend and frontend development framework, along with his extensive knowledge of coding makes him fit for the role of backend developer.</p1></div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ include('header.php');
                                 <div class = "AboutUs_DocTestT"><h3>Release Engineer</h3></div>
                             </div>
                             <div class = "AboutUs_DocDec">
-                                <div class = "AboutUs_DocQAD"><p1>As the QA Manager and QA Engineer of this project, Emmanuelle Vania has past work experience that has helped her gain proficiency in the related field. From her experience as a tester, she was familiar with the use of rigorous test cases and issue documentation. Her time in the Content Quality Team and Customer Service Team has taught her to uphold the importance of maintaining product and/or service performance levels.</p1> </div>
+                                <div class = "AboutUs_DocQAD"><p1>As the QA Manager and QA Engineer of this project, Emmanuelle Vania has past work experience that has helped her gain proficiency in the related field. She is familiar with the use of rigorous test cases and issue documentation to uphold the importance of maintaining product and/or service performance levels.</p1> </div>
                                 <div class = "AboutUs_DocTestD"> <p1>Brenda Ng Xin En has great experience in the software development process such as in Android Studio, Visual Studio and Unity. She has worked with many teams and knows how to manage the workload and properly integrate codes. With the ability to access software performance and plan release schedules, she will certainly fit the role of a Release Engineer.</p1></div>
                             </div>
                         </div>

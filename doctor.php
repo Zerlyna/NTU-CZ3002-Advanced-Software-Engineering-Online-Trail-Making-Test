@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <!-- link .css here (a demo test_wrap.css) -->
-        <link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">
+        <!--<link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">-->
         <!-- -->
         <meta name="viewport" content="width=device-width, initial-scale=1">   
     </head>
@@ -20,36 +20,52 @@
         <div class="limiter">
             <div class="container">
                 <!-- Do rescale your class "wrap_(your identifier)" -->
-                <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
+                <div class="wrap_doc"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div class = "doc_r1"><h3>Patient Records</h3></div>
+                    <div class = "doc_r1"><h3 class ="doc_title">Patient Records</h3></div>
                     <div class = "doc_r2">
-                        <select id="searchbar" value = "EMPTY">
-                            <option value="" disabled selected hidden>(Search Bar)</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                        </select>
-                        <select id="searchby" value = "EMPTY">
-                            <option value="" disabled selected hidden>(Search By)</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                        </select>
-                        <i> sorting icon </i>
+                        <div class = "doc_c1">
+                            <!--<div class = "select">
+                                <select id="searchbar" value = "EMPTY">
+                                    <option value="" disabled selected hidden>Click Here to Search</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>-->
+                            <div class="search">
+                                <input type="text" class="searchTerm" placeholder="Search..." onfocus="this.placeholder=''">
+                                <button type="submit" class="searchButton">
+                                <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class = "doc_c2">
+                            <div class = "select2">
+                                <select id="searchby2" value = "EMPTY">
+                                    <option value="" disabled selected hidden>Search By</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class = "doc_c3">
+                            <i class="fas fa-2x fa-sort-amount-up-alt"></i>
+                        </div>
                     </div>
                     <div class = "doc_r3">
-                        <table class = "doc_table" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>NRIC</th> 
-                                <th>FULL NAME</th>
-                                <th>Gender</th>
-                                <th>Test A</th>
-                                <th>Test B</th>
-                                <th>Total Time Taken</th>
+                        <table class = "doc_table">
+                        <thead >
+                            <tr >
+                                <th class = "doc_table_d">ID</th>
+                                <th class = "doc_table_d">NRIC</th> 
+                                <th class = "doc_table_d">FULL NAME</th>
+                                <th class = "doc_table_d">Gender</th>
+                                <th class = "doc_table_d">Test A(sec)</th>
+                                <th class = "doc_table_d">Test B(sec)</th>
+                                <th class = "doc_table_d">Total Time Taken(sec)</th>
                             </tr>
                         </thead>
                         <?php
@@ -60,13 +76,13 @@
                         ?>
                         <tbody>
                             <tr>
-                                <th><?php echo $row['id']; ?></th>
-                                <th><?php echo $row['NRIC']; ?></th>
-                                <th><?php echo $row['Name']; ?></th>
-                                <th><?php echo $row['gender']; ?></th>
-                                <th><?php echo $row['time_A']; ?></th>
-                                <th><?php echo $row['time_B']; ?></th>
-                                <th><?php echo ($row['time_A'] + $row['time_B']);?></th>
+                                <th class = "doc_table_g"><?php echo $row['id']; ?></th>
+                                <th class = "doc_table_g"><?php echo $row['NRIC']; ?></th>
+                                <th class = "doc_table_g"><?php echo $row['Name']; ?></th>
+                                <th class = "doc_table_g"><?php echo $row['gender']; ?></th>
+                                <th class = "doc_table_g"><?php echo $row['time_A']; ?></th>
+                                <th class = "doc_table_g"><?php echo $row['time_B']; ?></th>
+                                <th class = "doc_table_g"><?php echo ($row['time_A'] + $row['time_B']);?></th>
                             </tr>
                         </tbody>
                         

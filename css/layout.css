@@ -918,7 +918,7 @@ div:after{
     text-align : center;
     font-size: 30px;
     min-height : 5vh;
-    position : relative;
+    /*position : relative;*/
     width : 100%;
 
 }
@@ -1078,6 +1078,91 @@ div:after{
     content: "";
     display: table;
     clear: both;
+}
+
+/*********************************/
+
+.wrap_doc{
+    width : 100%;
+    min-height : Calc(100vh - 160px);
+    background : none;
+    opacity: 100%;
+    overflow: hidden;
+   /*padding-top : 100px;
+    padding-bottom : 100px;*/
+    /*margin: 0 auto;*/
+    text-align: center;
+    border : 2px solid transparent;
+}
+
+.doc_r1 {
+    background : #ECEAEA;
+    text-align : center;
+    font-size: 30px;
+    min-height : 5vh;
+    /*position : relative;*/
+    width : 100%;
+
+    
+}
+.doc_r2 {
+    /*border : 2px solid white;*/
+    height : 3.5vh;
+    background : white;
+    
+}
+
+.doc_r3 {
+    /*border : 2px solid transparent;*/
+    height : 73vh;
+    background : none;
+}
+
+.doc_c1{
+    /*border:2px solid white;*/
+    width:48%;
+    height:100%;  
+    float : left; 
+    background : white; 
+}
+.doc_c2{
+    /*border:2px solid white;*/
+    width:48%;
+    height:100%;  
+    float : left; 
+    background : white;
+    
+}
+.doc_c3{
+    /*border:2px solid white;*/
+    width:3%;
+    height:100%;  
+    float : left;  
+    
+    
+}
+div:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.doc_table{
+    /*border : 2px solid white;*/
+    background : white;
+    font-size : 20px;
+    width: 100%;
+}
+
+.doc_table_d{
+    border : 3px solid #000;
+    /*height : 1vh;*/
+
+}
+
+.doc_table_g{
+    border : 1px solid #000;
+
 }
 
 

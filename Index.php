@@ -100,7 +100,6 @@ For now:
     
     
     </script> -->
-    <script type= "text/javascript" src="js/visibility.js"></script>
 </html>
 <?php
     include_once ('footer.php');

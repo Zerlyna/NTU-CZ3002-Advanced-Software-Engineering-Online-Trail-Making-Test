@@ -2,17 +2,17 @@
     window.onload = function () {
         var data_json = <?php echo json_encode($data, JSON_PRETTY_PRINT); ?>;
         data_template = [{
-                name: "TMT-A",
+                name: "Test-A",
                 type: "spline",
-                yValueFormatString: "# Mins",
+                yValueFormatString: "# Sec",
                 showInLegend: true,
                 dataPoints: [
                 ]
             },
             {
-                name: "TMT-B",
+                name: "Test-B",
                 type: "spline",
-                yValueFormatString: "# Mins",
+                yValueFormatString: "# Sec",
                 showInLegend: true,
                 dataPoints: [
                 ]
@@ -26,7 +26,7 @@
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             title:{
-                text: "Test Result"
+                text: "Test History"
             },
             axisX: {
                 valueFormatString: "DD MMM,YY"
@@ -34,7 +34,7 @@
             axisY: {
                 title: "Time Taken(in minutes)",
                 includeZero: true,
-                suffix: "Mins"
+                suffix: "Sec"
             },
             legend:{
                 cursor: "pointer",
