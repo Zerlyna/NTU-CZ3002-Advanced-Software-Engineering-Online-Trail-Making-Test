@@ -1,5 +1,14 @@
 <?php
+    session_start();
+
     include_once "connect.php";
+
+    if(isset($_SESSION['doctorid'])){
+        $doctor_id = $_SESSION['doctorid'];
+    }else{
+        header('Location: Index.php');
+    }
+
     include_once 'header.php';
 ?>
 <html>
@@ -54,7 +63,7 @@
                         </thead>
                         <?php
                             //below code is a while loop...it will repeat till the table had listed completely...
-                            $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC";
+                            $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC WHERE patient.doctor = '" .$doctor_id."'";
                             $result=mysqli_query($conn,$query);
                             while($row=mysqli_fetch_assoc($result)){
                         ?>
