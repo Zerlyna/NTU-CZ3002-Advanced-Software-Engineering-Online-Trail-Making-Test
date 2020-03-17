@@ -90,7 +90,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">60 Sec</text>
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">67 Sec</text>
                                     </svg>
                                 </div>
                                 
@@ -108,7 +108,7 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">120 Sec</text>
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">140 Sec</text>
                                     </svg>
                                 </div>
 
@@ -126,13 +126,13 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage">180 Sec</text>
+                                    <text id="totalResult" x="18" y="20.35" class="percentage">207 Sec</text>
                                     </svg>
                                 </div>
                             
                                 </div>
 
-                                <h3>Maximum Time(Based on studies)</h3>
+                                <h3>Average Time For All User</h3>
 
                                 <!-- Start of the Circular progress bar -->
                                 <div class="flex-wrapper">
