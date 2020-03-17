@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    include_once 'connect.php';
+    // session_start();
+    // include_once 'connect.php';
 
-	if(isset($_SESSION['NRIC'])){
-        $nric = $_SESSION['NRIC'];
-    }else{
-        header('Location: Index.php');
-    }
+	// if(isset($_SESSION['NRIC'])){
+    //     $nric = $_SESSION['NRIC'];
+    // }else{
+    //     header('Location: Index.php');
+    // }
 
     if(isset($_POST['finish_test'])){
         $time_A = $_COOKIE['time_A'];
@@ -47,20 +47,21 @@
     <div class = "bgrd">
         <div class="limiter">
             <div class="container">
-                <!-- Do rescale your class "wrap_(your identifier)" -->
-                <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
-                <div style="text-align:center;">
-                    <button id="btnStart2" onclick="startTest()" class="btnStart">Start</button>
-                </div>
+                <div class="wrapContainer">
+                <div class = "row1"><h3>Test B</h3></div>
+                <div class="row2">
+                        <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
+                    
+                        <canvas id="canvas" width="990px" height="710px"></canvas>
+                        <div class="row2">
+                            <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
+                        </div>
+                    </div>
 
-                <div style="text-align:center;">
-                    <canvas id="canvas" width="990px" height="710px"></canvas>
-                </div>
-                
-                <div id="TestResult" class="overlay">
+                    <div id="TestResult" class="overlay">
                     <div class="popup">
                         <h2 style="text-align:center;">Your test result</h2>
-                        <a class="close" href="#popup2">&times;</a>
+                        
                         <div class="content">
                         <div class="flex-wrapper">
                             <div class="single-chart">
@@ -118,21 +119,29 @@
                             </div>
                         
                         </div>
-                        <p id="risk" style="text-align:center;"></p>
+                        <p id="RESULT" style="text-align:center;"></p>
+                        <p id="risk" style="text-align:center;magin-top:1%;"></p>
                         <div class="box">
-                        <a class="button" href="TestHome.php">Home</a>
+                      
+                        <a class="button" href="Main.php">FINISH</a>
                         </div>
                     </div>
-                    
-                    <div class = "test_r3">
-                        <!--submit the user result to database-->
-                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="submittest">
-                            <button type="submit" name = "finish_test" class="login_form_btn">Next</button>
-                        </form>
-                    </div> 
-                <!-- end of content -->
-                </div> 
-            </div>
+                </div>
+                </div>
+                <!-- Do rescale your class "wrap_(your identifier)"
+                <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
+                <div style="text-align:center;">
+                    <button id="btnStart2" onclick="startTest()" class="btnStart">Start</button>
+                </div>
+
+                <div style="text-align:center;">
+                    <canvas id="canvas" width="990px" height="710px"></canvas>
+                </div> -->
+                
+     
+                <p id="msg" class="blue"></p>
+                <p id="msg2"><br>&nbsp;</p>
+                </div>
         </div>
     </div>
     </body>

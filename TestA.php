@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+    //if wan short cut then remove this if else statment
 	if(isset($_SESSION['NRIC'])){
         $nric = $_SESSION['NRIC'];
     }else{
@@ -34,15 +34,13 @@
                     <!-- Minimum HTML, please alter according to your content freely --> 
                     <div class = "row1"><h3>Test A</h3></div>
                     <div class="row2">
-                    <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
+                        <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
-                    <canvas id="canvas" width="990px" height="710px"></canvas>
-                    
+                        <canvas id="canvas" width="990px" height="710px"></canvas>
+                        <div class="row2">
+                            <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
+                        </div>
                     </div>
-                    <div class=row3>
-                    <button class="button" onclick="startTest()">Start</button>
-                    </div>
-             
             </div>
             
                 <!-- Do rescale your class "wrap_(your identifier)" -->

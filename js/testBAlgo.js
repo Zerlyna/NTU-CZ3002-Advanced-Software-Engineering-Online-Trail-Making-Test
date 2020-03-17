@@ -518,13 +518,11 @@ canvas.addEventListener('mousedown', (e) => {
             };
             img.src=dataURL;
             //limit to 3 attempt
-            numOfAttempt--;
-            if(numOfAttempt==0)
-            {
-                window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
-                alert("You have fail test B");
-                location.href = "#TestResult";
-            }
+           
+                // window.sessionStorage.setItem("TMT_A", JSON.stringify(180));
+                // alert("You have fail test B");
+                // location.href = "#TestResult";
+            
             
         }
         else
@@ -556,17 +554,19 @@ canvas.addEventListener('mousedown', (e) => {
                     }
                 }
             }
-            dataURL= canvas.toDataURL();
+        
         }
     
         // get the selected circle index from variable no;
        //show result
         //msgObj.innerHTML = result;
         //[lastX, lastY] = [e.offsetX, e.offsetY];
-        if(clickInfo[clickInfo.length - 1].index==13)
+        if(clickInfo[clickInfo.length-1].index==13)
          {
-         stopTest();
+            
+            stopTest();
          }
+         dataURL= canvas.toDataURL();
  
     });
 
@@ -585,10 +585,10 @@ function countdown( elementName, minutes, seconds )
         msLeft = endTime - (+new Date);
         if ( msLeft < 1000 ) {
             element.innerHTML = "Time is up!";
-            if(clickInfo[clickInfo.length - 1].index!=25 || clickInfo.length<=0)
+            if(clickInfo[clickInfo.length - 1].index!=13 || clickInfo.length<=0)
             {
-            alert("haiz u have fail");
-            stopTest();
+                alert("You have fail");
+                stopTest();
             }
             // else
             // {
@@ -612,16 +612,17 @@ function countdown( elementName, minutes, seconds )
 
 function startTest()
 {
-    
-document.getElementById("timerCountDown").style.visibility="visible";
-countdown( "timer", 3,00 );
+   
+    document.getElementById("timerCountDown").style.visibility="visible";
+    countdown( "timer", 3,00 );
 }
 function stopTest()
 {
     clearInterval(interval);
-    msgObj.innerHTML =  document.getElementById("timer").innerHTML;
-    // alert(msgObj.innerHTML);
-    var timeleft=msgObj.innerHTML;
+    var msgObj=  document.getElementById("timer").innerHTML;
+     
+    
+    var timeleft=msgObj;
     //store the timeleft timing to the array
     var TLeftArray=timeleft.split(":");
     // alert(TLeftArray[0]);
@@ -631,15 +632,20 @@ function stopTest()
     var testResult;
     if(minDiff==0)
     {
-        document.getElementById("TMTBResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
-         testResult=secDiff;
+
+        testResult=secDiff;
+    }
+    else if(minDiff==0 && secDiff==0)
+    {
+        testResult=0;
     }
     else
     {
         secDiff+=(minDiff*60);
-        document.getElementById("TMTBResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+      
         testResult=secDiff;
     }
+    //setCookie("test_B", secDiff, 1)
     // var date = d.getDate();
     // var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
     // var year = d.getFullYear();
@@ -650,33 +656,57 @@ function stopTest()
     document.getElementById("tmtBResult").innerHTML=testResult+"Sec";
     var tmtResultA=sessionStorage.getItem("TMT_A");
     var total=parseInt(tmtResultA);
-     total+= parseInt(testResult);
+    total+= parseInt(testResult);
     document.getElementById("totalResult").innerHTML=total+"Sec";
+
     if(tmtResultA<=78)
     {
         if(testResult<=273)
-        {
-            document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
+        {   
+            if(testResult==0)
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
+                document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
+            }
+            else
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
+                document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
+            }
+            
         }
         else
         {
-            document.getElementById("risk").innerHTML="Risk of Dementia: Medium";
+            document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
+            document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
         }
     }
     else
     {
         if(testResult<=273)
         {
-            document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
+            if(testResult==0)
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
+                document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
+            }
+            else
+            {
+                document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"   
+                document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
+            }
+
         }
         else
         {
+            document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
             document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
         }
     }
     window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
     location.href = "#TestResult";
-    
+    // setCookie("time_A","10 secs",1);
+    // setCookie("time_B","11 secs",1);
 }
 
 

@@ -1,5 +1,6 @@
 <?php
-include('header.php');
+    include_once "connect.php";
+    include_once 'header.php';
 ?>
 <html>
     <head>
@@ -40,16 +41,40 @@ include('header.php');
                     </div>
                     <div class = "doc_r3">
                         <table class = "doc_table" style="width:100%">
-                        <tr>
-                            <th>ID</th>
-                            <th>NRIC</th> 
-                            <th>FULL NAME</th>
-                            <th>Gender</th>
-                            <th>Total Time Taken</th>
-                            <th>Test A</th>
-                            <th>Test B</th>
-                            <th><a href = "Record.php">Records</a></th>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NRIC</th> 
+                                <th>FULL NAME</th>
+                                <th>Gender</th>
+                                <th>Test A</th>
+                                <th>Test B</th>
+                                <th>Total Time Taken</th>
+                            </tr>
+                        </thead>
+                        <?php
+                            //below code is a while loop...it will repeat till the table had listed completely...
+                            $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC";
+                            $result=mysqli_query($conn,$query);
+                            while($row=mysqli_fetch_assoc($result)){
+                        ?>
+                        <tbody>
+                            <tr>
+                                <th><?php echo $row['id']; ?></th>
+                                <th><?php echo $row['NRIC']; ?></th>
+                                <th><?php echo $row['Name']; ?></th>
+                                <th><?php echo $row['gender']; ?></th>
+                                <th><?php echo $row['time_A']; ?></th>
+                                <th><?php echo $row['time_B']; ?></th>
+                                <th><?php echo ($row['time_A'] + $row['time_B']);?></th>
+                            </tr>
+                        </tbody>
+                        
+                        <?php
+                            }
+                            //free result is not a neccesary code...add syok je... 
+                            mysqli_free_result($result); 
+                        ?>
                     </div>
                 <!-- end of content -->
                 </div> 
@@ -64,5 +89,6 @@ include('header.php');
     <script type= "text/javascript" src="js/bgrd.js"></script>
 </html>
 <?php
-include('footer.php');
+    include_once 'dc.php';
+    include('footer.php');
 ?>
