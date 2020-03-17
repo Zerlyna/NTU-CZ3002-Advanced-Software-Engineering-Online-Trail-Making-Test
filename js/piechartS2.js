@@ -4,7 +4,7 @@
 
 var Dial = function(containerS) {
     this.containerS = containerS;
-    this.size = this.containerS.dataset.size - 250; //control overall size
+    this.size = this.containerS.dataset.size - 225; //control overall size
     this.strokeWidth = this.size / 8;
     this.radius = (this.size / 2) - (this.strokeWidth / 2);
     this.value = this.containerS.dataset.value;
@@ -167,7 +167,7 @@ Dial.prototype.describeArc = function(x, y, radius, startAngle, endAngle){
 }
 
 Dial.prototype.setValue = function(value) {	
-		var c = (value / 100) * 360;
+		var c = (value / 360) * 360;
 		if(c === 360)
 			c = 359.99;
 		var xy = this.size / 2 - this.strokeWidth / 2;

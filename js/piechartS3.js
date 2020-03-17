@@ -4,7 +4,7 @@
 
 var Dial = function(containerS) {
     this.containerS = containerS;
-    this.size = this.containerS.dataset.size - 250; //control overall size
+    this.size = this.containerS.dataset.size - 225; //control overall size
     this.strokeWidth = this.size / 8;
     this.radius = (this.size / 2) - (this.strokeWidth / 2);
     this.value = this.containerS.dataset.value;

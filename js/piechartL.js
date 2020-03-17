@@ -135,12 +135,12 @@ Dial.prototype.animateStart = function() {
         var a = (p < 0.95) ? 2 - (2 * p) : 0.05;
         v += a;
         // Stop
-        if(v >= (self.value+100)) {
-            v = 1000;
+        if(v >= +self.value) {
+            v = self.value;
             clearInterval(intervalOne);
         }
         self.setValue(v);
-    }, 0.1); //control speed
+    }, 2); //control speed
 };
 
 Dial.prototype.animateReset = function() {
@@ -167,12 +167,13 @@ Dial.prototype.describeArc = function(x, y, radius, startAngle, endAngle){
 }
 
 Dial.prototype.setValue = function(value) {	
-		var c = (value / 100) * 360;
+
+        var c = ((value / 360) * 360); //max is the division value
 		if(c === 360)
 			c = 359.99;
 		var xy = this.size / 2 - this.strokeWidth / 2;
 		var d = this.describeArc(xy, xy, xy, 180, 180 + c);
-    this.slice.setAttribute('d', d);
+    this.slice.setAttribute('d', d );
     var tspanSize = (this.size / 3.5) / 3;
     this.text.innerHTML = Math.floor(value) + '<tspan font-size="' + tspanSize + '" dy="' + -tspanSize * 1.2 + '">sec</tspan>';
 };
