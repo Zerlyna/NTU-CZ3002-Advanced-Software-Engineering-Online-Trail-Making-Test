@@ -32,9 +32,9 @@
                 valueFormatString: "DD MMM,YY"
             },
             axisY: {
-                title: "Time Taken(in minutes)",
-                includeZero: true,
-                suffix: "Mins"
+                title: "Time Taken(in seconds)",
+                includeZero: false,
+                suffix: " secs"
             },
             legend:{
                 cursor: "pointer",
