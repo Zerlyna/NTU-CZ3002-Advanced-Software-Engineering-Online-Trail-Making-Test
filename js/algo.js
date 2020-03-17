@@ -377,6 +377,10 @@ function generateCir()
    
     xPos = e.offsetX || e.pageX;
     yPos = e.offsetY || e.pageY;
+    if(clickInfo.length==0)
+    {
+        dataURL= canvas.toDataURL();
+    }
     // check posn against centres
     startLength = clickInfo.length;
     for (i = 0; i < circles.length; i++) {
@@ -526,6 +530,7 @@ function generateCir()
                     }
           }
       }
+      dataURL= canvas.toDataURL();
     }
     if(clickInfo[clickInfo.length - 1].index==25)
      {
@@ -536,7 +541,7 @@ function generateCir()
     //start the coordinates drawing
      //[lastX, lastY] = [e.offsetX, e.offsetY];
       //convert canvas into image url
-      dataURL= canvas.toDataURL();
+     
   });
   //when u no longer touching the mouse
   canvas.addEventListener('mouseout', () => isDrawing = false);
