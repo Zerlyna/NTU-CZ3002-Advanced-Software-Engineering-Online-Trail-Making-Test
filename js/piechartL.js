@@ -2,13 +2,13 @@
 // Library
 //
 
-var Dial = function(container) {
-    this.container = container;
-    this.size = this.container.dataset.size - 100; //control overall size
+var Dial = function(containerL) {
+    this.containerL = containerL;
+    this.size = this.containerL.dataset.size - 100; //control overall size
     this.strokeWidth = this.size / 8;
     this.radius = (this.size / 2) - (this.strokeWidth / 2);
-    this.value = this.container.dataset.value ;
-    this.direction = this.container.dataset.arrow;
+    this.value = this.containerL.dataset.value;
+    this.direction = this.containerL.dataset.arrow;
     this.svg;
     this.defs;
     this.slice;
@@ -25,7 +25,7 @@ Dial.prototype.create = function() {
     this.createOverlay();
     this.createText();
     this.createArrow();
-    this.container.appendChild(this.svg);
+    this.containerL.appendChild(this.svg);
 };
 
 Dial.prototype.createSvg = function() {
@@ -75,13 +75,14 @@ Dial.prototype.createSlice = function() {
 };
 
 Dial.prototype.createOverlay = function() {
-    var r = this.size - (this.size / 2) - this.strokeWidth / 2; //wdith of the line
+    var r = this.size - (this.size / 5) - this.strokeWidth / 2; //wdith of the line
     var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute('cx', this.size / 2);
     circle.setAttribute('cy', this.size / 2);
     circle.setAttribute('r', r);
     /*circle.setAttribute('fill', 'url(#gradient-background)');*/
-    circle.setAttribute('fill', '#ffffff');
+    circle.setAttribute('fill', '#ff0000');
+    circle.setAttribute('opacity', '0');
     this.svg.appendChild(circle);
     this.overlay = circle;
 };
@@ -134,17 +135,12 @@ Dial.prototype.animateStart = function() {
         var a = (p < 0.95) ? 2 - (2 * p) : 0.05;
         v += a;
         // Stop
-        /*if(v >= (self.value + 100)) {
-            v = self.value;
-            clearInterval(intervalOne);
-        }*/
-        /*document.writeln(a);*/
-        if(v >= self.value) { //max limit value
+        if(v >= +self.value) {
             v = self.value;
             clearInterval(intervalOne);
         }
-        self.setValue(v) ;
-    }, 10); //control speed
+        self.setValue(v);
+    }, 13); //control speed
 };
 
 Dial.prototype.animateReset = function() {
@@ -185,6 +181,6 @@ Dial.prototype.setValue = function(value) {
 // Usage
 //
 
-var containers = document.getElementsByClassName("chart");
-var dial = new Dial(containers[0]);
+var containersL = document.getElementsByClassName("chartL");
+var dial = new Dial(containersL[0]);
 dial.animateStart();
