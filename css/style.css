@@ -309,28 +309,41 @@ select::-ms-expand {
 
 .containerL{
   height : 50%;
-  border : 2px solid green;
+  border : 2px solid transparent;
   margin-top : 5%;
 }
 
 .containerM{
   height : 50%;
-  border : 2px solid green;
+  border : 2px solid transparent;
   margin-top : 5%;
 }
 
 .containerS{
   height : 63%;
   width : 45%;
-  border : 2px solid green;
+  border : 2px solid transparent;
   margin-top : 15%;
   margin-left : 50%;
   /*border-radius : 50%;*/
-  border : 5px solid black;
+  /*border : 5px solid black;*/
 }
 
 
 .report_ttt{
-  margin-top : 25%;
+  margin-top : 19%;
 }
+
+.report_t{
+  margin-top : 5%;
+}
+
+.report_a{
+  margin-top : 30%;
+  margin-right :20%;
+}
+/*
+.report_rod{
+  margin-top:5%;
+}*/
 
