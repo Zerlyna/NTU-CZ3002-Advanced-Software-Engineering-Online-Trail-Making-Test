@@ -18,15 +18,17 @@
   text-align : center;
   font-size: 30px;
   min-height : 5vh;
-  position : relative;
+  /*position : relative;*/
   width : 100%;
 
 }
 
 .rec_r2{
-  border : 2px solid black;
+  border : 1px solid black;
+  border-bottom: 1px solid black;
   height : 78vh;
-  position : relative;
+  
+  /*position : relative;*/
   /*margin-bottom:10px;*/
   
 }
@@ -38,7 +40,8 @@
 }
 
 .rec_c2{
-  border-left: 2px solid black;
+  /*border-left: 4px solid black;*/
+  background : white;
   /* border:2px solid black; */
   width:70%;
   height : 100% ;
@@ -56,34 +59,58 @@ div:after{
 }
 
 .rec_c1r1 {
-  /* border : 2px solid blue; */
-  height : 7vh;
-  position : relative;
+  height : 8vh;
+  /*position : relative;*/
+  background : white;
   
 }
 .rec_c1r2 {
-  /* border : 2px solid blue; */
   font-size: 20px;
   font-weight: bold;
-  height : 5vh;
-  position : relative;
-  margin-top: 10%;
+  height : 17%;
+  /*position : relative;*/
+  /*margin-top: 10%;*/
+  border : 2px solid black; 
+  background : white;
 
   
 }
-.rec_c1r3 {
-  /* border : 2px solid blue; */
-  height : 7vh;
-  position : relative;
+/*.rec_c1r3 {
 
+  height : 7%;
+
+  border : 2px solid red; 
   border-bottom: 2px solid black;
+  background : white;
   
+}*/
+
+.rec_c1r2c1{
+    /*border:2px solid transparent;*/
+    width:70%;
+    height : 100% ;
+    float : left;
+}
+
+.rec_c1r2c2{
+    
+    width:30%;
+    height : 100% ;
+    float : left;
+}
+div:after{
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .rec_c1r4{
   /* border : 2px solid blue; */
-  height : 66vh;
-  position : relative;
+  height : 83.2%;
+  /*position : relative;*/
+  background : white;
+  border : 2px solid black;
+  
   
 }
 .heading {
@@ -94,7 +121,7 @@ div:after{
   text-align : center;
   font-size: 30px;
   min-height : 5vh;
-  position : relative;
+  /*position : relative;*/
   width : 100%;
 
 }

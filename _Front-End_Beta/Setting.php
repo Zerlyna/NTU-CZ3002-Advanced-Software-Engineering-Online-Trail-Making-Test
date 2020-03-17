@@ -71,4 +71,8 @@
     <form action="ZZZ/ZZZ.php">
         <button type="submit" class="login">ZZZ</button>
     </form>
+
+    <form action="Search/Search.php">
+        <button type="submit" class="login">SSS</button>
+    </form>
 </html>
