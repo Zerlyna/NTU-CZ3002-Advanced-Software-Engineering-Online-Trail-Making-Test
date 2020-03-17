@@ -310,8 +310,27 @@ select::-ms-expand {
 .containerL{
   height : 50%;
   border : 2px solid green;
+  margin-top : 5%;
+}
+
+.containerM{
+  height : 50%;
+  border : 2px solid green;
+  margin-top : 5%;
+}
+
+.containerS{
+  height : 63%;
+  width : 45%;
+  border : 2px solid green;
   margin-top : 15%;
+  margin-left : 50%;
+  /*border-radius : 50%;*/
+  border : 5px solid black;
 }
 
 
+.report_ttt{
+  margin-top : 25%;
+}
 

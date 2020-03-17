@@ -47,7 +47,8 @@
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <!-- link .css here (a demo test_wrap.css) -->
-        <link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">
+        
+        <link rel="stylesheet" href="css/record.css">
         <!-- -->
         <meta name="viewport" content="width=device-width, initial-scale=1">  
     </head>
@@ -56,27 +57,157 @@
         <div class="limiter">
             <div class="container">
                 <!-- Do rescale your class "wrap_(your identifier)" -->
-                <div class="wrap_XXX"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
+                <div class="recordWrapper"> <!-- Do customize them with seperated .css or .js to prevent code conflict --> 
                 <!-- fill your content -->
                     <!-- Minimum HTML, please alter according to your content freely --> 
-                    <div class = "test_r1"><h3>Records</h3></div>
+                    <div class = "heading"><h3>Records</h3></div>
                     <div class = "rec_r2">
                         <div class = "rec_c1"> 
-                            <div class = "rec_c1r1">
-                                <label class = "rec_c1l">Mr</label>
-                            </div>
                             <div class = "rec_c1r2">
-                                <p1><?php echo $name;?></p1>
+                                <p1>Name: <?php echo $name;?></p1>
                             </div>
                             <div class = "rec_c1r3">
-                                <i><?php echo $gender;?></i>
+                                <h3>Gender: <?php echo $gender;?></h3>
+                           
+                                
                             </div>
                             <div class = "rec_c1r4">
-                            <form action="Doctor.php"> <!-- patient/doctor should access from Report.php or Doctor.php respectively-->
-                                <button type="submit" name = "back" class="login_form_btn">Back</button>
-                            </form>
+                                <h3>Last Test Taken: 17 Mar 2020</h3>
+
+                                <!-- Start of the Circular progress bar -->
+                                <div class="flex-wrapper">
+                                <div class="single-chart">
+                                    <p style="text-align:center; font-weight:bold;">TMT_A</p>
+                                    <svg viewBox="0 0 36 36" class="circular-chart orange">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="100, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">67 Sec</text>
+                                    </svg>
+                                </div>
+                                
+                                <div class="single-chart">
+                                    <p style="text-align:center;font-weight:bold;">TMT_B</p>
+                                    <svg viewBox="0 0 36 36" class="circular-chart green">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="100, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">140 Sec</text>
+                                    </svg>
+                                </div>
+
+                                <div class="single-chart">
+                                <p style="text-align:center;font-weight:bold;">Total</p>
+                                    <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="100, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text id="totalResult" x="18" y="20.35" class="percentage">207 Sec</text>
+                                    </svg>
+                                </div>
+                            
+                                </div>
+
+                                <h3>Average Time For All User</h3>
+
+                                <!-- Start of the Circular progress bar -->
+                                <div class="flex-wrapper">
+                                <div class="single-chart">
+                                    <p style="text-align:center; font-weight:bold;">TMT_A</p>
+                                    <svg viewBox="0 0 36 36" class="circular-chart orange">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="100, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">90 Sec</text>
+                                    </svg>
+                                </div>
+
+                                <div class="single-chart">
+                                    <p style="text-align:center;font-weight:bold;">TMT_B</p>
+                                    <svg viewBox="0 0 36 36" class="circular-chart green">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="100, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">180 Sec</text>
+                                    </svg>
+                                </div>
+
+                                <div class="single-chart">
+                                <p style="text-align:center;font-weight:bold;">Total</p>
+                                    <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="100, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text id="totalResult" x="18" y="20.35" class="percentage">270 Sec</text>
+                                    </svg>
+                                </div>
+
+                                </div>
+                                <h3 id="RESULT" style="text-align:center;">Test Result: Pass</h3>
+                                 <h3 id="risk" style="text-align:center;magin-top:1%;">Risk Of Dementia: MEDIUM</h3>
+                                 <!-- End of the circular progress bar -->
+                                <div class="container_btn">
+                                    <div class="wrap_btn">
+                                        <div class="form_bgbtn"></div>
+                                        <form action="Doctor.php"> <!-- patient/doctor should access from Report.php or Doctor.php respectively-->
+                                            <button type="submit" name = "back" class="form_btn">Back</button>
+                                        
+                                        </form>
+                                        </div>
+					                </div>
+                                </div>
+                            
+                      
+                            
                             </div>
-                        </div>
                         
                         <div class = "rec_c2">
                             <canvas></canvas>
