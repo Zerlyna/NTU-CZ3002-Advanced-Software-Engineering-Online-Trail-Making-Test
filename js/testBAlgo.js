@@ -293,6 +293,10 @@ canvas.addEventListener('mousedown', (e) => {
     xPos = e.offsetX || e.pageX;
     yPos = e.offsetY || e.pageY;
     // check posn against centres
+    if(clickInfo.length==0)
+    {
+        dataURL= canvas.toDataURL();
+    }
     startLength = clickInfo.length;
     for (i = 0; i < circles.length; i++) {
         cX = circles[i].x; cY = circles[i].y;
@@ -402,6 +406,7 @@ canvas.addEventListener('mousedown', (e) => {
                 clickInfo.push(clickCir);
             }
         }
+        
         if(clickInfo[clickInfo.length - 1].index !=nextIndex)
         {
             alert("Wrong, You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);

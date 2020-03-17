@@ -268,6 +268,10 @@ function regenerate(){
    
     xPos = e.offsetX || e.pageX;
     yPos = e.offsetY || e.pageY;
+    if(clickInfo.length==0)
+    {
+        dataURL= canvas.toDataURL();
+    }
     // check posn against centres
     startLength = clickInfo.length;
     for (i = 0; i < circles.length; i++) {

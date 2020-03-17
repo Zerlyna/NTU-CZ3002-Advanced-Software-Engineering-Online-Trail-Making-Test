@@ -127,6 +127,7 @@
     width : 100%;
     min-height : Calc(100vh - 160px);
     background : none;
+    max-height: 80%;
     opacity: 100%;
     overflow: hidden;
    /*padding-top : 100px;
