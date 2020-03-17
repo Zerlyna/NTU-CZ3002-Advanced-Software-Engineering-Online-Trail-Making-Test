@@ -378,7 +378,7 @@ function regenerate(){
     }
 	if(clickInfo[clickInfo.length - 1].index !=nextIndex)
      {
-        alert("Wrong,You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
+        alert("Wrong! Please connect to the correct circle!");
         clickInfo.pop();
         clickInfo.pop();
         var img=new Image;

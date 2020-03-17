@@ -409,7 +409,7 @@ canvas.addEventListener('mousedown', (e) => {
         
         if(clickInfo[clickInfo.length - 1].index !=nextIndex)
         {
-            alert("Wrong, You suppose to link from "+clickInfo[clickInfo.length-2].index+" to "+nextIndex);
+            alert("Wrong! Please connect to the correct circle!");
            //pop twice
             clickInfo.pop();
             clickInfo.pop();
@@ -525,7 +525,7 @@ canvas.addEventListener('mousedown', (e) => {
        //show result
         //msgObj.innerHTML = result;
         //[lastX, lastY] = [e.offsetX, e.offsetY];
-        if(clickInfo[clickInfo.length-1].index==13)
+        if(clickInfo[clickInfo.length-1].index==25)
          {
             
             stopTest();
@@ -549,7 +549,7 @@ function countdown( elementName, minutes, seconds )
         msLeft = endTime - (+new Date);
         if ( msLeft < 1000 ) {
             element.innerHTML = "Time is up!";
-            if(clickInfo[clickInfo.length - 1].index!=13 || clickInfo.length<=0)
+            if(clickInfo[clickInfo.length - 1].index!=25 || clickInfo.length<=0)
             {
                 alert("You have fail");
                 stopTest();
@@ -615,10 +615,10 @@ function stopTest()
     // var year = d.getFullYear();
     //suppose to get the username based on the login 
     document.cookie = "username=John Doe";
-
-    document.getElementById("tmtAResult").innerHTML=sessionStorage.getItem("TMT_A") + "Sec";
+    var testResult=140;
+    document.getElementById("tmtAResult").innerHTML="67 Sec";
     document.getElementById("tmtBResult").innerHTML=testResult+"Sec";
-    var tmtResultA=sessionStorage.getItem("TMT_A");
+    var tmtResultA=67;
     var total=parseInt(tmtResultA);
     total+= parseInt(testResult);
     document.getElementById("totalResult").innerHTML=total+"Sec";
@@ -667,7 +667,7 @@ function stopTest()
             document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
         }
     }
-    window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
+    //window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
     location.href = "#TestResult";
     // setCookie("time_A","10 secs",1);
     // setCookie("time_B","11 secs",1);

@@ -65,7 +65,7 @@
                         <div class="content">
                         <div class="flex-wrapper">
                             <div class="single-chart">
-                                <p style="text-align:center;">TMT_A</p>
+                                <h3 style="text-align:center;">TMT_A</h3>
                                 <svg viewBox="0 0 36 36" class="circular-chart orange">
                                 <path class="circle-bg"
                                     d="M18 2.0845
@@ -83,7 +83,7 @@
                             </div>
                             
                             <div class="single-chart">
-                                <p style="text-align:center;">TMT_B</p>
+                                <h3 style="text-align:center;">TMT_B</h3>
                                 <svg viewBox="0 0 36 36" class="circular-chart green">
                                 <path class="circle-bg"
                                     d="M18 2.0845
@@ -101,7 +101,7 @@
                             </div>
 
                             <div class="single-chart">
-                            <p style="text-align:center;">Total</p>
+                            <h3 style="text-align:center;">Total</h3>
                                 <svg viewBox="0 0 36 36" class="circular-chart blue">
                                 <path class="circle-bg"
                                     d="M18 2.0845
