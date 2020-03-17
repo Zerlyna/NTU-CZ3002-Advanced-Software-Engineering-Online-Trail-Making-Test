@@ -1,4 +1,7 @@
 window.onload = function () {
+    var data_json = getCookie('data_json');
+    var data = JSON.parse(data_json);
+    this.console.log(data);
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         title:{
