@@ -59,10 +59,10 @@ https://www.figma.com/file/OfzkozV5oqWFVWI32MGFVe/CoronaSG-Colors?node-id=0%3A1
 ### Final Result
 
 #### Test A
-![Test_A](Assets/Img/Test_A.PNG)
+![Test_A](Assets/Img/Test_A.png)
 
 #### Test B
-![Test_B](Assets/Img/Test_B.PNG)
+![Test_B](Assets/Img/Test_B.png)
 
 ## How we measure to ensure accuracy is satisfy
 
