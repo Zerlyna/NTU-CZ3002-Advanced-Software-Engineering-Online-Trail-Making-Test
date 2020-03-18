@@ -66,6 +66,7 @@
 
 .fa-cog{
     color: #c4c4c4;
+    visibility: hidden;
 }
 
 .fa-cog:hover{
@@ -75,4 +76,13 @@
 
 .fa-exclamation-circle{
     color:"#EED202";
+}
+
+.male2{ 
+    margin-top : 0%;
+}
+
+.female2{
+    margin-top : 0%;
+
 }

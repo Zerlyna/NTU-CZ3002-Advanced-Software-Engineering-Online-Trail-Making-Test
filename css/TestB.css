@@ -224,7 +224,7 @@
         text-align : center;
         font-size: 30px;
         min-height : 5vh;
-        position : relative;
+        /*position : relative;*/
         width : 100%;
     
     }
@@ -232,7 +232,7 @@
     .row2 {
        
         height : 78vh;
-        position : relative;
+        /*position : relative;*/
         /*margin-bottom:10px;*/
         
     }

@@ -18,15 +18,9 @@
         }
     }
 
-<<<<<<< HEAD
     if(isset($_POST['RST_confirm'])){
         $nric =$_SESSION['NRIC'];
         $password = mysqli_real_escape_string($conn, $_POST['RST_PW']);
-=======
-    if(isset($_POST['reset'])){
-        $nric =$_SESSION['NRIC'];
-        $password = mysqli_real_escape_string($conn, $_POST['Reg_NRIC_V']);
->>>>>>> UPDATE
         $result=mysqli_query($conn,"UPDATE patient SET password = '" . $password. "' WHERE NRIC = '". $nric ."'");
         if ($result == True){
             $_SESSION['success'] = True;         

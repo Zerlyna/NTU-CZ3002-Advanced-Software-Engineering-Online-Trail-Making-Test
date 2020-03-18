@@ -609,6 +609,7 @@ function stopTest()
       
         testResult=secDiff;
     }
+<<<<<<< HEAD
     //setCookie("test_B", secDiff, 1)
     // var date = d.getDate();
     // var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
@@ -617,6 +618,11 @@ function stopTest()
     document.cookie = "username=John Doe";
     var testResult=140;
     document.getElementById("tmtAResult").innerHTML="67 Sec";
+=======
+    setCookie("test_B", testResult, 1);
+
+    document.getElementById("tmtAResult").innerHTML=sessionStorage.getItem("TMT_A") + "Sec";
+>>>>>>> ae890680d05c233049db4968b1b5e5750a6b08dc
     document.getElementById("tmtBResult").innerHTML=testResult+"Sec";
     var tmtResultA=67;
     var total=parseInt(tmtResultA);

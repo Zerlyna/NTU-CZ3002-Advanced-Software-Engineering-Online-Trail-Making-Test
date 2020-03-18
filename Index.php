@@ -24,7 +24,7 @@
                 setcookie("login", "Yes");
                 header("Location: Main.php");
             }else{
-                setcookie("login", "No");echo "gg";
+                setcookie("login", "No");/*echo "gg";*/
             }
         }
     }
@@ -100,7 +100,6 @@ For now:
     
     
     </script> -->
-    <script type= "text/javascript" src="js/visibility.js"></script>
 </html>
 <?php
     include_once ('footer.php');

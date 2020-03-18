@@ -80,6 +80,7 @@
 
     <!-- -->
     <script src= "/external/jquery/jquery-3.4.1.js"></script>
+    <script type= "text/javascript" src="js/cookie.js"></script>
     <script type= "text/javascript" src="js/algo.js"></script>
     <!-- <script type= "text/javascript" src="js/testAAlgo.js"></script> -->
 </html>

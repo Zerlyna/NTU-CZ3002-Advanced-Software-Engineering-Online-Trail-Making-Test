@@ -2,9 +2,12 @@
     session_start();
     include_once "connect.php";
 
-	if(isset($_SESSION['NRIC'])){
+	if(isset($_SESSION['NRIC'])) {
         $nric = $_SESSION['NRIC'];
-    }else{
+    }elseif (isset($_SESSION['doctorid'])) {
+        $nric = $_GET["nric_view"];
+    }
+    else{
         header('Location: Index.php');
     }
 
@@ -14,6 +17,7 @@
     $data->day = array();
     $data->time_A_arr = array();
     $data->time_B_arr = array();
+    $data->risk = array();
 
     $query = "SELECT * FROM patient WHERE NRIC='".$nric."'";
     $result = mysqli_query($conn, $query);
@@ -32,7 +36,35 @@
         array_push($data->day, $row['Day']);
         array_push($data->time_A_arr, $row['time_A']);
         array_push($data->time_B_arr, $row['time_B']); 
+        array_push($data->risk, $row['risk']);
     }
+
+    $A = $data->time_A_arr[count($data->time_A_arr) - 1];
+    $B = $data->time_B_arr[count($data->time_B_arr) - 1];
+    $total = intval($A) + intval($B);
+
+    $risk = $data->risk[count($data->risk) - 1];  
+    if($total <= 273){
+        $show_result = "PASS";
+    }else {
+        $show_result = "FAIL";
+    }
+
+    $query = "SELECT * FROM global";
+    $result = mysqli_query($conn, $query);
+    while($row = mysqli_fetch_assoc($result)){
+        $var_name = $row['average'];
+        ${$var_name} = $row['time'];
+    }
+    
+    if(isset($_POST['back'])){
+        if(isset($_SESSION['doctorid'])) {
+            header("Location: doctor.php");
+        }elseif(isset($_SESSION['NRIC'])) {
+            header("Location: Report.php");
+        }
+    }
+
     ##the data the chart need
     include_once "dc.php";
     include_once 'header.php';
@@ -64,20 +96,56 @@
                     <div class = "rec_r2">
                         <div class = "rec_c1"> 
                             <div class = "rec_c1r2">
-                                <p1>Name: <?php echo $name;?></p1>
+                                <div class = "rec_c1r2c1">
+                                    <div class = "adds">
+                                        <?php
+                                            if ($gender == "male"){
+                                                echo "<h1 >Mr</h1>";
+                                                echo "<h2>" . $name . "</h2>";
+                                                echo "<h2>" . $nric . "</h2>";
+                                            }
+                                            else{
+                                                echo "<h1>Ms</h1>";
+                                                echo "<h2>" . $name . "</h2>";
+                                                echo "<h2>" . $nric . "</h2>";
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class = "rec_c1r2c2">
+                                        
+                                        <?php
+                                        if ($gender == "male"){
+                                            echo "<div class='fa-stack fa-3x male2'> 
+                                                <font color='#5b92e5'><i class='far fa-2x fa-circle fa-stack-2x'></i>
+                                                <i class='fas fa-1x fa-mars fa-stack-1x'></i></font>
+                                            </div>";
+                                        }else{
+                                            echo "<div class='fa-stack fa-3x female2'>
+                                                <font color='#ff5ba5'><i class='far fa-2x fa-circle fa-stack-2x'></i>
+                                                <i class='fas fa-1x fa-venus fa-stack-1x'></i></font>
+                                            </div>";
+                                        }
+                                        
+                                        
+                                        
+                                        ?>
+                                        
+
+
+                                </div>
                             </div>
-                            <div class = "rec_c1r3">
-                                <h3>Gender: <?php echo $gender;?></h3>
-                           
+                           <!-- <div class = "rec_c1r3">
                                 
-                            </div>
+                                
+                            </div>-->
                             <div class = "rec_c1r4">
-                                <h3>Last Test Taken: 17 Mar 2020</h3>
+                                <h2>Last Test Taken: <font color="red"> 17 Mar 2020</font></h2> 
 
                                 <!-- Start of the Circular progress bar -->
                                 <div class="flex-wrapper">
                                 <div class="single-chart">
-                                    <p style="text-align:center; font-weight:bold;">TMT_A</p>
+                                    <h2 style="text-align:center; font-weight:bold;">Test A</h2> 
                                     <svg viewBox="0 0 36 36" class="circular-chart orange">
                                     <path class="circle-bg"
                                         d="M18 2.0845
@@ -90,12 +158,12 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">67 Sec</text>
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage"><?php echo $A . " Sec";?></text>
                                     </svg>
                                 </div>
                                 
                                 <div class="single-chart">
-                                    <p style="text-align:center;font-weight:bold;">TMT_B</p>
+                                    <h2 style="text-align:center;font-weight:bold;">Test B</h2>
                                     <svg viewBox="0 0 36 36" class="circular-chart green">
                                     <path class="circle-bg"
                                         d="M18 2.0845
@@ -108,12 +176,12 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">140 Sec</text>
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage"><?php echo $B . " Sec";?></text>
                                     </svg>
                                 </div>
 
                                 <div class="single-chart">
-                                <p style="text-align:center;font-weight:bold;">Total</p>
+                                <h2 style="text-align:center;font-weight:bold;">Total</h2>
                                     <svg viewBox="0 0 36 36" class="circular-chart blue">
                                     <path class="circle-bg"
                                         d="M18 2.0845
@@ -126,18 +194,18 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage">207 Sec</text>
+                                    <text id="totalResult" x="18" y="20.35" class="percentage"><?php echo $total. " Sec";?></text>
                                     </svg>
                                 </div>
                             
                                 </div>
 
-                                <h3>Average Time For All User</h3>
+                                <h2>Average Time For All User</h2>
 
                                 <!-- Start of the Circular progress bar -->
                                 <div class="flex-wrapper">
                                 <div class="single-chart">
-                                    <p style="text-align:center; font-weight:bold;">TMT_A</p>
+                                    <h2 style="text-align:center; font-weight:bold;">Test A</h2>
                                     <svg viewBox="0 0 36 36" class="circular-chart orange">
                                     <path class="circle-bg"
                                         d="M18 2.0845
@@ -150,12 +218,12 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage">90 Sec</text>
+                                    <text id="tmtAResult" x="18" y="20.35" class="percentage"><?php echo $test_A ." Sec";?></text>
                                     </svg>
                                 </div>
 
                                 <div class="single-chart">
-                                    <p style="text-align:center;font-weight:bold;">TMT_B</p>
+                                    <h2 style="text-align:center;font-weight:bold;">Test B</h2>
                                     <svg viewBox="0 0 36 36" class="circular-chart green">
                                     <path class="circle-bg"
                                         d="M18 2.0845
@@ -168,12 +236,12 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage">180 Sec</text>
+                                    <text id="tmtBResult" x="18" y="20.35" class="percentage"><?php echo $test_B ." Sec";?></text>
                                     </svg>
                                 </div>
 
                                 <div class="single-chart">
-                                <p style="text-align:center;font-weight:bold;">Total</p>
+                                <h2 style="text-align:center;font-weight:bold;">Total</h2>
                                     <svg viewBox="0 0 36 36" class="circular-chart blue">
                                     <path class="circle-bg"
                                         d="M18 2.0845
@@ -186,20 +254,19 @@
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage">270 Sec</text>
+                                    <text id="totalResult" x="18" y="20.35" class="percentage"><?php echo (intval($test_A)+intval($test_B)) ." Sec";?></text>
                                     </svg>
                                 </div>
 
                                 </div>
-                                <h3 id="RESULT" style="text-align:center;">Test Result: Pass</h3>
-                                 <h3 id="risk" style="text-align:center;magin-top:1%;">Risk Of Dementia: MEDIUM</h3>
+                                <h3 id="RESULT" style="text-align:center;"><?php echo "Test Result: ".$show_result; ?></h3> 
+                                 <h3 id="risk" style="text-align:center;magin-top:1%;"><?php echo "Risk Of Dementia: ". "<font color='blue'>". $risk ."</font>";?></h3>
                                  <!-- End of the circular progress bar -->
                                 <div class="container_btn">
                                     <div class="wrap_btn">
                                         <div class="form_bgbtn"></div>
-                                        <form action="Doctor.php"> <!-- patient/doctor should access from Report.php or Doctor.php respectively-->
+                                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><!-- patient/doctor should access from Report.php or Doctor.php respectively-->
                                             <button type="submit" name = "back" class="form_btn">Back</button>
-                                        
                                         </form>
                                         </div>
 					                </div>

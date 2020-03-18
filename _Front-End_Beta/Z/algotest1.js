@@ -159,6 +159,11 @@ function generateCir()
             //if no overlapping
             if (dx * dx + dy * dy < rr * rr)
             {
+                /*ctx.beginPath();
+                ctx.arc(rngCircle.x, rngCircle.y, 25, Math.PI * 2, 0, false);
+                ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+                ctx.fill();
+                ctx.closePath();*/
                 overlapping = true;;
                 break;
             }
@@ -173,6 +178,31 @@ function generateCir()
                 return;
             }
             counter++;
+
+            
+            
+            /*if(counter4 == 1000){
+                for (var j = 0; j < circles.length -1 ; j++) {
+                
+                    ctx.beginPath();
+                    ctx.arc(circles[j].x, circles[j].y, 25, Math.PI * 2, 0, false);
+                    ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+                    ctx.fill();
+                    ctx.closePath();
+                    ctx.beginPath();
+                    ctx.fillStyle = "white"
+                    ctx.font = '15px serif';
+                    ctx.fillText(circles[j].index, circles[j].x - 8, circles[j].y + 3);
+                    ctx.closePath();
+                }
+                ctx.lineWidth = "5";
+                ctx.fillStyle = "#FFFFFF";
+                ctx.strokeStyle = "black";
+                ctx.strokeRect(10, 10, 980, 700);
+                ctx.lineWidth = "2";
+                return;
+            }
+            counter4++;*/
 
          
         }

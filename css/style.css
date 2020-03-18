@@ -309,28 +309,158 @@ select::-ms-expand {
 
 .containerL{
   height : 50%;
-  border : 2px solid green;
+  border : 2px solid transparent;
   margin-top : 5%;
 }
 
 .containerM{
   height : 50%;
-  border : 2px solid green;
+  border : 2px solid transparent;
   margin-top : 5%;
 }
 
 .containerS{
   height : 63%;
   width : 45%;
-  border : 2px solid green;
+  border : 2px solid transparent;
   margin-top : 15%;
   margin-left : 50%;
   /*border-radius : 50%;*/
-  border : 5px solid black;
+  /*border : 5px solid black;*/
 }
 
 
 .report_ttt{
-  margin-top : 25%;
+  margin-top : 19%;
 }
+
+.report_t{
+  margin-top : 5%;
+}
+
+.report_a{
+  margin-top : 30%;
+  margin-right :15%;
+}
+/*
+.report_rod{
+  margin-top:5%;
+}*/
+
+/***************************************/
+/*search style*/
+
+.search {
+  width: 100%;
+  height : 3.5vh;
+  position: relative;
+  display: flex;
+  border : 2px solid #ECEAEA;
+  border-radius: 5%;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 5px solid #ECEAEA;
+  border-right: none;
+  /*padding: 5px;*/
+  height: 3vh;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #888888;
+  font-size : 16px;
+  border : 2px solid transparent;
+}
+
+.searchTerm:focus{
+  color: 000;
+}
+
+.searchButton {
+  width: 40px;
+  height: 3.3vh;
+  border: 1px solid #ECEAEA;
+  background: #ECEAEA;
+  text-align: center;
+  color: #000;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  
+}
+
+.searchButton:hover {
+    border: 1px solid #333333;
+    background: #333333;
+    color: #ECEAEA;
+    transition:0.5s;
+    font-size: 20px;
+  }
+
+  /******************doctor page*/
+
+.select2 {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  appearance:none;
+  outline:0;
+  box-shadow:none;
+  /*border:0!important;*/
+  background: #000;
+  background-image: none;
+  /*flex: 1;*/
+  /*padding: 0 .5em;*/
+  color:#000;
+  cursor:pointer;
+  
+  /*font-family: 'Open Sans', sans-serif;*/
+  
+}
+.select2::-ms-expand {
+  display: none;
+}
+.select2 {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 3.5vh;
+  line-height: 2;
+  background: #ECEAEA;
+  overflow: hidden;
+  border-radius: .25em;
+  border : 1px solid #ECEAEA;
+  
+}
+.select2::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #ECEAEA;
+  cursor:pointer;
+  pointer-events:none;
+  transition:.25s all ease;
+}
+.select2:hover::after {
+  color: #23b499;
+}
+
+#searchby2{
+  font-size : 16px;
+  color:#888888;
+  border : 1px solid #ECEAEA;
+}
+
+#searchby2:focus{
+  color:#000;
+}
+
+.adds{
+  text-align: left;
+  top : 1%;
+  margin-left : 5%;
+}
+
 
