@@ -13,10 +13,14 @@ The task requires a subject to connect a sequence of 25 **consecutive targets** 
 
 https://en.wikipedia.org/wiki/Trail_Making_Test
 
-## Disclaimer: 
+## Compatiblity: 
 This project only support strictly 1920x1080 resolution only, due to no scaling adjustment not done on front-end development due to time constraint and more critical issues needed more attention. 
 
-Please also ensure you are using Google Browser Version 80.0.3987.132 (Official Build) (64-bit)
+![Compatible_2](Assets/Img/Compatible_2.PNG)
+
+Please also ensure you are using Google Browser Version 80.0.3987.132 (Official Build) (64-bit) or above and scale to **100% view**
+
+![Compatible_1](Assets/Img/Compatible_1.PNG)
 
 ## Work Process:
 
@@ -24,9 +28,76 @@ Please also ensure you are using Google Browser Version 80.0.3987.132 (Official 
 
 https://www.figma.com/file/OfzkozV5oqWFVWI32MGFVe/CoronaSG-Colors?node-id=0%3A1
 
-## How we ensure connect the connect-the-dots manner
+## How we ensure connect-the-dots manner
+
+### Concept:
+
+#### Line Detection
+![Line Detection](Assets/Img/Line_Detection_1.PNG)
+
+#### Overlap Detection
+![Overlap Detection](Assets/Img/Line_Detection_7.PNG)
 
 ### Line Detection with that serve different objectives :
 
-####  Behind the node detection
-![Behind the node detection](Assets/Img/Line_Detection_4.PNG)
+####  Behind the node detection with Node's Cross Section Line
+![Behind the node detection using Cross Section Line of the Node](Assets/Img/Line_Detection_4.PNG)
+
+####  2 Line Segment Detection
+![2 Line Segment Detection](Assets/Img/Line_Detection_2.PNG)
+
+####  Node and Line Segment Detection
+![Node and Line Segment Detection](Assets/Img/Line_Detection_3.PNG)
+
+####  2 Nodes Overlap Detection
+![2 Nodes Overlap Detection](Assets/Img/Line_Detection_6.PNG)
+
+### All Detection Combination and Behind The Scene Result
+![All Detection Combination and Behind The Scene Result](Assets/Img/Generate_Process.PNG)
+
+### Final Result
+![Final Result](Assets/Img/Line_Detection_4.PNG)
+
+#### Test A
+![Test_A](Assets/Img/Test_A.PNG)
+
+#### Test B
+![Test_B](Assets/Img/Test_B.PNG)
+
+## How we measure to ensure accuracy is satisfy
+
+### Utilize Mouse Click Event (Down and Up)
+![C1](Assets/Img/Coordinate.PNG)
+![C2](Assets/Img/Coordinate_1.PNG)
+
+##### Total Time Taken for the Test
+##### Time Taken for Test A
+##### Time Taken for Test B
+
+### Reference with Global TMT Standard
+
+##### Average Total Time Taken for the Test
+##### Average Time Taken for Test A
+##### Average Time Taken for Test B
+
+### Fairness of Test
+
+##### 3 Attempts for all
+##### Best Attempt will be recorded
+##### Fixed Resolution (1920x1080) and Scaling
+
+### Data Analysis
+
+##### Patient History Taken
+![Patient History Taken](Assets/Img/Page_Records.PNG)
+
+##### Patients Records
+![Patients Records](Assets/Img/Page_Doctor.PNG)
+
+## About CoronaSG:
+CoronaSG aims to be your fastest solution with credibility and quality. Inaugurated in 2020, the team is built with a group of trusted young and highly motivated individuals. Even though they are young, their knowledge and experience in their field are indisputable. Their vision of creating a more cohesive and inclusive society drives them into development software like LarkDetect. LarkDetect aims to provide early detection for dementia. Dementia is not a part of normal aging. It is a condition that causes progressive intellectual decline leading to increasing difficulties in coping with everyday activities. LarkDetect would allow family and love one to plan ahead, in the event of an early detection.
+
+## Disclaimer: 
+Since it is a continuous development project.
+All Information provided here subject to changes.
+Ver 1.3
