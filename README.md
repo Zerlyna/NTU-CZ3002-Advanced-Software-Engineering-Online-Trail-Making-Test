@@ -22,9 +22,9 @@ Please also ensure you are using Google Browser Version 80.0.3987.132 (Official 
 
 ![Compatible_1](Assets/Img/Compatible_1.PNG)
 
-## Work Process:
+# Work Process:
 
-### Hi-FI Design : 
+## Hi-FI Design : 
 
 https://www.figma.com/file/OfzkozV5oqWFVWI32MGFVe/CoronaSG-Colors?node-id=0%3A1
 
@@ -93,6 +93,20 @@ https://www.figma.com/file/OfzkozV5oqWFVWI32MGFVe/CoronaSG-Colors?node-id=0%3A1
 
 ##### Patients Records
 ![Patients Records](Assets/Img/Page_Doctor.PNG)
+
+## Future Features
+
+### [1] Enhance Data Analysis
+
+#### Visual Analysis
+![V1](Assets/Img/Feature_1.PNG)
+
+Using Mouse Movement Speed to analysis severe-ness of the Dementia
+
+![V2](Assets/Img/Feature_2.PNG)
+
+Using Mouse Movement Deviation from ideal path to analysis possibility of the Dementia
+
 
 ## About CoronaSG:
 CoronaSG aims to be your fastest solution with credibility and quality. Inaugurated in 2020, the team is built with a group of trusted young and highly motivated individuals. Even though they are young, their knowledge and experience in their field are indisputable. Their vision of creating a more cohesive and inclusive society drives them into development software like LarkDetect. LarkDetect aims to provide early detection for dementia. Dementia is not a part of normal aging. It is a condition that causes progressive intellectual decline leading to increasing difficulties in coping with everyday activities. LarkDetect would allow family and love one to plan ahead, in the event of an early detection.
