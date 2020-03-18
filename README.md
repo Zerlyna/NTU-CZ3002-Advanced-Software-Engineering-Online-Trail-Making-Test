@@ -29,4 +29,4 @@ https://www.figma.com/file/OfzkozV5oqWFVWI32MGFVe/CoronaSG-Colors?node-id=0%3A1
 ### Line Detection with that serve different objectives :
 
 ####  Behind the node detection
-![Behind the node detection](cz3002/Assets/Img/Line_Detection_4.png)
+![Behind the node detection](Assets/Img/Line_Detection_4.PNG)
