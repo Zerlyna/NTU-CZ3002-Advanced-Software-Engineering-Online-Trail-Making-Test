@@ -59,16 +59,16 @@ https://www.figma.com/file/OfzkozV5oqWFVWI32MGFVe/CoronaSG-Colors?node-id=0%3A1
 ### Final Result
 
 #### Test A
-![Test_A](Assets/Img/Test_A.png)
+![Test_A](Assets/Img/Test_A.PNG)
 
 #### Test B
-![Test_B](Assets/Img/Test_B.png)
+![Test_B](Assets/Img/Test_B.PNG)
 
 ## How we measure to ensure accuracy is satisfy
 
 ### Utilize Mouse Click Event (Down and Up)
-![C1](Assets/Img/Coordinate.PNG)
-![C2](Assets/Img/Coordinate_1.PNG)
+![C1](Assets/Img/Coordinate.png)
+![C2](Assets/Img/Coordinate_1.png)
 
 ##### Total Time Taken for the Test
 ##### Time Taken for Test A
