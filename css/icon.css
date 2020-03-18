@@ -66,6 +66,7 @@
 
 .fa-cog{
     color: #c4c4c4;
+    visibility: hidden;
 }
 
 .fa-cog:hover{
