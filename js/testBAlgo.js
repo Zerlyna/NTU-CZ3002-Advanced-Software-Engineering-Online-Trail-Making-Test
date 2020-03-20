@@ -621,63 +621,63 @@ function stopTest()
     }
     setCookie("test_B", testResult, 1);
 
-    document.getElementById("tmtAResult").innerHTML=sessionStorage.getItem("TMT_A") + "Sec";
-    document.getElementById("tmtBResult").innerHTML=testResult+"Sec";
-    var tmtResultA=67;
-    var total=parseInt(tmtResultA);
-    total+= parseInt(testResult);
-    document.getElementById("totalResult").innerHTML=total+"Sec";
-
-    if(tmtResultA<=78)
-    {
-        if(testResult<=273)
-        {   
-            if(testResult==0)
-            {
-                document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
-                document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
-            }
-            else
-            {
-                document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
-                document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
-            }
-            
-        }
-        else
-        {
-            document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
-            document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
-        }
-    }
-    else if(minDiff==0 && secDiff==0)
-    {
-        testResult=0;
-    }
-    else
-    {
-        if(testResult<=273)
-        {
-            if(testResult==0)
-            {
-                document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
-                document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
-            }
-            else
-            {
-                document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"   
-                document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
-            }
-
-        }
-        else
-        {
-            document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
-            document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
-        }
-    }
-    //window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
+    //document.getElementById("tmtAResult").innerHTML=sessionStorage.getItem("TMT_A") + "Sec";
+    // document.getElementById("tmtBResult").innerHTML=testResult+"Sec";
+    // var tmtResultA=67;
+    // var total=parseInt(tmtResultA);
+    // total+= parseInt(testResult);
+    // document.getElementById("totalResult").innerHTML=total+"Sec";
     location.href = "#popupEnd";
+    // if(tmtResultA<=78)
+    // {
+    //     if(testResult<=273)
+    //     {   
+    //         if(testResult==0)
+    //         {
+    //             document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
+    //             document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
+    //         }
+    //         else
+    //         {
+    //             document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
+    //             document.getElementById("risk").innerHTML="Risk of Dementia: LOW";
+    //         }
+            
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"
+    //         document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
+    //     }
+    // }
+    // else if(minDiff==0 && secDiff==0)
+    // {
+    //     testResult=0;
+    // }
+    // else
+    // {
+    //     if(testResult<=273)
+    //     {
+    //         if(testResult==0)
+    //         {
+    //             document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
+    //             document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
+    //         }
+    //         else
+    //         {
+    //             document.getElementById("RESULT").innerHTML="YOU HAVE PASS THE TEST"   
+    //             document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
+    //         }
+
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("RESULT").innerHTML="YOU HAVE FAIL THE TEST"
+    //         document.getElementById("risk").innerHTML="Risk of Dementia: HIGH";
+    //     }
+    // }
+    //window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
+   
     // setCookie("time_A","10 secs",1);
     // setCookie("time_B","11 secs",1);
 }

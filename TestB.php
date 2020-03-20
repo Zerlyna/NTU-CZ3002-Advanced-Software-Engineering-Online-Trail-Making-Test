@@ -74,9 +74,9 @@
                             
                             <div class="wrap_btn">
                                 <div class="form_bgbtn"></div>
-                                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                
                                 <button type="submit" class="login_form_btn"  onclick="window.location.href = 'Report.php';"> View Result</button>
-                                </form>
+                             
                                 <!-- Use <a></a> instead of button so u can remove the style after onclick -->
                                 <!-- <a id="btnStart" type="submit" style="text-decoration: none;" class="login_form_btn" href="#" onclick="Start()">View Result</a> -->
                                 
