@@ -47,18 +47,28 @@ var chk1,chk2,chk1_ab,chk2_ab,chk1_cd,chk2_cd,chk1_ac,chk2_ac,chk1_bd,chk2_bd;
 
 var userArray=[];
 
-window.onload=generateCir();
+// window.onload=generateCir();
 
-var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
-var Pbi1_x,Pbi1_y,Pbi2_x,Pbi2_y
-var chk1_b , chk2_b;
-var P_ax, P_ay,P_bx, P_by, P_cx,P_cy, P_dx , P_dy, dv;
-var chk1,chk2,chk1_ab,chk2_ab,chk1_cd,chk2_cd,chk1_ac,chk2_ac,chk1_bd,chk2_bd;
+// var m, cx , cy, cr, cf, ca, cb, cc; //cf , cb and cc are classify as common formula
+// var Pbi1_x,Pbi1_y,Pbi2_x,Pbi2_y
+// var chk1_b , chk2_b;
+// var P_ax, P_ay,P_bx, P_by, P_cx,P_cy, P_dx , P_dy, dv;
+// var chk1,chk2,chk1_ab,chk2_ab,chk1_cd,chk2_cd,chk1_ac,chk2_ac,chk1_bd,chk2_bd;
 
-var userArray=[];
+// var userArray=[];
 
-window.onload=generateCir();
-
+window.onload=loadDiv();
+function loadDiv()
+{
+    location.href = "#popup3";   
+    
+}
+function Start()
+{
+    
+    generateCir();
+    startTest();
+}
 function generateCir()
 {
 
@@ -520,10 +530,14 @@ function stopTest()
     if(minDiff==0)
     {
        
-        document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
+        //document.getElementById("firstResult").innerHTML="You used "+secDiff+ "Seconds for the first test";
         testResult=secDiff;
   
 
+    }
+    else if(minDiff==0 && secDiff==0)
+    {
+        testResult=0;
     }
     else
     {

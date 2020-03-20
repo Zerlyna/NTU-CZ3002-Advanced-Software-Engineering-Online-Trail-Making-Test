@@ -50,8 +50,18 @@ var alphaI = 0;
 
 var userArray=[];
 
-window.onload=generateCir();
-
+window.onload=loadDiv();
+function loadDiv()
+{
+    location.href = "#buttonPopout";   
+    
+}
+function Start()
+{
+    
+    generateCir();
+    startTest();
+}
 function generateCir()
 {
 
@@ -640,6 +650,10 @@ function stopTest()
             document.getElementById("risk").innerHTML="Risk of Dementia: MEDIUM";
         }
     }
+    else if(minDiff==0 && secDiff==0)
+    {
+        testResult=0;
+    }
     else
     {
         if(testResult<=273)
@@ -663,7 +677,7 @@ function stopTest()
         }
     }
     //window.sessionStorage.setItem("TMT_B", JSON.stringify(testResult));
-    location.href = "#TestResult";
+    location.href = "#popupEnd";
     // setCookie("time_A","10 secs",1);
     // setCookie("time_B","11 secs",1);
 }

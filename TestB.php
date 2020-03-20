@@ -48,17 +48,44 @@
         <div class="limiter">
             <div class="container">
                 <div class="wrapContainer">
-                <div class = "row1"><h3>Test B</h3></div>
-                <div class="row2">
+                    <div class = "row1"><h3>Test B</h3></div>
+                    <div class="row2">
                         <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
                         <canvas id="canvas" width="990px" height="710px"></canvas>
-                        <div class="row2">
+                        <!-- <div class="row2">
                             <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
+                        </div> -->
+                    </div>
+                    <!-- Start Button -->
+                    <div id="buttonPopout" class="overlay2">
+                        <div class="buttonPopout">
+                            <div class="wrap_btn">
+                                <div class="form_bgbtn"></div>
+                                <!-- Use <a></a> instead of button so u can remove the style after onclick -->
+                                <a id="btnStart" type="submit" style="text-decoration: none;" class="login_form_btn" href="#" onclick="Start()">Start</a>
+                            </div>
                         </div>
+                
+                    </div>
+                    <!-- END -->
+                    <div id="popupEnd" class="overlay2">
+                        <div class="buttonPopout">
+                            
+                            <div class="wrap_btn">
+                                <div class="form_bgbtn"></div>
+                                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                <button type="submit" class="login_form_btn"  onclick="window.location.href = 'Report.php';"> View Result</button>
+                                </form>
+                                <!-- Use <a></a> instead of button so u can remove the style after onclick -->
+                                <!-- <a id="btnStart" type="submit" style="text-decoration: none;" class="login_form_btn" href="#" onclick="Start()">View Result</a> -->
+                                
+                            </div>
+                        </div>
+                
                     </div>
 
-                    <div id="TestResult" class="overlay">
+                    <!-- <div id="TestResult" class="overlay">
                     <div class="popup">
                         <h2 style="text-align:center;">Your test result</h2>
                         
@@ -126,26 +153,14 @@
                                 <button class="button" type="submit" name = "finish">FINISH</button>
                             </form>
                         </div>
-                    </div>
+                    </div> 
+                </div>-->
                 </div>
-                </div>
-                <!-- Do rescale your class "wrap_(your identifier)"
-                <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
-                <div style="text-align:center;">
-                    <button id="btnStart2" onclick="startTest()" class="btnStart">Start</button>
-                </div>
-
-                <div style="text-align:center;">
-                    <canvas id="canvas" width="990px" height="710px"></canvas>
-                </div> -->
-                
-     
-                <p id="msg" class="blue"></p>
-                <p id="msg2"><br>&nbsp;</p>
-                </div>
+          
+            </div>
         </div>
     </div>
-    </body>
+</body>
     <!-- link .js here -->
 
     <!-- -->

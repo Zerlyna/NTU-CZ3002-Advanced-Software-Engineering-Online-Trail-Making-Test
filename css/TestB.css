@@ -261,3 +261,14 @@
         display: table;
         clear: both;
     }
+
+    .buttonPopout{
+      margin: 20% auto;
+      padding: 20px;
+      background:transparent;
+      border-radius: 5px;
+      width: 30%;
+      position: relative;
+      text-align: center;
+      transition: all 5s ease-in-out;
+    }

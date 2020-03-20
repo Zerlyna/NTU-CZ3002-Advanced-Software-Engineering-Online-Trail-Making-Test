@@ -1,11 +1,11 @@
 <?php
-    // session_start();
-    // //if wan short cut then remove this if else statment
-	// if(isset($_SESSION['NRIC'])){
-    //     $nric = $_SESSION['NRIC'];
-    // }else{
-    //     header('Location: Index.php');
-    // }
+    session_start();
+    //if wan short cut then remove this if else statment
+	if(isset($_SESSION['NRIC'])){
+        $nric = $_SESSION['NRIC'];
+    }else{
+        header('Location: Index.php');
+    }
     
     include('header.php');
 ?>
@@ -37,38 +37,74 @@
                         <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
                         <canvas id="canvas" width="990px" height="720px"></canvas>
-                        <div class="row2">
+                        <!-- <div class="row2">
                             <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
-                        </div>
+                        </div> -->
                     </div>
             </div>
             
                 <!-- Do rescale your class "wrap_(your identifier)" -->
-
+               <div id="popup3" class="overlay2">
+                    <div class="popup">
+                        <h2>First Test</h2>
+                        <div class="content">
+                        <br>
+                        <p  class="textfont"><strong>GOALS:</strong><br>Connect 25 circles within the specific time frame to pass the test.<br></p>
+                        <br>
+                        <p  class="textfont"><strong>How to connect?</strong> <br>Press on the dots and release on the next dot</p>
+                        <br>
+                        <p  class="textfont"><strong>What is the sequence?</strong><br>The sequence of this test is in numerical order.<br> Eg: Connect 1 to 2<br> then 2 to 3<br>then 3 to 4</p>
+                        <br>
+                        <p class="textRed"><strong>Note:</strong><br>The first test will start after you click on <strong  style="font-size:25px;">Start</strong> button.<br> Please take this test seriously as it will affect the analysis of your result</p>
+                        </div>
+                        <div class="box">
+                      
+                        <div class="wrap_btn">
+                            <div class="form_bgbtn"></div>
+                            <!-- Use <a></a> instead of button so u can remove the style after onclick -->
+                            <a id="btnStart" type="submit"  style="text-decoration: none;"  class="login_form_btn" href="#buttonPopout" style="">Next</a>
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
         
+                <div id="buttonPopout" class="overlay2">
+                    <div class="buttonPopout">
+                        <div class="wrap_btn">
+                            <div class="form_bgbtn"></div>
+                            <!-- Use <a></a> instead of button so u can remove the style after onclick -->
+                            <a id="btnStart" type="submit" style="text-decoration: none;" class="login_form_btn" href="#" onclick="Start()">Start</a>
+                        </div>
+                    </div>
                 
-
+                </div>
                 
                 <!-- Must put this -->
                 <p id="firstResult" style="text-align:center;"></p>
                 <!-- Link to second test -->
                 <div id="secondTestRules" class="overlay2">
                     <div class="popup">
-                        <h2 style="text-align:center;">Congrats, You have Finish Your First Test</h2>
+                        <h2>You have Finish Your First Test</h2>
                         <div class="content">
-                            <p style="margin-top:5%;"></p>
-                            <h2 style="text-align:center; font-size:20px;">Second Test Rules</h2>
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;font-size:20px;"><strong>GOALS:</strong><br>Connect 25 circles within the specific time frame to pass the test.<br></p>
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;font-size:20px;"><strong>How to connect?</strong> <br>Press on the dots and release on the next dot</p>
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;font-size:20px;"><strong>What is the sequence?</strong><br>The sequence of this test is numbers follow by alphabets.<br> Eg: Connect 1 to A<br> then A to 2<br>then 2 to B</p>
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;color:red;font-size:20px;"><strong>Note:</strong><br>The first test will start after you click on Start button.<br> Please take this test seriously as it will affect the analysis of your result</p>
+                            <br>
+                            <h2 class="textfont">Second Test Rules</h2>
+                            <br>
+                            <p class="textfont"><strong>GOALS:</strong><br>Connect 25 circles within the specific time frame to pass the test.<br></p>
+                            <br>
+                            <p class="textfont"><strong>How to connect?</strong> <br>Press on the dots and release on the next dot</p>
+                            <br>
+                            <p class="textfont"><strong>What is the sequence?</strong><br>The sequence of this test is numbers follow by alphabets.<br> Eg: Connect 1 to A<br> then A to 2<br>then 2 to B</p>
+                            <br>
+                            <p class="textRed"><strong>Note:</strong><br>The first test will start after you click on Start button.<br> Please take this test seriously as it will affect the analysis of your result</p>
                         </div>
                         <div class="box">
-                            <a class="button" href="TestB.php">Next</a>
+                            <!-- <a class="button" href="TestB.php">Next</a> -->
+                            <div class="wrap_btn">
+                            <div class="form_bgbtn"></div>
+                            <button type="submit" class="login_form_btn"  onclick="window.location.href = 'TestB.php';"> Next</button>
+                            <!-- <a id="btnStart" style="text-decoration:none;" type="submit" class="login_form_btn" href="#" onclick="Start()">Start</a> -->
+                        </div>
                         </div>
                     </div>
                 </div>
