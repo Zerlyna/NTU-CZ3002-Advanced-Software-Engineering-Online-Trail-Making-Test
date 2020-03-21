@@ -144,7 +144,7 @@
 
                                 <!-- Start of the Circular progress bar -->
                                 <div class="flex-wrapper">
-                                <div class="single-chart">
+                                <div class="single-chart" >
                                     <h2 style="text-align:center; font-weight:bold;">Test A</h2> 
                                     <svg viewBox="0 0 36 36" class="circular-chart orange">
                                     <path class="circle-bg"
@@ -181,7 +181,7 @@
                                 </div>
 
                                 <div class="single-chart">
-                                <h2 style="text-align:center;font-weight:bold;">Total</h2>
+                                <h2 style="text-align:center;font-weight:bold;">Total Time Taken</h2>
                                     <svg viewBox="0 0 36 36" class="circular-chart blue">
                                     <path class="circle-bg"
                                         d="M18 2.0845
@@ -200,90 +200,45 @@
                             
                                 </div>
 
-                                <h2>Average Time For All User</h2>
-
-                                <!-- Start of the Circular progress bar -->
-                                <div class="flex-wrapper">
-                                <div class="single-chart">
-                                    <h2 style="text-align:center; font-weight:bold;">Test A</h2>
-                                    <svg viewBox="0 0 36 36" class="circular-chart orange">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <path class="circle"
-                                        stroke-dasharray="100, 100"
-                                        d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <text id="tmtAResult" x="18" y="20.35" class="percentage"><?php echo $test_A ." Sec";?></text>
-                                    </svg>
-                                </div>
-
-                                <div class="single-chart">
-                                    <h2 style="text-align:center;font-weight:bold;">Test B</h2>
-                                    <svg viewBox="0 0 36 36" class="circular-chart green">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <path class="circle"
-                                        stroke-dasharray="100, 100"
-                                        d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <text id="tmtBResult" x="18" y="20.35" class="percentage"><?php echo $test_B ." Sec";?></text>
-                                    </svg>
-                                </div>
-
-                                <div class="single-chart">
-                                <h2 style="text-align:center;font-weight:bold;">Total</h2>
-                                    <svg viewBox="0 0 36 36" class="circular-chart blue">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <path class="circle"
-                                        stroke-dasharray="100, 100"
-                                        d="M18 2.0845
-                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <text id="totalResult" x="18" y="20.35" class="percentage"><?php echo (intval($test_A)+intval($test_B)) ." Sec";?></text>
-                                    </svg>
-                                </div>
-
-                                </div>
+                                <h3 id="ErrorRate">No. Of Errors Made:<h3>
                                 <h3 id="RESULT" style="text-align:center;"><?php echo "Test Result: ".$show_result; ?></h3> 
                                  <h3 id="risk" style="text-align:center;magin-top:1%;"><?php echo "Risk Of Dementia: ". "<font color='blue'>". $risk ."</font>";?></h3>
                                  <!-- End of the circular progress bar -->
                                 <div class="container_btn">
                                     <div class="wrap_btn">
                                         <div class="form_bgbtn"></div>
-                                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><!-- patient/doctor should access from Report.php or Doctor.php respectively-->
-                                            <button type="submit" name = "back" class="form_btn">Back</button>
-                                        </form>
+                                        <!-- is this form necessary? -->
+                                        <button type="submit" name = "back" class="form_btn" onClick="javascript:history.go(-1)">Back</button>
+                                        <!-- patient/doctor should access from Report.php or Doctor.php respectively-->
+                                           
+                                         
+                                        
+                                     
                                         </div>
 					                </div>
                                 </div>
+                                
                             
                       
                             
                             </div>
-                        
-                        <div class = "rec_c2">
-                            <canvas></canvas>
-                            <div id="chartContainer" style="height: 370px; width: 100%;">
+                        <!-- CHART -->
+                        <div class = "rec_c2" >
+                         
+                            <div id="chartContainer" style="height: 370px; width: 100%;top: 0;">
                                 <?php
-                                    include_once 'chart.php';
+                                    include('chart.php');
+                                    
+                                ?>
+                            </div>
+                            <div id="chartContainer1" style="height: 370px; width: 100%;>
+                                <?php
+                                    include('chart.php');
+                                    
                                 ?>
                             </div>
                         </div>
+                   
                     </div>
                 <!-- end of content -->
                  </div>   

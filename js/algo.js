@@ -19,6 +19,7 @@ var lastX;
 var lastY;
 var dataURL;
 var numOfAttempt=3;
+var errorRate=0;
 
 //new
 //new
@@ -228,6 +229,7 @@ function generateCir()
                     ctx.font = '30px Arial';
                     ctx.fillText(circles[i].index, circles[i].x - 17 , circles[i].y + 10);
                 }
+         
                 ctx.closePath();
                 
             }
@@ -308,6 +310,7 @@ function regenerate(){
   	    if(clickInfo[0].index!=1)
         {
             alert("Please start from 1");
+            
             clickInfo.length = 0;
         }
         else
@@ -347,7 +350,7 @@ function regenerate(){
    }
    else
    {
-        alert("Try to click on a circle")
+        alert("Try to click on a circle");
    }
    //show result
    // msgObj.innerHTML = result;
@@ -389,6 +392,7 @@ function regenerate(){
 	if(clickInfo[clickInfo.length - 1].index !=nextIndex)
      {
         alert("Wrong! Please connect to the correct circle!");
+        errorRate++;
         clickInfo.pop();
         clickInfo.pop();
         var img=new Image;
@@ -397,7 +401,8 @@ function regenerate(){
             ctx.drawImage(img,0,0);
         };
         img.src=dataURL;
-        //limit to 3 attempt
+ 
+       
       
 
      }
@@ -548,70 +553,72 @@ function stopTest()
         testResult=secDiff;
     }
     setCookie("test_A", testResult, 1);
+    /**Need you to store the error rate  the variable name is errorRate*/
+
     window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));
     location.href = "#secondTestRules";
 }
 
-function StoreUserTestResult(first)
-{
-    var d = new Date();
+// function StoreUserTestResult(first)
+// {
+//     var d = new Date();
      
-    var date = d.getDate();
-    var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
-    var year = d.getFullYear();
+//     var date = d.getDate();
+//     var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+//     var year = d.getFullYear();
      
-    var dateStr = date + "/" + month + "/" + year;
+//     var dateStr = date + "/" + month + "/" + year;
 
-    var user =
-        {
-            name: YongXin,
-            Date: dateStr,
-            firstTest: first,
-            SecondTest:0,
-        }
-    userArray.push(user);
-}
+//     var user =
+//         {
+//             name: YongXin,
+//             Date: dateStr,
+//             firstTest: first,
+//             SecondTest:0,
+//         }
+//     userArray.push(user);
+// }
 
-function check2(){
-    for (i = 0; i < circles.length; i++) {
-        if(i > 0){
+// function check2(){
+//     for (i = 0; i < circles.length; i++) {
+//         if(i > 0){
 
-            ctx.beginPath();
-            ctx.lineWidth = "5";
-            ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
-            ctx.moveTo(circles[i-1].x,circles[i-1].y);
-            ctx.lineTo(circles[i].x,circles[i].y);
-            ctx.stroke();  // Draw it
-            ctx.closePath();
+//             ctx.beginPath();
+//             ctx.lineWidth = "5";
+//             ctx.strokeStyle = 'rgb(' + Math.floor(Math.random()* 256) +', ' + Math.floor(Math.random()* 256) + ',' + Math.floor(Math.random()* 256) +')';  // Green path
+//             ctx.moveTo(circles[i-1].x,circles[i-1].y);
+//             ctx.lineTo(circles[i].x,circles[i].y);
+//             ctx.stroke();  // Draw it
+//             ctx.closePath();
             
-        }
-        ctx.beginPath();
-        ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
-        ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
-        ctx.fill();
-        ctx.fillStyle = "white"
-        ctx.font = '15px serif';
-        ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
-        if(i==0)
-        {
-            ctx.fillStyle = "black"
-            ctx.font = '15px serif';
-            ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
+//         }
+//         ctx.beginPath();
+//         ctx.arc(circles[i].x, circles[i].y, circles[i].radius, Math.PI * 2, 0, false);
+//         ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+//         ctx.fill();
+//         ctx.fillStyle = "white"
+//         ctx.font = '15px serif';
+//         ctx.fillText(circles[i].index, circles[i].x - 8, circles[i].y + 3);
+//         if(i==0)
+//         {
+//             ctx.fillStyle = "black"
+//             ctx.font = '15px serif';
+//             ctx.fillText("Start", circles[i].x - 10, circles[i].y + 40);
     
-        }
-        if(i==24)
-        {
-            ctx.fillStyle = "black"
-            ctx.font = '15px serif';
-            ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
-        }
-        ctx.closePath();
-        ctx.beginPath();
-        ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
-        ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
-        ctx.fill();
-        ctx.fillStyle = "black"
-        ctx.font = '20px serif';
-        ctx.fillText("RNG", rngCircle.x - 20, rngCircle.y + 3);
-        ctx.closePath();
-    }}
+//         }
+//         if(i==24)
+//         {
+//             ctx.fillStyle = "black"
+//             ctx.font = '15px serif';
+//             ctx.fillText("End", circles[i].x - 10, circles[i].y + 40);
+//         }
+//         ctx.closePath();
+//         ctx.beginPath();
+//         ctx.arc(rngCircle.x, rngCircle.y, circles[i].radius, Math.PI * 2, 0, false);
+//         ctx.fillStyle = "rgba(255, 255, 0, 0.8)";
+//         ctx.fill();
+//         ctx.fillStyle = "black"
+//         ctx.font = '20px serif';
+//         ctx.fillText("RNG", rngCircle.x - 20, rngCircle.y + 3);
+//         ctx.closePath();
+//     }}

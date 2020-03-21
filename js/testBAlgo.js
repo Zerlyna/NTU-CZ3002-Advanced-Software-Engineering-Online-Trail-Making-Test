@@ -3,6 +3,8 @@ var ctx = canvas.getContext("2d");
 var circles = [];
 /*var numbers=[1,2,3,4,5,6,7,8,9,10,11,12,13];*/
 var alphabet=["A","B","C","D","E","F","G","H","I","J","K","L"];
+var errorRate=0;
+
 /*var numIndex=0;
 var alphaIndex=0;*/
 
@@ -420,6 +422,7 @@ canvas.addEventListener('mousedown', (e) => {
         if(clickInfo[clickInfo.length - 1].index !=nextIndex)
         {
             alert("Wrong! Please connect to the correct circle!");
+            errorRate++;
            //pop twice
             clickInfo.pop();
             clickInfo.pop();
@@ -620,7 +623,8 @@ function stopTest()
         testResult=secDiff;
     }
     setCookie("test_B", testResult, 1);
-
+    /* Need you to help me store the error rate */
+    
     //document.getElementById("tmtAResult").innerHTML=sessionStorage.getItem("TMT_A") + "Sec";
     // document.getElementById("tmtBResult").innerHTML=testResult+"Sec";
     // var tmtResultA=67;

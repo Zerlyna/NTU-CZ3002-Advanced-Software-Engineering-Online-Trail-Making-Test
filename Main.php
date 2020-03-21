@@ -103,25 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div id="popup3" class="overlay2">
-                    <div class="popup">
-                        <h2 style="text-align:center;font-size:20px;">First Test</h2>
-                        <div class="content">
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;font-size:20px;"><strong>GOALS:</strong><br>Connect 25 circles within the specific time frame to pass the test.<br></p>
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;font-size:20px;"><strong>How to connect?</strong> <br>Press on the dots and release on the next dot</p>
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;font-size:20px;"><strong>What is the sequence?</strong><br>The sequence of this test is in numerical order.<br> Eg: Connect 1 to 2<br> then 2 to 3<br>then 3 to 4</p>
-                            <p style="margin-top:5%;"></p>
-                            <p style="text-align:center;color:red;font-size:20px;"><strong>Note:</strong><br>The first test will start after you click on <strong  style="font-size:25px;">Start</strong> button.<br> Please take this test seriously as it will affect the analysis of your result</p>
-                        </div>
-                        <div class="box">
-                            <a class="button" href="TestA.php">Start</a>
-                        </div>
-                    </div>
-                    
-                </div> -->
+       
             </div>
         </div>
     </div>
