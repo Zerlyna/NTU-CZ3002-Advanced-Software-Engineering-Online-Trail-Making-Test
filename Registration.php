@@ -272,7 +272,8 @@
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/date.js"></script>
     <script type= "text/javascript" src="js/bgrd.js"></script>
-    <script type= "text/javascript" src="js/error.js"></script>
+    <script type= "text/javascript" src="js/validate_client.js"></script>
+    <script type= "text/javascript" src="js/validate_server.js"></script>
 
 <?php
     include('footer.php');

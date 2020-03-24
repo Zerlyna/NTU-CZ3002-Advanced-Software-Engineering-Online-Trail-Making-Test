@@ -222,3 +222,68 @@ return true;
 
 }
 /*Reset Password Page*/
+
+function toVerify(){
+    toggle = true;
+    if(document.forms["verifyform"]["Reg_NRIC_V"].value == "" && (document.forms["verifyform"]["yearSelect"].value != "" || document.forms["verifyform"]["monthSelect"].value != ""))
+    {
+        document.getElementById("Reg_NRIC_V").style.borderBottomColor = "#EED202";
+         document.getElementById("Reg_NRIC_V").value = ""; //clear input
+         document.getElementById('vNRICL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Please Key In Your NRIC";
+         document.getElementById('vNRICL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('vNRICL').innerHTML = "Enter NRIC"; 
+             document.getElementById('vNRICL').style.color = "#9b9b9b";
+        }, 2000);
+        toggle = false;
+    }
+    else if((document.forms["verifyform"]["yearSelect"].value == "" || document.forms["verifyform"]["monthSelect"].value == "") && document.forms["verifyform"]["Reg_NRIC_V"].value != ""){
+        document.getElementById("Reg_NRIC_V").style.borderBottomColor = "#EED202";
+         document.getElementById("Reg_NRIC_V").value = ""; //clear input
+         document.getElementById('vNRICL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Please Key In Your Birthday";
+         document.getElementById('vNRICL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('vNRICL').innerHTML = "Enter NRIC"; 
+             document.getElementById('vNRICL').style.color = "#9b9b9b";
+        }, 2000);
+        toggle = false;
+    }
+    else if((document.forms["verifyform"]["yearSelect"].value == "" || document.forms["verifyform"]["monthSelect"].value == "") && document.forms["verifyform"]["Reg_NRIC_V"].value == ""){
+        document.getElementById("Reg_NRIC_V").style.borderBottomColor = "#EED202";
+         document.getElementById("Reg_NRIC_V").value = ""; //clear input
+         document.getElementById('vNRICL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Please Key In Your NRIC and Birthday";
+         document.getElementById('vNRICL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('vNRICL').innerHTML = "Enter NRIC"; 
+             document.getElementById('vNRICL').style.color = "#9b9b9b";
+        }, 2000);
+        toggle = false;
+    }
+
+    /*if(toggle == true)
+    {
+        if(!validateNRIC(document.forms["verifyform"]["Reg_NRIC_V"].value))
+        {
+            toggle = false;
+         document.getElementById("Reg_NRIC_V").style.borderBottomColor = "#cc0000";
+         document.getElementById("Reg_NRIC_V").value = ""; //clear input
+         document.getElementById('vNRICL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Invalid NRIC/Birthday";
+         document.getElementById('vNRICL').style.color = "#cc0000";
+         setTimeout(function(){ 
+             document.getElementById('vNRICL').innerHTML = "Enter NRIC"; 
+             document.getElementById('vNRICL').style.color = "#9b9b9b";
+        }, 2000);
+
+        }
+
+    }*/
+    if(toggle == false)
+    {
+        return false;
+    }
+        
+    return true;
+
+}
+
+
