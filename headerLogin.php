@@ -17,11 +17,7 @@
                         <i class="fas fa-3x fa-cog"></i>
                     </a>-->
                 </span>
-                <span id = "head_right" class = "head_right">
-                    <a href="logout.php">
-                        <i class="fas fa-3x fa-sign-out-alt"></i>
-                    </a>
-                </span>
+
             </div>
         </div>
     </header>

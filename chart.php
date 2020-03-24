@@ -55,7 +55,7 @@
         data_template = [{
                 name: "Test-A",
                 type: "spline",
-                yValueFormatString: "# Sec",
+                yValueFormatString: "# ",
                 showInLegend: true,
                 dataPoints: [
                 ]
@@ -63,7 +63,7 @@
             {
                 name: "Test-B",
                 type: "spline",
-                yValueFormatString: "# Sec",
+                yValueFormatString: "# ",
                 showInLegend: true,
                 dataPoints: [
                 ]
@@ -77,15 +77,15 @@
         var chart1 = new CanvasJS.Chart("chartContainer1", {
             animationEnabled: true,
             title:{
-                text: "Error History"
+                text: "Error Count"
             },
             axisX: {
                 valueFormatString: "DD MMM,YY"
             },
             axisY: {
-                title: "Time Taken(in seconds)",
+                title: "Number of times",
                 includeZero: false,
-                suffix: "secs"
+                suffix: ""
             },
             legend:{
                 cursor: "pointer",
