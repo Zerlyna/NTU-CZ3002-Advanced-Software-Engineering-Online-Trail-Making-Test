@@ -25,7 +25,7 @@
     }
 
     include_once 'dc.php';
-    include_once 'header.php';
+    include_once 'headerLogin.php';
 ?>
 
 <html>
@@ -37,7 +37,7 @@
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <!-- link .css here (a demo test_wrap.css) -->
-        <link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">
+        <!--<link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">-->
         <link rel="stylesheet" href="css/TestB.css">
         
         <!-- -->
@@ -52,7 +52,7 @@
                     <div class="row2">
                         <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
-                        <canvas id="canvas" width="990px" height="710px"></canvas>
+                        <canvas id="canvas" width="1000px" height="700px"></canvas>
                         <!-- <div class="row2">
                             <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
                         </div> -->
@@ -172,5 +172,5 @@
 </html>
 
 <?php
-    include('footer.php');
+    include('footerLogin.php');
 ?>

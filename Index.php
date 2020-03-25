@@ -52,7 +52,7 @@
                     <div class="wrap">
                         <form role="form" onsubmit="return toLogin()"  method="post" name="loginform" novalidate> <!--novalidate--> <!-- action="php echo $_SERVER['PHP_SELF']; ?>" --> 
                             <div class = "login_logo"><img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo"></div>
-                            <div class = "login_title"><label for="title"><b>Online Trail Making Test</b></label></div>
+                            <div class = "login_title"><label for="title"><b>The Online Trail Making Test</b></label></div>
                             
                             <div class="login_id">
                                 <input id="loginID" name = "NRIC" class="form__field" placeholder="Enter NRIC" required>
