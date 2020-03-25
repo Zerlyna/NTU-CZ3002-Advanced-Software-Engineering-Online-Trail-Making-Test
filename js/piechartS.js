@@ -167,7 +167,7 @@ Dial.prototype.describeArc = function(x, y, radius, startAngle, endAngle){
 }
 
 Dial.prototype.setValue = function(value) {	
-		var c = (value / 180) * 360;
+		var c = (value / 360) * 360;
 		if(c === 360)
 			c = 359.99;
 		var xy = this.size / 2 - this.strokeWidth / 2;
