@@ -527,7 +527,7 @@ function validateEmail(str){
     var gmail = "@gmail.com";
     var ntu = "@ntu.edu.com";
     var yahoo = "@yahoo.com";
-    alert(str.endsWith(gmail));
+    /*alert(str.endsWith(gmail));*/
     if(str.endsWith(gmail) || str.endsWith(ntu) || str.endsWith(yahoo))
     {
         return true;
