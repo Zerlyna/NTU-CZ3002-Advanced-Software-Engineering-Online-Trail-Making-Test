@@ -1107,8 +1107,9 @@ div:after{
 }
 .doc_r2 {
     /*border : 2px solid white;*/
-    height : 3.5vh;
-    background : white;
+    height : 3.9vh;
+    background : #ECEAEA;
+    
     
 }
 
@@ -1118,23 +1119,23 @@ div:after{
     background : none;
 }
 
-.doc_c1{
-    /*border:2px solid white;*/
+/*.doc_c1{
+
     width:48%;
     height:100%;  
     float : left; 
-    background : white; 
+    background : #ECEAEA; 
 }
 .doc_c2{
-    /*border:2px solid white;*/
+   
     width:48%;
     height:100%;  
     float : left; 
-    background : white;
+    background : #ECEAEA;
     
 }
 .doc_c3{
-    /*border:2px solid white;*/
+   
     width:3%;
     height:100%;  
     float : left;  
@@ -1145,7 +1146,7 @@ div:after{
     content: "";
     display: table;
     clear: both;
-}
+}*/
 
 .doc_table{
     /*border : 2px solid white;*/
@@ -1162,6 +1163,12 @@ div:after{
 
 .doc_table_g{
     border : 1px solid #000;
+
+}
+
+.searchf{
+    width : 40%;
+    margin-left : 30%;
 
 }
 

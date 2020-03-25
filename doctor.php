@@ -52,7 +52,7 @@
                     <!-- Minimum HTML, please alter according to your content freely --> 
                     <div class = "doc_r1"><h3 class ="doc_title">Patient Records</h3></div>
                     <div class = "doc_r2">
-                        <div class = "doc_c1">
+                        <!--<div class = "doc_c1">-->
                             <!--<div class = "select">
                                 <select id="searchbar" value = "EMPTY">
                                     <option value="" disabled selected hidden>Click Here to Search</option>
@@ -62,15 +62,13 @@
                                 </select>
                             </div>-->
                             <div class="search">
-                                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form">
+                                <form class = "searchf" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form">
                                     <input type="text" class="searchTerm" placeholder="Search..." name="searchbar" onfocus="this.placeholder=''">
-                                    <button type="submit" name="search" class="searchButton">
-                                    <i class="fas fa-search"></i>
-                                    </button>
+                                    <button type="submit" name="search" class="searchButton"><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
-                        </div>
-                        <div class = "doc_c2">
+                       <!-- </div>-->
+                        <!--<div class = "doc_c2">
                             <div class = "select2">
                                 <select id="searchby2" value = "EMPTY">
                                     <option value="" disabled selected hidden>Search By</option>
@@ -79,10 +77,10 @@
                                     <option value="C">C</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class = "doc_c3">
+                        </div>-->
+                      <!--  <div class = "doc_c3">
                             <i class="fas fa-2x fa-sort-amount-up-alt"></i>
-                        </div>
+                        </div>-->
                     </div>
                     <div class = "doc_r3">
                         <table class = "doc_table">
