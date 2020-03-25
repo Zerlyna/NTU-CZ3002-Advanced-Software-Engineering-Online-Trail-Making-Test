@@ -19,7 +19,7 @@
             header("Location: Index.php");
         } else {
             setcookie("reg", "No");
-            header("Location: wrong.php");
+            /*header("Location: wrong.php");*/
         }
     }
 
@@ -32,7 +32,7 @@
         header("Location: Main.php");*/
 
     include_once 'dc.php';
-    include_once 'header.php';
+    include_once 'headerLogin.php';
 ?>
 <html>
     <head>
@@ -49,7 +49,7 @@
         <div class="limiter">
             <div class="container">
                 <div class="wrap_Reg">
-                    <form role="form" onsubmit = "return toRegister()" method="post" name="registerform"> <!-- action="php echo $_SERVER['PHP_SELF']; ?>"-->
+                    <form role="form" onsubmit = "return toRegister()" method="post" name="registerform" novalidate> <!-- action="php echo $_SERVER['PHP_SELF']; ?>"-->
                         <div class = "reg_r1"><h1> Registration </h1></div>
                         
                         <div class = "reg_r2">
@@ -57,6 +57,7 @@
                                 <i class="far fa-2x fa-circle fa-stack-2x"></i>
                                 <i class="fas fa-1x fa-mars fa-stack-1x"></i>
                             </div>
+                        
 
                             <div class="fa-stack fa-3x female" id = "female" onclick="female()">
                                 <i class="far fa-2x fa-circle fa-stack-2x"></i>
@@ -68,7 +69,7 @@
                             <!--<input type="text" placeholder="Enter Full Name (as in NRIC)" name="Uname" required>-->
                             <div class="login_pw">
                                     <input type="text" id="Reg_FullName" name = "Reg_FullName" class="form__field" placeholder="Enter Full Name (as in NRIC)" required>
-                                    <label class="form__label">Enter Full Name (as in NRIC)</label>
+                                    <label id="Reg_FullNameL" class="form__label">Enter Full Name (as in NRIC)</label>
                             </div>
                         </div>
 
@@ -76,7 +77,7 @@
                             <!--<input type="text" placeholder="Enter NRIC" name="nric" required>-->
                             <div class="login_pw">
                                     <input type="text" id="Reg_NRIC" name = "Reg_NRIC" class="form__field" placeholder="Enter NRIC" required>
-                                    <label class="form__label">Enter NRIC</label>
+                                    <label id="Reg_NRICL" class="form__label">Enter NRIC</label>
                             </div>
                         </div>
 
@@ -84,7 +85,7 @@
                             <!--<input type="text" placeholder="E-mail" name="email" required>-->
                             <div class="login_pw">
                                     <input type="text" id="Reg_E-mail" name = "Reg_Email" class="form__field" placeholder="E-mail" required>
-                                    <label class="form__label">E-mail</label>
+                                    <label id="Reg_E-mailL" class="form__label">E-mail</label>
                             </div>
                         </div>
 
@@ -92,7 +93,7 @@
                             <!--<input type="password" placeholder="Password" name="password" required>-->
                             <div class="login_pw">
                                     <input type="password" id="Reg_PW" name = "Reg_PW" class="form__field" placeholder="Enter Password" required>
-                                    <label class="form__label">Enter Password</label>
+                                    <label id="Reg_PWL" class="form__label">Enter Password</label>
                             </div>
                         </div>
 
@@ -100,7 +101,7 @@
                             <!--<input type="password" placeholder="Re-type Password" name="re_password" required>-->
                             <div class="login_pw">
                                     <input type="password" id="Reg_RPW" name = "Reg_RPW" class="form__field" placeholder="Re-Enter Password" required>
-                                    <label class="form__label">Re-Enter Password</label>
+                                    <label id="Reg_RPWL" class="form__label">Re-Enter Password</label>
                             </div>
                         </div>
 
@@ -264,17 +265,22 @@
                             </div>
                         </div>
                         <div class = "reg_r10">
-                            <form action="Index.php">
+                            <!--<form action="Index.php">-->
                                 <div class="wrap_btn">
                                 <div class="form_bgbtn"></div>
                                     <button name="register" type="submit" class="login_form_btn">Register</button>
                                 </div>
-                            </form>
+                           <!-- </form>-->
                         </div>
+                        </div><!-- hidden gender value-->
+                            <input type="hidden" type="text" id="genderV" name = "genderV"  placeholder="NULL">
+                        <div>
                     </form>
                 </div>
             </div>
         </div>
+    
+        
     </div>
     </body>
     <script src = "js/gender.js"></script>
@@ -289,5 +295,5 @@
              else {alert("lol")}*/
     </script>
 <?php
-    include('footer.php');
+    include('footerLogin.php');
 ?>

@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+include('headerLogin.php');
 
 ?>
 <html>
@@ -78,5 +78,5 @@ include('header.php');
     <script type= "text/javascript" src="js/bgrd.js"></script>
 </html>
 <?php
-include('footer.php');
+include('footerLogin.php');
 ?>

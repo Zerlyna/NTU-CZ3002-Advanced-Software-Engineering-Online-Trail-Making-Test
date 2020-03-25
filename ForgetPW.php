@@ -36,7 +36,7 @@
     }
 
     include_once 'dc.php';
-    include_once 'header.php';
+    include_once 'headerLogin.php';
 ?>
 
 <html>
@@ -297,5 +297,5 @@
 </html>
 
 <?php
-    include('footer.php');
+    include('footerLogin.php');
 ?>
