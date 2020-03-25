@@ -460,7 +460,7 @@ function regenerate(){
       }
       dataURL= canvas.toDataURL();
     }
-    if(clickInfo[clickInfo.length - 1].index==25)
+    if(clickInfo[clickInfo.length - 1].index==3)
      {
     
      stopTest();

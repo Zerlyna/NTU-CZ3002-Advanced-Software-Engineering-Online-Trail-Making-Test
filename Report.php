@@ -15,6 +15,7 @@
     if($row = mysqli_fetch_array($result)){
         $time_A = $row['time_A'];
         $time_B = $row['time_B'];
+        $risk = $row['risk'];
     }
 
     ##get average data -- $test_A. $test_B
@@ -54,7 +55,7 @@
                         <div class = "report_c1">
                             <div class = "report_c1_1"><h1 class = "report_ttt">Total Time Taken</h1></div>
                             <div class = "report_c1_2"><div class="containerL chartL" data-size="360" data-value="<?php echo $time_A+$time_B; ?>" data-arrow="up"> </div></div><!-- data-size no use one-->
-                            <div class = "report_c1_3"><h1 class = "report_rod">Risk to Dementia:</h1><h1>Low</h1></div>
+                            <div class = "report_c1_3"><h1 class = "report_rod">Risk to Dementia:</h1><h1><?php echo $risk;?></h1></div>
                         </div>
                         <div class = "report_c2">
                             <div class = "report_c2_c1"><h1 class = "report_t">Test A</h1></div>

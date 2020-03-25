@@ -11,12 +11,23 @@
     if(isset($_POST['finish'])){
         $time_A = $_COOKIE['test_A'];
         $time_B = $_COOKIE['test_B'];
+        
+        if(($time_A <= 29) && ($time_B <= 75)){
+            $risk = "LOW";
+        }elseif (($time_A > 29) && ($time_B > 75)){
+            $risk = "HIGH";
+        }else{
+            $risk = "MEDIUM";
+        }
+
+        $error_A = $_COOKIE['error_A'];
+        $error_B = $_COOKIE['error_B'];
         $recorded_time = time();
         $day = date("j", $recorded_time);
         $month = date("n", $recorded_time);
         $year = date("Y", $recorded_time);
-        $result = mysqli_query($conn,"INSERT INTO test(NRIC,Year,Month,Day,time_A,time_B) 
-        VALUES('" . $nric . "', '" . $year . "', '" . $month . "', '" . $day . "', '" . $time_A . "', '" . $time_B . "')");
+        $result = mysqli_query($conn,"INSERT INTO test(NRIC,Year,Month,Day,time_A,time_B,error_A,error_B,risk) 
+        VALUES('" . $nric . "', '" . $year . "', '" . $month . "', '" . $day . "', '" . $time_A . "', '" . $time_B . "', '" . $error_A ."', '" . $error_B . "', '" . $risk ."')");
         if ($result == TRUE){
             header("Location: Report.php");
         } else {
@@ -74,12 +85,10 @@
                             
                             <div class="wrap_btn">
                                 <div class="form_bgbtn"></div>
-                                
-                                <button type="submit" class="login_form_btn"  onclick="window.location.href = 'Report.php';"> View Result</button>
-                             
-                                <!-- Use <a></a> instead of button so u can remove the style after onclick -->
-                                <!-- <a id="btnStart" type="submit" style="text-decoration: none;" class="login_form_btn" href="#" onclick="Start()">View Result</a> -->
-                                
+                                <!-- <button type="submit" class="login_form_btn"  onclick="window.location.href = 'Report.php';"> View Result</button> -->
+                                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                    <button class="login_form_btn" type="submit" name = "finish">View Result</button>
+                                </form>
                             </div>
                         </div>
                 
