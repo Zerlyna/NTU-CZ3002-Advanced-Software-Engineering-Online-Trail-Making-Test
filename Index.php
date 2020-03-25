@@ -24,7 +24,7 @@
                 setcookie("login", "Yes");
                 header("Location: Main.php");
             }else{
-                setcookie("login", "No");/*echo "gg";*/
+                setcookie("login", "No");
             }
         }
     }
@@ -32,14 +32,6 @@
     include_once 'header.php';
     include_once 'dc.php';
 ?>
-<!--
-For now:
-    Patient NRIC: S123456789
-    password: 123
-
-    Doctor NRIC: 1
-    password: 1
--->
 <html>
     <head>
         <title>Login</title>
