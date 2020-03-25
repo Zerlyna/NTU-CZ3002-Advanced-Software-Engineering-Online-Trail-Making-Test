@@ -70,76 +70,6 @@ function toLogin(){/*no input*/
 
     }
     
-
-    /*alert (!validatePW(document.forms["loginform"]["loginPW"].value));*/
-
-
-    /*if()
-    {   
-        toggle = false;
-    }*/
-
-    /*if(document.forms["loginform"]["loginPW"].value.match(decimal) == false)
-    {
-        alert("oh no");
-        toggle = false;
-
-    }
-    alert(document.forms["loginform"]["loginPW"].value.match(decimal))*/
-
-    /* if(document.getElementById("loginPW").value == "")   
-     {
-         document.getElementById("loginPW").style.borderBottomColor = "#EED202";
-         document.getElementById("loginPW").value = ""; //clear input 
-         document.getElementById('loginPWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>" + "    Please Key Your Password";
-         document.getElementById('loginPWL').style.color = "#EED202";
-         setTimeout(function(){ 
-             document.getElementById('loginPWL').innerHTML = "Enter Password"; 
-             document.getElementById('loginPWL').style.color = "#9b9b9b";
-         }, 2000);
-         return false;
-     }*/
-     /*if(document.getElementById("loginID").value == "")    
-     {
-         document.getElementById("loginID").style.borderBottomColor = "#EED202";
-         document.getElementById("loginID").value = ""; //clear input
-         document.getElementById('loginIDL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Please Key Your NRIC";
-         document.getElementById('loginIDL').style.color = "#EED202";
-         setTimeout(function(){ 
-             document.getElementById('loginIDL').innerHTML = "Enter NRIC"; 
-             document.getElementById('loginIDL').style.color = "#9b9b9b";
-        }, 2000);
-
-     }*/
-
-     
-     
-    /*invalid input*/
-    /*if (getCookie("login") == "No" && document.forms["loginform"]["loginID"].value != "" && document.forms["loginform"]["loginPW"].value != "")    
-    {
-        document.getElementById("loginPW").style.borderBottomColor = "#cc0000";
-        document.getElementById("loginPW").value = ""; //clear input 
-        document.getElementById('loginPWL').innerHTML = "<i class='fas fa-times-circle'></i>" + "Invalid NRIC/Password";
-        document.getElementById('loginPWL').style.color = "#cc0000";
-        setTimeout(function(){ 
-            document.getElementById('loginPWL').innerHTML = "Enter Password"; 
-            document.getElementById('loginPWL').style.color = "#9b9b9b";
-        }, 2000);
-        document.getElementById("loginID").style.borderBottomColor = "#cc0000";
-        document.getElementById("loginID").value = ""; //clear input
-        document.getElementById('loginIDL').innerHTML = "<i class='fas fa-times-circle'></i>" + "Invalid NRIC/Password";
-        document.getElementById('loginIDL').style.color = "#cc0000";
-        setTimeout(function(){ 
-            document.getElementById('loginIDL').innerHTML = "Enter NRIC"; 
-            document.getElementById('loginIDL').style.color = "#9b9b9b";
-        }, 2000);
-        alert(getCookie("login"));
-        
-    }*/
-   /* if(getCookie("login") == "Yes"){
-        document.getElementById('head_right').style.visibility = 'visible';
-        document.getElementById('Rate').style.visibility = 'visible';
-    }*/
     if(toggle == false)
     {
         return false;
@@ -260,7 +190,7 @@ function toVerify(){
         toggle = false;
     }
 
-    /*if(toggle == true)
+    if(toggle == true)
     {
         if(!validateNRIC(document.forms["verifyform"]["Reg_NRIC_V"].value))
         {
@@ -276,7 +206,7 @@ function toVerify(){
 
         }
 
-    }*/
+    }
     if(toggle == false)
     {
         return false;
@@ -285,5 +215,97 @@ function toVerify(){
     return true;
 
 }
+
+
+function toRSTPW(){
+
+    toggle = true;
+    if(document.forms["resetform"]["RST_PW"].value == "")
+    {
+        document.getElementById("RST_PW").style.borderBottomColor = "#EED202";
+         document.getElementById("RST_PW").value = ""; //clear input 
+         document.getElementById('RST_PWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>" + "    Please Key In Your Password";
+         document.getElementById('RST_PWL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('RST_PWL').innerHTML = "Enter Password"; 
+             document.getElementById('RST_PWL').style.color = "#9b9b9b";
+         }, 2000);
+         toggle = false;
+
+    }
+    if(document.forms["resetform"]["RST_RPW"].value == "")
+    {
+        document.getElementById("RST_RPW").style.borderBottomColor = "#EED202";
+         document.getElementById("RST_RPW").value = ""; //clear input 
+         document.getElementById('RST_RPWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>" + "    Please Key In Your Password Again";
+         document.getElementById('RST_RPWL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('RST_RPWL').innerHTML = "Re-Enter Password"; 
+             document.getElementById('RST_RPWL').style.color = "#9b9b9b";
+         }, 2000);
+         toggle = false;
+
+    }
+    if(toggle == true)
+    {
+        if(!validatePW(document.forms["resetform"]["RST_PW"].value))
+        {
+         document.getElementById("RST_PW").style.borderBottomColor = "#EED202";
+         document.getElementById("RST_PW").value = ""; //clear input 
+         document.getElementById('RST_PWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>" + "    At least a Uppercase & a Lowercase,a Number,8 Char";
+         document.getElementById('RST_PWL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('RST_PWL').innerHTML = "Enter Password"; 
+             document.getElementById('RST_PWL').style.color = "#9b9b9b";
+         }, 2000);
+         toggle = false;
+         document.getElementById("RST_RPW").style.borderBottomColor = "#EED202";
+         document.getElementById("RST_RPW").value = ""; //clear input
+         document.getElementById('RST_RPWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    At least a Uppercase & a Lowercase, a Number, 8 Char";
+         document.getElementById('RST_RPWL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('RST_RPWL').innerHTML = "Re-Enter Password"; 
+             document.getElementById('RST_RPWL').style.color = "#9b9b9b";
+        }, 2000);
+
+        }
+
+    }
+    if(toggle == true)
+    {
+        if(document.forms["resetform"]["RST_PW"].value != document.forms["resetform"]["RST_RPW"].value)
+        {
+         document.getElementById("RST_PW").style.borderBottomColor = "#EED202";
+         document.getElementById("RST_PW").value = ""; //clear input 
+         document.getElementById('RST_PWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>" + "    Password Not Matched";
+         document.getElementById('RST_PWL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('RST_PWL').innerHTML = "Enter Password"; 
+             document.getElementById('RST_PWL').style.color = "#9b9b9b";
+         }, 2000);
+         toggle = false;
+         document.getElementById("RST_RPW").style.borderBottomColor = "#EED202";
+         document.getElementById("RST_RPW").value = ""; //clear input
+         document.getElementById('RST_RPWL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Password Not Matched";
+         document.getElementById('RST_RPWL').style.color = "#EED202";
+         setTimeout(function(){ 
+             document.getElementById('RST_RPWL').innerHTML = "Re-Enter Password"; 
+             document.getElementById('RST_RPWL').style.color = "#9b9b9b";
+        }, 2000);
+
+        }
+
+    }
+    
+    if(toggle == false)
+    {
+        return false;
+    }
+        
+    return true;
+
+}
+
+
 
 

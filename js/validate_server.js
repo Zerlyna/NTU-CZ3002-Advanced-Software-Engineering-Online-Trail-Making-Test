@@ -1,11 +1,5 @@
 function failLogin(){
-            /*var load_Times = 5;
-            alert("back-test");
-            alert(load_Times);
-            if(load_Times == 5) {
-                  alert("checkp")
-            }
-            else{*/
+
             document.getElementById("loginPW").style.borderBottomColor = "#cc0000";
             document.getElementById("loginPW").value = ""; //clear input 
             document.getElementById('loginPWL').innerHTML = "<i class='fas fa-times-circle'></i>" + "Invalid NRIC/Password";
@@ -22,13 +16,11 @@ function failLogin(){
                   document.getElementById('loginIDL').innerHTML = "Enter NRIC"; 
                   document.getElementById('loginIDL').style.color = "#9b9b9b";
             }, 2000);
-           // }
-
-    
+  
 }
 
 function failVerify(){
-      document.getElementById("Reg_NRIC_V").style.borderBottomColor = "#cc0000";
+         document.getElementById("Reg_NRIC_V").style.borderBottomColor = "#cc0000";
          document.getElementById("Reg_NRIC_V").value = ""; //clear input
          document.getElementById('vNRICL').innerHTML = "<i class='fas fa-exclamation-circle'></i>"+"    Invalid NRIC/Birthday";
          document.getElementById('vNRICL').style.color = "#cc0000";
@@ -38,8 +30,19 @@ function failVerify(){
         }, 2000);
 
 }
+function failReg(){
+      document.getElementById("RST_PW").style.borderBottomColor = "#cc0000";
+      document.getElementById("RST_PW").value = ""; //clear input 
+      document.getElementById('RST_PWL').innerHTML = "<i class='fas fa-times-circle'></i>" + "Invalid Password";
+      document.getElementById('RST_PWL').style.color = "#cc0000";
+      setTimeout(function(){ 
+            document.getElementById('RST_PWL').innerHTML = "Enter Password"; 
+            document.getElementById('RST_PWL').style.color = "#9b9b9b";
+      }, 2000);
 
-function failRSTPW(){
+}
+
+/*function failRSTPW(){
 
       document.getElementById("RST_PW").style.borderBottomColor = "#cc0000";
             document.getElementById("RST_PW").value = ""; //clear input 
@@ -59,4 +62,4 @@ function failRSTPW(){
             }, 2000);
            // }
     
-}
+}*/

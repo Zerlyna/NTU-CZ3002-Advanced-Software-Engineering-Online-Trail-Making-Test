@@ -1,8 +1,8 @@
 <?php
     session_start();
-
+    
     include_once "connect.php";
-
+    setcookie("reg", "Null"); 
     if(isset($_POST['register'])){
         $gender = mysqli_real_escape_string($conn, $_COOKIE['gender']);
         $name = mysqli_real_escape_string($conn, $_POST['Reg_FullName']);
@@ -15,11 +15,21 @@
         $result=mysqli_query($conn,"INSERT INTO patient(NRIC,Name,gender,password,email,Year,Month,Day) 
         VALUES('" . $nric . "', '" . $name . "', '" . $gender . "', '" . $password . "', '" . $email . "', '" . $year . "', '" . $month . "', '" . $day . "')");
         if ($result == TRUE){
+            setcookie("reg", "Yes");
             header("Location: Index.php");
         } else {
+            setcookie("reg", "No");
             header("Location: wrong.php");
         }
     }
+
+    /*$NRIC = mysqli_real_escape_string($conn,$_POST['NRIC']);
+    $password = mysqli_real_escape_string($conn,$_POST['password']);
+    $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $NRIC. "' and password = '" . $password . "'");
+    if ($row = mysqli_fetch_array($result)){
+        $_SESSION['NRIC'] = $row['NRIC'];
+        setcookie("login", "Yes");
+        header("Location: Main.php");*/
 
     include_once 'dc.php';
     include_once 'header.php';
@@ -39,7 +49,7 @@
         <div class="limiter">
             <div class="container">
                 <div class="wrap_Reg">
-                    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="registerform">
+                    <form role="form" onsubmit = "return toRegister()" method="post" name="registerform"> <!-- action="php echo $_SERVER['PHP_SELF']; ?>"-->
                         <div class = "reg_r1"><h1> Registration </h1></div>
                         
                         <div class = "reg_r2">
@@ -274,7 +284,10 @@
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/validate_client.js"></script>
     <script type= "text/javascript" src="js/validate_server.js"></script>
-
+    <script> if(getCookie("reg") == "No"){failReg();}
+             /*else if (getCookie("login") == "Yes"){alert("pass");passLogin();}
+             else {alert("lol")}*/
+    </script>
 <?php
     include('footer.php');
 ?>

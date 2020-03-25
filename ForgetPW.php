@@ -4,7 +4,7 @@
     
     unset($_SESSION['success']);
     setcookie("rstPW", "Null"); 
-    setcookie("rstPWC", "Null"); 
+    //setcookie("rstPWC", "Null"); 
     if(isset($_POST['verify'])){
         $nric = mysqli_real_escape_string($conn, $_POST['Reg_NRIC_V']);
         $year = mysqli_real_escape_string($conn, $_POST['year']);
@@ -27,9 +27,9 @@
         $result=mysqli_query($conn,"UPDATE patient SET password = '" . $password. "' WHERE NRIC = '". $nric ."'");
         if ($result == True){
             $_SESSION['success'] = True;  
-            setcookie("rstPWC", "Yes");       
+            //setcookie("rstPWC", "Yes");       
         }else{
-            setcookie("rstPWC", "No");   
+            //setcookie("rstPWC", "No");   
             header("Location: ForgetPW.php");
         }
         unset($_SESSION['verified']);
@@ -224,11 +224,11 @@
                         <!--<button onclick = "verify()" type="submit" class="verify">Verify</button>-->
                         <div class="wrap_btn">
                             <div class="form_bgbtn"></div>
-                            <button onclick = "verify()"  type="submit" name = "verify" class="login_form_btn">Verify</button>
+                            <button  type="submit" name = "verify" class="login_form_btn">Verify</button> <!-- onclick = "verify()"-->
                         </div>
                     </div>
                 </form>
-                <form role="form" onsubmit = "toRSTPW()" method="post" name="resetform"> <!--action="<php echo $_SERVER['PHP_SELF']; ?>" -->
+                <form role="form" onsubmit = "return toRSTPW()" method="post" name="resetform" novalidate> <!--action="<php echo $_SERVER['PHP_SELF']; ?>" -->
                     <div id = "overlay_verify">
                     <?php
                         if ($_SESSION['verified'] == True){
@@ -290,10 +290,10 @@
              /*else if (getCookie("login") == "Yes"){alert("pass");passLogin();}
              else {alert("lol")}*/
     </script>
-    <script> if(getCookie("rstPWC") == "No"){failRSTPW();}
+    <!--<script> if(getCookie("rstPWC") == "No"){failRSTPW();}
              /*else if (getCookie("login") == "Yes"){alert("pass");passLogin();}
              else {alert("lol")}*/
-    </script>
+    </script>-->
 </html>
 
 <?php
