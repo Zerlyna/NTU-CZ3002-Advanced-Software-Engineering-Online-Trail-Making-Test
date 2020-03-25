@@ -538,7 +538,7 @@ canvas.addEventListener('mousedown', (e) => {
        //show result
         //msgObj.innerHTML = result;
         //[lastX, lastY] = [e.offsetX, e.offsetY];
-        if(clickInfo[clickInfo.length-1].index==3)
+        if(clickInfo[clickInfo.length-1].index==25)
          {
             
             stopTest();

@@ -55,7 +55,7 @@
         data_template = [{
                 name: "Test-A",
                 type: "spline",
-                yValueFormatString: "# Sec",
+                yValueFormatString: "# count",
                 showInLegend: true,
                 dataPoints: [
                 ]
@@ -63,14 +63,14 @@
             {
                 name: "Test-B",
                 type: "spline",
-                yValueFormatString: "# Sec",
+                yValueFormatString: "# count",
                 showInLegend: true,
                 dataPoints: [
                 ]
             }];
         for (var i = 0; i < data_json.year.length; i++) {
-            var temp_a = { x: new Date(data_json.year[i],data_json.month[i],data_json.day[i]), y: parseFloat(data_json.time_A_arr[i]) };
-            var temp_b = { x: new Date(data_json.year[i],data_json.month[i],data_json.day[i]), y: parseFloat(data_json.time_B_arr[i]) };
+            var temp_a = { x: new Date(data_json.year[i],data_json.month[i],data_json.day[i]), y: parseFloat(data_json.error_A[i]) };
+            var temp_b = { x: new Date(data_json.year[i],data_json.month[i],data_json.day[i]), y: parseFloat(data_json.error_B[i]) };
             data_template[0].dataPoints.push(temp_a);
             data_template[1].dataPoints.push(temp_b);
         }
@@ -83,9 +83,9 @@
                 valueFormatString: "DD MMM,YY"
             },
             axisY: {
-                title: "Time Taken(in seconds)",
+                title: "Error count",
                 includeZero: false,
-                suffix: "secs"
+                suffix: ""
             },
             legend:{
                 cursor: "pointer",
@@ -111,29 +111,4 @@
         }
     }
 
-
-
-    // data_template = [{
-    //         name: "TMT-A",
-    //         type: "spline",
-    //         yValueFormatString: "# Mins",
-    //         showInLegend: true,
-    //         dataPoints: [
-    //             { x: new Date(2017,6,24), y: 1 },
-    //             { x: new Date(2018,6,25), y: 2.1 },
-    //             { x: new Date(2019,7,26), y: 3 },
-    //         ]
-    //     },
-    //     {
-    //         name: "TMT-B",
-    //         type: "spline",
-    //         yValueFormatString: "# Mins",
-    //         showInLegend: true,
-    //         dataPoints: [
-    //             { x: new Date(2017,6,24), y: 1 },
-    //             { x: new Date(2018,6,25), y: 2 },
-    //             { x: new Date(2019,6,26), y: 3.5},
-
-    //         ]
-    //     }];
 </script>
