@@ -9,6 +9,24 @@
         header('Location: Index.php');
     }
 
+    if(isset($_SESSION['search'])){
+        $search = $_SESSION['search'];
+        $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC WHERE patient.doctor = '" .$doctor_id."' AND patient.NRIC = '" .$search . "'";
+        $result = mysqli_query($conn,$query);
+        if($result){
+        }
+        unset($_SESSION['search']);
+    }else{
+        $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC WHERE patient.doctor = '" .$doctor_id."'";
+        $result=mysqli_query($conn,$query);
+    }
+
+    if(isset($_POST['search'])){
+        $search = mysqli_real_escape_string($conn,$_POST['searchbar']);
+        $_SESSION["search"] = $search;
+        header('Location: doctor.php');
+    }
+
     include_once 'header.php';
 ?>
 <html>
@@ -44,10 +62,12 @@
                                 </select>
                             </div>-->
                             <div class="search">
-                                <input type="text" class="searchTerm" placeholder="Search..." onfocus="this.placeholder=''">
-                                <button type="submit" class="searchButton">
-                                <i class="fas fa-search"></i>
-                                </button>
+                                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form">
+                                    <input type="text" class="searchTerm" placeholder="Search..." name="searchbar" onfocus="this.placeholder=''">
+                                    <button type="submit" name="search" class="searchButton">
+                                    <i class="fas fa-search"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <div class = "doc_c2">
@@ -79,14 +99,12 @@
                         </thead>
                         <?php
                             //below code is a while loop...it will repeat till the table had listed completely...
-                            $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC WHERE patient.doctor = '" .$doctor_id."'";
-                            $result=mysqli_query($conn,$query);
                             while($row=mysqli_fetch_assoc($result)){
                         ?>
                         <tbody>
                             <tr>
                                 <th class = "doc_table_g"><?php echo $row['id']; ?></th>
-                                <th class = "doc_table_g"><?php echo $row['NRIC']; ?></th>
+                                <th class = "doc_table_g"><?php echo "<a href='record.php?nric_view=".$row['NRIC']."'>".$row['NRIC']."</a>"; ?></th>
                                 <th class = "doc_table_g"><?php echo $row['Name']; ?></th>
                                 <th class = "doc_table_g"><?php echo $row['gender']; ?></th>
                                 <th class = "doc_table_g"><?php echo $row['time_A']; ?></th>
