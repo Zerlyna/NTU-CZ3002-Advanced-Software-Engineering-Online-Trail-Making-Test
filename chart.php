@@ -55,11 +55,7 @@
         data_template = [{
                 name: "Test-A",
                 type: "spline",
-<<<<<<< HEAD
                 yValueFormatString: "# ",
-=======
-                yValueFormatString: "# count",
->>>>>>> 5c36ded644b84abe2a420f45a81ddb4c8c0e2de2
                 showInLegend: true,
                 dataPoints: [
                 ]
@@ -67,11 +63,7 @@
             {
                 name: "Test-B",
                 type: "spline",
-<<<<<<< HEAD
                 yValueFormatString: "# ",
-=======
-                yValueFormatString: "# count",
->>>>>>> 5c36ded644b84abe2a420f45a81ddb4c8c0e2de2
                 showInLegend: true,
                 dataPoints: [
                 ]
@@ -91,11 +83,7 @@
                 valueFormatString: "DD MMM,YY"
             },
             axisY: {
-<<<<<<< HEAD
                 title: "Number of times",
-=======
-                title: "Error count",
->>>>>>> 5c36ded644b84abe2a420f45a81ddb4c8c0e2de2
                 includeZero: false,
                 suffix: ""
             },

@@ -26,11 +26,7 @@
                 setcookie("login", "Yes");
                 header("Location: Main.php");
             }else{
-<<<<<<< HEAD
                 setcookie("login", "No"); 
-=======
-                setcookie("login", "No");
->>>>>>> 5c36ded644b84abe2a420f45a81ddb4c8c0e2de2
             }
         }
         
