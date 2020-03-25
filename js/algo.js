@@ -553,6 +553,7 @@ function stopTest()
         testResult=secDiff;
     }
     setCookie("test_A", testResult, 1);
+    setCookie("error_A", errorRate, 1);
     /**Need you to store the error rate  the variable name is errorRate*/
 
     window.sessionStorage.setItem("TMT_A", JSON.stringify(testResult));

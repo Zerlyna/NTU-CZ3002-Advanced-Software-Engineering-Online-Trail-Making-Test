@@ -6,9 +6,17 @@
     setcookie("rstPW", "Null"); 
     //setcookie("rstPWC", "Null"); 
     if(isset($_POST['verify'])){
+        if (empty($_POST['year'])){
+            $year = 1;
+        }else{
+            $year = mysqli_real_escape_string($conn, $_POST['year']);
+        }
+        if (empty($_POST['month'])){
+            $month = 1;
+        }else{
+            $month = mysqli_real_escape_string($conn, $_POST['month']);
+        }
         $nric = mysqli_real_escape_string($conn, $_POST['Reg_NRIC_V']);
-        $year = mysqli_real_escape_string($conn, $_POST['year']);
-        $month = mysqli_real_escape_string($conn, $_POST['month']);
         $day = mysqli_real_escape_string($conn, $_POST['day']);
         $result=mysqli_query($conn,"SELECT * FROM patient WHERE NRIC = '" . $nric. "'AND Year = '" . $year . "' AND Month = '". $month ."'AND Day = '". $day ."'");
         if ($result->num_rows > 0){

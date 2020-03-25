@@ -623,6 +623,8 @@ function stopTest()
         testResult=secDiff;
     }
     setCookie("test_B", testResult, 1);
+    setCookie("error_B", errorRate, 1);
+
     /* Need you to help me store the error rate */
     
     //document.getElementById("tmtAResult").innerHTML=sessionStorage.getItem("TMT_A") + "Sec";

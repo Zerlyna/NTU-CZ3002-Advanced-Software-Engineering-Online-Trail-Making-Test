@@ -18,8 +18,10 @@
     $data->time_A_arr = array();
     $data->time_B_arr = array();
     $data->risk = array();
+    $data->error_A = array();
+    $data->error_B = array();
 
-    $query = "SELECT * FROM patient WHERE NRIC='".$nric."'";
+    $query = "SELECT * FROM patient WHERE NRIC='".$nric."' LIMIT 5";
     $result = mysqli_query($conn, $query);
     if($row = mysqli_fetch_array($result)){
         $name = $row["Name"];
@@ -37,11 +39,21 @@
         array_push($data->time_A_arr, $row['time_A']);
         array_push($data->time_B_arr, $row['time_B']); 
         array_push($data->risk, $row['risk']);
+        array_push($data->error_A, $row['error_A']);
+        array_push($data->error_B, $row['error_B']);
     }
 
     $A = $data->time_A_arr[count($data->time_A_arr) - 1];
     $B = $data->time_B_arr[count($data->time_B_arr) - 1];
     $total = intval($A) + intval($B);
+
+    $day = $data->day[count($data->day) - 1];
+    $month = $data->month[count($data->month) - 1];
+    $year = $data->year[count($data->year) - 1];
+
+    $error_A = $data->error_A[count($data->error_A) - 1];
+    $error_B = $data->error_B[count($data->error_B) - 1];
+    $error = intval($error_A) + intval($error_B);
 
     $risk = $data->risk[count($data->risk) - 1];  
     if($total <= 273){
@@ -140,7 +152,7 @@
                                 
                             </div>-->
                             <div class = "rec_c1r4">
-                                <h2>Last Test Taken: <font color="red"> 17 Mar 2020</font></h2> 
+                                <h2>Last Test Taken: <font color="red"><?php echo $day . "-" . $month . "-" . $year?></font></h2> 
 
                                 <!-- Start of the Circular progress bar -->
                                 <div class="flex-wrapper">
@@ -200,7 +212,7 @@
                             
                                 </div>
 
-                                <h3 id="ErrorRate">No. Of Errors Made:<h3>
+                                <h3 id="ErrorRate">No. Of Errors Made: <?php echo $error;?><h3>
                                 <h3 id="RESULT" style="text-align:center;"><?php echo "Test Result: ".$show_result; ?></h3> 
                                  <h3 id="risk" style="text-align:center;magin-top:1%;"><?php echo "Risk Of Dementia: ". "<font color='blue'>". $risk ."</font>";?></h3>
                                  <!-- End of the circular progress bar -->
@@ -228,13 +240,11 @@
                             <div id="chartContainer" style="height: 370px; width: 100%;top: 0;">
                                 <?php
                                     include('chart.php');
-                                    
                                 ?>
                             </div>
-                            <div id="chartContainer1" style="height: 370px; width: 100%;>
+                            <div id="chartContainer1" style="height: 370px; width: 100%;">
                                 <?php
                                     include('chart.php');
-                                    
                                 ?>
                             </div>
                         </div>
