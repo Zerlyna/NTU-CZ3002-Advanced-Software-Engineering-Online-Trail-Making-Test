@@ -10,16 +10,17 @@
     
   .box {
     width: 70%;
+
     margin: 0 auto;
     background: rgba(255,255,255,0.2);
-    padding: 35px;
+    /*padding: 35px;
     border: 2px solid #fff;
     border-radius: 20px/50px;
     background-clip: padding-box;
-    text-align: center;
+    text-align: center;*/
   }
   .button {
-    font-family: Poppins-Medium;
+    /*font-family: Poppins-Medium;*/
     font-size: 15px;
     padding: 10px;
     color: #fff;
@@ -66,7 +67,7 @@
   }
 
   .overlay2 {
-    position: fixed;
+    /*position: fixed;*/
     top: 0;
     bottom: 0;
     left: 0;
@@ -94,7 +95,7 @@
   .popup h2 {
     margin-top: 0;
     color: #333;
-    font-family: Tahoma, Arial, sans-serif;
+    /*font-family: Tahoma, Arial, sans-serif;*/
   }
   .popup .close {
     position: absolute;

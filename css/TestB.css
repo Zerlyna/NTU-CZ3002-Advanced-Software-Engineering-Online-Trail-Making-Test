@@ -62,6 +62,7 @@
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
+    z-index: 2;
   }
   .overlay:target {
     visibility: visible;
@@ -78,6 +79,7 @@
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
+    z-index: 2;
   }
   .overlay2:target {
     visibility: visible;
@@ -85,19 +87,21 @@
   }
 
   .popup {
-    margin: 70px auto;
+    /*margin: 70px auto;*/
+    margin : 0px auto;
+    margin-top: 10%;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 30%;
-    position: relative;
+    width: 40%;
+    /*position: relative;*/
     transition: all 5s ease-in-out;
   }
   
   .popup h2 {
     margin-top: 0;
     color: #333;
-    font-family: Tahoma, Arial, sans-serif;
+    /*font-family: Tahoma, Arial, sans-serif;*/
   }
   .popup .close {
     position: absolute;
@@ -143,7 +147,7 @@
    .timerDIV{
         background-color:#ECEAEA;
         color:black;
-        font-family: Verdana, sans-serif, Arial;
+        /*font-family: Verdana, sans-serif, Arial;*/
         font-size: 20px;
         text-align: center;
         visibility: hidden;

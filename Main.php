@@ -40,7 +40,7 @@
                 </div>
                 <div id="popup1" class="overlay">
                     <div class="popup">
-                        <h2 style="text-align:center;">Welcome</h2>
+                        <h1 style="text-align:center;">Welcome</h1>
                         <a class="close" href="#">&times;</a>
                         <div class="content" >
                             <br>
