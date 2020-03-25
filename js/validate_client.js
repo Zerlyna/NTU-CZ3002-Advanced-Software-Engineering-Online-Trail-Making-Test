@@ -273,7 +273,7 @@ function toRegister(){
     
     */ 
     toggle = true;
-    alert("haha");
+    /*alert("haha");*/
     if(document.forms["registerform"]["genderV"].value == "") //how to read
     {
             /*alert("please select a gender");*/
