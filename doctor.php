@@ -11,13 +11,13 @@
 
     if(isset($_SESSION['search'])){
         $search = $_SESSION['search'];
-        $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC WHERE patient.doctor = '" .$doctor_id."' AND patient.NRIC = '" .$search . "'";
+        $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC WHERE patient.NRIC = '" .$search . "'";
         $result = mysqli_query($conn,$query);
         if($result){
         }
         unset($_SESSION['search']);
     }else{
-        $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC WHERE patient.doctor = '" .$doctor_id."'";
+        $query = "SELECT id, test.NRIC, Name, gender, time_A, time_B  FROM test INNER JOIN patient ON test.NRIC = patient.NRIC";
         $result=mysqli_query($conn,$query);
     }
 

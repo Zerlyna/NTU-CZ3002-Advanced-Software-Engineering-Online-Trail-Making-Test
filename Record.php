@@ -14,9 +14,9 @@
     ##get user data -- 
     $query = "SELECT * FROM test WHERE NRIC='".$nric."' ORDER BY id";
     $result = mysqli_query($conn, $query);
-    $exists = mysqli_num_rows($result)
+    $exists = mysqli_num_rows($result);
     if ($exists == 0){
-        mysqli_num_rows($result)
+        header('Location: Index.php');
     }
 
     $data = new stdClass();
