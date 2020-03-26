@@ -11,6 +11,14 @@
         header('Location: Index.php');
     }
 
+    ##get user data -- 
+    $query = "SELECT * FROM test WHERE NRIC='".$nric."' ORDER BY id";
+    $result = mysqli_query($conn, $query);
+    $exists = mysqli_num_rows($result)
+    if ($exists == 0){
+        mysqli_num_rows($result)
+    }
+
     $data = new stdClass();
     $data->year = array();
     $data->month = array();
@@ -22,15 +30,12 @@
     $data->error_B = array();
 
     $query = "SELECT * FROM patient WHERE NRIC='".$nric."' LIMIT 5";
-    $result = mysqli_query($conn, $query);
-    if($row = mysqli_fetch_array($result)){
+    $result1 = mysqli_query($conn, $query);
+    if($row = mysqli_fetch_array($result1)){
         $name = $row["Name"];
         $gender = $row["gender"];
     }
 
-    ##get user data -- 
-    $query = "SELECT * FROM test WHERE NRIC='".$nric."' ORDER BY id";
-    $result = mysqli_query($conn, $query);
     while($row = mysqli_fetch_assoc($result)){
         #pass into array
         array_push($data->year, $row['Year']);
