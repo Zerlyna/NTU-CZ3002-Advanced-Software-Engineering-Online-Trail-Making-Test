@@ -82,14 +82,14 @@ function generateCir()
         if(circles.length < 1 && circles.length >= 0)
         {
             randX = Math.floor(Math.random()* 940 + 40);
-            randY = Math.floor(Math.random()* 660 + 40);
+            randY = Math.floor(Math.random()* 640 + 40);
         }
         else if (circles.length >= 1)
         {
             do{
                 
                 randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
-                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
+                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 680 - 350);
 
                 if(counter3 > 2000)
                 {
@@ -98,7 +98,7 @@ function generateCir()
                     return;
                 }
                 counter3++;
-            }while(randX > 940 || randY > 660 || randX < 40 || randY < 40); 
+            }while(randX > 960 || randY > 660 || randX < 40 || randY < 40); 
         }
         rngCircle =
         {
@@ -205,9 +205,9 @@ function generateCir()
         toggle = false;
         ctx.lineWidth = "5";
         ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(10, 10, 980, 700);
+        ctx.fillRect(0, 0, 1000, 700);
         ctx.strokeStyle = "black";
-        ctx.strokeRect(10, 10, 980, 700);
+        ctx.strokeRect(0, 0, 1000, 700);
         ctx.lineWidth = "2";
 
         for (i = 0; i < circles.length; i++) {

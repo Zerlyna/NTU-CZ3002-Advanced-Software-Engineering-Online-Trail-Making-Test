@@ -3,7 +3,8 @@
     include_once 'connect.php';
     
     unset($_SESSION['success']);
-
+    setcookie("rstPW", "Null"); 
+    //setcookie("rstPWC", "Null"); 
     if(isset($_POST['verify'])){
         if (empty($_POST['year'])){
             $year = 1;
@@ -21,8 +22,10 @@
         if ($result->num_rows > 0){
             $_SESSION['verified'] = True;
             $_SESSION['NRIC'] = $nric;
+            setcookie("rstPW", "Yes"); 
         }else{
             $_SESSION['verified'] = False;
+            setcookie("rstPW", "No"); 
         }
     }
 
@@ -31,15 +34,17 @@
         $password = mysqli_real_escape_string($conn, $_POST['RST_PW']);
         $result=mysqli_query($conn,"UPDATE patient SET password = '" . $password. "' WHERE NRIC = '". $nric ."'");
         if ($result == True){
-            $_SESSION['success'] = True;         
+            $_SESSION['success'] = True;  
+            //setcookie("rstPWC", "Yes");       
         }else{
+            //setcookie("rstPWC", "No");   
             header("Location: ForgetPW.php");
         }
         unset($_SESSION['verified']);
     }
 
     include_once 'dc.php';
-    include_once 'header.php';
+    include_once 'headerLogin.php';
 ?>
 
 <html>
@@ -57,12 +62,12 @@
         <div class="limiter">
             <div class="container">
                 <div class="wrap_RST">
-                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="verifyform">
+                <form role="form" onsubmit="return toVerify()" method="post" name="verifyform" novalidate> <!-- action="php echo $_SERVER['PHP_SELF']; ?>"-->
                     <div class = "RST_r1"><h1> Verification </h1></div>
                     <div class = "RST_r2"><!--<input type="text" placeholder="Enter NRIC" name="nric" required>-->
                         <div class="login_pw">
                                 <input type="text" id="Reg_NRIC_V" name = "Reg_NRIC_V" class="form__field" placeholder="Enter NRIC" required>
-                                <label class="form__label">Enter NRIC</label>
+                                <label id = "vNRICL" class="form__label">Enter NRIC</label>
                         </div>
                     </div>
                     <div class = "RST_r3"><p>D.O.B</p></div>
@@ -227,11 +232,11 @@
                         <!--<button onclick = "verify()" type="submit" class="verify">Verify</button>-->
                         <div class="wrap_btn">
                             <div class="form_bgbtn"></div>
-                            <button onclick = "verify()"  type="submit" name = "verify" class="login_form_btn">Verify</button>
+                            <button  type="submit" name = "verify" class="login_form_btn">Verify</button> <!-- onclick = "verify()"-->
                         </div>
                     </div>
                 </form>
-                <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="resetform">
+                <form role="form" onsubmit = "return toRSTPW()" method="post" name="resetform" novalidate> <!--action="<php echo $_SERVER['PHP_SELF']; ?>" -->
                     <div id = "overlay_verify">
                     <?php
                         if ($_SESSION['verified'] == True){
@@ -245,14 +250,14 @@
                             <!--<input type="password" placeholder="Enter Password" name="password" required>-->
                             <div class="login_pw">
                                 <input type="password" id="RST_PW" name = "RST_PW" class="form__field" placeholder="Enter Password" required>
-                                <label class="form__label">Enter Password</label>
+                                <label id = "RST_PWL" class="form__label">Enter Password</label>
                             </div>
                         </div>
                         <div class = "V_r3">
                             <!--<input type="password" placeholder="Re-Enter Password" name="re_password" required>-->
                             <div class="login_pw">
                                 <input type="password" id="RST_RPW" name = "RST_RPW" class="form__field" placeholder="Re-Enter Password" required>
-                                <label class="form__label">Re-Enter Password</label>
+                                <label id = "RST_RPWL"class="form__label">Re-Enter Password</label>
                             </div>
                         </div>
                         <div class = "V_r4">
@@ -287,9 +292,18 @@
     <script type= "text/javascript" src="js/date.js"></script>
     <script type= "text/javascript" src="js/cookie.js"></script>
     <script type= "text/javascript" src="js/overlay.js"></script>
-    <script type= "text/javascript" src="js/error.js"></script>
+    <script type= "text/javascript" src="js/validate_client.js"></script>
+    <script type= "text/javascript" src="js/validate_server.js"></script>
+    <script> if(getCookie("rstPW") == "No"){failVerify();}
+             /*else if (getCookie("login") == "Yes"){alert("pass");passLogin();}
+             else {alert("lol")}*/
+    </script>
+    <!--<script> if(getCookie("rstPWC") == "No"){failRSTPW();}
+             /*else if (getCookie("login") == "Yes"){alert("pass");passLogin();}
+             else {alert("lol")}*/
+    </script>-->
 </html>
 
 <?php
-    include('footer.php');
+    include('footerLogin.php');
 ?>

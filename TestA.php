@@ -7,7 +7,7 @@
         header('Location: Index.php');
     }
     
-    include('header.php');
+    include('headerLogin.php');
 ?>
 
 <html>
@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="css/headfoot.css">
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
-        <link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">
+        <!--<link rel="stylesheet" href="_Front-End_Beta/test_wrap.css">-->
         <link rel="stylesheet" href="css/TestA.css">
         <!-- -->
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -36,7 +36,7 @@
                     <div class="row2">
                         <div id="timerCountDown" class="timerDIV">Time left=<span id="timer"></span></div>
                     
-                        <canvas id="canvas" width="990px" height="720px"></canvas>
+                        <canvas id="canvas" width="1000px" height="700px"></canvas>
                         <!-- <div class="row2">
                             <a class="button" style="width:10%;text-align:center; margin-left:45%;margin-top:1%;" onclick="startTest()">Start</a>
                         </div> -->
@@ -44,7 +44,7 @@
             </div>
             
                 <!-- Do rescale your class "wrap_(your identifier)" -->
-               <div id="popup3" class="overlay2">
+              <div id="popup3" class="overlay2">
                     <div class="popup">
                         <h2>First Test</h2>
                         <div class="content">
@@ -61,7 +61,7 @@
                       
                         <div class="wrap_btn">
                             <div class="form_bgbtn"></div>
-                            <!-- Use <a></a> instead of button so u can remove the style after onclick -->
+
                             <a id="btnStart" type="submit"  style="text-decoration: none;"  class="login_form_btn" href="#buttonPopout" style="">Next</a>
                         </div>
                         </div>
@@ -73,7 +73,7 @@
                     <div class="buttonPopout">
                         <div class="wrap_btn">
                             <div class="form_bgbtn"></div>
-                            <!-- Use <a></a> instead of button so u can remove the style after onclick -->
+
                             <a id="btnStart" type="submit" style="text-decoration: none;" class="login_form_btn" href="#" onclick="Start()">Start</a>
                         </div>
                     </div>
@@ -99,11 +99,9 @@
                             <p class="textRed"><strong>Note:</strong><br>The first test will start after you click on Start button.<br> Please take this test seriously as it will affect the analysis of your result</p>
                         </div>
                         <div class="box">
-                            <!-- <a class="button" href="TestB.php">Next</a> -->
                             <div class="wrap_btn">
                             <div class="form_bgbtn"></div>
                             <button type="submit" class="login_form_btn"  onclick="window.location.href = 'TestB.php';"> Next</button>
-                            <!-- <a id="btnStart" style="text-decoration:none;" type="submit" class="login_form_btn" href="#" onclick="Start()">Start</a> -->
                         </div>
                         </div>
                     </div>
@@ -122,5 +120,5 @@
 </html>
 
 <?php
-    include('footer.php');
+    include('footerLogin.php');
 ?>

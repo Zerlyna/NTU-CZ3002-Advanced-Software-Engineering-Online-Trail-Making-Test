@@ -204,7 +204,7 @@ label[class = form__label],
 }
 
 .Main_txtT{
-  margin-left : 22%;
+  margin-left : 53%;
   color : black;
   margin-top : 0%;
 }
@@ -386,6 +386,8 @@ select::-ms-expand {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
+  position : absolute;
+  
   
 }
 
@@ -413,6 +415,7 @@ select::-ms-expand {
   /*padding: 0 .5em;*/
   color:#000;
   cursor:pointer;
+  visibility: hidden;
   
   /*font-family: 'Open Sans', sans-serif;*/
   

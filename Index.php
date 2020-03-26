@@ -1,11 +1,13 @@
 <?php
+    $loadTimes = 0;
     session_start();
     /*define('RESTRICTED',1);*/
     include_once 'connect.php';
     unset($_SESSION['success']);
-    
+    setcookie("login", "Null"); 
     //check if form is submitted
     if(isset($_POST['login'])){
+        
         //normal patient
         if(isset($_POST['doctorcheckbox'])){
             $doctorid = mysqli_real_escape_string($conn,$_POST['NRIC']);
@@ -24,12 +26,13 @@
                 setcookie("login", "Yes");
                 header("Location: Main.php");
             }else{
-                setcookie("login", "No");
+                setcookie("login", "No"); 
             }
         }
+        
     }
 
-    include_once 'header.php';
+    include_once 'headerLogin.php';
     include_once 'dc.php';
 ?>
 <html>
@@ -42,14 +45,14 @@
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">   
     </head>
-    <body onload="toMainPage()">
+    <body> <!-- onload="toMainPage()"-->
         <div class = "bgrd">
             <div class="limiter">
                 <div class="container">
                     <div class="wrap">
-                        <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="loginform"> <!--novalidate-->
+                        <form role="form" onsubmit="return toLogin()"  method="post" name="loginform" novalidate> <!--novalidate--> <!-- action="php echo $_SERVER['PHP_SELF']; ?>" --> 
                             <div class = "login_logo"><img src="Assets/Img/Title_Logo.png" alt="LarkDetect_Logo" class="LD_Logo"></div>
-                            <div class = "login_title"><label for="title"><b>Welcome to LarkDetect</b></label></div>
+                            <div class = "login_title"><label for="title"><b>The Online Trail Making Test</b></label></div>
                             
                             <div class="login_id">
                                 <input id="loginID" name = "NRIC" class="form__field" placeholder="Enter NRIC" required>
@@ -85,14 +88,15 @@
     <script src= "/external/jquery/jquery-3.4.1.js"></script> 
     <script type= "text/javascript" src="js/bgrd.js"></script>
     <script type= "text/javascript" src="js/cookie.js"></script>
-    <script type= "text/javascript" src="js/error.js"></script>
-    <!-- <script>
-        setCookie("can_login","No",1)
-    
-    
-    
-    </script> -->
+    <script type= "text/javascript" src="js/validate_client.js"></script>
+    <script type= "text/javascript" src="js/validate_server.js"></script>
+    <script> if(getCookie("login") == "No"){failLogin();}
+             /*else if (getCookie("login") == "Yes"){alert("pass");passLogin();}
+             else {alert("lol")}*/
+    </script>
+
+
 </html>
 <?php
-    include_once ('footer.php');
+    include_once ('footerLogin.php');
 ?>

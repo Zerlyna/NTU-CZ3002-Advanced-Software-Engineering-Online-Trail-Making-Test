@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="css/headfoot.css">
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="css/TestB.css">
-        <link rel="stylesheet" href="Button/button.css">
         <link rel="stylesheet" href="/external/fontawesome-free-5.12.1-web/css/all.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">   
     </head>
@@ -41,17 +40,17 @@
                 </div>
                 <div id="popup1" class="overlay">
                     <div class="popup">
-                        <h2 style="text-align:center;">Welcome</h2>
+                        <h1 style="text-align:center;">Welcome</h1>
                         <a class="close" href="#">&times;</a>
                         <div class="content" >
                             <br>
-                            <p style="font-size:20px;">This test will take about 10 minutes and it consists of two parts<br>(TMT-A & TMT-B).<br>TMT-A is primarily a measure of processing speed, while TMT-B assesses higher cognitive abilities such as mental flexibility. </p>
+                            <p  style="font-size:20px; text-align:center;">This test will take about <font color="red"> 10 minutes</font>  and it consists of <font color="red"> two parts</font> <br>(Test-A & Test-B).</p> <!--<p style="font-size:20px; text-align:left;"><br>TMT-A is primarily a measure of processing speed <br> TMT-B assesses higher cognitive abilities such as mental flexibility. </p>-->
                             <br>
                             <p style="text-align:center;font-size:20px;"><strong >General Rules</strong></p>
-                            <p style="font-size:20px;">Complete the test as soon as possible within the specific time frame by connecting the circles in sequence.You only have <strong style="color:red;">3</strong> attempt for each test.</p>
+                            <p style="font-size:20px;">Complete the test <font color="red"> as soon as possible within 3 mins per test </font> by connecting the circles in sequence.You are given <strong style="color:red;">3</strong> attempts for the whole test.</p>
                             <br>
-                          
-                            <p style="text-align:center;color:red;font-size:20px;"><strong>Note:</strong><br> Please take this test seriously as it will affect the analysis of your result.<br>Gentle reminder: The timer will not restart because of the 2nd/3rd attempt.</p>
+                        
+                            <p style="text-align:center;color:red;font-size:20px;"><strong>Note:</strong><br> Please take this test seriously as it will affect the analysis of your result.<br>Gentle reminder: The timer will start once you click start button.</p>
 
                         </div>
                         <div class="box">
@@ -65,7 +64,7 @@
                 </div>
                 <div id="popup2" class="overlay" >
                     <div class="popup" >
-                        <h2 style="text-align:center;">Declaration</h2>
+                        <h1 style="text-align:center;">Declaration</h1>
                        
                         <div class="content">
                         <p style="margin-top:5%;"></p>
@@ -87,14 +86,14 @@
                             <!-- using the report styling to style the button side by side -->
                             <div class = "report_c2_c5l">
                                     <!--<button type="submit" name = "records" class="login_form_btn" onclick="window.location.href = 'Record.php';">Records</button>--> 
-                                    <div class="wrap_btn" style="width:100%;">
+                                    <div class="wrap_btn">
                                         <div class="form_bgbtn"></div>
                                             <button name="Agree" type="submit" class="login_form_btn" onclick="window.location.href = 'TestA.php';">Agree</button>
                                     </div>
                             </div>
                             <div class = "report_c2_c5r">
                                     <!--<button type="submit" name = "end" class="login_form_btn" onclick="window.location.href = 'Main.php';">End</button>-->
-                                    <div class="wrap_btn" style="width:100%;">
+                                    <div class="wrap_btn">
                                         <div class="form_bgbtn"></div>
                                             <button name="end" type="submit" class="login_form_btn" onclick="window.location.href = 'Main.php';">Cancel</button>
                                     </div>

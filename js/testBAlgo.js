@@ -76,14 +76,14 @@ function generateCir()
         if(circles.length < 1 && circles.length >= 0)
         {
             randX = Math.floor(Math.random()* 940 + 40);
-            randY = Math.floor(Math.random()* 660 + 40);
+            randY = Math.floor(Math.random()* 640 + 40);
         }
         else if (circles.length >= 1)
         {
             do{
                 
                 randX = Math.floor(circles[a-2].x + 60 + Math.random()* 980 - 490);
-                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 700 - 350);
+                randY = Math.floor(circles[a-2].y + 60 + Math.random()* 680 - 350);
 
                 if(counter3 > 2000)
                 {
@@ -92,7 +92,7 @@ function generateCir()
                     return;
                 }
                 counter3++;
-            }while(randX > 940 || randY > 660 || randX < 40 || randY < 40); 
+            }while(randX > 960 || randY > 660 || randX < 40 || randY < 40); 
         }
         rngCircle =
         {
@@ -197,9 +197,9 @@ function generateCir()
         toggle = false;
         ctx.lineWidth = "5";
         ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(10, 10, 980, 700);
+        ctx.fillRect(0, 0, 1000, 700);
         ctx.strokeStyle = "black";
-        ctx.strokeRect(10, 10, 980, 700);
+        ctx.strokeRect(0, 0, 1000, 700);
         ctx.lineWidth = "2";
         /*check2();
         return;*/
@@ -459,20 +459,20 @@ canvas.addEventListener('mousedown', (e) => {
                     ctx.fillStyle = "#00ff00";
                     ctx.fill();
                     if((circles[i].index+1) %  2 == 0){ //even
-                        if((circles[i].index/2)-1 < 10){
-
-                            ctx.fillStyle = "black"
+                        if(Math.ceil(circles[i].index/2) < 10){
+                            //alert(Math.ceil(circles[i].index/2));
+                            ctx.fillStyle = "black";
                             ctx.font = '30px Arial';
                             ctx.fillText(Math.floor(circles[i].index/2)+1, cxpos - 9 , cypos + 10);
                         }
                         else{
-                            ctx.fillStyle = "black"
+                            ctx.fillStyle = "black";
                             ctx.font = '30px Arial';
-                            ctx.fillText(Math.floor(circles[i].index/2)+1, cxpos - 17 , cypos + 10);
+                            ctx.fillText(Math.floor(circles[i].index/2)+1, cxpos - 18 , cypos + 10);
                         }
                     } //odd
                     else{
-                            ctx.fillStyle = "black"
+                            ctx.fillStyle = "black";
                             ctx.font = '30px Arial';
                             ctx.fillText(alphabet[(Math.floor(circles[i].index/2))-1], cxpos - 9 , cypos + 10);  
                     }
@@ -483,20 +483,20 @@ canvas.addEventListener('mousedown', (e) => {
                         ctx.fillStyle = "#00ff00";
                         ctx.fill();
                         if((circles[i].index) %  2 == 0){ //even
-                            if((circles[i].index/2)-1 < 10){
+                            if(Math.ceil(circles[i].index/2) < 10){
 
-                                ctx.fillStyle = "black"
+                                ctx.fillStyle = "black";
                                 ctx.font = '30px Arial';
                                 ctx.fillText(Math.floor(circles[i].index/2), circles[i-1].x - 9 , circles[i-1].y + 10);
                             }
                             else{
-                                ctx.fillStyle = "black"
+                                ctx.fillStyle = "black";
                                 ctx.font = '30px Arial';
                                 ctx.fillText(Math.floor(circles[i].index/2), circles[i-1].x - 17 , circles[i-1].y + 10);
                             }
                         } //odd
                         else{
-                                ctx.fillStyle = "black"
+                                ctx.fillStyle = "black";
                                 ctx.font = '30px Arial';
                                 ctx.fillText(alphabet[(Math.floor(circles[i].index/2))-1], circles[i-1].x - 9 , circles[i-1].y + 10);  
                         }
