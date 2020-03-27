@@ -9,6 +9,18 @@ The Trail Making Test is a neuropsychological test of visual attention and task 
 
 The task requires a subject to connect a sequence of 25 **consecutive targets** on a sheet of paper or computer screen, in a similar manner to a child's **connect-the-dots** puzzle. There are two parts to the test: in the first, the targets are all numbers **(1, 2, 3, etc.)** and the test taker needs to connect them in sequential order; in the second part, the subject alternates between numbers and letters **(1, A, 2, B, etc.)**. If the **subject makes an error, the test administrator corrects them before the subject moves on to the next dot**.
 
+## Software Tools 
+
+1) Web Hosting - WampServer
+2) IDE         - VSCode
+3) Database    - AWS SQL
+4) External    - Font Awesome, JQuery, Chart.js, Math.js
+
+## Languages Used
+
+1) Front-End   - HTML, CSS, JS
+2) Back-End    - PHP, SQL
+
 ## References: 
 
 https://en.wikipedia.org/wiki/Trail_Making_Test
@@ -83,7 +95,7 @@ https://www.figma.com/file/OfzkozV5oqWFVWI32MGFVe/CoronaSG-Colors?node-id=0%3A1
 ### Fairness of Test
 
 ##### 3 Attempts for all
-##### Best Attempt will be recorded
+##### Last Attempt will be recorded
 ##### Fixed Resolution (1920x1080) and Scaling
 
 ### Data Analysis
@@ -114,4 +126,4 @@ CoronaSG aims to be your fastest solution with credibility and quality. Inaugura
 ## Disclaimer: 
 ##### Since it is a continuous development project.
 ##### All Information provided here subject to changes.
-##### Ver 1.3
+##### Ver 1.4
