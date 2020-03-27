@@ -217,9 +217,9 @@
                             
                                 </div>
 
-                                <h3 id="ErrorRate">No. Of Errors Made: <?php echo $error;?><h3>
-                                <h3 id="RESULT" style="text-align:center;"><?php echo "Test Result: ".$show_result; ?></h3> 
-                                 <h3 id="risk" style="text-align:center;magin-top:1%;"><?php echo "Risk Of Dementia: ". "<font color='blue'>". $risk ."</font>";?></h3>
+                                <h2 id="ErrorRate"><br><br>No. Of Errors Made: <?php echo $error;?><br><br><h2>
+                                <!--<h3 id="RESULT" style="text-align:center;">php echo "Test Result: ".$show_result; ?></h3> -->
+                                 <h2 id="risk" style="text-align:center;magin-top:1%;"><?php echo "Risk Of Dementia: ". "<font color='blue'>". $risk ."</font>";?><br><br><br><br></h2>
                                  <!-- End of the circular progress bar -->
                                 <div class="container_btn">
                                     <div class="wrap_btn">
@@ -242,12 +242,12 @@
                         <!-- CHART -->
                         <div class = "rec_c2" >
                          
-                            <div id="chartContainer" style="height: 370px; width: 100%;top: 0;">
+                            <div id="chartContainer" style="height: 350px; width: 100%;top: 0;">
                                 <?php
                                     include('chart.php');
                                 ?>
                             </div>
-                            <div id="chartContainer1" style="height: 370px; width: 100%;">
+                            <div id="chartContainer1" style="height: 350px; width: 100%;">
                                 <?php
                                     include('chart.php');
                                 ?>
