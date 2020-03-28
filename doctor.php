@@ -63,7 +63,7 @@
                             </div>-->
                             <div class="search">
                                 <form class = "searchf" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form">
-                                    <input type="text" class="searchTerm" placeholder="Search..." name="searchbar" onfocus="this.placeholder=''">
+                                    <input type="text" class="searchTerm" placeholder="Search NRIC" name="searchbar" onfocus="this.placeholder=''">
                                     <button type="submit" name="search" class="searchButton"><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
