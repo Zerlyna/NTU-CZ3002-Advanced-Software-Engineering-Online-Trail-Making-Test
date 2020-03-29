@@ -1,12 +1,46 @@
 <?php
     session_start();
-
+    include_once 'connect.php';
 	if(isset($_SESSION['NRIC'])){
         $nric = $_SESSION['NRIC'];
     }else{
         header('Location: Index.php');
     }
     
+    #user only can do 3 times per year
+    $year = date("Y", time());
+
+    $query = "SELECT * FROM test WHERE NRIC='".$nric."' AND Year='".$year."'";
+    $result = mysqli_query($conn, $query);
+    $exists = mysqli_num_rows($result);
+    if ($exists == 3){
+        $notest = True;
+    }elseif($exists == 0){
+        $norecord = True;
+    }
+
+    if(isset($_POST['test'])){
+        if ($notest){
+            echo '<script language="javascript">';
+            echo 'alert("You did 3 times!")';
+            echo '</script>';
+        }else{
+            header('Location: TestA.php');
+        }
+    }
+
+    if(isset($_POST['record'])){
+        echo "gg";
+        if ($norecord){
+            echo '<script language="javascript">';
+            echo 'alert("No record found!")';
+            echo '</script>';
+        }else{
+            header('Location: gg.php');
+        }
+    }
+
+    include_once 'dc.php';
     include_once 'header.php';
 ?>
 
@@ -31,7 +65,9 @@
                         <div class = "Main_t_r2"><h1 class = "Main_txtT">Start Test</h1></div>
                     </div>
                     <div class = "Main_c2">
-                        <div class = "Main_r_r1"><a href = "Record.php"><img src="Assets/Img/Record_Logo.png" alt="Record_Logo" class="Rec_Logo"></a></div>
+                        <div class = "Main_r_r1">
+                        <div class = "Main_r_r1"><a href = "temprecord.php"><img src="Assets/Img/Record_Logo.png" alt="Record_Logo" class="Rec_Logo"></a></div>
+                        </div>
                         <div class = "Main_r_r2"><h1 class = "Main_txtR">View Records</h1></div>
                     </div>
                    <!-- <span class = "Main_test"><a href = "#popup1"><p style="text-align:center;font-size:20px;"></p><img src="Assets/Img/Test_Logo.png" alt="Test_Logo" class="Test_Logo"></a></span>
@@ -88,7 +124,9 @@
                                     <!--<button type="submit" name = "records" class="login_form_btn" onclick="window.location.href = 'Record.php';">Records</button>--> 
                                     <div class="wrap_btn">
                                         <div class="form_bgbtn"></div>
-                                            <button name="Agree" type="submit" class="login_form_btn" onclick="window.location.href = 'TestA.php';">Agree</button>
+                                            <form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                                <button name="test" type="submit" class="login_form_btn">Agree</button>
+                                            </form>
                                     </div>
                             </div>
                             <div class = "report_c2_c5r">
