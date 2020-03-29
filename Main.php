@@ -29,17 +29,6 @@
         }
     }
 
-    if(isset($_POST['record'])){
-        echo "gg";
-        if ($norecord){
-            echo '<script language="javascript">';
-            echo 'alert("No record found!")';
-            echo '</script>';
-        }else{
-            header('Location: gg.php');
-        }
-    }
-
     include_once 'dc.php';
     include_once 'header.php';
 ?>
