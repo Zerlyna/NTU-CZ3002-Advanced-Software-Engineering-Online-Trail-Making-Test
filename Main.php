@@ -8,7 +8,10 @@
     }
     
     #user only can do 3 times per year
-    $year = date("Y", time());
+    $recorded_time = time();
+    $day = date("j", $recorded_time);
+    $month = date("n", $recorded_time);
+    $year = date("Y", $recorded_time);
 
     $query = "SELECT * FROM test WHERE NRIC='".$nric."' AND Year='".$year."'";
     $result = mysqli_query($conn, $query);
@@ -19,10 +22,21 @@
         $norecord = True;
     }
 
+    $query = "SELECT * FROM test WHERE NRIC='".$nric."' AND Year='".$year."' AND Month='".$month."' AND Day='".$day."'";
+    $result = mysqli_query($conn, $query);
+    $exists = mysqli_num_rows($result);
+    if ($exists == 1){
+        $today = True;
+    }
+
     if(isset($_POST['test'])){
         if ($notest){
             echo '<script language="javascript">';
             echo 'alert("You did 3 times!")';
+            echo '</script>';
+        }elseif ($today){
+            echo '<script language="javascript">';
+            echo 'alert("You did it today. Try it another day :)")';
             echo '</script>';
         }else{
             header('Location: TestA.php');
