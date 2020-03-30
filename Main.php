@@ -32,7 +32,7 @@
     if(isset($_POST['test'])){
         if ($notest){
             echo '<script language="javascript">';
-            echo 'alert("You did 3 times!")';
+            echo 'alert("You have used up all your 3 attempt for this year! Please try again next year!")';
             echo '</script>';
         }elseif ($today){
             echo '<script language="javascript">';

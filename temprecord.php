@@ -15,7 +15,7 @@
     $exists = mysqli_num_rows($result);
     if ($exists == 0){
         echo '<script language="javascript">';
-        echo 'alert("No record found!");window.location.href="Main.php";';
+        echo 'alert("You do not have any existing record!");window.location.href="Main.php";';
         echo '</script>';
     }else{
         header('Location: Record.php');
