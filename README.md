@@ -1,7 +1,4 @@
-# CZ3002
-
-
-CZ3002 Advanced Software Engineering
+# CZ3002 Advanced Software Engineering
 
 ## Project Description :
 
