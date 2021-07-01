@@ -121,6 +121,7 @@ Using Mouse Movement Deviation from ideal path to analysis possibility of the De
 CoronaSG aims to be your fastest solution with credibility and quality. Inaugurated in 2020, the team is built with a group of trusted young and highly motivated individuals. Even though they are young, their knowledge and experience in their field are indisputable. Their vision of creating a more cohesive and inclusive society drives them into development software like LarkDetect. LarkDetect aims to provide early detection for dementia. Dementia is not a part of normal aging. It is a condition that causes progressive intellectual decline leading to increasing difficulties in coping with everyday activities. LarkDetect would allow family and love one to plan ahead, in the event of an early detection.
 
 ## Disclaimer: 
-##### Since it is a continuous development project.
-##### All Information provided here subject to changes.
-##### Ver 1.4
+All material used in this project is for educational purpose, no copyrights intended.
+
+## Version
+1.4
