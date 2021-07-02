@@ -1,3 +1,5 @@
+![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)
+
 # CZ3002 Advanced Software Engineering
 
 ## Project Description :
